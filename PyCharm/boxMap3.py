@@ -206,6 +206,7 @@ class ItemInfoBox(FullBox):
             if entry.type == "infe":
                 self.ItemInfoEntries.append(entry)
 
+
 class ItemInfoEntry(FullBox):
     def __init__(self,bytes,index,level=0):
         FullBox.__init__(self,bytes,index,level)
@@ -218,6 +219,10 @@ class ItemInfoEntry(FullBox):
             self.content_type = ""       #TODO: get zero terminated string
             self.content_encoding = ""   #TODO: get zero terminated string
             #TODO: Add rest of class ItemInfoEntry
+
+
+
+
 
 
 #-----------------
