@@ -18,7 +18,9 @@ def CreateBox(bytes,index,level):
       "url " : DataEntryUrlBox,
       "urn " : DataEntryUrnBox,
       "dinf" : DataInformationBox,
-      "dref" : DataReferenceBox
+      "dref" : DataReferenceBox,
+      "iinf" : ItemInfoBox,  #TODO: Create class for iinf
+      "infe" : ItemInfoEntry  #TODO: Create class for infe
     }
     boxType = GetBoxType(bytes,index)
     box = boxTypes.get(boxType,Box)(bytes,index,level)
@@ -186,6 +188,36 @@ class DataReferenceBox(FullBox):  #dref
     def __str__(self):
         pad = "-" * self.level
         return pad + f'DataReferenceBox: type={self.type}, size={self.size}, entry_count={self.entry_count}'
+
+
+class ItemInfoBox(FullBox):
+    def __init__(self,bytes,index,level=0):
+        FullBox.__init__(self,bytes,index,level)    #Call base constructor
+        if self.version == 0:
+            self.entry_count = int.from_bytes(bytes[index+self.nextItem:index+self.nextItem+2],byteorder='big')
+            self.nextItem += 2
+        else:
+            self.entry_count = int.from_bytes(bytes[index+self.nextItem:index+self.nextItem+4],byteorder='big')
+            self.nextItem += 4
+        self.ItemInfoEntries = []
+        for x in range(self.entry_count):
+            entry = CreateBox(bytes,index+self.nextItem,level)
+            self.nextItem += entry.size
+            if entry.type == "infe":
+                self.ItemInfoEntries.append(entry)
+
+class ItemInfoEntry(FullBox):
+    def __init__(self,bytes,index,level=0):
+        FullBox.__init__(self,bytes,index,level)
+        if(self.version == 0 or self.version == 1):
+            self.item_ID = int.from_bytes(bytes[index+self.nextItem:index+self.nextItem+2])
+            self.nextItem += 2
+            self.item_protection_index = int.from_bytes(bytes[index+self.nextItem:index+self.nextItem+2])
+            self.nextItem += 2
+            self.name = ""               #TODO: get zero terminated string
+            self.content_type = ""       #TODO: get zero terminated string
+            self.content_encoding = ""   #TODO: get zero terminated string
+            #TODO: Add rest of class ItemInfoEntry
 
 
 #-----------------
