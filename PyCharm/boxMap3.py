@@ -19,8 +19,8 @@ def CreateBox(bytes,index,level):
       "urn " : DataEntryUrnBox,
       "dinf" : DataInformationBox,
       "dref" : DataReferenceBox,
-      "iinf" : ItemInfoBox,  #TODO: Create class for iinf
-      "infe" : ItemInfoEntry  #TODO: Create class for infe
+      "iinf" : ItemInfoBox,
+      "infe" : ItemInfoEntry
     }
     boxType = GetBoxType(bytes,index)
     box = boxTypes.get(boxType,Box)(bytes,index,level)
