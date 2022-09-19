@@ -1,5 +1,4 @@
 # -*- coding: utf-8 -*-
-import os
 import re
 from enum import Enum
 
@@ -21,12 +20,10 @@ class Box(object):
             return self.size - 8        # return size field value - size-field (4 bytes) and box-type field (4 bytes)
         elif self.size == 0:            # box is extended size
             return self.largesize - 16  # return largesize field value - extended-size field (8 bytes) and box-type field (4 bytes)
-        else:                           # box extends to the end of the file
-            return self.largesize - 8   # return largesize field value - size-field (4 bytes) and box-type field (4 bytes)
+        else:                           # size == 1, box extends to the end of the file
+            return self.largesize - 8   # box extends to end of file and value was tored in largesize, but additional 8 bytes was not read
 
         #Note: This is in conflict with the spec. For the iPhone image file, Size == 1 (so large size), but large size == 0 (so extends to end of file)
-
-
 
     def read(self, file):
         #current_position = file.tell()
@@ -62,10 +59,11 @@ class FullBox(Box):
         """get box size excluding header"""
         if self.size > 1:
             return self.size - 12           # return box size minus header
-        elif self.size == 1:
+        elif self.size == 0:
             return self.largesize - 16      # return extended box size minus header
-        else:
-            return self.largesize - 12      # return extended box size
+        else:                               # size == 1, box extends to the end of the file
+            return self.largesize - 8       # box extends to the end of the file, value was stored in largesize but additional 8 bytes not read
+
 
 class Quantity(Enum):
     ZERO_OR_ONE = 0
@@ -95,19 +93,17 @@ def get_class_list(cls, res=[]):
     return res
 
 def read_box(file):
-    file_size = os.stat(file.name).st_size
     current_position = file.tell()
     box_size = read_int(file, 4)
-
     box_type = read_string(file, 4)
 
     # Added extended box sizing
     if box_size == 0:
-        largesize = read_int(file,8)                        # box is extended (read 8 bytes after box type)
+        largesize = read_int(file,8)                     # box is extended (read additional 8 bytes after box type)
     elif box_size == 1:
-        largesize = file_size - current_position            # box extends to end of the file
+        largesize = file.length - current_position       # box extends to end of the file, store it in largesize
     else:
-        largesize = None                                    # box is standard size
+        largesize = 0                                    # box is standard size
 
     #print(box_type + '(' + str(size) + ')')
     print("{0}:{1}({2}) : {3}".format(current_position,box_type,box_size,largesize))

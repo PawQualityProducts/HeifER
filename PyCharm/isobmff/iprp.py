@@ -73,12 +73,6 @@ class ItemDataBox(Box):
     def read(self, file):
         print(file.read(self.get_box_size()))
 
-#TODO: Move this and implement iloc
-class ItemLocation(Box):
-    box_type = 'iloc'
-
-    def read(self, file):
-        print(file.read(self.get_box_size()))
 
 class ItemPropertyAssociation(FullBox):
     box_type = 'ipma'

@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 from .box import indent
 from .box import read_box
+import os
 
 class MediaFile(object):
 
@@ -21,7 +22,10 @@ class MediaFile(object):
     def read(self, file_name):
         file = open(file_name, 'rb')
         try:
-            while True:
+            filelength = os.stat(file.name).st_size     # get the length of the file
+            setattr(file,'length', filelength)          # add the length attribute and set it to the file length
+            print("parsing {0}, size={1}".format(file.name, file.length))
+            while file.tell() < file.length:
                 box = read_box(file)
                 if not box:
                     break

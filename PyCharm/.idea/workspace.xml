@@ -6,41 +6,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d7906c8b-4f37-481a-85f9-552fe49b5071" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/isobmff/.pylintrc" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/isobmff/__init__.py" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/isobmff/box.py" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/isobmff/ccst.py" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/isobmff/dinf.py" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/isobmff/ftyp.py" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/isobmff/hdlr.py" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/isobmff/hvc.py" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/isobmff/iinf.py" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/isobmff/iloc.py" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/isobmff/ipro.py" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/isobmff/iprp.py" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/isobmff/iref.py" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/isobmff/mdat.py" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/isobmff/mdia.py" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/isobmff/media_file.py" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/isobmff/meta.py" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/isobmff/minf.py" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/isobmff/moov.py" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/isobmff/pitm.py" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/isobmff/samples/C001.heic" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/isobmff/samples/LICENSE" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/isobmff/samples/README.md" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/isobmff/samples/test_heic.py" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/isobmff/sinf.py" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/isobmff/stbl.py" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/isobmff/stco.py" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/isobmff/stsc.py" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/isobmff/stss.py" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/isobmff/stsz.py" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/isobmff/stts.py" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/isobmff/trak.py" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/isobmff_test.py" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/boxMap3.py" afterPath="$PROJECT_DIR$/boxMap3.py" />
+      <change beforePath="$PROJECT_DIR$/isobmff/box.py" afterPath="$PROJECT_DIR$/isobmff/box.py" />
+      <change beforePath="$PROJECT_DIR$/isobmff/iloc.py" afterPath="$PROJECT_DIR$/isobmff/iloc.py" />
+      <change beforePath="$PROJECT_DIR$/isobmff/iprp.py" afterPath="$PROJECT_DIR$/isobmff/iprp.py" />
+      <change beforePath="$PROJECT_DIR$/isobmff/mdat.py" afterPath="$PROJECT_DIR$/isobmff/mdat.py" />
+      <change beforePath="$PROJECT_DIR$/isobmff/media_file.py" afterPath="$PROJECT_DIR$/isobmff/media_file.py" />
+      <change beforePath="$PROJECT_DIR$/isobmff_test.py" afterPath="$PROJECT_DIR$/isobmff_test.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -51,7 +22,7 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="isobmff_test.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="isobmff_test.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/isobmff_test.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="54">
@@ -71,11 +42,43 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="box.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="box.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/isobmff/box.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="108">
-              <caret line="20" column="6" lean-forward="false" selection-start-line="20" selection-start-column="6" selection-end-line="20" selection-end-column="6" />
+            <state relative-caret-position="307">
+              <caret line="119" column="0" lean-forward="false" selection-start-line="119" selection-start-column="0" selection-end-line="119" selection-end-column="0" />
+              <folding>
+                <element signature="e#24#33#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="mdat.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/isobmff/mdat.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="198">
+              <caret line="11" column="0" lean-forward="false" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="pydevd.py" pinned="false" current-in-tab="false">
+        <entry file="file://$APPLICATION_HOME_DIR$/helpers/pydev/pydevd.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="513">
+              <caret line="816" column="0" lean-forward="false" selection-start-line="816" selection-start-column="0" selection-end-line="816" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="hdlr.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/isobmff/hdlr.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="156">
+              <caret line="28" column="0" lean-forward="false" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -84,9 +87,11 @@
       <file leaf-file-name="media_file.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/isobmff/media_file.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="252">
-              <caret line="32" column="0" lean-forward="false" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
-              <folding />
+            <state relative-caret-position="22">
+              <caret line="22" column="36" lean-forward="true" selection-start-line="22" selection-start-column="36" selection-end-line="22" selection-end-column="36" />
+              <folding>
+                <element signature="e#24#47#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -94,28 +99,18 @@
       <file leaf-file-name="iprp.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/isobmff/iprp.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1350">
-              <caret line="78" column="0" lean-forward="true" selection-start-line="78" selection-start-column="0" selection-end-line="78" selection-end-column="0" />
+            <state relative-caret-position="194">
+              <caret line="75" column="0" lean-forward="false" selection-start-line="75" selection-start-column="0" selection-end-line="75" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="boxMap3.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/boxMap3.py">
+      <file leaf-file-name="iloc.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/isobmff/iloc.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="196">
-              <caret line="122" column="40" lean-forward="false" selection-start-line="122" selection-start-column="40" selection-end-line="122" selection-end-column="40" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="pydevd_resolver.py" pinned="false" current-in-tab="false">
-        <entry file="file://$APPLICATION_HOME_DIR$/helpers/pydev/_pydevd_bundle/pydevd_resolver.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="126" column="0" lean-forward="false" selection-start-line="126" selection-start-column="0" selection-end-line="126" selection-end-column="0" />
+            <state relative-caret-position="127">
+              <caret line="45" column="0" lean-forward="false" selection-start-line="45" selection-start-column="0" selection-end-line="45" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -124,8 +119,8 @@
       <file leaf-file-name="ftyp.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/isobmff/ftyp.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="33" column="0" lean-forward="false" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
+            <state relative-caret-position="181">
+              <caret line="18" column="0" lean-forward="false" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -157,7 +152,6 @@
         <option value="$PROJECT_DIR$/pyheif.py" />
         <option value="$PROJECT_DIR$/exifread_test.py" />
         <option value="$PROJECT_DIR$/boxMap3.py" />
-        <option value="$PROJECT_DIR$/isobmff_test.py" />
         <option value="$USER_HOME$/.local/lib/python3.9/site-packages/isobmff/iinf.py" />
         <option value="$USER_HOME$/.local/lib/python3.9/site-packages/isobmff/hdlr.py" />
         <option value="$APPLICATION_HOME_DIR$/helpers/pydev/_pydevd_bundle/pydevd_resolver.py" />
@@ -170,8 +164,12 @@
         <option value="$USER_HOME$/.local/lib/python3.9/site-packages/isobmff/minf.py" />
         <option value="$USER_HOME$/.local/lib/python3.9/site-packages/isobmff/hvc.py" />
         <option value="$PROJECT_DIR$/isobmff/dinf.py" />
-        <option value="$PROJECT_DIR$/isobmff/iprp.py" />
         <option value="$PROJECT_DIR$/isobmff/box.py" />
+        <option value="$PROJECT_DIR$/isobmff/iprp.py" />
+        <option value="$PROJECT_DIR$/isobmff/iloc.py" />
+        <option value="$PROJECT_DIR$/isobmff/mdat.py" />
+        <option value="$PROJECT_DIR$/isobmff/media_file.py" />
+        <option value="$PROJECT_DIR$/isobmff_test.py" />
       </list>
     </option>
   </component>
@@ -202,11 +200,6 @@
             <path>
               <item name="PyCharm" type="b2602c69:ProjectViewProjectNode" />
               <item name="PyCharm" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="PyCharm" type="b2602c69:ProjectViewProjectNode" />
-              <item name="PyCharm" type="462c0819:PsiDirectoryNode" />
-              <item name="isobmff" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="PyCharm" type="b2602c69:ProjectViewProjectNode" />
@@ -353,15 +346,15 @@
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15066026" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.37206087" sideWeight="0.50960386" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.37206087" sideWeight="0.46458584" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3292011" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.37206087" sideWeight="0.49039617" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.37206087" sideWeight="0.53541416" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.47717842" sideWeight="0.4927971" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39834026" sideWeight="0.47358945" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -419,36 +412,48 @@
           <option name="timeStamp" value="90" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <condition expression="file.tell() &gt;= 1475" language="Python" />
           <url>file://$PROJECT_DIR$/isobmff/box.py</url>
-          <line>34</line>
-          <option name="timeStamp" value="112" />
+          <line>62</line>
+          <option name="timeStamp" value="140" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/isobmff/box.py</url>
-          <line>131</line>
-          <option name="timeStamp" value="121" />
+          <line>64</line>
+          <option name="timeStamp" value="141" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <condition expression="file.tell() &gt;= 3737" language="Python" />
           <url>file://$PROJECT_DIR$/isobmff/box.py</url>
-          <line>122</line>
-          <option name="timeStamp" value="123" />
+          <line>100</line>
+          <option name="timeStamp" value="164" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/isobmff/mdat.py</url>
+          <line>9</line>
+          <option name="timeStamp" value="176" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/isobmff/mdat.py</url>
+          <line>13</line>
+          <option name="timeStamp" value="177" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <condition expression="file.tell() &gt;= 3737" language="Python" />
           <url>file://$PROJECT_DIR$/isobmff/box.py</url>
-          <line>127</line>
-          <option name="timeStamp" value="125" />
+          <line>108</line>
+          <option name="timeStamp" value="179" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <condition expression="file.tell() &gt;= 1475" language="Python" />
+          <condition expression="file.tell() &gt;= 3737" language="Python" />
           <url>file://$PROJECT_DIR$/isobmff/box.py</url>
-          <line>125</line>
-          <option name="timeStamp" value="126" />
+          <line>119</line>
+          <option name="timeStamp" value="182" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/isobmff/iprp.py</url>
-          <line>77</line>
-          <option name="timeStamp" value="128" />
+          <condition expression="file.tell() &gt;= 3737" language="Python" />
+          <url>file://$PROJECT_DIR$/isobmff/box.py</url>
+          <line>117</line>
+          <option name="timeStamp" value="183" />
         </line-breakpoint>
       </breakpoints>
       <default-breakpoints>
@@ -458,12 +463,42 @@
           </properties>
         </breakpoint>
       </default-breakpoints>
-      <option name="time" value="129" />
+      <option name="time" value="184" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="debuggerHistoryManager">
     <expressions id="breakpointCondition">
+      <expression>
+        <expression-string>file.tell() &gt;= 3737</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>file</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>file.tell() &gt; 3733</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>file.tell() &gt;= 3730</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>file.tell() &gt;= 2</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>box == None</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
       <expression>
         <expression-string>file.tell() &gt;= 1475</expression-string>
         <language-id>Python</language-id>
@@ -479,38 +514,13 @@
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
-      <expression>
-        <expression-string>file.tell() &gt;= 2176</expression-string>
-        <language-id>Python</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>box_type == 'irot'</expression-string>
-        <language-id>Python</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>file.tell() &gt;= 2184</expression-string>
-        <language-id>Python</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>box_type == ''</expression-string>
-        <language-id>Python</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>box.box_type == 'irot'</expression-string>
-        <language-id>Python</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>current_position &gt;= 2155</expression-string>
-        <language-id>Python</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
     </expressions>
     <expressions id="evaluateExpression">
+      <expression>
+        <expression-string>self.version</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
       <expression>
         <expression-string>file.tell()</expression-string>
         <language-id>Python</language-id>
@@ -519,36 +529,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/isobmff_test.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="54">
-          <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/exifread_test.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="36">
-          <caret line="2" column="15" lean-forward="false" selection-start-line="2" selection-start-column="15" selection-end-line="2" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file:///usr/lib/python3.9/codecs.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="5544">
-          <caret line="309" column="0" lean-forward="false" selection-start-line="309" selection-start-column="0" selection-end-line="309" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/.local/lib/python3.9/site-packages/isobmff/iinf.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1368">
-          <caret line="80" column="144" lean-forward="false" selection-start-line="80" selection-start-column="144" selection-end-line="80" selection-end-column="144" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/.local/lib/python3.9/site-packages/isobmff/ftyp.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="504">
@@ -829,38 +809,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/isobmff/media_file.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="32" column="0" lean-forward="false" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/isobmff_test.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="54">
-          <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file:///usr/lib/python3.9/codecs.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="311" column="0" lean-forward="false" selection-start-line="311" selection-start-column="0" selection-end-line="311" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/isobmff/ftyp.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="33" column="0" lean-forward="false" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$APPLICATION_HOME_DIR$/helpers/pydev/_pydevd_bundle/pydevd_resolver.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
@@ -879,16 +827,84 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/isobmff/iprp.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1350">
-          <caret line="78" column="0" lean-forward="true" selection-start-line="78" selection-start-column="0" selection-end-line="78" selection-end-column="0" />
+        <state relative-caret-position="194">
+          <caret line="75" column="0" lean-forward="false" selection-start-line="75" selection-start-column="0" selection-end-line="75" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/isobmff/hdlr.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="156">
+          <caret line="28" column="0" lean-forward="false" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/isobmff/iloc.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="127">
+          <caret line="45" column="0" lean-forward="false" selection-start-line="45" selection-start-column="0" selection-end-line="45" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_HOME_DIR$/helpers/pydev/pydevd.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="513">
+          <caret line="816" column="0" lean-forward="false" selection-start-line="816" selection-start-column="0" selection-end-line="816" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/isobmff/ftyp.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="181">
+          <caret line="18" column="0" lean-forward="false" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/isobmff/box.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="108">
-          <caret line="20" column="6" lean-forward="false" selection-start-line="20" selection-start-column="6" selection-end-line="20" selection-end-column="6" />
+        <state relative-caret-position="307">
+          <caret line="119" column="0" lean-forward="false" selection-start-line="119" selection-start-column="0" selection-end-line="119" selection-end-column="0" />
+          <folding>
+            <element signature="e#24#33#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/isobmff/mdat.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="11" column="0" lean-forward="false" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///usr/lib/python3.9/codecs.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="144">
+          <caret line="311" column="0" lean-forward="false" selection-start-line="311" selection-start-column="0" selection-end-line="311" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/isobmff/media_file.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="22">
+          <caret line="22" column="36" lean-forward="true" selection-start-line="22" selection-start-column="36" selection-end-line="22" selection-end-column="36" />
+          <folding>
+            <element signature="e#24#47#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/isobmff_test.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="54">
+          <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
           <folding />
         </state>
       </provider>
