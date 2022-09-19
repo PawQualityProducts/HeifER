@@ -23,7 +23,7 @@ class ImageSpatialExtents(FullBox):
         self.width = None
         self.height = None
 
-    def read(self, file):
+    def read(self, file, depth):
         self.width = read_int(file, 4)
         self.height = read_int(file, 4)
 
@@ -31,46 +31,46 @@ class ImageSpatialExtents(FullBox):
 class PixelAspectRatio(Box):
     box_type = 'pasp'
 
-    def read(self, file):
+    def read(self, file, depth):
         print(file.read(self.get_box_size()))
 
 class ColorInformation(Box):
     box_type = 'colr'
 
-    def read(self, file):
+    def read(self, file, depth):
         print(file.read(self.get_box_size()))
 
 class PixelInformation(Box):
     box_type = 'pixi'
 
-    def read(self, file):
+    def read(self, file, depth):
         print(file.read(self.get_box_size()))
 
 class RelativeInformation(Box):
     box_type = 'rloc'
 
-    def read(self, file):
+    def read(self, file, depth):
         print(file.read(self.get_box_size()))
 
 #Note: Added ImageRotation
 class ImageRotation(Box):
     box_type = 'irot'
 
-    def read(self, file):
+    def read(self, file, depth):
         print(file.read(self.get_box_size()))
 
 #Note: Added auxC
 class AuxiliaryTypeProperty(Box):
     box_type = 'auxC'
 
-    def read(self, file):
+    def read(self, file, depth):
         print(file.read(self.get_box_size()))
 
 #TODO: Move this and implement idat
 class ItemDataBox(Box):
     box_type = 'idat'
 
-    def read(self, file):
+    def read(self, file, depth):
         print(file.read(self.get_box_size()))
 
 
@@ -83,7 +83,7 @@ class ItemPropertyAssociation(FullBox):
         super().__init__(size=size, version=version, flags=flags, largesize=largesize)
         self.items = []
 
-    def read(self, file):
+    def read(self, file, depth):
         entry_count = read_int(file, 4)
         id_size = 2 if self.version < 1 else 4
         for _ in range(entry_count):

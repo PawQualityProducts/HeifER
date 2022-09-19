@@ -23,7 +23,7 @@ class HandlerReferenceBox(FullBox):
         rep += 'name: ' + self.name
         return super().__repr__() + indent(rep)
 
-    def read(self, file):
+    def read(self, file, depth):
         self.pre_defined = read_int(file, 4)
         self.handler_type = read_string(file, 4)
         bytesread = 8

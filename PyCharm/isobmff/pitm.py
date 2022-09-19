@@ -8,5 +8,5 @@ class PrimaryItemBox(FullBox):
     box_type = 'pitm'
     is_mandatory = False
 
-    def read(self, file):
+    def read(self, file, depth):
         self.item_id = read_int(file, 2)

@@ -6,5 +6,5 @@ class ccst(Box):
     box_type = 'ccst'
     is_mandatory = False
 
-    def read(self, file):
+    def read(self, file, depth):
         print(file.read(self.get_box_size()))

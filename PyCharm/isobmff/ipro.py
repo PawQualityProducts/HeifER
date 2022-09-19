@@ -19,11 +19,11 @@ class ItemProtectionBox(FullBox):
         rep = super().__repr__()
         return rep
 
-    def read(self, file):
+    def read(self, file, depth):
         protection_count = read_int(file, 2)
 
         for _ in range(protection_count):
-            box = read_box(file)
+            box = read_box(file, depth+1)
             if not box:
                 break
             if box.box_type == 'sinf':

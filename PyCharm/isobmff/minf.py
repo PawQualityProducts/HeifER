@@ -20,7 +20,7 @@ class VideoMediaHeaderBox(FullBox):
         self.graphicsmode = None
         self.opcolor = []
 
-    def read(self, file):
+    def read(self, file, depth):
         self.graphicsmode = read_int(file, 2)
         for _ in range(3):
             self.opcolor.append(read_int(file, 2))
@@ -35,7 +35,7 @@ class SoundMediaHeaderBox(FullBox):
         self.balance = None
         self.reserved = None
 
-    def read(self, file):
+    def read(self, file, depth):
         self.balance = read_int(file, 2)
         self.reserved = read_int(file, 2)
 
@@ -52,7 +52,7 @@ class HintMediaHeaderBox(FullBox):
         self.avg_bit_rate = None
         self.reserved = None
 
-    def read(self, file):
+    def read(self, file, depth):
         self.max_pdu_size = read_int(file, 2)
         self.avg_pdu_size = read_int(file, 2)
         self.max_bit_rate = read_int(file, 4)

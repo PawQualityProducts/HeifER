@@ -22,10 +22,10 @@ class DataReferenceBox(FullBox):
         super().__init__(size=size, version=version, flags=flags, largesize=largesize)
         self.data_entry = []
 
-    def read(self, file):
+    def read(self, file, depth):
         entry_count = read_int(file, 4)
         for _ in range(entry_count):
-            box = read_box(file)
+            box = read_box(file, depth)
             if not box:
                 break
             self.data_entry.append(box)
@@ -39,7 +39,7 @@ class DataEntryUrlBox(FullBox):
         super().__init__(size=size, version=version, flags=flags, largesize=largesize)
         self.location = None
 
-    def read(self, file):
+    def read(self, file, depth):
         self.location = read_string(file)
 
 
@@ -52,6 +52,6 @@ class DataEntryUrnBox(FullBox):
         self.name = None
         self.location = None
 
-    def read(self, file):
+    def read(self, file, depth):
         self.name = read_string(file)
         self.location = read_string(file)

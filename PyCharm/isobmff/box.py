@@ -2,6 +2,8 @@
 import re
 from enum import Enum
 
+padspaces = 7
+
 class AbcBox(type):
     #TODO: human readable implementation of __repr__ 
     pass
@@ -25,11 +27,11 @@ class Box(object):
 
         #Note: This is in conflict with the spec. For the iPhone image file, Size == 1 (so large size), but large size == 0 (so extends to end of file)
 
-    def read(self, file):
+    def read(self, file, depth=0):
         #current_position = file.tell()
         read_size = self.get_box_size()
         while read_size > 0:
-            box = read_box(file)
+            box = read_box(file,depth+1)
             if not box:
                 type = read_string(file,4)
                 print ('{0} couldn\'t read box of type={1} size={2}'.format(file.tell(), type, read_size))
@@ -93,7 +95,7 @@ def get_class_list(cls, res=[]):
     res.append(cls)
     return res
 
-def read_box(file):
+def read_box(file,depth=0):
     current_position = file.tell()
     box_size = read_int(file, 4)
     box_type = read_string(file, 4)
@@ -107,7 +109,8 @@ def read_box(file):
         largesize = 0                                    # box is standard size
 
     #print(box_type + '(' + str(size) + ')')
-    print("{0}:{1}({2})".format(current_position,box_type,box_size))
+    pad = "-" * depth
+    print("{0}:{1}{2}({3}, {4})".format(str(current_position).rjust(padspaces),pad,box_type,box_size,current_position+box_size))
     box_classes = get_class_list(Box)
     box = None
     for box_class in box_classes:
@@ -120,7 +123,7 @@ def read_box(file):
             else:
                 box.__init__(size=box_size, largesize=largesize)
             if box.get_box_size():
-                box.read(file)
+                box.read(file, depth+1)
             break                       #NOTE: fails to here as iref box not defined
         else:
             box = None

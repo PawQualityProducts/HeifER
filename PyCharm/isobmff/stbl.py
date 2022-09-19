@@ -22,16 +22,15 @@ class SampleDescriptionBox(FullBox):
         #self.handler_type = handler_type
         self.samples = []
 
-    def read(self, file):
+    def read(self, file, depth):
         entry_count = read_int(file, 4)
         for _ in range(entry_count):
-            box = read_box(file)
+            box = read_box(file, depth+1)
             if not box:
                 break
             self.samples.append(box)
 
 class SampleEntry(Box):
-
     def __init__(self, size, largesize):
         super().__init__(size=size, largesize=largesize)
         self.reserveds = []
@@ -44,7 +43,7 @@ class SampleEntry(Box):
     def get_box_size(self):
         return super().get_box_size() - 6 + 2    
 
-    def read(self, file):
+    def read(self, file, depth):
         for _ in range(6):
             reserved = read_int(file, 1)
             self.reserveds.append(reserved)
@@ -60,7 +59,7 @@ class HintSampleEntry(SampleEntry):
         super().__init__(size=size, largesize=largesize)
         self.data = []
 
-    def read(self, file):
+    def read(self, file, depth):
         box_size = self.get_box_size()
         self.data = file.read(box_size)
 
@@ -84,8 +83,8 @@ class VisualSampleEntry(SampleEntry):
         self.depth = None
         self.pre_defined3 = None
     
-    def read(self, file):
-        super().read(file)
+    def read(self, file, depth):
+        super().read(file, depth)
         self.pre_defined1 = read_int(file, 2)
         self.reserved1 = read_int(file, 2)
         for _ in range(3):
@@ -113,7 +112,7 @@ class AudioSampleEntry(SampleEntry):
         self.reserved2 = []
         self.samperate = None
     
-    def read(self, file):
+    def read(self, file, depth):
         super().read(file)
         for _ in range(2):
             self.reserved1.append(read_int(file, 4))
@@ -135,7 +134,7 @@ class BitRateBox(Box):
         self.max_bitrate = None
         self.avg_bitrate = None
 
-    def read(self, file):
+    def read(self, file, depth):
         self.buffer_size_db = read_int(file, 4)
         self.max_bitrate = read_int(file, 4)
         self.avg_bitrate = read_int(file, 4)

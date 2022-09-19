@@ -10,6 +10,6 @@ class MediaDataBox(Box):
         super().__init__(size=size,largesize=largesize)
         self.data_offset = None
 
-    def read(self, file):
+    def read(self, file, depth):
         self.data_offset = file.tell()
         file.read(self.get_box_size())

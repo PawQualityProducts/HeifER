@@ -12,7 +12,7 @@ class TimeToSampleBox(FullBox):
         self.entry_count = None
         self.entries = []
 
-    def read(self, file):
+    def read(self, file, depth):
         self.entry_count = read_int(file, 4)
         for _ in range(self.entry_count):
             entry = {}

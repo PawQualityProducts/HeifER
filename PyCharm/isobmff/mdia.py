@@ -27,7 +27,7 @@ class MediaHeaderBox(FullBox):
         self.language = [] # ISO-639-2/T language code
         self.pre_defined = None
 
-    def read(self, file):
+    def read(self, file, depth):
         read_size = 8 if self.version == 1 else 4
         self.creation_time = read_int(file, read_size)
         self.modification_time = read_int(file, read_size)

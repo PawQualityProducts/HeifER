@@ -6,15 +6,7 @@ from .box import read_box
 from .box import read_int
 from .box import read_string
 
-"""
-aligned(8) class ItemReferenceBox extends FullBox(‘iref’, version, 0) {
- if (version==0) {
- SingleItemTypeReferenceBox references[];
- } else if (version==1) {
- SingleItemTypeReferenceBoxLarge references[];
- }
-}
-"""
+padspaces = 7
 
 class ItemReferenceBox(FullBox):
     box_type = 'iref'
@@ -25,7 +17,7 @@ class ItemReferenceBox(FullBox):
     def __init__(self, size, version, flags, largesize):
         super().__init__(size, version, flags, largesize)
 
-    def read(self, file):
+    def read(self, file, depth):
         box_end_position = file.tell() + self.size - 12
         while file.tell() < box_end_position:
             current_position = file.tell()
@@ -35,11 +27,12 @@ class ItemReferenceBox(FullBox):
                 refBox = SingleItemTypeReferenceBox(type, size)
             else:
                 refBox = SingleItemTypeReferenceBoxLarge(type, size)
-            refBox.read(file)
+            refBox.read(file, depth+1)
             self.references.append(refBox)
             size += refBox.size
-            print("  {0}:{1}({2})".format(current_position, type, size))
-
+            pad = "-" * depth
+            print("{0}:{1}{2}({3}, {4})".format(str(current_position).rjust(padspaces), pad, type, size, current_position + size))
+        pass
 
 class SingleItemTypeReferenceBox(Box):
     def __init__(self, type, size):
@@ -47,7 +40,7 @@ class SingleItemTypeReferenceBox(Box):
         self.box_type = type
         self.references = []
 
-    def read(self, file):
+    def read(self, file, depth):
         self.from_item_ID = read_int(file, 2)
         self.reference_count = read_int(file, 2)
         for ref in range(self.reference_count):
@@ -59,7 +52,7 @@ class SingleItemTypeReferenceBoxLarge(Box):
         self.box_type = type
         self.references = []
 
-    def read(self, file):
+    def read(self, file, depth):
         self.from_item_ID = read_int(file, 4)
         self.reference_count = read_int(file, 2)
         for ref in range(self.reference_count):

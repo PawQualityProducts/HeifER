@@ -26,7 +26,7 @@ class MediaFile(object):
             setattr(file,'length', filelength)          # add the length attribute and set it to the file length
             print("parsing {0}, size={1}".format(file.name, file.length))
             while file.tell() < file.length:
-                box = read_box(file)
+                box = read_box(file,0)
                 if not box:
                     break
                 if box.box_type == 'mdat':

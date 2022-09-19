@@ -16,9 +16,9 @@ class HEVCSampleEntry(VisualSampleEntry):
         super().__init__(size=size, largesize=largesize)
         self.config = None
 
-    def read(self, file):
-        super().read(file)
-        self.config = read_box(file)
+    def read(self, file, depth):
+        super().read(file, depth)
+        self.config = read_box(file, depth + 1)
 
 
 class HEVCConfigurationBox(Box):
@@ -28,9 +28,9 @@ class HEVCConfigurationBox(Box):
         super().__init__(size=size, largesize=largesize)
         self.hevc_config = None
 
-    def read(self, file):
+    def read(self, file, depth):
         self.hevc_config = HEVCDecoderConfigurationRecord()
-        self.hevc_config.read(file)
+        self.hevc_config.read(file,depth+1)
 
 
 class HEVCDecoderConfigurationRecord(object):
@@ -101,7 +101,7 @@ class HEVCDecoderConfigurationRecord(object):
         #    str(self.array) + '\n'
         return indent(rep)
 
-    def read(self, file):
+    def read(self, file, depth):
         self.configuration_version = read_int(file, 1)
         #
         byte = read_int(file, 1)
@@ -145,10 +145,10 @@ class HEVCDecoderConfigurationRecord(object):
         #
         num_of_arrays = read_int(file, 1) #8
         for _ in range(num_of_arrays):
-            self.array.append(self.__read_item(file))
+            self.array.append(self.__read_item(file, depth+1))
 
 
-    def __read_item(self, file):
+    def __read_item(self, file, depth):
         item = {}
         byte = read_int(file, 1)
         item['array_completeness'] = (byte >> 7) & 0b1

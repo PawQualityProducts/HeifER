@@ -31,7 +31,7 @@ class MovieHeaderBox(FullBox):
         self.pre_defined = []
         self.next_track_id = None
 
-    def read(self, file):
+    def read(self, file, depth):
         read_size = 8 if self.version == 1 else 4
         self.creation_time = read_int(file, read_size)
         self.modification_time = read_int(file, read_size)

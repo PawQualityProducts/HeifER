@@ -21,7 +21,7 @@ class ItemLocationBox(FullBox):
         rep += 'length_size:' + str(self.length_size)
         return super().__repr__() + indent(rep)
 
-    def read(self, file):
+    def read(self, file, depth):
         location = file.tell()
         byte = read_int(file, 1)
         self.offset_size = (byte >> 4) & 0b1111
@@ -36,7 +36,8 @@ class ItemLocationBox(FullBox):
 
         self.items = []
 
-        print("iloc: {0} offset={1}, length={2}, base_offset_size={3}, reserved={4}, item_count={5} ".format(location, self.offset_size, self.length_size, self.base_offset_size, self.reserved, item_count))
+        pad = "-" * depth
+        #print("{0}{1}{2}:offset={1}, length={2}, base_offset_size={3}, reserved={4}, item_count={5} ".format(str(location).rjust(5),pad,self.box_type, self.offset_size, self.length_size, self.base_offset_size, self.reserved, item_count))
         for _ in range(item_count):
             item = {}
             if self.version < 2:

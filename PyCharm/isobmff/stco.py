@@ -14,7 +14,7 @@ class ChunkOffsetBox(FullBox):
         super().__init__(size=size, version=version, flags=flags, largesize=largesize)
         self.entries = []
 
-    def read(self, file):
+    def read(self, file, depth):
         entry_count = read_int(file, 4)
 
         for _ in range(entry_count):
