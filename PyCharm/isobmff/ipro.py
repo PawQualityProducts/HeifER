@@ -11,8 +11,8 @@ class ItemProtectionBox(FullBox):
     is_mandatory = False
     quantity = Quantity.ZERO_OR_ONE
 
-    def __init__(self, size, version, flags, largesize):
-        super().__init__(size=size, version=version, flags=flags, largesize=largesize)
+    def __init__(self, size, version, flags, largesize, location):
+        super().__init__(size=size, version=version, flags=flags, largesize=largesize, location=location)
         self.protection_informations = []
 
     def __repr__(self):

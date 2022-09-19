@@ -10,8 +10,8 @@ class ItemInformationBox(FullBox):
     box_type = 'iinf'
     is_mandatory = False
 
-    def __init__(self, size, version, flags, largesize):
-        super().__init__(size=size, version=version, flags=flags, largesize=largesize)
+    def __init__(self, size, version, flags, largesize, location):
+        super().__init__(size=size, version=version, flags=flags, largesize=largesize, location=location)
         self.item_infos = []
 
     def __repr__(self):
@@ -34,8 +34,8 @@ class ItemInformationBox(FullBox):
 class ItemInfomationEntry(FullBox):
     box_type = 'infe'
 
-    def __init__(self, size, version, flags, largesize):
-        super().__init__(size=size, version=version, flags=flags, largesize=largesize)
+    def __init__(self, size, version, flags, largesize, location):
+        super().__init__(size=size, version=version, flags=flags, largesize=largesize, location=location)
         self.item_id = None
         self.item_protection_index = None
         self.item_name = None

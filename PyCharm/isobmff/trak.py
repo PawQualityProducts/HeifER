@@ -16,8 +16,8 @@ class TrackHeaderBox(FullBox):
     is_mandatory = True
     quantity = Quantity.EXACTLY_ONE
 
-    def __init__(self, size, version, flags, largesize):
-        super().__init__(size=size, version=version, flags=flags, largesize=largesize)
+    def __init__(self, size, version, flags, largesize, location):
+        super().__init__(size=size, version=version, flags=flags, largesize=largesize, location=location)
         self.creation_time = None
         self.modification_time = None
         self.track_id = None

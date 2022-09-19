@@ -14,8 +14,8 @@ class ItemReferenceBox(FullBox):
     quantity = Quantity.ZERO_OR_ONE
     references = []
 
-    def __init__(self, size, version, flags, largesize):
-        super().__init__(size, version, flags, largesize)
+    def __init__(self, size, version, flags, largesize, location):
+        super().__init__(size, version, flags, largesize, location=location)
 
     def read(self, file, depth):
         box_end_position = file.tell() + self.size - 12
@@ -24,19 +24,19 @@ class ItemReferenceBox(FullBox):
             size = read_int(file, 4)
             type = read_string(file, 4)
             if self.version == 0:
-                refBox = SingleItemTypeReferenceBox(type, size)
+                refBox = SingleItemTypeReferenceBox(type, size, current_position)
             else:
-                refBox = SingleItemTypeReferenceBoxLarge(type, size)
+                refBox = SingleItemTypeReferenceBoxLarge(type, size, current_position)
             refBox.read(file, depth+1)
             self.references.append(refBox)
             size += refBox.size
             pad = "-" * depth
-            print("{0}:{1}{2}({3}, {4})".format(str(current_position).rjust(padspaces), pad, type, size, current_position + size))
-        pass
+            print("{0}:{1}{2}(size={3}, start={4}, end={5})".format(str(current_position).rjust(padspaces), pad, type, refBox.size, current_position, current_position + refBox.size))
+
 
 class SingleItemTypeReferenceBox(Box):
-    def __init__(self, type, size):
-        super().__init__(size)
+    def __init__(self, type, size, location):
+        super().__init__(size=size, location=location)
         self.box_type = type
         self.references = []
 
@@ -47,8 +47,8 @@ class SingleItemTypeReferenceBox(Box):
             self.references.append(read_int(file, 2))
 
 class SingleItemTypeReferenceBoxLarge(Box):
-    def __init__(self, type, size):
-        super().__init__(size)
+    def __init__(self, type, size, largesize, location):
+        super().__init__(size, largesize, location)
         self.box_type = type
         self.references = []
 

@@ -11,9 +11,16 @@ class AbcBox(type):
 class Box(object):
     box_type = None
 
-    def __init__(self, size=None, largesize=None):
+    def __init__(self, size=None, largesize=None, location=None):
         self.size = size
         self.largesize = largesize
+        self.location = location
+
+    def get_box_size_with_header(self):
+        if self.size > 1:
+            return self.size
+        else:
+            return self.largesize
 
     def get_box_size(self):
         """get box size excluding header"""
@@ -47,8 +54,8 @@ class Box(object):
 class FullBox(Box):
     box_type = None
 
-    def __init__(self, size, version=None, flags=None, largesize=None):
-        super().__init__(size,largesize)
+    def __init__(self, size, version=None, flags=None, largesize=None, location=None):
+        super().__init__(size,largesize,location)
         self.version = version
         self.flags = flags
 
@@ -108,9 +115,14 @@ def read_box(file,depth=0):
     else:
         largesize = 0                                    # box is standard size
 
+    if box_size > 1:
+        printboxsize = box_size
+    else:
+        printboxsize = largesize
+
     #print(box_type + '(' + str(size) + ')')
     pad = "-" * depth
-    print("{0}:{1}{2}({3}, {4})".format(str(current_position).rjust(padspaces),pad,box_type,box_size,current_position+box_size))
+    print("{0}:{1}{2}(size={3}, start={4}, end={5})".format(str(current_position).rjust(padspaces),pad,box_type,printboxsize,current_position,current_position+printboxsize))
     box_classes = get_class_list(Box)
     box = None
     for box_class in box_classes:
@@ -119,9 +131,9 @@ def read_box(file,depth=0):
             if box_class.__base__.__name__ == 'FullBox':
                 version = read_int(file, 1)
                 flags = read_int(file, 3)
-                box.__init__(size=box_size, version=version, flags=flags, largesize=largesize)
+                box.__init__(size=box_size, version=version, flags=flags, largesize=largesize, location=current_position)
             else:
-                box.__init__(size=box_size, largesize=largesize)
+                box.__init__(size=box_size, largesize=largesize, location=current_position)
             if box.get_box_size():
                 box.read(file, depth+1)
             break                       #NOTE: fails to here as iref box not defined

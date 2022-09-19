@@ -7,7 +7,7 @@ class TimeToSampleBox(FullBox):
     box_type = 'stts'
     is_mandatory = True
 
-    def __init__(self, size, version, flags, largesize):
+    def __init__(self, size, version, flags, largesize, location):
         super().__init__(size=size, version=version, flags=flags, largesize=largesize)
         self.entry_count = None
         self.entries = []

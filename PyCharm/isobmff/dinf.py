@@ -18,8 +18,8 @@ class DataReferenceBox(FullBox):
     is_mandatry = True
     quantity = Quantity.EXACTLY_ONE
 
-    def __init__(self, size, version, flags, largesize):
-        super().__init__(size=size, version=version, flags=flags, largesize=largesize)
+    def __init__(self, size, version, flags, largesize, location):
+        super().__init__(size=size, version=version, flags=flags, largesize=largesize, location=location)
         self.data_entry = []
 
     def read(self, file, depth):
@@ -35,8 +35,8 @@ class DataEntryUrlBox(FullBox):
     box_type = 'url '
     is_mandatry = True
 
-    def __init__(self, size, version, flags, largesize):
-        super().__init__(size=size, version=version, flags=flags, largesize=largesize)
+    def __init__(self, size, version, flags, largesize, location):
+        super().__init__(size=size, version=version, flags=flags, largesize=largesize, location=location)
         self.location = None
 
     def read(self, file, depth):
@@ -47,8 +47,8 @@ class DataEntryUrnBox(FullBox):
     box_type = 'urn '
     is_mandatry = True
 
-    def __init__(self, size, version, flags, largesize):
-        super().__init__(size=size, version=version, flags=flags, largesize=largesize)
+    def __init__(self, size, version, flags, largesize, location):
+        super().__init__(size=size, version=version, flags=flags, largesize=largesize, location=location)
         self.name = None
         self.location = None
 

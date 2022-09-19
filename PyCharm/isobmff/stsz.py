@@ -8,8 +8,8 @@ class SampleSizeBox(FullBox):
     box_type = 'stsz'
     is_mandatory = False
 
-    def __init__(self, size, version, flags, largesize):
-        super().__init__(size=size, version=version, flags=flags, largesize=largesize)
+    def __init__(self, size, version, flags, largesize, location):
+        super().__init__(size=size, version=version, flags=flags, largesize=largesize, location=location)
         self.sample_size = None
         self.entries = []
 

@@ -28,8 +28,8 @@ class SchemeTypeBox(FullBox):
     is_mandatory = False
     quantity = Quantity.ZERO_OR_ONE
 
-    def __init__(self, size):
-        super().__init__(size=size)
+    def __init__(self, size, largesize, location):
+        super().__init__(size=size, largesize=largesize, location=location)
         self.scheme_type = None
         self.scheme_version = None
         self.scheme_uri = None

@@ -12,8 +12,8 @@ class HEVCSampleEntry(VisualSampleEntry):
     is_mandatry = True
     quantity = Quantity.ONE_OR_MORE
 
-    def __init__(self, size, largesize):
-        super().__init__(size=size, largesize=largesize)
+    def __init__(self, size, largesize, location):
+        super().__init__(size=size, largesize=largesize, location=location)
         self.config = None
 
     def read(self, file, depth):
@@ -24,8 +24,8 @@ class HEVCSampleEntry(VisualSampleEntry):
 class HEVCConfigurationBox(Box):
     box_type = 'hvcC'
 
-    def __init__(self, size, largesize):
-        super().__init__(size=size, largesize=largesize)
+    def __init__(self, size, largesize, location):
+        super().__init__(size=size, largesize=largesize, location=location)
         self.hevc_config = None
 
     def read(self, file, depth):

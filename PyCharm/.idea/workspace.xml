@@ -4,15 +4,13 @@
     <bookmark url="file://$USER_HOME$/.local/lib/python3.9/site-packages/isobmff/box.py" line="20" />
     <bookmark url="file://$USER_HOME$/.local/lib/python3.9/site-packages/isobmff/iinf.py" />
     <bookmark url="file://$PROJECT_DIR$/isobmff/iref.py" line="33" />
-    <bookmark url="file://$PROJECT_DIR$/isobmff/box.py" line="112" />
+    <bookmark url="file://$PROJECT_DIR$/isobmff/box.py" line="124" />
     <bookmark url="file://$PROJECT_DIR$/isobmff/iloc.py" line="39" />
-    <bookmark url="file://$PROJECT_DIR$/isobmff/box.py" line="125" />
+    <bookmark url="file://$PROJECT_DIR$/isobmff/box.py" line="137" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d7906c8b-4f37-481a-85f9-552fe49b5071" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/isobmff/box.py" afterPath="$PROJECT_DIR$/isobmff/box.py" />
-      <change beforePath="$PROJECT_DIR$/isobmff/ccst.py" afterPath="$PROJECT_DIR$/isobmff/ccst.py" />
       <change beforePath="$PROJECT_DIR$/isobmff/dinf.py" afterPath="$PROJECT_DIR$/isobmff/dinf.py" />
       <change beforePath="$PROJECT_DIR$/isobmff/ftyp.py" afterPath="$PROJECT_DIR$/isobmff/ftyp.py" />
       <change beforePath="$PROJECT_DIR$/isobmff/hdlr.py" afterPath="$PROJECT_DIR$/isobmff/hdlr.py" />
@@ -24,10 +22,8 @@
       <change beforePath="$PROJECT_DIR$/isobmff/iref.py" afterPath="$PROJECT_DIR$/isobmff/iref.py" />
       <change beforePath="$PROJECT_DIR$/isobmff/mdat.py" afterPath="$PROJECT_DIR$/isobmff/mdat.py" />
       <change beforePath="$PROJECT_DIR$/isobmff/mdia.py" afterPath="$PROJECT_DIR$/isobmff/mdia.py" />
-      <change beforePath="$PROJECT_DIR$/isobmff/media_file.py" afterPath="$PROJECT_DIR$/isobmff/media_file.py" />
       <change beforePath="$PROJECT_DIR$/isobmff/minf.py" afterPath="$PROJECT_DIR$/isobmff/minf.py" />
       <change beforePath="$PROJECT_DIR$/isobmff/moov.py" afterPath="$PROJECT_DIR$/isobmff/moov.py" />
-      <change beforePath="$PROJECT_DIR$/isobmff/pitm.py" afterPath="$PROJECT_DIR$/isobmff/pitm.py" />
       <change beforePath="$PROJECT_DIR$/isobmff/sinf.py" afterPath="$PROJECT_DIR$/isobmff/sinf.py" />
       <change beforePath="$PROJECT_DIR$/isobmff/stbl.py" afterPath="$PROJECT_DIR$/isobmff/stbl.py" />
       <change beforePath="$PROJECT_DIR$/isobmff/stco.py" afterPath="$PROJECT_DIR$/isobmff/stco.py" />
@@ -47,58 +43,8 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="isobmff_test.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="isobmff_test.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/isobmff_test.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="54">
-              <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="hvc.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/isobmff/hvc.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
-              <caret line="21" column="0" lean-forward="false" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="stbl.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/isobmff/stbl.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="54">
-              <caret line="8" column="0" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="box.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/isobmff/box.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="198">
-              <caret line="15" column="25" lean-forward="true" selection-start-line="15" selection-start-column="25" selection-end-line="15" selection-end-column="25" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="media_file.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/isobmff/media_file.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="468">
-              <caret line="28" column="0" lean-forward="false" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="test_heic.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/isobmff/samples/test_heic.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="72">
               <caret line="4" column="0" lean-forward="false" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
@@ -107,31 +53,31 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="pyheif_test.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/pyheif_test.py">
+      <file leaf-file-name="media_file.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/isobmff/media_file.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
-              <caret line="6" column="18" lean-forward="false" selection-start-line="6" selection-start-column="18" selection-end-line="6" selection-end-column="18" />
+            <state relative-caret-position="198">
+              <caret line="28" column="30" lean-forward="false" selection-start-line="28" selection-start-column="30" selection-end-line="28" selection-end-column="30" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="exifread_test.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/exifread_test.py">
+      <file leaf-file-name="box.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/isobmff/box.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="2" column="15" lean-forward="false" selection-start-line="2" selection-start-column="15" selection-end-line="2" selection-end-column="15" />
+            <state relative-caret-position="60">
+              <caret line="118" column="31" lean-forward="false" selection-start-line="118" selection-start-column="31" selection-end-line="118" selection-end-column="31" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="mdat.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/isobmff/mdat.py">
+      <file leaf-file-name="ftyp.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/isobmff/ftyp.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="10" column="0" lean-forward="false" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+            <state relative-caret-position="141">
+              <caret line="15" column="74" lean-forward="false" selection-start-line="15" selection-start-column="74" selection-end-line="15" selection-end-column="74" />
               <folding />
             </state>
           </provider>
@@ -140,8 +86,58 @@
       <file leaf-file-name="iref.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/isobmff/iref.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="54">
-              <caret line="8" column="13" lean-forward="false" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+            <state relative-caret-position="288">
+              <caret line="21" column="45" lean-forward="false" selection-start-line="21" selection-start-column="45" selection-end-line="21" selection-end-column="45" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="stsc.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/isobmff/stsc.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="162">
+              <caret line="12" column="104" lean-forward="false" selection-start-line="12" selection-start-column="104" selection-end-line="12" selection-end-column="104" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="stss.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/isobmff/stss.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="73">
+              <caret line="11" column="104" lean-forward="false" selection-start-line="11" selection-start-column="104" selection-end-line="11" selection-end-column="104" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="stsz.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/isobmff/stsz.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="36">
+              <caret line="12" column="31" lean-forward="false" selection-start-line="12" selection-start-column="31" selection-end-line="12" selection-end-column="31" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="stts.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/isobmff/stts.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="144">
+              <caret line="9" column="64" lean-forward="false" selection-start-line="9" selection-start-column="64" selection-end-line="9" selection-end-column="64" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="trak.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/isobmff/trak.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-323">
+              <caret line="20" column="33" lean-forward="false" selection-start-line="20" selection-start-column="33" selection-end-line="20" selection-end-column="33" />
               <folding />
             </state>
           </provider>
@@ -164,6 +160,7 @@
       <find>Note:</find>
       <find>read(self, file</find>
       <find>read(self, file)</find>
+      <find>__init__(self,</find>
     </findStrings>
     <dirStrings>
       <dir>$PROJECT_DIR$/isobmff</dir>
@@ -190,32 +187,32 @@
         <option value="$USER_HOME$/.local/lib/python3.9/site-packages/isobmff/stsz.py" />
         <option value="$USER_HOME$/.local/lib/python3.9/site-packages/isobmff/minf.py" />
         <option value="$USER_HOME$/.local/lib/python3.9/site-packages/isobmff/hvc.py" />
-        <option value="$PROJECT_DIR$/isobmff/hdlr.py" />
         <option value="$PROJECT_DIR$/isobmff/ccst.py" />
+        <option value="$PROJECT_DIR$/isobmff/media_file.py" />
+        <option value="$PROJECT_DIR$/isobmff/pitm.py" />
         <option value="$PROJECT_DIR$/isobmff/dinf.py" />
-        <option value="$PROJECT_DIR$/isobmff/ftyp.py" />
+        <option value="$PROJECT_DIR$/isobmff/hdlr.py" />
+        <option value="$PROJECT_DIR$/isobmff/hvc.py" />
         <option value="$PROJECT_DIR$/isobmff/iinf.py" />
+        <option value="$PROJECT_DIR$/isobmff/iloc.py" />
         <option value="$PROJECT_DIR$/isobmff/ipro.py" />
+        <option value="$PROJECT_DIR$/isobmff/iprp.py" />
         <option value="$PROJECT_DIR$/isobmff/mdat.py" />
         <option value="$PROJECT_DIR$/isobmff/mdia.py" />
-        <option value="$PROJECT_DIR$/isobmff/media_file.py" />
         <option value="$PROJECT_DIR$/isobmff/minf.py" />
         <option value="$PROJECT_DIR$/isobmff/moov.py" />
-        <option value="$PROJECT_DIR$/isobmff/pitm.py" />
         <option value="$PROJECT_DIR$/isobmff/sinf.py" />
+        <option value="$PROJECT_DIR$/isobmff/stbl.py" />
         <option value="$PROJECT_DIR$/isobmff/stco.py" />
         <option value="$PROJECT_DIR$/isobmff/stsc.py" />
         <option value="$PROJECT_DIR$/isobmff/stss.py" />
         <option value="$PROJECT_DIR$/isobmff/stsz.py" />
         <option value="$PROJECT_DIR$/isobmff/stts.py" />
         <option value="$PROJECT_DIR$/isobmff/trak.py" />
-        <option value="$PROJECT_DIR$/isobmff/iprp.py" />
-        <option value="$PROJECT_DIR$/isobmff/iloc.py" />
-        <option value="$PROJECT_DIR$/isobmff/hvc.py" />
-        <option value="$PROJECT_DIR$/isobmff/stbl.py" />
-        <option value="$PROJECT_DIR$/isobmff_test.py" />
+        <option value="$PROJECT_DIR$/isobmff/ftyp.py" />
         <option value="$PROJECT_DIR$/isobmff/iref.py" />
         <option value="$PROJECT_DIR$/isobmff/box.py" />
+        <option value="$PROJECT_DIR$/isobmff_test.py" />
       </list>
     </option>
   </component>
@@ -491,16 +488,6 @@
           <line>20</line>
           <option name="timeStamp" value="191" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/isobmff/iref.py</url>
-          <line>19</line>
-          <option name="timeStamp" value="201" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/isobmff/iref.py</url>
-          <line>34</line>
-          <option name="timeStamp" value="203" />
-        </line-breakpoint>
       </breakpoints>
       <default-breakpoints>
         <breakpoint type="python-exception">
@@ -509,7 +496,7 @@
           </properties>
         </breakpoint>
       </default-breakpoints>
-      <option name="time" value="204" />
+      <option name="time" value="207" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -742,182 +729,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/isobmff/ccst.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="8" column="30" lean-forward="false" selection-start-line="8" selection-start-column="30" selection-end-line="8" selection-end-column="30" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/isobmff/dinf.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="276">
-          <caret line="54" column="30" lean-forward="false" selection-start-line="54" selection-start-column="30" selection-end-line="54" selection-end-column="30" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/isobmff/ftyp.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="342">
-          <caret line="35" column="0" lean-forward="false" selection-start-line="35" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/isobmff/hdlr.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="25" column="32" lean-forward="false" selection-start-line="25" selection-start-column="32" selection-end-line="25" selection-end-column="32" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/isobmff/ipro.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="342">
-          <caret line="29" column="40" lean-forward="false" selection-start-line="29" selection-start-column="40" selection-end-line="29" selection-end-column="40" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/isobmff/mdia.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="342">
-          <caret line="41" column="0" lean-forward="false" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/isobmff/meta.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/isobmff/minf.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="132">
-          <caret line="54" column="30" lean-forward="false" selection-start-line="54" selection-start-column="30" selection-end-line="54" selection-end-column="30" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/isobmff/moov.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="42">
-          <caret line="33" column="30" lean-forward="false" selection-start-line="33" selection-start-column="30" selection-end-line="33" selection-end-column="30" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/isobmff/pitm.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="10" column="30" lean-forward="false" selection-start-line="10" selection-start-column="30" selection-end-line="10" selection-end-column="30" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/isobmff/sinf.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="258">
-          <caret line="42" column="30" lean-forward="false" selection-start-line="42" selection-start-column="30" selection-end-line="42" selection-end-column="30" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/isobmff/stco.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="324">
-          <caret line="21" column="30" lean-forward="false" selection-start-line="21" selection-start-column="30" selection-end-line="21" selection-end-column="30" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/isobmff/stsc.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="15" column="30" lean-forward="false" selection-start-line="15" selection-start-column="30" selection-end-line="15" selection-end-column="30" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/isobmff/stss.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="342">
-          <caret line="20" column="0" lean-forward="false" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/isobmff/stsz.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="24" column="0" lean-forward="false" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/isobmff/stts.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="21" column="0" lean-forward="false" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/isobmff/trak.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="402">
-          <caret line="51" column="0" lean-forward="false" selection-start-line="51" selection-start-column="0" selection-end-line="51" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/isobmff/iprp.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="108">
-          <caret line="9" column="23" lean-forward="false" selection-start-line="9" selection-start-column="23" selection-end-line="9" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/isobmff/iinf.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1584">
-          <caret line="92" column="30" lean-forward="false" selection-start-line="92" selection-start-column="30" selection-end-line="92" selection-end-column="30" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/isobmff/iloc.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="113">
-          <caret line="39" column="9" lean-forward="false" selection-start-line="39" selection-start-column="9" selection-end-line="39" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/isobmff/mdat.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="10" column="0" lean-forward="false" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/isobmff/media_file.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="468">
-          <caret line="28" column="0" lean-forward="false" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/isobmff/samples/test_heic.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="72">
@@ -942,42 +753,218 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/isobmff/ccst.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="144">
+          <caret line="8" column="30" lean-forward="false" selection-start-line="8" selection-start-column="30" selection-end-line="8" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/isobmff/dinf.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="109">
+          <caret line="50" column="104" lean-forward="false" selection-start-line="50" selection-start-column="104" selection-end-line="50" selection-end-column="104" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/isobmff/hdlr.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="131">
+          <caret line="14" column="104" lean-forward="false" selection-start-line="14" selection-start-column="104" selection-end-line="14" selection-end-column="104" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/isobmff/hvc.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="21" column="0" lean-forward="false" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
+        <state relative-caret-position="-2231">
+          <caret line="27" column="74" lean-forward="false" selection-start-line="27" selection-start-column="74" selection-end-line="27" selection-end-column="74" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/isobmff/iinf.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-953">
+          <caret line="37" column="104" lean-forward="false" selection-start-line="37" selection-start-column="104" selection-end-line="37" selection-end-column="104" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/isobmff/iloc.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-661">
+          <caret line="11" column="104" lean-forward="false" selection-start-line="11" selection-start-column="104" selection-end-line="11" selection-end-column="104" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/isobmff/ipro.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-71">
+          <caret line="14" column="104" lean-forward="false" selection-start-line="14" selection-start-column="104" selection-end-line="14" selection-end-column="104" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/isobmff/iprp.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-179">
+          <caret line="82" column="104" lean-forward="false" selection-start-line="82" selection-start-column="104" selection-end-line="82" selection-end-column="104" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/isobmff/mdat.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="162">
+          <caret line="9" column="73" lean-forward="false" selection-start-line="9" selection-start-column="73" selection-end-line="9" selection-end-column="73" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/isobmff/mdia.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-143">
+          <caret line="20" column="104" lean-forward="false" selection-start-line="20" selection-start-column="104" selection-end-line="20" selection-end-column="104" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/isobmff/meta.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/isobmff/minf.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-89">
+          <caret line="47" column="104" lean-forward="false" selection-start-line="47" selection-start-column="104" selection-end-line="47" selection-end-column="104" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/isobmff/moov.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-287">
+          <caret line="20" column="104" lean-forward="false" selection-start-line="20" selection-start-column="104" selection-end-line="20" selection-end-column="104" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/isobmff/pitm.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="144">
+          <caret line="10" column="30" lean-forward="false" selection-start-line="10" selection-start-column="30" selection-end-line="10" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/isobmff/sinf.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-35">
+          <caret line="31" column="74" lean-forward="false" selection-start-line="31" selection-start-column="74" selection-end-line="31" selection-end-column="74" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/isobmff/stbl.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="54">
-          <caret line="8" column="0" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+        <state relative-caret-position="73">
+          <caret line="131" column="74" lean-forward="false" selection-start-line="131" selection-start-column="74" selection-end-line="131" selection-end-column="74" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/isobmff_test.py">
+    <entry file="file://$PROJECT_DIR$/isobmff/stco.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="54">
-          <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+        <state relative-caret-position="73">
+          <caret line="13" column="104" lean-forward="false" selection-start-line="13" selection-start-column="104" selection-end-line="13" selection-end-column="104" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/isobmff/stsc.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="162">
+          <caret line="12" column="104" lean-forward="false" selection-start-line="12" selection-start-column="104" selection-end-line="12" selection-end-column="104" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/isobmff/stss.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="73">
+          <caret line="11" column="104" lean-forward="false" selection-start-line="11" selection-start-column="104" selection-end-line="11" selection-end-column="104" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/isobmff/stsz.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="36">
+          <caret line="12" column="31" lean-forward="false" selection-start-line="12" selection-start-column="31" selection-end-line="12" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/isobmff/stts.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="144">
+          <caret line="9" column="64" lean-forward="false" selection-start-line="9" selection-start-column="64" selection-end-line="9" selection-end-column="64" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/isobmff/trak.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-323">
+          <caret line="20" column="33" lean-forward="false" selection-start-line="20" selection-start-column="33" selection-end-line="20" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/isobmff/ftyp.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="141">
+          <caret line="15" column="74" lean-forward="false" selection-start-line="15" selection-start-column="74" selection-end-line="15" selection-end-column="74" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/isobmff/iref.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="54">
-          <caret line="8" column="13" lean-forward="false" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+        <state relative-caret-position="288">
+          <caret line="21" column="45" lean-forward="false" selection-start-line="21" selection-start-column="45" selection-end-line="21" selection-end-column="45" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/isobmff/box.py">
       <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="118" column="31" lean-forward="false" selection-start-line="118" selection-start-column="31" selection-end-line="118" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/isobmff/media_file.py">
+      <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="198">
-          <caret line="15" column="25" lean-forward="true" selection-start-line="15" selection-start-column="25" selection-end-line="15" selection-end-column="25" />
+          <caret line="28" column="30" lean-forward="false" selection-start-line="28" selection-start-column="30" selection-end-line="28" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/isobmff_test.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="72">
+          <caret line="4" column="0" lean-forward="false" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
           <folding />
         </state>
       </provider>

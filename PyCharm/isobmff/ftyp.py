@@ -12,8 +12,8 @@ class FileTypeBox(Box):
     quantity = Quantity.EXACTLY_ONE
 
 
-    def __init__(self, size, largesize):
-        super().__init__(size=size, largesize=largesize)
+    def __init__(self, size, largesize, location):
+        super().__init__(size=size, largesize=largesize, location=location)
         self.majar_brand = None
         self.minor_version = None
         self.compatible_brands = []
