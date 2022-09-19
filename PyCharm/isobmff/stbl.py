@@ -32,8 +32,8 @@ class SampleDescriptionBox(FullBox):
 
 class SampleEntry(Box):
 
-    def __init__(self, size):
-        super().__init__(size=size)
+    def __init__(self, size, largesize):
+        super().__init__(size=size, largesize=largesize)
         self.reserveds = []
         self.data_reference_index = None
 
@@ -56,8 +56,8 @@ class HintSampleEntry(SampleEntry):
     """
     box_type = 'hint'
 
-    def __init__(self, size):
-        super().__init__(size=size)
+    def __init__(self, size, largesize):
+        super().__init__(size=size, largesize=largesize)
         self.data = []
 
     def read(self, file):
@@ -69,8 +69,8 @@ class VisualSampleEntry(SampleEntry):
     """
     box_type = 'vide'
 
-    def __init__(self, size):
-        super().__init__(size=size)
+    def __init__(self, size, largesize):
+        super().__init__(size=size, largesize=largesize)
         self.pre_defined1 = None
         self.reserved1 = None
         self.pre_defined2 = []
@@ -104,8 +104,8 @@ class AudioSampleEntry(SampleEntry):
     """Audio Sample Entry"""
     box_type = 'soun'
 
-    def __init__(self, size):
-        super().__init__(size=size)
+    def __init__(self, size, largesize):
+        super().__init__(size=size, largesize=largesize)
         self.reserved1 = []
         self.channelcount = None
         self.samplesize = None
@@ -129,8 +129,8 @@ class BitRateBox(Box):
     """Bit Rate Box"""
     box_type = 'btrt'
 
-    def __init__(self, size):
-        super().__init__(size=size)
+    def __init__(self, size, largesize):
+        super().__init__(size=size, largesize=largesize)
         self.buffer_size_db = None
         self.max_bitrate = None
         self.avg_bitrate = None

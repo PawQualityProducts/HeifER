@@ -79,7 +79,8 @@ def read_string(file, length=None):
     if length:
         res = file.read(length).decode()
     else:
-        res = ''.join(iter(lambda: file.read(1).decode('ascii'), '\x00'))
+        res = ''
+        res = res.join(iter(lambda: file.read(1).decode('ascii'), '\x00'))
     return res
 
 def indent(rep):
@@ -106,7 +107,7 @@ def read_box(file):
         largesize = 0                                    # box is standard size
 
     #print(box_type + '(' + str(size) + ')')
-    print("{0}:{1}({2}) : {3}".format(current_position,box_type,box_size,largesize))
+    print("{0}:{1}({2})".format(current_position,box_type,box_size))
     box_classes = get_class_list(Box)
     box = None
     for box_class in box_classes:

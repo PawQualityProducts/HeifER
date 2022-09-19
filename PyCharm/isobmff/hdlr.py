@@ -26,7 +26,9 @@ class HandlerReferenceBox(FullBox):
     def read(self, file):
         self.pre_defined = read_int(file, 4)
         self.handler_type = read_string(file, 4)
+        bytesread = 8
         for _ in range(3): #3*4=12bytes
             self.reserved.append(read_int(file, 4))
-        self.name = read_string(file)               #NOTE: string read doesn't read enough characters, corrupting the following box read, extra char read added for Apple below
-        extrabyte = read_int(file,1)                #TODO: figure out what's happening here...
+            bytesread += 4
+        self.name = read_string(file,self.get_box_size()-bytesread)               #NOTE: string read doesn't read enough characters, corrupting the following box read, extra char read added for Apple below
+

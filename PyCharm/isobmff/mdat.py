@@ -11,6 +11,5 @@ class MediaDataBox(Box):
         self.data_offset = None
 
     def read(self, file):
-        print(file.tell())
         self.data_offset = file.tell()
         file.read(self.get_box_size())
