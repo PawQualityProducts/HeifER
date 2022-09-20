@@ -35,7 +35,7 @@ class Box(object):
         #Note: This is in conflict with the spec. For the iPhone image file, Size == 1 (so large size), but large size == 0 (so extends to end of file)
 
     def read(self, file, depth=0):
-        #current_position = file.tell()
+        current_position = file.tell()
         read_size = self.get_box_size()
         while read_size > 0:
             box = read_box(file,depth+1)
