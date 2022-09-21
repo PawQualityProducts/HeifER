@@ -15,14 +15,14 @@ media_file = isobmff.MediaFile()
 #media_file.read('lights_1440x960.heic')                #ok
 #media_file.read('old_bridge_1440x960.heic')            #ok
 #media_file.read('overlay_1000x680.heic')               #ok
-#media_file.read('rally_burst.heic')                    #ok
+media_file.read('rally_burst.heic')                    #ok
 #media_file.read('random_collection_1440x960.heic')     #ok
-#media_file.read('sea1_animation.heic')                 #problem at 1649
-#media_file.read('season_collection_1440x960.heic')     #problem at 1477
+#media_file.read('sea1_animation.heic')                 #ok
+#media_file.read('season_collection_1440x960.heic')     #ok
 #media_file.read('ski_jump_1440x960.heic')              #ok
 #media_file.read('spring_1440x960.heic')                #ok
-#media_file.read('starfield_animation.heic')            #probme at 1649
-#media_file.read('stereo_1200x800.heic')                #problem at 845
+#media_file.read('starfield_animation.heic')            #ok
+#media_file.read('stereo_1200x800.heic')                #ok
 #media_file.read('summer_1440x960.heic')                #ok
 #media_file.read('surfer_1440x960.heic')                #ok
 #media_file.read('winter_1440x960.heic')                #ok

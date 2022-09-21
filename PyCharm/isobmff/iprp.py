@@ -105,7 +105,7 @@ class ItemPropertyAssociation(FullBox):
             self.items.append(item)
 
 
-
+"""
 #TODO: Move this to it's own module file
 #TODO: Extend parsing of grpl box contents
 class GroupsListBox(Box):
@@ -113,6 +113,7 @@ class GroupsListBox(Box):
 
     def read(self, file, depth):
         print(file.read(self.get_box_size()))
+
 
 #TODO: Move this to it's own module file
 #TODO: Extend parsing of grpl box contents
@@ -146,3 +147,4 @@ class TrefBox(Box):
 
     def read(self, file, depth):
         print(file.read(self.get_box_size()))
+"""

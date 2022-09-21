@@ -40,8 +40,9 @@ class Box(object):
         while read_size > 0:
             box = read_box(file,depth+1)
             if not box:
-                type = read_string(file,4)
-                print ('{0} couldn\'t read box of type={1} size={2}'.format(file.tell(), type, read_size))
+                #type = read_string(file,4)
+                #print ('{0} couldn\'t read box of size={1}'.format(file.tell(), read_size))
+                # print(file.read(box_size - 8))
                 break
             #TODO: Quantityでそのままsetattrか配列にappendか分ける
             setattr(self, box.box_type, box)
@@ -140,8 +141,8 @@ def read_box(file,depth=0):
         else:
             box = None
 
-    #if box == None:
-    #    print("{0}:{1} not defined ({2}) : {3}".format(current_position, box_type, box_size, largesize))
-    #    box = Box(size=box_size,largesize=largesize)
+    if box == None:
+        #print("{0}:{1} not defined ({2}) : {3}".format(str(current_position).rjust(padspaces), box_type, box_size, largesize))
+        print("{0}:{1}No definition found for box type {2}. Contents = {3}".format(str(current_position).rjust(padspaces),pad,box_type,file.read(box_size-8)))
 
     return box
