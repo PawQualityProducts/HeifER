@@ -13,9 +13,10 @@ media_file = isobmff.MediaFile()
 #media_file.read('grid_960x640.heic')                   #ok
 #media_file.read('grid_960x640.heic')                   #ok
 #media_file.read('lights_1440x960.heic')                #ok
-#media_file.read('old_bridge_1440x960.heic')            #ok
+
+media_file.read('old_bridge_1440x960.heic')            #ok
 #media_file.read('overlay_1000x680.heic')               #ok
-media_file.read('rally_burst.heic')                    #ok
+#media_file.read('rally_burst.heic')                    #ok
 #media_file.read('random_collection_1440x960.heic')     #ok
 #media_file.read('sea1_animation.heic')                 #ok
 #media_file.read('season_collection_1440x960.heic')     #ok
