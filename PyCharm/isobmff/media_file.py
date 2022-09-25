@@ -2,6 +2,7 @@
 from .box import indent
 from .box import read_box
 import os
+from . import output
 
 class MediaFile(object):
 
@@ -20,6 +21,8 @@ class MediaFile(object):
         return 'ISOBaseMediaFile\n' + indent(rep)
 
     def read(self, file_name):
+        output.open(file_name + '.map')
+
         file = open(file_name, 'rb')
         try:
             filelength = os.stat(file.name).st_size     # get the length of the file
@@ -33,5 +36,9 @@ class MediaFile(object):
                     self.mdats.append(box)
                 else:
                     setattr(self, box.box_type, box)
+
+            #summary = self.__repr__()
+            #output.write(summary)
         finally:
             file.close()
+            output.close()

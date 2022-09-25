@@ -5,6 +5,7 @@ from .box import Quantity
 from .box import read_box
 from .box import read_int
 from .box import read_string
+from . import output
 
 padspaces = 7
 
@@ -31,7 +32,8 @@ class ItemReferenceBox(FullBox):
             self.references.append(refBox)
             size += refBox.size
             pad = "-" * depth
-            print("{0}:{1}{2}(size={3}, start={4}, end={5})".format(str(current_position).rjust(padspaces), pad, type, refBox.size, current_position, current_position + refBox.size))
+            output.writeln("{0}:{1}{2}(size={3}, start={4}, end={5})".format(str(current_position).rjust(padspaces), pad, type, refBox.size, current_position, current_position + refBox.size))
+            #print("{0}:{1}{2}(size={3}, start={4}, end={5})".format(str(current_position).rjust(padspaces), pad, type, refBox.size, current_position, current_position + refBox.size))
 
 
 class SingleItemTypeReferenceBox(Box):

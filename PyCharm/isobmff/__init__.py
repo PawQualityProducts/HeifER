@@ -4,6 +4,7 @@ __init__
 """
 from __future__ import absolute_import
 from .media_file import MediaFile
+from . import output
 from . import box
 from . import ccst
 from . import dinf
@@ -28,3 +29,4 @@ from . import stts
 from . import stsz
 from . import trak
 from . import iref
+

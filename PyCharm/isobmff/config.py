@@ -1,0 +1,2 @@
+#config, contains globals
+
