@@ -1,4 +1,8 @@
 import isobmff
+from isobmff import output
+
+output.echo_on()
+output.set_detail('BoxDetail')
 
 media_file = isobmff.MediaFile()
 

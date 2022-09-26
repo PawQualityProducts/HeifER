@@ -146,6 +146,6 @@ def read_box(file,depth=0):
     if box == None:
         #print("{0}:{1} not defined ({2}) : {3}".format(str(current_position).rjust(padspaces), box_type, box_size, largesize))
         #print("{0}:{1}No definition found for box type {2}. Contents = {3}".format(str(current_position).rjust(padspaces),pad,box_type,file.read(box_size-8)))
-        output.writeln("{0}:{1}No definition found for box type {2}. Contents = {3}".format(str(current_position).rjust(padspaces),pad,box_type,file.read(box_size-8)))
+        output.writeln("{0}:{1}No definition found for box type {2}. Contents = {3}".format(str(current_position).rjust(padspaces),pad,box_type,file.read(box_size-8)),Details.BoxName)
 
     return box

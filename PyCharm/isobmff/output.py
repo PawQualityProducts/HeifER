@@ -1,40 +1,52 @@
 import builtins
 
-outfile = None
-echo = 'off'
+_outfile = None
+_echo = 'off'
+
+def enum(**enums):
+    return type('Enum', (), enums)
+
+Details = enum(BoxName=1,BoxDetails=2)
+
+_detail = Details.BoxName
+
+def set_detail(detail):
+    _detail = detail
 
 def echo_on():
-    global echo
-    echo = 'on'
+    global _echo
+    _echo = 'on'
 
 def echo_off():
-    global echo
-    echo = 'off'
+    global _echo
+    _echo = 'off'
 
 def open(filename):
-    global outfile
-    outfile = builtins.open(filename, 'w')
+    global _outfile
+    _outfile = builtins.open(filename, 'w')
 
 
 def close():
-    global outfile
-    if outfile:
-        outfile.close()
+    global _outfile
+    if _outfile:
+        _outfile.close()
 
 
-def writeln(value):
-    global outfile
-    if echo.lower() == 'on':
-        print(value)
+def writeln(value,detail = Details.BoxName):
+    global _outfile
+    if detail <= _detail:
+        if _echo.lower() == 'on':
+            print(value)
 
-    if hasattr(outfile, 'write'):
-        outfile.write(value + "\n")
+        if hasattr(_outfile, 'write'):
+            _outfile.write(value + "\n")
 
 
-def write(value):
-    global outfile
-    if echo.lower() == 'off':
-        print(value, end=' ')
+def write(value, detail=Details.BoxName):
+    global _outfile
+    if detail <= _detail:
+        if _echo.lower() == 'off':
+            print(value, end=' ')
 
-    if hasattr(outfile, 'write'):
-        outfile.write(value)
+        if hasattr(_outfile, 'write'):
+            _outfile.write(value)
