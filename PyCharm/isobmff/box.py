@@ -17,6 +17,13 @@ class Box(object):
         self.largesize = largesize
         self.location = location
 
+    def __repr__(self):
+        srep = super().__repr__()
+        rep = '[start={0},end={1}]'.format(self.location,self.get_box_size_with_header())
+        rep += 'size=' + str(self.get_box_size_with_header()) + '\n'
+        return re.sub('\n', rep, srep, flags=re.MULTILINE)
+
+
     def get_box_size_with_header(self):
         if self.size > 1:
             return self.size
@@ -45,7 +52,14 @@ class Box(object):
                 #print ('{0} couldn\'t read box of size={1}'.format(file.tell(), read_size))
                 # print(file.read(box_size - 8))
                 break
-            #TODO: Quantityでそのままsetattrか配列にappendか分ける
+
+            try:
+               x = getattr(self,box.box_type)
+               print(x)
+            except:
+                break;
+
+
             setattr(self, box.box_type, box)
             read_size -= box.size
 

@@ -8,6 +8,8 @@ media_file = isobmff.MediaFile()
 
 #sample apple iphone file
 media_file.read('IMG_3802.HEIC')                       #ok
+media_file.extract('IMG_3802.HEIC','IMG_3802_ftyp.bin',0,40)
+media_file.extract('IMG_3802.HEIC','IMG_3802_meta.bin',40,3737)
 
 #Nokia sample files
 #media_file.read('C001.heic')                           #ok

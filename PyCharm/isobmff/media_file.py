@@ -13,11 +13,11 @@ class MediaFile(object):
         self.moov = None
 
     def __repr__(self):
-        rep = self.ftyp.__repr__() + '\n'
-        rep += self.meta.__repr__() + '\n'
-        rep += self.moov.__repr__() + '\n'
+        rep = 'ftyp: ' + self.ftyp.__repr__() + '\n'
+        rep += 'meta:' + self.meta.__repr__() + '\n'
+        rep += 'moov: ' + self.moov.__repr__() + '\n'
         for mdat in self.mdats:
-            rep += mdat.__repr__() + '\n'
+            rep += 'mdat: ' + mdat.__repr__() + '\n'
         return 'ISOBaseMediaFile\n' + indent(rep)
 
     def read(self, file_name):
@@ -32,13 +32,33 @@ class MediaFile(object):
                 box = read_box(file,0)
                 if not box:
                     break
+
                 if box.box_type == 'mdat':
+                    # appends to local mdat
                     self.mdats.append(box)
                 else:
+                    # sets local ftyp, meta, mov
                     setattr(self, box.box_type, box)
 
-            #summary = self.__repr__()
-            #output.write(summary)
+            summary = self.__repr__()
+            output.write(summary)
         finally:
             file.close()
             output.close()
+
+
+    def extract(self,input_filename,output_filename,start,end):
+        outfile = open(output_filename,'wb')
+        infile = open(input_filename, 'rb')
+        try:
+            filelength = os.stat(infile.name).st_size  # get the length of the file
+            if (start >= 0) and start < end <= filelength:
+                infile.seek(start)
+                outfile.write(infile.read(end-start))
+        except:
+            pass
+
+        finally:
+            outfile.close()
+            infile.close()
+
