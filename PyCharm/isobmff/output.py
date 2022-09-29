@@ -34,19 +34,29 @@ def close():
 
 def writeln(value,detail = Details.BoxName):
     global _outfile
+    if type(value) is str:
+        outval = value
+    elif hasattr(value,'output'):
+        outval = value.output()
+
     if detail <= _detail:
         if _echo.lower() == 'on':
-            print(value)
+            print(outval)
 
         if hasattr(_outfile, 'write'):
-            _outfile.write(value + "\n")
+            _outfile.write(outval + "\n")
 
 
 def write(value, detail=Details.BoxName):
     global _outfile
+    if type(value) is str:
+        outval = value
+    elif hasattr(value,'output'):
+        outval = value.output()
+
     if detail <= _detail:
         if _echo.lower() == 'off':
-            print(value, end=' ')
+            print(outval, end=' ')
 
         if hasattr(_outfile, 'write'):
-            _outfile.write(value)
+            _outfile.write(outval)

@@ -7,4 +7,6 @@ class ccst(Box):
     is_mandatory = False
 
     def read(self, file, depth):
-        print(file.read(self.get_box_size()))
+        self.depth = depth
+        pad = '-' * depth
+        print(pad + file.read(self.get_box_size()))

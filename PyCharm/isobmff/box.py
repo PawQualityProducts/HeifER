@@ -43,6 +43,7 @@ class Box(object):
         #Note: This is in conflict with the spec. For the iPhone image file, Size == 1 (so large size), but large size == 0 (so extends to end of file)
 
     def read(self, file, depth=0):
+        self.depth = depth
         current_position = file.tell()
         read_size = self.get_box_size()
         while read_size > 0:
@@ -53,19 +54,20 @@ class Box(object):
                 # print(file.read(box_size - 8))
                 break
 
-            try:
-               x = getattr(self,box.box_type)
-               print(x)
-            except:
-                break;
-
-
             setattr(self, box.box_type, box)
             read_size -= box.size
 
     def write(self, file):
         """write box to file"""
         pass
+
+    def output(self):
+        pad = "-" * self.depth
+        rep = '{0}[start={1},end={2},depth={3}]\n'.format(pad,self.location,self.get_box_size_with_header(),self.depth)
+        rep += pad + '--size=' + str(self.get_box_size_with_header()) + '\n'
+        rep += pad + '--type=' + self.box_type + '\n'
+        return rep
+
 
 class FullBox(Box):
     box_type = None
@@ -88,6 +90,15 @@ class FullBox(Box):
             return self.largesize - 16      # return extended box size minus header
         else:                               # size == 1, box extends to the end of the file
             return self.largesize - 8       # box extends to the end of the file, value was stored in largesize but additional 8 bytes not read
+
+    def output(self):
+        pad = "-" * self.depth
+        rep = '{0}[start={1},end={2},depth={3}]\n'.format(pad,self.location,self.get_box_size_with_header(),self.depth)
+        rep += pad + '--size=' + str(self.get_box_size_with_header()) + '\n'
+        rep += pad + '--type=' + self.box_type + '\n'
+        rep += pad + '--version=' + str(self.version) + '\n'
+        return rep
+
 
 
 class Quantity(Enum):
@@ -153,6 +164,8 @@ def read_box(file,depth=0):
                 box.__init__(size=box_size, largesize=largesize, location=current_position)
             if box.get_box_size():
                 box.read(file, depth+1)
+
+#                output.writeln(box)
             break                       #NOTE: fails to here as iref box not defined
         else:
             box = None

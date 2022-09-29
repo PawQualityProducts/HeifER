@@ -19,6 +19,7 @@ class ItemReferenceBox(FullBox):
         super().__init__(size, version, flags, largesize, location=location)
 
     def read(self, file, depth):
+        self.depth = depth
         box_end_position = file.tell() + self.size - 12
         while file.tell() < box_end_position:
             current_position = file.tell()
@@ -43,6 +44,7 @@ class SingleItemTypeReferenceBox(Box):
         self.references = []
 
     def read(self, file, depth):
+        self.depth = depth
         self.from_item_ID = read_int(file, 2)
         self.reference_count = read_int(file, 2)
         for ref in range(self.reference_count):
@@ -55,6 +57,7 @@ class SingleItemTypeReferenceBoxLarge(Box):
         self.references = []
 
     def read(self, file, depth):
+        self.depth = depth
         self.from_item_ID = read_int(file, 4)
         self.reference_count = read_int(file, 2)
         for ref in range(self.reference_count):

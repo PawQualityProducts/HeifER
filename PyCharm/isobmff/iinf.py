@@ -21,6 +21,7 @@ class ItemInformationBox(FullBox):
         return super().__repr__() + indent(rep)
 
     def read(self, file, depth):
+        self.depth = depth
         count_size = 2 if self.version == 0 else 4
         entry_count = read_int(file, count_size)
 
@@ -55,6 +56,7 @@ class ItemInfomationEntry(FullBox):
         return super().__repr__() + indent(rep)
 
     def read(self, file, depth):
+        self.depth = depth
         if self.version == 0 or self.version == 1:
             self.item_id = read_int(file, 2)
             self.item_protection_index = read_int(file, 2)
@@ -91,7 +93,7 @@ class FDItemInfoExtension(object):
         self.group_ids = []
     
     def read(self, file, depth):
-        """read"""
+        self.depth = depth
         self.content_location = read_string(file)
         self.content_md5 = read_string(file)
         self.content_length = read_int(file, 8)

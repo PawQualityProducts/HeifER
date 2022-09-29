@@ -9,4 +9,5 @@ class PrimaryItemBox(FullBox):
     is_mandatory = False
 
     def read(self, file, depth):
+        self.depth = depth
         self.item_id = read_int(file, 2)

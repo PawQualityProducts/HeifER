@@ -21,6 +21,7 @@ class OriginalFormatBox(Box):
         self.data_format = None
     
     def read(self, file, depth):
+        self.depth = depth
         self.data_format = read_int(file, 4)
 
 class SchemeTypeBox(FullBox):
@@ -35,6 +36,7 @@ class SchemeTypeBox(FullBox):
         self.scheme_uri = None
 
     def read(self, file, depth):
+        self.depth = depth
         self.scheme_type = read_int(file, 4)
         self.scheme_version = read_int(file, 4)
         if self.flags & 0b1:

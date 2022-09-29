@@ -14,6 +14,7 @@ class SampleSizeBox(FullBox):
         self.entries = []
 
     def read(self, file, depth):
+        self.depth = depth
         self.sample_size = read_int(file, 4)
         sample_count = read_int(file, 4)
 

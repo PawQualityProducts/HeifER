@@ -23,6 +23,7 @@ class DataReferenceBox(FullBox):
         self.data_entry = []
 
     def read(self, file, depth):
+        self.depth = depth
         entry_count = read_int(file, 4)
         for _ in range(entry_count):
             box = read_box(file, depth)
@@ -40,6 +41,7 @@ class DataEntryUrlBox(FullBox):
         self.location = None
 
     def read(self, file, depth):
+        self.depth = depth
         self.location = read_string(file)
 
 
@@ -53,5 +55,6 @@ class DataEntryUrnBox(FullBox):
         self.location = None
 
     def read(self, file, depth):
+        self.depth = depth
         self.name = read_string(file)
         self.location = read_string(file)

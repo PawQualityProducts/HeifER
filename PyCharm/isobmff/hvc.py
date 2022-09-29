@@ -29,6 +29,7 @@ class HEVCConfigurationBox(Box):
         self.hevc_config = None
 
     def read(self, file, depth):
+        self.depth = depth
         self.hevc_config = HEVCDecoderConfigurationRecord()
         self.hevc_config.read(file,depth+1)
 
@@ -102,6 +103,7 @@ class HEVCDecoderConfigurationRecord(object):
         return indent(rep)
 
     def read(self, file, depth):
+        self.depth = depth
         self.configuration_version = read_int(file, 1)
         #
         byte = read_int(file, 1)

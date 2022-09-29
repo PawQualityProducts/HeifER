@@ -22,6 +22,7 @@ class ItemLocationBox(FullBox):
         return super().__repr__() + indent(rep)
 
     def read(self, file, depth):
+        self.depth = depth
         location = file.tell()
         byte = read_int(file, 1)
         self.offset_size = (byte >> 4) & 0b1111

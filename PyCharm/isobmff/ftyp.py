@@ -27,6 +27,7 @@ class FileTypeBox(Box):
         return super().__repr__() + indent(rep)
 
     def read(self, file,depth):
+        self.depth = depth
         self.majar_brand = read_string(file, 4)
         self.minor_version = read_int(file, 4)
         num_compatible_brands = int((self.size - 16) / 4)

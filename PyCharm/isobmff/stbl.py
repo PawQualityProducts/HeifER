@@ -23,6 +23,7 @@ class SampleDescriptionBox(FullBox):
         self.samples = []
 
     def read(self, file, depth):
+        self.depth = depth
         entry_count = read_int(file, 4)
         for _ in range(entry_count):
             box = read_box(file, depth+1)
@@ -44,6 +45,7 @@ class SampleEntry(Box):
         return super().get_box_size() - 6 + 2    
 
     def read(self, file, depth):
+        self.depth = depth
         for _ in range(6):
             reserved = read_int(file, 1)
             self.reserveds.append(reserved)
@@ -60,6 +62,7 @@ class HintSampleEntry(SampleEntry):
         self.data = []
 
     def read(self, file, depth):
+        self.depth = depth
         box_size = self.get_box_size()
         self.data = file.read(box_size)
 
@@ -135,6 +138,7 @@ class BitRateBox(Box):
         self.avg_bitrate = None
 
     def read(self, file, depth):
+        self.depth = depth
         self.buffer_size_db = read_int(file, 4)
         self.max_bitrate = read_int(file, 4)
         self.avg_bitrate = read_int(file, 4)

@@ -20,6 +20,7 @@ class ItemProtectionBox(FullBox):
         return rep
 
     def read(self, file, depth):
+        self.depth = depth
         protection_count = read_int(file, 2)
 
         for _ in range(protection_count):

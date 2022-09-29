@@ -13,6 +13,7 @@ class SyncSampleBox(FullBox):
         self.entries = []
 
     def read(self, file, depth):
+        self.depth = depth
         entry_count = read_int(file, 4)
         for _ in range(entry_count):
             entry = {}
