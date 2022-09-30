@@ -84,10 +84,10 @@
    2873:--iloc(size=864, start=2873, end=3737)
    3737:mdat(size=1158355, start=3737, end=1162092)
 ISOBaseMediaFile
-  ftyp: <HeifER.ftyp.FileTypeBox object at 0x7fba35f8f670>  majar_brand: heic
+  ftyp: <HeifER.ftyp.FileTypeBox object at 0x7fe26e7c46d0>  majar_brand: heic
     minor_version: 0
     compatible_brands: mif1,MiHE,MiPr,miaf,MiHB,heic,
-  meta:<HeifER.meta.MetaBox object at 0x7fba35f8f6d0>
+  meta:<HeifER.meta.MetaBox object at 0x7fe26e7c4cd0>
   moov: None
-  mdat: <HeifER.mdat.MediaDataBox object at 0x7fba35f8f610>
+  mdat: <HeifER.mdat.MediaDataBox object at 0x7fe26e7c4610>
   

@@ -3,6 +3,7 @@ from .box import indent
 from .box import read_box
 import os
 from . import output
+import hashlib
 
 class MediaFile(object):
 
@@ -47,14 +48,22 @@ class MediaFile(object):
             output.close()
 
 
-    def extract(self,input_filename,output_filename,start,end):
+    def extract(self,input_filename,output_filename,start,end,hash=False):
         outfile = open(output_filename,'wb')
         infile = open(input_filename, 'rb')
         try:
             filelength = os.stat(infile.name).st_size  # get the length of the file
             if (start >= 0) and start < end <= filelength:
                 infile.seek(start)
-                outfile.write(infile.read(end-start))
+                data = infile.read(end-start)
+                outfile.write(data)
+
+                if hash:
+                    outhashfile = open(output_filename + '.hash','wt')
+                    hashResult = hashlib.md5(data).hexdigest()
+                    outhashfile.write(hashResult)
+                    outhashfile.close()
+
         except:
             pass
 

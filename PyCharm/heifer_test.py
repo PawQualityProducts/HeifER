@@ -7,12 +7,13 @@ arg_map = sys.argv.index('-map')  if '-map' in sys.argv[2:] else 0              
 arg_extract_binary = sys.argv.index('-exb') if '-exb' in sys.argv[2:] else 0    #extract binary, next arg is output filename
 arg_extract_text = sys.argv.index('-ext') if '-ext' in sys.argv[2:] else 0      #extract text, next arg is output filename
 arg_from = sys.argv.index('-start') if '-start' in sys.argv[2:] else 0          #extract start byte
-arg_to = sys.argv.index('-end') if '-end' in sys.argv[2:] else 0               #extract end byte
-arg_meta = sys.argv.index('-exm') if '-exm' in sys.argv[2:] else 0             #extract metadata metadata
-arg_images = sys.argv.index('-exi') if '-exi' in sys.argv[2:] else 0           #extract images
-arg_help = sys.argv.index('-h') if '-h' in sys.argv[1:] else 0                 #help
-arg_echo = sys.argv.index('-echo') if '-echo' in sys.argv[2:] else 0           #echo on|off
-arg_extract_auto = sys.argv.index('-exa') if '-exa' in sys.argv[2:] else 0             #extract auto
+arg_to = sys.argv.index('-end') if '-end' in sys.argv[2:] else 0                #extract end byte
+arg_meta = sys.argv.index('-exm') if '-exm' in sys.argv[2:] else 0              #extract metadata metadata
+arg_images = sys.argv.index('-exi') if '-exi' in sys.argv[2:] else 0            #extract images
+arg_help = sys.argv.index('-h') if '-h' in sys.argv[1:] else 0                  #help
+arg_echo = sys.argv.index('-echo') if '-echo' in sys.argv[2:] else 0            #echo on|off
+arg_extract_auto = sys.argv.index('-exa') if '-exa' in sys.argv[2:] else 0      #extract auto
+arg_hash = sys.argv.index('-hash') if '-hash' in sys.argv[2:] else 0            #calculate hashes output to file
 
 output.echo_on() if arg_echo > 0 and str(sys.argv[arg_echo+1]).lower() == 'on' else output.echo_off()
 
@@ -30,6 +31,11 @@ def parseExtractArgs(extractIndex):
         raise ValueError('Format : {0} type start end'.format(sys.argv[extractIndex]))
 
 #sample apple iphone file
+if arg_hash:
+    hash = True
+else:
+    hash = False
+
 if arg_infile and arg_infile[0] != '-':
     infile = arg_infile
     if arg_map > 0:
@@ -38,12 +44,12 @@ if arg_infile and arg_infile[0] != '-':
     if arg_extract_binary > 0:
         extype,exstart,exend = parseExtractArgs(arg_extract_binary)
         outfile = infile + '.' + extype + '.bin'
-        media_file.extract(infile,outfile,exstart,exend)
+        media_file.extract(infile,outfile,exstart,exend,hash)
 
     if arg_extract_text > 0:
         extype,exstart,exend = parseExtractArgs(arg_extract_text)
         outfile = infile + '.' + extype + '.txt'
-        media_file.extract(infile,outfile,exstart,exend)
+        media_file.extract(infile,outfile,exstart,exend,hash)
 
 
 #media_file.read('IMG_3802.HEIC') #ok
