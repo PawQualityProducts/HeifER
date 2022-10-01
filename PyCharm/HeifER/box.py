@@ -16,6 +16,9 @@ class Box(object):
         self.size = size
         self.largesize = largesize
         self.location = location
+        self.children = []
+        self.data = None
+        self.hash = None
 
     def __repr__(self):
         srep = super().__repr__()
@@ -47,7 +50,7 @@ class Box(object):
         current_position = file.tell()
         read_size = self.get_box_size()
         while read_size > 0:
-            box = read_box(file,depth+1)
+            box = read_box(file,depth)
             if not box:
                 #type = read_string(file,4)
                 #print ('{0} couldn\'t read box of size={1}'.format(file.tell(), read_size))
@@ -55,10 +58,22 @@ class Box(object):
                 break
 
             setattr(self, box.box_type, box)
+            self.children.append(box)
+
             read_size -= box.size
 
-    def write(self, file):
+    def write(self, file, depth=0, text=True, binary=False, hash=False):
         """write box to file"""
+        if text:
+            pad = " " * depth
+            file.write("{0}Type={1}\n".format(pad,self.box_type))
+            pad += 1
+            file.write("{0}Size={1}\n".format(pad,self.get_box_size_with_header()))
+            file.write("{0}Location={1}\n".format(pad,self.location))
+            file.write("{0}Children={1}\n".format(pad,len(self.children)))
+
+            for child in self.children:
+                write(self,file,depth+1,text,binary,hash)
         pass
 
     def output(self):
@@ -162,9 +177,9 @@ def read_box(file,depth=0):
                 box.__init__(size=box_size, version=version, flags=flags, largesize=largesize, location=current_position)
             else:
                 box.__init__(size=box_size, largesize=largesize, location=current_position)
+
             if box.get_box_size():
                 box.read(file, depth+1)
-
 #                output.writeln(box)
             break                       #NOTE: fails to here as iref box not defined
         else:

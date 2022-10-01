@@ -29,8 +29,12 @@ class ItemInformationBox(FullBox):
             box = read_box(file, depth+1)
             if not box:
                 break
+
             if box.box_type == 'infe':
                 self.item_infos.append(box)
+
+            self.children.append(box)
+        pass
 
 class ItemInfomationEntry(FullBox):
     box_type = 'infe'

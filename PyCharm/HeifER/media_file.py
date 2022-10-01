@@ -12,6 +12,9 @@ class MediaFile(object):
         self.mdats = []
         self.meta = None
         self.moov = None
+        self.children = []
+        self.filename = None
+        self.filelength = 0;
 
     def __repr__(self):
         rep = 'ftyp: ' + self.ftyp.__repr__() + '\n'
@@ -21,30 +24,38 @@ class MediaFile(object):
             rep += 'mdat: ' + mdat.__repr__() + '\n'
         return 'ISOBaseMediaFile\n' + indent(rep)
 
-    def read(self, file_name):
-        output.open(file_name + '.map')
+    def read(self, filename):
+        self.filename = filename
+        self.filelength = os.stat(filename).st_size  # get the length of the file
 
-        file = open(file_name, 'rb')
+        #open the map file for output
+        output.open(filename + '.map')
+        infile = open(filename, 'rb')
         try:
-            filelength = os.stat(file.name).st_size     # get the length of the file
-            setattr(file,'length', filelength)          # add the length attribute and set it to the file length
-            print("parsing {0}, size={1}".format(file.name, file.length))
-            while file.tell() < file.length:
-                box = read_box(file,0)
+            setattr(infile,'length', self.filelength)          # add the length attribute and set it to the file length
+            print("parsing {0}, size={1}".format(self.filename, self.filelength))
+            while infile.tell() < infile.length:
+                box = read_box(infile,0)
                 if not box:
                     break
 
                 if box.box_type == 'mdat':
                     # appends to local mdat
                     self.mdats.append(box)
+                    self.children.append(box)
                 else:
                     # sets local ftyp, meta, mov
                     setattr(self, box.box_type, box)
+                    self.children.append(box)
 
             summary = self.__repr__()
             output.write(summary)
+        except:
+            #if not successfully parsed, reset filename and length
+            self.filename = None
+            self.filelength = 0
         finally:
-            file.close()
+            infile.close()
             output.close()
 
 
@@ -63,11 +74,39 @@ class MediaFile(object):
                     hashResult = hashlib.md5(data).hexdigest()
                     outhashfile.write(hashResult)
                     outhashfile.close()
-
         except:
             pass
 
         finally:
             outfile.close()
             infile.close()
+
+
+    def __GetBoxBinaryDataFromFile(self,infile,box):
+        try:
+            start = box.location
+            length = box.get_box_size_with_header()
+
+            #get the binary data from the file and calculate the hash
+            infile.seek(start)
+            box.data = infile.read(length)
+            box.hash = hashlib.md5(box.data).hexdigest()
+
+        except Exception as x:
+            pass
+
+    def __AddBoxBinaryData(self,infile,box):
+        self.__GetBoxBinaryDataFromFile(infile, box)
+        for child in box.children:
+            self.__AddBoxBinaryData(infile,child)
+
+    def AddBinaryData(self):
+        if self.filename != None:
+            infile = open(self.filename, 'rb')
+            for box in self.children:
+                self.__AddBoxBinaryData(infile,box)
+        else:
+            print("Meadia file must be parsed")
+
+        pass
 

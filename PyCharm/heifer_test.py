@@ -38,8 +38,8 @@ else:
 
 if arg_infile and arg_infile[0] != '-':
     infile = arg_infile
-    if arg_map > 0:
-        media_file.read(infile)
+    media_file.read(infile)
+    media_file.AddBinaryData()
 
     if arg_extract_binary > 0:
         extype,exstart,exend = parseExtractArgs(arg_extract_binary)
