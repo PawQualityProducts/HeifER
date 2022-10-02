@@ -2,7 +2,7 @@
 from .box import indent
 from .box import read_box
 import os
-from . import output
+from . import log
 import hashlib
 
 class MediaFile(object):
@@ -28,8 +28,6 @@ class MediaFile(object):
         self.filename = filename
         self.filelength = os.stat(filename).st_size  # get the length of the file
 
-        #open the map file for output
-        output.open(filename + '.map')
         infile = open(filename, 'rb')
         try:
             setattr(infile,'length', self.filelength)          # add the length attribute and set it to the file length
@@ -49,15 +47,14 @@ class MediaFile(object):
                     self.children.append(box)
 
             summary = self.__repr__()
-            output.write(summary)
-        except:
+            log.writeln(summary)
+        except Exception as x:
             #if not successfully parsed, reset filename and length
             self.filename = None
             self.filelength = 0
+            log.writeln(x)
         finally:
             infile.close()
-            output.close()
-
 
     def extract(self,input_filename,output_filename,start,end,hash=False):
         outfile = open(output_filename,'wb')
@@ -84,7 +81,7 @@ class MediaFile(object):
 
     def __GetBoxBinaryDataFromFile(self,infile,box):
         try:
-            start = box.location
+            start = box.startByte
             length = box.get_box_size_with_header()
 
             #get the binary data from the file and calculate the hash
@@ -92,7 +89,11 @@ class MediaFile(object):
             box.data = infile.read(length)
             box.hash = hashlib.md5(box.data).hexdigest()
 
+            log.writeln("{0}:{1}{2} Hash={3}".format(str(start).rjust(6), "-" * box.depth, box.box_type, box.hash))
+            #log.writeln("{0}{1}:{2}{3} Hash={4}".format(" " * 6,box.location,"-" * box.depth, box.box_type, box.hash))
         except Exception as x:
+            log.writeln(str(x))
+            print(str(x))
             pass
 
     def __AddBoxBinaryData(self,infile,box):
@@ -100,7 +101,7 @@ class MediaFile(object):
         for child in box.children:
             self.__AddBoxBinaryData(infile,child)
 
-    def AddBinaryData(self):
+    def ProcessBinaryDataAndHashes(self):
         if self.filename != None:
             infile = open(self.filename, 'rb')
             for box in self.children:
@@ -109,4 +110,47 @@ class MediaFile(object):
             print("Meadia file must be parsed")
 
         pass
+
+
+    def __write(self,outfile,box,depth,writeText,writeData):
+        box.write(outfile,depth,writeText=writeText,writeData=writeData,recurse=False)
+        for childBox in box.children:
+            self.__write(outfile,childBox,depth+1,writeText,writeData)
+
+    def writeall(self, filename):
+        log.writeln("write all to {0}".format(filename + ".txt"))
+        outfile = open(filename + ".txt",'w')
+        for box in self.children:
+            self.__write(outfile,box,0,True,False)
+        log.writeln("write all complete")
+        outfile.close()
+
+
+    def __exportBox(self,box,parentdir,index=0):
+        boxdir = os.path.join(parentdir, str(index).zfill(3) + "_" + box.box_type)
+        os.makedirs(boxdir)
+        txtfilename = os.path.join(boxdir,str(index).zfill(3) + "_" + box.box_type + ".txt")
+        outfile = open(txtfilename,"w")
+        box.writeText(outfile,0)
+        outfile.close
+        datafilename = os.path.join(boxdir,str(index).zfill(3) + "_" + box.box_type + ".bin")
+        outfile = open(datafilename,"wb")
+        box.writeData(outfile)
+        outfile.close()
+        index = 0
+        for child in box.children:
+            self.__exportBox(child,boxdir,index)
+            index += 1
+
+    def exportAll(self,parentdir):
+        filepath = os.path.join(parentdir, self.filename + ".export")
+        os.makedirs(filepath)
+        print(parentdir)
+        print(filepath)
+        filename = os.path.join(filepath,self.filename + ".txt")
+        outfile = open(filename,"w")
+        outfile.write("Export {0}\n".format(filename))
+        outfile.close()
+        for child in self.children:
+            self.__exportBox(child,filepath)
 

@@ -10,8 +10,8 @@ class ChunkOffsetBox(FullBox):
     is_mandatory = True
     quantity = Quantity.EXACTLY_ONE
 
-    def __init__(self, size, version, flags, largesize, location):
-        super().__init__(size=size, version=version, flags=flags, largesize=largesize, location=location)
+    def __init__(self, size, version, flags, largesize, startByte):
+        super().__init__(size=size, version=version, flags=flags, largesize=largesize, startByte=startByte)
         self.entries = []
 
     def read(self, file, depth):
@@ -22,3 +22,9 @@ class ChunkOffsetBox(FullBox):
             entry = {}
             entry['chunk_offset'] = read_int(file, 4)
             self.entries.append(entry)
+            
+    def writeText(self, file, depth=0):
+        super().writeText(file, depth)
+        pad = " " * depth
+        file.write("{0} TODO: Implement writeText for {1}\n".format(pad, self.box_type))
+        

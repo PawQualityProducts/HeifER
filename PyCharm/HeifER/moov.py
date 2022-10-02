@@ -17,8 +17,8 @@ class MovieHeaderBox(FullBox):
     is_mandatory = True
     quantity = Quantity.EXACTLY_ONE
 
-    def __init__(self, size, version, flags, largesize, location):
-        super().__init__(size=size, version=version, flags=flags, largesize=largesize, location=location)
+    def __init__(self, size, version, flags, largesize, startByte):
+        super().__init__(size=size, version=version, flags=flags, largesize=largesize, startByte=startByte)
         self.creation_time = None
         self.modification_time = None
         self.timescale = None
@@ -48,3 +48,8 @@ class MovieHeaderBox(FullBox):
         for _ in range(6):
             self.pre_defined.append(read_int(file, 4))
         self.next_track_id = read_int(file, 4)
+
+    def writeText(self, file, depth=0):
+        super().writeText(file, depth)
+        pad = " " * depth
+        file.write("{0} TODO: Implement writeText for {1}\n".format(pad, self.box_type))

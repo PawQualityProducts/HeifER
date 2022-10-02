@@ -9,4 +9,6 @@ class ccst(Box):
     def read(self, file, depth):
         self.depth = depth
         pad = '-' * depth
-        print(pad + file.read(self.get_box_size()))
+        rawdata = file.read(self.get_box_size())
+        #TODO: write log entry here
+        print(rawdata)

@@ -24,13 +24,19 @@ class OriginalFormatBox(Box):
         self.depth = depth
         self.data_format = read_int(file, 4)
 
+    def writeText(self, file, depth=0):
+        super().writeText(file, depth)
+        pad = " " * depth
+        file.write("{0} TODO: Implement writeText for {1}\n".format(pad, self.box_type))
+
+
 class SchemeTypeBox(FullBox):
     box_type = 'schm'
     is_mandatory = False
     quantity = Quantity.ZERO_OR_ONE
 
-    def __init__(self, size, largesize, location):
-        super().__init__(size=size, largesize=largesize, location=location)
+    def __init__(self, size, largesize, startByte):
+        super().__init__(size=size, largesize=largesize, startByte=startByte)
         self.scheme_type = None
         self.scheme_version = None
         self.scheme_uri = None
@@ -41,6 +47,12 @@ class SchemeTypeBox(FullBox):
         self.scheme_version = read_int(file, 4)
         if self.flags & 0b1:
             self.scheme_uri = read_string(file)
+
+    def writeText(self, file, depth=0):
+        super().writeText(file, depth)
+        pad = " " * depth
+        file.write("{0} TODO: Implement writeText for {1}\n".format(pad, self.box_type))
+
 
 class SchemeInformationBox(Box):
     box_type = 'schi'

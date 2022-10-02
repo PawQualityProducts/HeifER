@@ -5,7 +5,7 @@ from .box import Quantity
 from .box import read_box
 from .box import read_int
 from .box import read_string
-from . import output
+from . import log
 
 padspaces = 7
 
@@ -15,8 +15,8 @@ class ItemReferenceBox(FullBox):
     quantity = Quantity.ZERO_OR_ONE
     references = []
 
-    def __init__(self, size, version, flags, largesize, location):
-        super().__init__(size, version, flags, largesize, location=location)
+    def __init__(self, size, version, flags, largesize, startByte):
+        super().__init__(size, version, flags, largesize, startByte=startByte)
 
     def read(self, file, depth):
         self.depth = depth
@@ -33,13 +33,12 @@ class ItemReferenceBox(FullBox):
             self.references.append(refBox)
             size += refBox.size
             pad = "-" * depth
-            output.writeln("{0}:{1}{2}(size={3}, start={4}, end={5})".format(str(current_position).rjust(padspaces), pad, type, refBox.size, current_position, current_position + refBox.size))
-            #print("{0}:{1}{2}(size={3}, start={4}, end={5})".format(str(current_position).rjust(padspaces), pad, type, refBox.size, current_position, current_position + refBox.size))
+            log.writeln("{0}:{1}{2}(size={3}, start={4}, end={5})".format(str(current_position).rjust(padspaces), pad, type, refBox.size, current_position, current_position + refBox.size))
 
 
 class SingleItemTypeReferenceBox(Box):
-    def __init__(self, type, size, location):
-        super().__init__(size=size, location=location)
+    def __init__(self, type, size, startByte):
+        super().__init__(size=size, startByte=startByte)
         self.box_type = type
         self.references = []
 
@@ -50,9 +49,15 @@ class SingleItemTypeReferenceBox(Box):
         for ref in range(self.reference_count):
             self.references.append(read_int(file, 2))
 
+    def writeText(self, file, depth=0):
+        super().writeText(file, depth)
+        pad = " " * depth
+        file.write("{0} TODO: Implement writeText for {1}\n".format(pad, self.box_type))
+
+
 class SingleItemTypeReferenceBoxLarge(Box):
-    def __init__(self, type, size, largesize, location):
-        super().__init__(size, largesize, location)
+    def __init__(self, type, size, largesize, startByte):
+        super().__init__(size, largesize, startByte)
         self.box_type = type
         self.references = []
 
@@ -62,4 +67,10 @@ class SingleItemTypeReferenceBoxLarge(Box):
         self.reference_count = read_int(file, 2)
         for ref in range(self.reference_count):
             self.references.append(read_int(file, 4))
+
+    def writeText(self, file, depth=0):
+        super().writeText(file, depth)
+        pad = " " * depth
+        file.write("{0} TODO: Implement writeText for {1}\n".format(pad, self.box_type))
+
 

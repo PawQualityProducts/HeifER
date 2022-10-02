@@ -7,8 +7,8 @@ class TimeToSampleBox(FullBox):
     box_type = 'stts'
     is_mandatory = True
 
-    def __init__(self, size, version, flags, largesize, location):
-        super().__init__(size=size, version=version, flags=flags, largesize=largesize)
+    def __init__(self, size, version, flags, largesize, startByte):
+        super().__init__(size=size, version=version, flags=flags, startByte=startByte)
         self.entry_count = None
         self.entries = []
 
@@ -20,3 +20,8 @@ class TimeToSampleBox(FullBox):
             entry['sample_count'] = read_int(file, 4)
             entry['sample_delta'] = read_int(file, 4)
             self.entries.append(entry)
+
+    def writeText(self, file, depth=0):
+        super().writeText(file, depth)
+        pad = " " * depth
+        file.write("{0} TODO: Implement writeText for {1}\n".format(pad, self.box_type))

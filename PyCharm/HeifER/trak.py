@@ -16,8 +16,8 @@ class TrackHeaderBox(FullBox):
     is_mandatory = True
     quantity = Quantity.EXACTLY_ONE
 
-    def __init__(self, size, version, flags, largesize, location):
-        super().__init__(size=size, version=version, flags=flags, largesize=largesize, location=location)
+    def __init__(self, size, version, flags, largesize, startByte):
+        super().__init__(size=size, version=version, flags=flags, largesize=largesize, startByte=startByte)
         self.creation_time = None
         self.modification_time = None
         self.track_id = None
@@ -50,3 +50,9 @@ class TrackHeaderBox(FullBox):
             self.matrix.append(read_int(file, 4))
         self.width = read_int(file, 4)
         self.height = read_int(file, 4)
+
+    def writeText(self, file, depth=0):
+        super().writeText(file, depth)
+        pad = " " * depth
+        file.write("{0} TODO: Implement writeText for {1}\n".format(pad, self.box_type))
+        

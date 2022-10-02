@@ -18,8 +18,8 @@ class DataReferenceBox(FullBox):
     is_mandatry = True
     quantity = Quantity.EXACTLY_ONE
 
-    def __init__(self, size, version, flags, largesize, location):
-        super().__init__(size=size, version=version, flags=flags, largesize=largesize, location=location)
+    def __init__(self, size, version, flags, largesize, startByte):
+        super().__init__(size=size, version=version, flags=flags, largesize=largesize, startByte=startByte)
         self.data_entry = []
 
     def read(self, file, depth):
@@ -31,30 +31,48 @@ class DataReferenceBox(FullBox):
                 break
             self.data_entry.append(box)
 
+    def writeText(self, file, depth=0):
+        super().writeText(file,depth)
+        pad = " " * depth
+        file.write(" {0}Entries={1}\n".format(pad, len(self.data_entry)))
+        for entry in self.data_entry:
+            entry.writeText(file,depth+2)
+
 
 class DataEntryUrlBox(FullBox):
     box_type = 'url '
     is_mandatry = True
 
-    def __init__(self, size, version, flags, largesize, location):
-        super().__init__(size=size, version=version, flags=flags, largesize=largesize, location=location)
+    def __init__(self, size, version, flags, largesize, startByte):
+        super().__init__(size=size, version=version, flags=flags, largesize=largesize, startByte=startByte)
         self.location = None
 
     def read(self, file, depth):
         self.depth = depth
         self.location = read_string(file)
+
+    def writeText(self, file, depth=0):
+        super().writeText(file,depth)
+        pad = " " * depth
+        file.write("{0} Location={1}\n".format(pad, self.location))
 
 
 class DataEntryUrnBox(FullBox):
     box_type = 'urn '
     is_mandatry = True
 
-    def __init__(self, size, version, flags, largesize, location):
-        super().__init__(size=size, version=version, flags=flags, largesize=largesize, location=location)
+    def __init__(self, size, version, flags, largesize, startByte):
+        super().__init__(size=size, version=version, flags=flags, largesize=largesize, startByte=startByte)
         self.name = None
-        self.location = None
+        self.startByte = None
 
     def read(self, file, depth):
         self.depth = depth
         self.name = read_string(file)
         self.location = read_string(file)
+
+    def writeText(self, file, depth=0):
+        super().writeText(file,depth)
+        pad = " " * depth
+        file.write(" {0} Name={1}\n".format(pad, self.name))
+        file.write(" {0} Location={1}\n".format(pad, self.location))

@@ -12,26 +12,35 @@ class HEVCSampleEntry(VisualSampleEntry):
     is_mandatry = True
     quantity = Quantity.ONE_OR_MORE
 
-    def __init__(self, size, largesize, location):
-        super().__init__(size=size, largesize=largesize, location=location)
+    def __init__(self, size, largesize, startByte):
+        super().__init__(size=size, largesize=largesize, startByte=startByte)
         self.config = None
 
     def read(self, file, depth):
         super().read(file, depth)
         self.config = read_box(file, depth + 1)
 
+    def writeText(self, file, depth=0):
+        super().writeText(file,depth)
+        pad = " " * depth
+        file.write(" {0} config={1}\n".format(pad, self.config))
+
 
 class HEVCConfigurationBox(Box):
     box_type = 'hvcC'
 
-    def __init__(self, size, largesize, location):
-        super().__init__(size=size, largesize=largesize, location=location)
+    def __init__(self, size, largesize, startByte):
+        super().__init__(size=size, largesize=largesize, startByte=startByte)
         self.hevc_config = None
 
     def read(self, file, depth):
         self.depth = depth
         self.hevc_config = HEVCDecoderConfigurationRecord()
         self.hevc_config.read(file,depth+1)
+
+    def writeText(self, file, depth=0):
+        super().writeText(file,depth)
+        self.hevc_config.writeText(file,depth+1)
 
 
 class HEVCDecoderConfigurationRecord(object):
@@ -164,3 +173,29 @@ class HEVCDecoderConfigurationRecord(object):
             item['nal_units'].append(nal_unit)
         return item
 
+
+    def writeText(self, file, depth=0):
+        #super().writeText(file,depth)
+        pad = " " * depth
+        file.write("{0} configuration_version={1}\n".format(pad, self.configuration_version))
+        file.write("{0} general_profile_space={1}\n".format(pad, self.general_profile_space))
+        file.write("{0} general_tier_flag={1}\n".format(pad, self.general_tier_flag))
+        file.write("{0} general_profile_idc={1}\n".format(pad, self.general_profile_idc))
+        file.write("{0} general_profile_compat_flags={1}\n".format(pad, self.general_profile_compat_flags))
+        file.write("{0} general_const_indicator_flags={1}\n".format(pad, self.general_const_indicator_flags))
+        file.write("{0} reserved1={1}\n".format(pad, self.reserved1))
+        file.write("{0} min_spatial_segmentation_idc={1}\n".format(pad, self.min_spatial_segmentation_idc))
+        file.write("{0} reserved2={1}\n".format(pad, self.reserved2))
+        file.write("{0} parallelism_type={1}\n".format(pad, self.parallelism_type))
+        file.write("{0} reserved3={1}\n".format(pad, self.reserved3))
+        file.write("{0} chroma_format={1}\n".format(pad, self.chroma_format))
+        file.write("{0} bit_depth_luma_minus_8={1}\n".format(pad, self.bit_depth_luma_minus_8))
+        file.write("{0} bit_depth_chroma_minus_8={1}\n".format(pad, self.bit_depth_chroma_minus_8))
+        file.write("{0} avg_frame_rate={1}\n".format(pad, self.avg_frame_rate))
+        file.write("{0} constant_frame_rate={1}\n".format(pad, self.constant_frame_rate))
+        file.write("{0} num_temporal_layers={1}\n".format(pad, self.num_temporal_layers))
+        file.write("{0} temporal_id_nested={1}\n".format(pad, self.temporal_id_nested))
+        file.write("{0} length_size_minus_1={1}\n".format(pad, self.length_size_minus_1))
+        file.write("{0} num_of_arrays={1}\n".format(pad, self.num_of_arrays))
+
+        #TODO: write array

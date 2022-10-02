@@ -10,8 +10,8 @@ class ItemInformationBox(FullBox):
     box_type = 'iinf'
     is_mandatory = False
 
-    def __init__(self, size, version, flags, largesize, location):
-        super().__init__(size=size, version=version, flags=flags, largesize=largesize, location=location)
+    def __init__(self, size, version, flags, largesize, startByte):
+        super().__init__(size=size, version=version, flags=flags, largesize=largesize, startByte=startByte)
         self.item_infos = []
 
     def __repr__(self):
@@ -36,11 +36,19 @@ class ItemInformationBox(FullBox):
             self.children.append(box)
         pass
 
+    def writeText(self, file, depth=0):
+        super().writeText(file, depth)
+        pad = " " * depth
+        file.write("{0} Item Info Entries={1}\n".format(pad, len(self.item_infos)))
+        for item_info in self.item_infos:
+            item_info.write(file,depth+1)
+
+
 class ItemInfomationEntry(FullBox):
     box_type = 'infe'
 
-    def __init__(self, size, version, flags, largesize, location):
-        super().__init__(size=size, version=version, flags=flags, largesize=largesize, location=location)
+    def __init__(self, size, version, flags, largesize, startByte):
+        super().__init__(size=size, version=version, flags=flags, largesize=largesize, startByte=startByte)
         self.item_id = None
         self.item_protection_index = None
         self.item_name = None
@@ -88,6 +96,20 @@ class ItemInfomationEntry(FullBox):
             elif self.item_type == 'uri ':
                 self.uri_type = read_string(file)
 
+    def writeText(self, file, depth=0):
+        super().writeText(file, depth)
+        pad = " " * depth
+        file.write("{0} item_id={1}\n".format(pad, self.item_id))
+        file.write("{0} item_protection_index={1}\n".format(pad, self.item_protection_index))
+        file.write("{0} item_name={1}\n".format(pad, self.item_name))
+        file.write("{0} item_extension={1}\n".format(pad, self.item_extension))
+        file.write("{0} item_type={1}\n".format(pad, self.item_type))
+        file.write("{0} content_type={1}\n".format(pad, self.content_type))
+        file.write("{0} content_encoding={1}\n".format(pad, self.content_encoding))
+        file.write("{0} uri_type={1}\n".format(pad, self.uri_type))
+
+
+
 class FDItemInfoExtension(object):
     def __init__(self):
         self.content_location = None
@@ -106,5 +128,18 @@ class FDItemInfoExtension(object):
         for _ in range(entry_count):
             group_id = read_int(file, 4)
             self.group_ids.append(group_id)
+
+
+    def writeText(self, file, depth=0):
+        super().writeText(file, depth)
+        pad = " " * depth
+        file.write("{0} content_location={1}\n".format(pad, self.content_location))
+        file.write("{0} content_md5={1}\n".format(pad, self.content_md5))
+        file.write("{0} content_length={1}\n".format(pad, self.content_length))
+        file.write("{0} transfer_length={1}\n".format(pad, self.transfer_length))
+        file.write("{0} group_ids:\n".format(pad))
+        for groupid in self.group_ids:
+            file.write("{0} group_id={1}\n".format(pad, groupid))
+
 
 #TODO: add iref here...

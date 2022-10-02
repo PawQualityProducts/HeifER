@@ -12,8 +12,8 @@ class FileTypeBox(Box):
     quantity = Quantity.EXACTLY_ONE
 
 
-    def __init__(self, size, largesize, location):
-        super().__init__(size=size, largesize=largesize, location=location)
+    def __init__(self, size, largesize, startByte):
+        super().__init__(size=size, largesize=largesize, startByte=startByte)
         self.majar_brand = None
         self.minor_version = None
         self.compatible_brands = []
@@ -34,3 +34,13 @@ class FileTypeBox(Box):
         for _ in range(num_compatible_brands):
             compat_brand = read_string(file, 4)
             self.compatible_brands.append(compat_brand)
+            
+    def writeText(self, file, depth=0):
+        super().writeText(file,depth)
+        pad = " " * depth
+        file.write("{0} majar_brand={1}\n".format(pad, self.majar_brand))
+        file.write("{0} minor_version={1}\n".format(pad, self.minor_version))
+        file.write("{0} Compatible Brands({1}):\n".format(pad,len(self.compatible_brands)))
+        for compatible_brand in self.compatible_brands:
+            file.write(" {0} compatible_brand={1}\n".format(pad, compatible_brand))
+

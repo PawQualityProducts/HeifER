@@ -17,8 +17,8 @@ class SampleDescriptionBox(FullBox):
     is_mandatory = True
     quantity = Quantity.EXACTLY_ONE    
     
-    def __init__(self, size, version, flags, largesize, location):
-        super().__init__(size=size, version=version, flags=flags, largesize=largesize, location=location)
+    def __init__(self, size, version, flags, largesize, startByte):
+        super().__init__(size=size, version=version, flags=flags, largesize=largesize, startByte=startByte)
         #self.handler_type = handler_type
         self.samples = []
 
@@ -31,9 +31,15 @@ class SampleDescriptionBox(FullBox):
                 break
             self.samples.append(box)
 
+    def writeText(self, file, depth=0):
+        super().writeText(file, depth)
+        pad = " " * depth
+        file.write("{0} TODO: Implement writeText for {1}\n".format(pad, self.box_type))
+
+
 class SampleEntry(Box):
-    def __init__(self, size, largesize, location):
-        super().__init__(size=size, largesize=largesize, location=location)
+    def __init__(self, size, largesize, startByte):
+        super().__init__(size=size, largesize=largesize, startByte=startByte)
         self.reserveds = []
         self.data_reference_index = None
 
@@ -51,14 +57,19 @@ class SampleEntry(Box):
             self.reserveds.append(reserved)
         self.data_reference_index = read_int(file, 2)
 
+    def writeText(self, file, depth=0):
+        super().writeText(file, depth)
+        pad = " " * depth
+        file.write("{0} TODO: Implement writeText for {1}\n".format(pad, self.box_type))
+
 
 class HintSampleEntry(SampleEntry):
     """Hint Sample Entry
     """
     box_type = 'hint'
 
-    def __init__(self, size, largesize, location):
-        super().__init__(size=size, largesize=largesize, location=location)
+    def __init__(self, size, largesize, startByte):
+        super().__init__(size=size, largesize=largesize, startByte=startByte)
         self.data = []
 
     def read(self, file, depth):
@@ -66,13 +77,19 @@ class HintSampleEntry(SampleEntry):
         box_size = self.get_box_size()
         self.data = file.read(box_size)
 
+    def writeText(self, file, depth=0):
+        super().writeText(file, depth)
+        pad = " " * depth
+        file.write("{0} TODO: Implement writeText for {1}\n".format(pad, self.box_type))
+
+
 class VisualSampleEntry(SampleEntry):
     """Visual Sample Entry
     """
     box_type = 'vide'
 
-    def __init__(self, size, largesize, location):
-        super().__init__(size=size, largesize=largesize, location=location)
+    def __init__(self, size, largesize, startByte):
+        super().__init__(size=size, largesize=largesize, startByte=startByte)
         self.pre_defined1 = None
         self.reserved1 = None
         self.pre_defined2 = []
@@ -102,12 +119,18 @@ class VisualSampleEntry(SampleEntry):
         self.depth = read_int(file, 2)
         self.pre_defined3 = read_int(file, 2)
 
+    def writeText(self, file, depth=0):
+        super().writeText(file, depth)
+        pad = " " * depth
+        file.write("{0} TODO: Implement writeText for {1}\n".format(pad, self.box_type))
+
+
 class AudioSampleEntry(SampleEntry):
     """Audio Sample Entry"""
     box_type = 'soun'
 
-    def __init__(self, size, largesize, location):
-        super().__init__(size=size, largesize=largesize, location=location)
+    def __init__(self, size, largesize, startByte):
+        super().__init__(size=size, largesize=largesize, startByte=startByte)
         self.reserved1 = []
         self.channelcount = None
         self.samplesize = None
@@ -126,13 +149,18 @@ class AudioSampleEntry(SampleEntry):
             self.reserved2.append(read_int(file, 2))
         self.samperate = read_int(file, 4)
 
+    def writeText(self, file, depth=0):
+        super().writeText(file, depth)
+        pad = " " * depth
+        file.write("{0} TODO: Implement writeText for {1}\n".format(pad, self.box_type))
+
 
 class BitRateBox(Box):
     """Bit Rate Box"""
     box_type = 'btrt'
 
-    def __init__(self, size, largesize, location):
-        super().__init__(size=size, largesize=largesize, location=location)
+    def __init__(self, size, largesize, startByte):
+        super().__init__(size=size, largesize=largesize, startByte=startByte)
         self.buffer_size_db = None
         self.max_bitrate = None
         self.avg_bitrate = None
@@ -142,3 +170,10 @@ class BitRateBox(Box):
         self.buffer_size_db = read_int(file, 4)
         self.max_bitrate = read_int(file, 4)
         self.avg_bitrate = read_int(file, 4)
+
+    def writeText(self, file, depth=0):
+        super().writeText(file, depth)
+        pad = " " * depth
+        file.write("{0} TODO: Implement writeText for {1}\n".format(pad, self.box_type))
+
+

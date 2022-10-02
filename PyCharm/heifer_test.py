@@ -1,6 +1,6 @@
 import HeifER
-from HeifER import output
 import sys
+from HeifER import log
 
 arg_infile = sys.argv[1]             #input heif file, next arg is infile name
 arg_map = sys.argv.index('-map')  if '-map' in sys.argv[2:] else 0              #output map file, next arg is output file name
@@ -15,9 +15,6 @@ arg_echo = sys.argv.index('-echo') if '-echo' in sys.argv[2:] else 0            
 arg_extract_auto = sys.argv.index('-exa') if '-exa' in sys.argv[2:] else 0      #extract auto
 arg_hash = sys.argv.index('-hash') if '-hash' in sys.argv[2:] else 0            #calculate hashes output to file
 
-output.echo_on() if arg_echo > 0 and str(sys.argv[arg_echo+1]).lower() == 'on' else output.echo_off()
-
-output.set_detail('BoxDetail')
 
 media_file = HeifER.MediaFile()
 
@@ -38,8 +35,28 @@ else:
 
 if arg_infile and arg_infile[0] != '-':
     infile = arg_infile
+
+    log.open(infile+".log")
+    log.writeln("Parsing file ------------")
     media_file.read(infile)
-    media_file.AddBinaryData()
+    log.writeln("Parse Complete --------")
+
+    log.writeln("")
+    log.writeln("Processing Binary Data and Hashes --------------")
+    media_file.ProcessBinaryDataAndHashes()
+    log.writeln("Binary Data and Hash processing complete -------")
+
+    try:
+        media_file.writeall(infile)
+    except Exception as x:
+        print(str(x))
+
+    try:
+        media_file.exportAll("/home/kali")
+    except Exception as x:
+        print(str(x))
+
+    log.close()
 
     if arg_extract_binary > 0:
         extype,exstart,exend = parseExtractArgs(arg_extract_binary)

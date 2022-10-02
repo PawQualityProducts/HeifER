@@ -8,8 +8,8 @@ class ItemLocationBox(FullBox):
     box_type = 'iloc'
     is_mandatory = False
 
-    def __init__(self, size, version, flags, largesize, location):
-        super().__init__(size=size, version=version, flags=flags, largesize=largesize, location=location)
+    def __init__(self, size, version, flags, largesize, startByte):
+        super().__init__(size=size, version=version, flags=flags, largesize=largesize, startByte=startByte)
         self.offset_size = None
         self.length_size = None
         self.base_offset_size = None
@@ -23,7 +23,7 @@ class ItemLocationBox(FullBox):
 
     def read(self, file, depth):
         self.depth = depth
-        location = file.tell()
+        startByte = file.tell()
         byte = read_int(file, 1)
         self.offset_size = (byte >> 4) & 0b1111
         self.length_size = byte & 0b1111
@@ -38,7 +38,7 @@ class ItemLocationBox(FullBox):
         self.items = []
 
         pad = "-" * depth
-        #print("{0}{1}{2}:offset={1}, length={2}, base_offset_size={3}, reserved={4}, item_count={5} ".format(str(location).rjust(5),pad,self.box_type, self.offset_size, self.length_size, self.base_offset_size, self.reserved, item_count))
+        #print("{0}{1}{2}:offset={1}, length={2}, base_offset_size={3}, reserved={4}, item_count={5} ".format(str(startByte).rjust(5),pad,self.box_type, self.offset_size, self.length_size, self.base_offset_size, self.reserved, item_count))
         for _ in range(item_count):
             item = {}
             if self.version < 2:
@@ -59,3 +59,9 @@ class ItemLocationBox(FullBox):
                 extent['extent_length'] = read_int(file, self.length_size)
                 item['extents'].append(extent)
             self.items.append(item)
+
+
+    def writeText(self, file, depth=0):
+        super().writeText(file, depth)
+        pad = " " * depth
+        file.write("{0} TODO: Implement writeText for {1}\n".format(pad,self.box_type))

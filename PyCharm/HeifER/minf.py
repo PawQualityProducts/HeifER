@@ -15,8 +15,8 @@ class VideoMediaHeaderBox(FullBox):
     box_type = 'vmhd'
     is_mandatory = True
 
-    def __init__(self, size, version, flags, largesize, location):
-        super().__init__(size=size, version=version, flags=flags, largesize=largesize, location=location)
+    def __init__(self, size, version, flags, largesize, startByte):
+        super().__init__(size=size, version=version, flags=flags, largesize=largesize, startByte=startByte)
         self.graphicsmode = None
         self.opcolor = []
 
@@ -26,13 +26,18 @@ class VideoMediaHeaderBox(FullBox):
         for _ in range(3):
             self.opcolor.append(read_int(file, 2))
 
+    def writeText(self, file, depth=0):
+        super().writeText(file, depth)
+        pad = " " * depth
+        file.write("{0} TODO: Implement writeText for {1}\n".format(pad, self.box_type))
+
 
 class SoundMediaHeaderBox(FullBox):
     box_type = 'smhd'
     is_mandatory = True
 
-    def __init__(self, size, version, flags, largesize, location):
-        super().__init__(size=size, version=version, flags=flags, largesize=largesize, location=location)
+    def __init__(self, size, version, flags, largesize, startByte):
+        super().__init__(size=size, version=version, flags=flags, largesize=largesize, startByte=startByte)
         self.balance = None
         self.reserved = None
 
@@ -41,13 +46,18 @@ class SoundMediaHeaderBox(FullBox):
         self.balance = read_int(file, 2)
         self.reserved = read_int(file, 2)
 
+    def writeText(self, file, depth=0):
+        super().writeText(file, depth)
+        pad = " " * depth
+        file.write("{0} TODO: Implement writeText for {1}\n".format(pad, self.box_type))
+
 
 class HintMediaHeaderBox(FullBox):
     box_type = 'hmhd'
     is_mandatory = True
 
-    def __init__(self, size, version, flags, largesize, location):
-        super().__init__(size=size, version=version, flags=flags, largesize=largesize, location=location)
+    def __init__(self, size, version, flags, largesize, startByte):
+        super().__init__(size=size, version=version, flags=flags, largesize=largesize, startByte=startByte)
         self.max_pdu_size = None
         self.avg_pdu_size = None
         self.max_bit_rate = None
@@ -61,6 +71,11 @@ class HintMediaHeaderBox(FullBox):
         self.max_bit_rate = read_int(file, 4)
         self.avg_bit_rate = read_int(file, 4)
         self.reserved = read_int(file, 4)
+
+    def writeText(self, file, depth=0):
+        super().writeText(file, depth)
+        pad = " " * depth
+        file.write("{0} TODO: Implement writeText for {1}\n".format(pad, self.box_type))
 
 
 class NullMediaHeaderBox(FullBox):

@@ -8,8 +8,8 @@ class SampleSizeBox(FullBox):
     box_type = 'stsz'
     is_mandatory = False
 
-    def __init__(self, size, version, flags, largesize, location):
-        super().__init__(size=size, version=version, flags=flags, largesize=largesize, location=location)
+    def __init__(self, size, version, flags, largesize, startByte):
+        super().__init__(size=size, version=version, flags=flags, largesize=largesize, startByte=startByte)
         self.sample_size = None
         self.entries = []
 
@@ -23,3 +23,9 @@ class SampleSizeBox(FullBox):
                 entry = {}
                 entry['entry_size'] = read_int(file, 4)
                 self.entries.append(entry)
+
+    def writeText(self, file, depth=0):
+        super().writeText(file, depth)
+        pad = " " * depth
+        file.write("{0} TODO: Implement writeText for {1}\n".format(pad, self.box_type))
+
