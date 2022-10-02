@@ -1,7 +1,7 @@
 from PIL import Image
 import pyheif
 
-heif_file = pyheif.read("IMG_3802.HEIC")
+heif_file = pyheif.read("HeifER/samples/IMG_3802.HEIC")
 image = Image.frombytes(
     heif_file.mode,
     heif_file.size,

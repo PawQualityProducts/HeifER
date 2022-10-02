@@ -85,12 +85,12 @@ Parsing file ------------
    2873:-iloc(size=864, start=2873, end=3737)
    3737:mdat(size=1158355, start=3737, end=1162092)
 ISOBaseMediaFile
-  ftyp: <HeifER.ftyp.FileTypeBox object at 0x7f344c6fa5e0>  majar_brand: heic
+  ftyp: <isobmfflib.ftyp.FileTypeBox object at 0x7fd12780ae50>  majar_brand: heic
     minor_version: 0
     compatible_brands: mif1,MiHE,MiPr,miaf,MiHB,heic,
-  meta:<HeifER.meta.MetaBox object at 0x7f344c6fabe0>
+  meta:<isobmfflib.meta.MetaBox object at 0x7fd12780aeb0>
   moov: None
-  mdat: <HeifER.mdat.MediaDataBox object at 0x7f344c6fac10>
+  mdat: <isobmfflib.mdat.MediaDataBox object at 0x7fd12780ae20>
   
 Parse Complete --------
 
@@ -175,5 +175,5 @@ Processing Binary Data and Hashes --------------
   2873:--iloc Hash=4b4fc1c14cb62f7d65a21f5be424f32c
   3737:-mdat Hash=d3c804e8a531f37d1840e915f9f8d3a0
 Binary Data and Hash processing complete -------
-write all to IMG_3802.HEIC.txt
+write all to samples/IMG_3802.HEIC.txt
 write all complete
