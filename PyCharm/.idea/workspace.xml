@@ -10,86 +10,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d7906c8b-4f37-481a-85f9-552fe49b5071" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/HeifER/process_heif.py" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/process_heif.py" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/C001.heic" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/C001.heic.ftyp.bin" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/C001.heic.ftyp.bin.hash" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/C001.heic.log" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/C001.heic.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/HeifER/.pylintrc" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/HeifER/__init__.py" afterPath="$PROJECT_DIR$/HeifER/__init__.py" />
-      <change beforePath="$PROJECT_DIR$/HeifER/box.py" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/HeifER/ccst.py" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/HeifER/config.py" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/HeifER/dinf.py" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/HeifER/ftyp.py" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/HeifER/hdlr.py" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/HeifER/hvc.py" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/HeifER/iinf.py" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/HeifER/iloc.py" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/HeifER/ipro.py" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/HeifER/iprp.py" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/HeifER/iref.py" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/HeifER/log.py" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/HeifER/mdat.py" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/HeifER/mdia.py" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/HeifER/media_file.py" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/HeifER/meta.py" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/HeifER/minf.py" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/HeifER/moov.py" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/HeifER/pitm.py" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/HeifER/samples/LICENSE" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/HeifER/samples/README.md" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/HeifER/samples/test_heic.py" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/HeifER/sinf.py" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/HeifER/stbl.py" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/HeifER/stco.py" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/HeifER/stsc.py" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/HeifER/stss.py" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/HeifER/stsz.py" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/HeifER/stts.py" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/HeifER/trak.py" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/IMG_3802.HEIC" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/IMG_3802.HEIC.ftyp.bin" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/IMG_3802.HEIC.ftyp.bin.hash" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/IMG_3802.HEIC.log" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/IMG_3802.HEIC.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/IMG_3802_meta.bin" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/alpha_1440x960.heic" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/autumn_1440x960.heic" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/bird_burst.heic" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/bothie_1440x960.heic" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/bothie_1440x960.heic.ftyp.bin" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/bothie_1440x960.heic.ftyp.bin.hash" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/bothie_1440x960.heic.log" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/bothie_1440x960.heic.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/cheers_1440x960.heic" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/cheers_1440x960.heic.ftyp.bin" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/cheers_1440x960.heic.ftyp.bin.hash" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/cheers_1440x960.heic.log" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/cheers_1440x960.heic.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/crowd_1440x960.heic" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/grid_960x640.heic" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/grid_960x640.heic.map" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/IMG_7424.jpg" afterPath="" />
       <change beforePath="$PROJECT_DIR$/heifer_test.py" afterPath="$PROJECT_DIR$/heifer_test.py" />
-      <change beforePath="$PROJECT_DIR$/lights_1440x960.heic" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/old_bridge_1440x960.heic" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/overlay_1000x680.heic" afterPath="" />
       <change beforePath="$PROJECT_DIR$/pyheif_test.py" afterPath="$PROJECT_DIR$/pyheif_test.py" />
-      <change beforePath="$PROJECT_DIR$/rally_burst.heic" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/random_collection_1440x960.heic" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/sea1_animation.heic" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/season_collection_1440x960.heic" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/ski_jump_1440x960.heic" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/spring_1440x960.heic" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/starfield_animation.heic" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/stereo_1200x800.heic" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/summer_1440x960.heic" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/surfer_1440x960.heic" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/winter_1440x960.heic" afterPath="" />
       <change beforePath="$PROJECT_DIR$/../samples/IMG_3802.AAE" afterPath="" />
       <change beforePath="$PROJECT_DIR$/../samples/IMG_3802.MOV" afterPath="" />
       <change beforePath="$PROJECT_DIR$/../samples/IMG_3802.txt" afterPath="" />
@@ -108,90 +32,40 @@
       <file leaf-file-name="heifer_test.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/heifer_test.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="54">
+            <state relative-caret-position="0">
               <caret line="3" column="0" lean-forward="true" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="process_heif.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/process_heif.py">
+      <file leaf-file-name="pyheif_test.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/pyheif_test.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="18" lean-forward="false" selection-start-line="0" selection-start-column="18" selection-end-line="0" selection-end-column="18" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="log.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/HeifER/isobmfflib/log.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="324">
-              <caret line="18" column="0" lean-forward="false" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="posixpath.py" pinned="false" current-in-tab="false">
-        <entry file="file:///usr/lib/python3.9/posixpath.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="121">
-              <caret line="91" column="0" lean-forward="false" selection-start-line="91" selection-start-column="0" selection-end-line="91" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="codecs.py" pinned="false" current-in-tab="false">
-        <entry file="file:///usr/lib/python3.9/codecs.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="121">
-              <caret line="309" column="0" lean-forward="false" selection-start-line="309" selection-start-column="0" selection-end-line="309" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="box.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/HeifER/isobmfflib/box.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="310">
-              <caret line="75" column="0" lean-forward="false" selection-start-line="75" selection-start-column="0" selection-end-line="75" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ftyp.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/HeifER/isobmfflib/ftyp.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="39" column="0" lean-forward="false" selection-start-line="39" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="media_file.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/HeifER/isobmfflib/media_file.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="58">
-              <caret line="154" column="22" lean-forward="false" selection-start-line="154" selection-start-column="22" selection-end-line="154" selection-end-column="22" />
+            <state relative-caret-position="338">
+              <caret line="58" column="0" lean-forward="true" selection-start-line="58" selection-start-column="0" selection-end-line="58" selection-end-column="0" />
               <folding>
-                <element signature="e#24#47#0" expanded="true" />
+                <element signature="e#0#21#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="process_heif.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/HeifER/process_heif.py">
+      <file leaf-file-name="reader.py" pinned="false" current-in-tab="false">
+        <entry file="file://$USER_HOME$/.local/lib/python3.9/site-packages/pyheif/reader.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="252">
-              <caret line="29" column="0" lean-forward="false" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
+            <state relative-caret-position="202">
+              <caret line="49" column="0" lean-forward="false" selection-start-line="49" selection-start-column="0" selection-end-line="49" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="thread.py" pinned="false" current-in-tab="false">
+        <entry file="file:///usr/lib/python3.9/concurrent/futures/thread.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-1418">
+              <caret line="24" column="0" lean-forward="false" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -277,16 +151,16 @@
         <option value="$PROJECT_DIR$/HeifER/media_file.py" />
         <option value="$PROJECT_DIR$/HeifER/ccst.py" />
         <option value="$PROJECT_DIR$/HeifER/box.py" />
-        <option value="$PROJECT_DIR$/pyheif_test.py" />
         <option value="$PROJECT_DIR$/HeifER/heifer_test.py" />
         <option value="$PROJECT_DIR$/HeifER/isobmfflib/media_file.py" />
-        <option value="$PROJECT_DIR$/heifer_test.py" />
         <option value="$PROJECT_DIR$/HeifER/__init__.py" />
         <option value="$PROJECT_DIR$/process_heif.py" />
+        <option value="$PROJECT_DIR$/heifer_test.py" />
+        <option value="$PROJECT_DIR$/pyheif_test.py" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="72" />
     <option name="y" value="88" />
     <option name="width" value="1147" />
@@ -329,7 +203,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/HeifER/heifer_test.py" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/pyheif_test.py" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
@@ -362,13 +236,13 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="/usr/bin/python3" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/HeifER" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="PyCharm" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/HeifER/process_heif.py" />
-      <option name="PARAMETERS" value="samples/IMG_3802.HEIC -outdir $USER_HOME$/IMG_3802.HEIC.Extract -echo on -exb ftyp 0 40" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/pyheif_test.py" />
+      <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
@@ -391,7 +265,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="35" width="1918" height="843" extended-state="7" />
+    <frame x="0" y="35" width="1918" height="843" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20020965" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -516,11 +390,6 @@
           <option name="timeStamp" value="363" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/pyheif_test.py</url>
-          <line>3</line>
-          <option name="timeStamp" value="374" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/HeifER/isobmfflib/media_file.py</url>
           <line>131</line>
           <option name="timeStamp" value="380" />
@@ -540,6 +409,11 @@
           <line>4</line>
           <option name="timeStamp" value="389" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/pyheif_test.py</url>
+          <line>30</line>
+          <option name="timeStamp" value="403" />
+        </line-breakpoint>
       </breakpoints>
       <default-breakpoints>
         <breakpoint type="python-exception">
@@ -548,7 +422,7 @@
           </properties>
         </breakpoint>
       </default-breakpoints>
-      <option name="time" value="390" />
+      <option name="time" value="404" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -868,52 +742,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file:///usr/lib/python3.9/concurrent/futures/thread.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="193">
-          <caret line="29" column="0" lean-forward="false" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file:///usr/lib/python3.9/threading.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="1431" column="13" lean-forward="false" selection-start-line="1431" selection-start-column="13" selection-end-line="1431" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pyheif_test.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="54">
-          <caret line="3" column="55" lean-forward="true" selection-start-line="3" selection-start-column="55" selection-end-line="3" selection-end-column="55" />
-          <folding>
-            <element signature="e#0#21#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/.local/lib/python3.9/site-packages/pyheif/reader.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="121">
-          <caret line="97" column="0" lean-forward="false" selection-start-line="97" selection-start-column="0" selection-end-line="97" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$APPLICATION_HOME_DIR$/helpers/pydev/pydevd.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="129">
           <caret line="816" column="0" lean-forward="false" selection-start-line="816" selection-start-column="0" selection-end-line="816" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file:///usr/lib/python3.9/codecs.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="121">
-          <caret line="309" column="0" lean-forward="false" selection-start-line="309" selection-start-column="0" selection-end-line="309" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -931,24 +763,6 @@
         <state relative-caret-position="238">
           <caret line="39" column="0" lean-forward="false" selection-start-line="39" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/HeifER/isobmfflib/box.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="310">
-          <caret line="75" column="0" lean-forward="false" selection-start-line="75" selection-start-column="0" selection-end-line="75" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/HeifER/isobmfflib/media_file.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="58">
-          <caret line="154" column="22" lean-forward="false" selection-start-line="154" selection-start-column="22" selection-end-line="154" selection-end-column="22" />
-          <folding>
-            <element signature="e#24#47#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -986,14 +800,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/HeifER/process_heif.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="29" column="0" lean-forward="false" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/HeifER/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="108">
@@ -1012,19 +818,87 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/heifer_test.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="54">
-          <caret line="3" column="0" lean-forward="true" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/process_heif.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="18" lean-forward="false" selection-start-line="0" selection-start-column="18" selection-end-line="0" selection-end-column="18" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/HeifER/process_heif.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-72">
+          <caret line="29" column="0" lean-forward="false" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/HeifER/isobmfflib/media_file.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="58">
+          <caret line="154" column="22" lean-forward="false" selection-start-line="154" selection-start-column="22" selection-end-line="154" selection-end-column="22" />
+          <folding>
+            <element signature="e#24#47#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/HeifER/isobmfflib/box.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="310">
+          <caret line="75" column="0" lean-forward="false" selection-start-line="75" selection-start-column="0" selection-end-line="75" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///usr/lib/python3.9/codecs.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="157">
+          <caret line="311" column="0" lean-forward="false" selection-start-line="311" selection-start-column="0" selection-end-line="311" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///usr/lib/python3.9/threading.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="148">
+          <caret line="1439" column="0" lean-forward="false" selection-start-line="1439" selection-start-column="0" selection-end-line="1439" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///usr/lib/python3.9/concurrent/futures/thread.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1418">
+          <caret line="24" column="0" lean-forward="false" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.local/lib/python3.9/site-packages/pyheif/reader.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="202">
+          <caret line="49" column="0" lean-forward="false" selection-start-line="49" selection-start-column="0" selection-end-line="49" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/heifer_test.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="3" column="0" lean-forward="true" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pyheif_test.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="338">
+          <caret line="58" column="0" lean-forward="true" selection-start-line="58" selection-start-column="0" selection-end-line="58" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#21#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

@@ -13,7 +13,6 @@ HeifER.process_heif
 #media_file.read('cheers_1440x960.heic')                #ok
 #media_file.read('crowd_1440x960.heic')                 #ok
 #media_file.read('grid_960x640.heic')                   #ok
-#media_file.read('grid_960x640.heic')                   #ok
 #media_file.read('lights_1440x960.heic')                #ok
 #media_file.read('old_bridge_1440x960.heic')            #ok
 #media_file.read('overlay_1000x680.heic')               #ok
