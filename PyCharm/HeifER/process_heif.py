@@ -2,6 +2,8 @@ import isobmfflib
 import sys
 from isobmfflib import log
 import os
+from PIL import Image
+import pyheif
 
 arg_infile = sys.argv[1]             #input heif file, next arg is infile name
 arg_outdir = sys.argv.index('-outdir')  if '-outdir' in sys.argv[2:] else 0  #destination directory
@@ -27,6 +29,59 @@ def parseExtractArgs(extractIndex):
     else:
         raise ValueError('Format : {0} type start end'.format(sys.argv[extractIndex]))
 
+# HeifLib ------------
+
+def __saveImage(heif_file,outfilename):
+    image = Image.frombytes(
+        heif_file.mode,
+        heif_file.size,
+        heif_file.data,
+        "raw",
+        heif_file.mode,
+        heif_file.stride,
+    )
+    image.save(outfilename, "JPEG")
+
+def extractImages(infile,outdir):
+    try:
+        infilename = os.path.basename(infile)
+
+        #easy get primary image
+        #heif_file = pyheif.read(infile)
+        #saveImage(heif_file,infilename + "_primary1")
+
+        container = pyheif.open_container(infile)
+        heif_file = container.primary_image.image.load()
+        outfilename = "{0}_primary".format(os.path.join(outdir, infilename))
+        __saveImage(heif_file,outfilename)
+
+        index=0
+        for img in container.top_level_images:
+            index += 1
+            heif_file = img.image.load()
+
+            outfilename =  "{0}_id_{1}_primary_{2}.jpg".format(os.path.join(outdir, str(index).zfill(3)), img.id,img.is_primary)
+            __saveImage(heif_file, outfilename)
+
+            metadata = heif_file.metadata
+            if metadata:
+                pass        #todo: add exif processing here
+
+            if img.depth_image:
+                index+=1
+                depth_heif = img.depth_image.image.load()
+                outfilename = "{0}_id_{1}_depthmap.jpg".format(os.path.join(outdir, str(index).zfill(3)))
+                __saveImage(depth_heif,outfilename)
+
+            for auximg in img.auxiliary_images:
+                index += 1
+                aux_heif = auximg.image.load()
+                outfilename = "{0}_aux_id_{1}_type_{2}".format(os.path.join(outdir, str(index).zfill(3)),auximg.id,auximg.type)
+                __saveImage(aux_heif,outfilename)
+
+    except Exception as x:
+        print(str(x))
+        log.writeln("ERROR:" + str(x))
 
 
 #Entry -------------
@@ -102,6 +157,14 @@ if arg_infile and arg_infile[0] != '-':
         print("ERROR:{0}".format(str(x)))
     log.writeln("Metadata extraction complete-------")
 
+    log.writeln("Extracting Images -----------")
+    try:
+        extractImages(infile,outdir)
+    except Exception as x:
+        log.writeln(str(x))
+        print(str(x))
+    log.writeln("Image extraction complete----------")
+
     log.close()
 
     if arg_extract_binary > 0:
@@ -113,6 +176,8 @@ if arg_infile and arg_infile[0] != '-':
         extype,exstart,exend = parseExtractArgs(arg_extract_text)
         outfile = infile + '.' + extype + '.txt'
         media_file.extract(infile,outfile,exstart,exend,hash)
+
+
 
 
 #media_file.read('IMG_3802.HEIC') #ok
