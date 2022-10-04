@@ -2,6 +2,7 @@
 import re
 from enum import Enum
 from . import log
+import hashlib
 
 padspaces = 7
 
@@ -84,6 +85,19 @@ class Box(object):
         if recurse:
             for child in self.children:
                 child.write(file,depth+1,writeText,writeData,recurse)
+
+
+    def getBinaryDataFromFile(self,infile):
+        start = self.startByte
+        length = self.get_box_size_with_header()
+
+        #get the binary data from the file and calculate the hash
+        infile.seek(start)
+        self.data = infile.read(length)
+        self.hash = hashlib.md5(self.data).hexdigest()
+
+        log.writeln("{0}:{1}{2} Hash={3}".format(str(start).rjust(6), "-" * self.depth, self.box_type, self.hash))
+
 
 
 class FullBox(Box):

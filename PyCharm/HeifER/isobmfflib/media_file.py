@@ -4,10 +4,6 @@ from .box import read_box
 import os
 from . import log
 import hashlib
-from PIL import Image
-import pyheif
-import exifread
-import io
 
 class MediaFile(object):
 
@@ -91,16 +87,7 @@ class MediaFile(object):
 
     def __GetBoxBinaryDataFromFile(self,infile,box):
         try:
-            start = box.startByte
-            length = box.get_box_size_with_header()
-
-            #get the binary data from the file and calculate the hash
-            infile.seek(start)
-            box.data = infile.read(length)
-            box.hash = hashlib.md5(box.data).hexdigest()
-
-            log.writeln("{0}:{1}{2} Hash={3}".format(str(start).rjust(6), "-" * box.depth, box.box_type, box.hash))
-            #log.writeln("{0}{1}:{2}{3} Hash={4}".format(" " * 6,box.location,"-" * box.depth, box.box_type, box.hash))
+            box.getBinaryDataFromFile(infile)
         except Exception as x:
             log.writeln(str(x))
             print(str(x))
@@ -188,37 +175,3 @@ class MediaFile(object):
 
         outfile.close()
 
-
-    # Image Extraction --------------------------------
-    def exportImage(self):
-        outfilename = os.path.join(self.outdir, self.filename + ".jpg")
-        filepath = os.path.join(self.path,self.filename)
-        heif_file = pyheif.read(filepath)
-        image = Image.frombytes(
-            heif_file.mode,
-            heif_file.size,
-            heif_file.data,
-            "raw",
-            heif_file.mode,
-            heif_file.stride,
-        )
-        image.save(outfilename, "JPEG")
-
-
-    # Exifdata -------------------------------------
-
-    def exportExif(self, parentdir=None):
-        outfilename = os.path.join(self.outdir, self.filename + ".exif.txt")
-        filepath = os.path.join(self.path, self.filename)
-        heif_file = pyheif.read(filepath)
-
-        outfile = open(outfilename,"w")
-
-        if heif_file.metadata:
-            for metadata in heif_file.metadata:
-                file_stream = io.BytesIO(metadata['data'][6:])
-                tags = exifread.process_file(file_stream,details=False)
-                for k,v in tags.items():
-                    outfile.write("{0}={1}\n".format(k,v))
-
-        outfile.close()

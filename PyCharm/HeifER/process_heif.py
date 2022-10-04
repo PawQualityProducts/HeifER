@@ -2,8 +2,10 @@ import isobmfflib
 import sys
 from isobmfflib import log
 import os
+import io
 from PIL import Image
 import pyheif
+import exifread
 
 arg_infile = sys.argv[1]             #input heif file, next arg is infile name
 arg_outdir = sys.argv.index('-outdir')  if '-outdir' in sys.argv[2:] else 0  #destination directory
@@ -46,10 +48,6 @@ def extractImages(infile,outdir):
     try:
         infilename = os.path.basename(infile)
 
-        #easy get primary image
-        #heif_file = pyheif.read(infile)
-        #saveImage(heif_file,infilename + "_primary1")
-
         container = pyheif.open_container(infile)
         heif_file = container.primary_image.image.load()
         outfilename = "{0}_primary".format(os.path.join(outdir, infilename))
@@ -84,6 +82,21 @@ def extractImages(infile,outdir):
         log.writeln("ERROR:" + str(x))
 
 
+def exportExif(infile,outdir):
+    infilename = os.path.basename(infile)
+    outfilename = os.path.join(outdir, infilename + ".exif")
+    heif_file = pyheif.read(infile)
+    outfile = open(outfilename,"w")
+    if heif_file.metadata:
+        for metadata in heif_file.metadata:
+            file_stream = io.BytesIO(metadata['data'][6:])
+            tags = exifread.process_file(file_stream,details=False)
+            for k,v in tags.items():
+                outfile.write("{0}={1}\n".format(k,v))
+
+    outfile.close()
+
+
 #Entry -------------
 
 if arg_infile and arg_infile[0] != '-':
@@ -107,6 +120,7 @@ if arg_infile and arg_infile[0] != '-':
     try:
         media_file.read(infile,outdir)
     except Exception as x:
+        log.writeln(str(x))
         print("ERROR:{0}".format(str(x)))
 
     log.writeln("Parse Complete --------")
@@ -116,6 +130,7 @@ if arg_infile and arg_infile[0] != '-':
     try:
         media_file.ProcessBinaryDataAndHashes()
     except Exception as x:
+        log.writeln(str(x))
         print("ERROR:{0}".format(str(x)))
 
     log.writeln("Binary Data and Hash processing complete -------")
@@ -125,6 +140,7 @@ if arg_infile and arg_infile[0] != '-':
     try:
         media_file.mapFile()
     except Exception as x:
+        log.writeln(str(x))
         print("ERROR:{0}".format(str(x)))
     log.writeln("map file complete -------")
 
@@ -133,6 +149,7 @@ if arg_infile and arg_infile[0] != '-':
     try:
         media_file.writeall(infile)
     except Exception as x:
+        log.writeln(str(x))
         print("ERROR:{0}".format(str(x)))
     log.writeln("Contents file complete -------")
 
@@ -140,20 +157,15 @@ if arg_infile and arg_infile[0] != '-':
     try:
         media_file.exportAll()
     except Exception as x:
+        log.writeln(str(x))
         print("ERROR:{0}".format(str(x)))
     log.writeln("Component Extraction complete-------")
 
-    log.writeln("Extracting images--------------")
-    try:
-        media_file.exportImage()
-    except Exception as x:
-        print("ERROR:{0}".format(str(x)))
-    log.writeln("Image Extraction complete-------")
-
     log.writeln("Extracting metadata--------------")
     try:
-        media_file.exportExif()
+        exportExif(infile,outdir)
     except Exception as x:
+        log.writeln(str(x))
         print("ERROR:{0}".format(str(x)))
     log.writeln("Metadata extraction complete-------")
 
@@ -167,45 +179,6 @@ if arg_infile and arg_infile[0] != '-':
 
     log.close()
 
-    if arg_extract_binary > 0:
-        extype,exstart,exend = parseExtractArgs(arg_extract_binary)
-        outfile = infile + '.' + extype + '.bin'
-        media_file.extract(infile,outfile,exstart,exend,hash)
-
-    if arg_extract_text > 0:
-        extype,exstart,exend = parseExtractArgs(arg_extract_text)
-        outfile = infile + '.' + extype + '.txt'
-        media_file.extract(infile,outfile,exstart,exend,hash)
-
-
-
-
-#media_file.read('IMG_3802.HEIC') #ok
-#media_file.extract('IMG_3802.HEIC','IMG_3802_ftyp.bin',0,40)
-#media_file.extract('IMG_3802.HEIC','IMG_3802_meta.bin',40,3737)
-
-
-#Nokia sample files
-#media_file.read('C001.heic')                           #ok
-#media_file.read('bothie_1440x960.heic')                #ok
-#media_file.read('cheers_1440x960.heic')                #ok
-#media_file.read('crowd_1440x960.heic')                 #ok
-#media_file.read('grid_960x640.heic')                   #ok
-#media_file.read('grid_960x640.heic')                   #ok
-#media_file.read('lights_1440x960.heic')                #ok
-#media_file.read('old_bridge_1440x960.heic')            #ok
-#media_file.read('overlay_1000x680.heic')               #ok
-#media_file.read('rally_burst.heic')                    #ok
-#media_file.read('random_collection_1440x960.heic')     #ok
-#media_file.read('sea1_animation.heic')                 #ok
-#media_file.read('season_collection_1440x960.heic')     #ok
-#media_file.read('ski_jump_1440x960.heic')              #ok
-#media_file.read('spring_1440x960.heic')                #ok
-#media_file.read('starfield_animation.heic')            #ok
-#media_file.read('stereo_1200x800.heic')                #ok
-#media_file.read('summer_1440x960.heic')                #ok
-#media_file.read('surfer_1440x960.heic')                #ok
-#media_file.read('winter_1440x960.heic')                #ok
 
 print(media_file)
 
