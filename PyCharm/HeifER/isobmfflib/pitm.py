@@ -15,5 +15,6 @@ class PrimaryItemBox(FullBox):
     def writeText(self, file, depth=0):
         super().writeText(file, depth)
         pad = " " * depth
-        file.write("{0} TODO: Implement writeText for {1}\n".format(pad, self.box_type))
+        file.write("{0} item_id={1}\n".format(pad, self.item_id))
+
 

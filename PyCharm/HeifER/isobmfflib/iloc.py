@@ -4,7 +4,10 @@ from .box import read_int
 from .box import indent
 import hashlib
 import os
+from . import log
 
+
+padspaces = 7
 
 class ItemLocationBox(FullBox):
     box_type = 'iloc'
@@ -40,8 +43,10 @@ class ItemLocationBox(FullBox):
         self.items = []
 
         pad = "-" * depth
-      
+        itemIndex = 0
         for _ in range(item_count):
+            current_location = file.tell()
+            itemIndex += 1
             item = {}
             if self.version < 2:
                 item['item_id'] = read_int(file, 2)
@@ -56,13 +61,19 @@ class ItemLocationBox(FullBox):
             extent_count = read_int(file, 2)
             item['data'] = None
             item['extents'] = []
+
+            log.writeln("{0}:{1}  item={2}".format(str(current_location).rjust(padspaces), pad, str(itemIndex)))
+            extentIndex = 0
             for _ in range(extent_count):
+                current_location = file.tell()
+                extentIndex += 1
                 extent = {}
                 extent['extent_offset'] = read_int(file, self.offset_size)
                 extent['extent_length'] = read_int(file, self.length_size)
                 extent['data'] = None
                 item['extents'].append(extent)
             self.items.append(item)
+            log.writeln("{0}:{1}    extent={2}".format(str(current_location).rjust(padspaces), pad, str(extentIndex)))
 
 
     def writeText(self, file, depth=0):
@@ -97,15 +108,20 @@ class ItemLocationBox(FullBox):
     def getBinaryDataFromFile(self,infile):
         super().getBinaryDataFromFile(infile)
 
+        itemIndex=0
         for item in self.items:
+            itemIndex += 1
             self.data = b''
             itemoffset = item['base_offset']
+            extentIndex=0
             for extent in item['extents']:
+                extentIndex += 1
                 extentoffset =  extent['extent_offset']
                 extentlength = extent['extent_length']
                 infile.seek(itemoffset+extentoffset)
                 extent['data'] = infile.read(extentlength)
                 extent['hash'] = hashlib.md5(extent['data']).hexdigest()
+                log.writeln("{0}:  {1}{2} Hash={3}".format("      ", " " * self.depth, "item={0}, extent={1}".format(itemIndex, extentIndex), extent['hash']))
 
 
     def writeData(self, file):
