@@ -18,7 +18,7 @@ class Box(object):
         self.largesize = largesize
         self.startByte = startByte
         self.children = []
-        self.data = None
+        self.BinaryData = None
         self.hash = None
 
     def __repr__(self):
@@ -71,7 +71,7 @@ class Box(object):
         file.write(" {0}Hash={1}\n".format(pad, self.hash))
 
     def writeData(self, file):
-        file.write(self.data)
+        file.write(self.BinaryData)
 
     def write(self, file, depth=0, writeText=True, writeData=False, recurse=True):
         if writeText:
@@ -93,8 +93,8 @@ class Box(object):
 
         #get the binary data from the file and calculate the hash
         infile.seek(start)
-        self.data = infile.read(length)
-        self.hash = hashlib.md5(self.data).hexdigest()
+        self.BinaryData = infile.read(length)
+        self.hash = hashlib.md5(self.BinaryData).hexdigest()
 
         log.writeln("{0}:{1}{2} Hash={3}".format(str(start).rjust(6), "-" * self.depth, self.box_type, self.hash))
 

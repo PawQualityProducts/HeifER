@@ -10,5 +10,4 @@ class ccst(Box):
         self.depth = depth
         pad = '-' * depth
         rawdata = file.read(self.get_box_size())
-        #TODO: write log entry here
         print(rawdata)
