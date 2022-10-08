@@ -26,17 +26,21 @@ class DataReferenceBox(FullBox):
         self.depth = depth
         entry_count = read_int(file, 4)
         for _ in range(entry_count):
-            box = read_box(file, depth)
+            box = read_box(file, depth+ 1)
             if not box:
                 break
             self.data_entry.append(box)
 
+
     def writeText(self, file, depth=0):
         super().writeText(file,depth)
         pad = " " * depth
-        file.write(" {0}Entries={1}\n".format(pad, len(self.data_entry)))
+        file.write("{0} Entries={1}\n".format(pad, len(self.data_entry)))
+        entryIndex=0
         for entry in self.data_entry:
-            entry.writeText(file,depth+2)
+            entryIndex+=1
+            file.write("{0}  Entry={1}:\n".format(pad, str(entryIndex).zfill(3)))
+            entry.writeText(file,depth+4)
 
 
 class DataEntryUrlBox(FullBox):
@@ -74,5 +78,5 @@ class DataEntryUrnBox(FullBox):
     def writeText(self, file, depth=0):
         super().writeText(file,depth)
         pad = " " * depth
-        file.write(" {0} Name={1}\n".format(pad, self.name))
-        file.write(" {0} Location={1}\n".format(pad, self.location))
+        file.write("{0} Name={1}\n".format(pad, self.name))
+        file.write("{0} Location={1}\n".format(pad, self.location))

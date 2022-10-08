@@ -36,8 +36,8 @@ class HandlerReferenceBox(FullBox):
     def writeText(self, file, depth=0):
         super().writeText(file,depth)
         pad = " " * depth
-        file.write(" {0} pre_defined={1}\n".format(pad, self.pre_defined))
-        file.write(" {0} handler_type={1}\n".format(pad, self.handler_type))
-        file.write(" {0} reserved={1}\n".format(pad, self.reserved))
-        file.write(" {0} name={1}\n".format(pad, self.name))
+        file.write(" {0}pre_defined={1}\n".format(pad, self.pre_defined))
+        file.write(" {0}handler_type={1}\n".format(pad, self.handler_type))
+        file.write(" {0}reserved={1}\n".format(pad, self.reserved))
+        file.write(" {0}name={1}\n".format(pad, self.name))
 

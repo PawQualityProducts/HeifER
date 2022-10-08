@@ -64,11 +64,11 @@ class Box(object):
 
     def writeText(self, file, depth=0):
         pad = " " * depth
-        file.write("{0}Type={1}\n".format(pad, self.box_type))
-        file.write(" {0}Size={1}\n".format(pad, self.get_box_size_with_header()))
-        file.write(" {0}StartByte={1}\n".format(pad, self.startByte))
-        file.write(" {0}Children={1}\n".format(pad, len(self.children)))
-        file.write(" {0}Hash={1}\n".format(pad, self.hash))
+        file.write("{0}Box Type={1}\n".format(pad, self.box_type))
+        file.write("{0} Size={1}\n".format(pad, self.get_box_size_with_header()))
+        file.write("{0} StartByte={1}\n".format(pad, self.startByte))
+        file.write("{0} Children={1}\n".format(pad, len(self.children)))
+        file.write("{0} Hash={1}\n".format(pad, self.hash))
 
     def writeData(self, file):
         file.write(self.BinaryData)
@@ -125,7 +125,6 @@ class FullBox(Box):
     def writeText(self, file, depth=0):
         super().writeText(file,depth)
         pad = " " * depth
-        file.write("{0} Type={1}\n".format(pad, self.box_type))
         file.write("{0} Version={1}\n".format(pad, self.version))
         file.write("{0} Flags={1}\n".format(pad, self.flags))
 

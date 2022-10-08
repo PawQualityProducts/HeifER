@@ -6,6 +6,7 @@ from .box import read_box
 from .box import read_int
 from .box import read_string
 from . import log
+import os
 
 padspaces = 7
 
@@ -35,6 +36,53 @@ class ItemReferenceBox(FullBox):
             pad = "-" * depth
             log.writeln("{0}:{1}{2}(size={3}, start={4}, end={5})".format(str(current_position).rjust(padspaces), pad, type, refBox.size, current_position, current_position + refBox.size))
 
+    def getBinaryDataFromFile(self,infile):
+        super().getBinaryDataFromFile(infile)
+        for ref in self.references:
+            ref.getBinaryDataFromFile(infile)
+
+
+    def writeText(self, file, depth=0):
+        super().writeText(file, depth)
+        pad = " " * depth
+        file.write("{0} references={1}\n".format(pad, len(self.references)))
+
+        refIndex=0
+        for refBox in self.references:
+            refIndex+=1
+            file.write("{0}  reference={1}:\n".format(pad, str(refIndex).zfill(3)))
+            refBox.writeText(file,depth+3)
+            #create a sub-folder and write a new text file
+            #boxdir = os.path.dirname(file.name)
+            #refdir = os.path.join(boxdir,str(refIndex).zfill(3) + '_reference')
+            #os.makedirs(refdir)
+            #reffilename = os.path.join(refdir,str(refIndex).zfill(3) + "_reference.txt")
+            #reffile = open(reffilename, "w")
+            #refBox.writeText(reffile)
+            #reffile.close()
+
+
+    def writeData(self, file):
+        super().writeData(file)
+        boxdir = os.path.dirname(file.name)
+        #refdir = os.path.join(boxdir, "references")
+        #os.makedirs(refdir)
+        refIndex = 0
+        for ref in self.references:
+            refIndex += 1
+            refdir = os.path.join(boxdir,"references",str(refIndex).zfill(3) + '_reference')
+            os.makedirs(refdir)
+            reffilename = os.path.join(refdir,str(refIndex).zfill(3) + "_reference.bin")
+            reffile = open(reffilename, "wb")
+            ref.writeData(reffile)
+            reffile.close()
+            reffilename = os.path.join(refdir,str(refIndex).zfill(3) + "_reference.txt")
+            reffile = open(reffilename, "w")
+            ref.writeText(reffile)
+            reffile.close()
+
+
+
 
 class SingleItemTypeReferenceBox(Box):
     def __init__(self, type, size, startByte):
@@ -52,7 +100,8 @@ class SingleItemTypeReferenceBox(Box):
     def writeText(self, file, depth=0):
         super().writeText(file, depth)
         pad = " " * depth
-        file.write("{0} TODO: Implement writeText for {1}\n".format(pad, self.box_type))
+        file.write("{0} from_item_id={1}\n".format(pad, self.from_item_ID))
+        file.write("{0} to_item_ids={1}\n".format(pad, self.references))
 
 
 class SingleItemTypeReferenceBoxLarge(Box):
