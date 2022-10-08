@@ -32,7 +32,8 @@ class ImageSpatialExtents(FullBox):
     def writeText(self, file, depth=0):
         super().writeText(file, depth)
         pad = " " * depth
-        file.write("{0} TODO: Implement writeText for {1}\n".format(pad,self.box_type))
+        file.write("{0} width={1}\n".format(pad,str(self.width)))
+        file.write("{0} height={1}\n".format(pad, str(self.height)))
 
 
 class PixelAspectRatio(Box):
@@ -43,10 +44,6 @@ class PixelAspectRatio(Box):
         pad = '-' * depth
         print(file.read(self.get_box_size()))
 
-    def writeText(self, file, depth=0):
-        super().writeText(file, depth)
-        pad = " " * depth
-        file.write("{0} TODO: Implement writeText for {1}\n".format(pad,self.box_type))
 
 
 class ColorInformation(Box):
@@ -57,10 +54,6 @@ class ColorInformation(Box):
         pad = '-' * depth
         print(file.read(self.get_box_size()))
 
-    def writeText(self, file, depth=0):
-        super().writeText(file, depth)
-        pad = " " * depth
-        file.write("{0} TODO: Implement writeText for {1}\n".format(pad,self.box_type))
 
 
 class PixelInformation(Box):
@@ -71,10 +64,6 @@ class PixelInformation(Box):
         pad = '-' * depth
         print(file.read(self.get_box_size()))
 
-    def writeText(self, file, depth=0):
-        super().writeText(file, depth)
-        pad = " " * depth
-        file.write("{0} TODO: Implement writeText for {1}\n".format(pad,self.box_type))
 
 
 class RelativeInformation(Box):
@@ -85,10 +74,6 @@ class RelativeInformation(Box):
         pad = '-' * depth
         print(file.read(self.get_box_size()))
 
-    def writeText(self, file, depth=0):
-        super().writeText(file, depth)
-        pad = " " * depth
-        file.write("{0} TODO: Implement writeText for {1}\n".format(pad, self.box_type))
 
 
 #Note: Added ImageRotation
@@ -100,10 +85,6 @@ class ImageRotation(Box):
         pad = '-' * depth
         print(file.read(self.get_box_size()))
 
-    def writeText(self, file, depth=0):
-        super().writeText(file, depth)
-        pad = " " * depth
-        file.write("{0} TODO: Implement writeText for {1}\n".format(pad, self.box_type))
 
 
 #Note: Added auxC
@@ -115,10 +96,6 @@ class AuxiliaryTypeProperty(Box):
         pad = '-' * depth
         print(file.read(self.get_box_size()))
 
-    def writeText(self, file, depth=0):
-        super().writeText(file, depth)
-        pad = " " * depth
-        file.write("{0} TODO: Implement writeText for {1}\n".format(pad, self.box_type))
 
 
 #TODO: Move this and implement idat
@@ -128,13 +105,7 @@ class ItemDataBox(Box):
     def read(self, file, depth):
         self.depth = depth
         pad = '-' * depth
-        print(file.read(self.get_box_size()))
-
-    def writeText(self, file, depth=0):
-        super().writeText(file, depth)
-        pad = " " * depth
-        file.write("{0} TODO: Implement writeText for {1}\n".format(pad, self.box_type))
-
+        self.idata = file.read(self.get_box_size())
 
 
 class ItemPropertyAssociation(FullBox):

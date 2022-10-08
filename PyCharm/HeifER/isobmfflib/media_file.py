@@ -4,6 +4,7 @@ from .box import read_box
 import os
 from . import log
 import hashlib
+from . import iloc
 
 class MediaFile(object):
 
@@ -61,6 +62,11 @@ class MediaFile(object):
             log.writeln(x)
         finally:
             infile.close()
+
+            #iloc needs the meta box because it contains the idat box
+            if hasattr(self,"meta"):
+                iloc.setMetaBox(self.meta)
+
 
     def extract(self,input_filename,output_filename,start,end,hash=False):
         outfile = open(output_filename,'wb')

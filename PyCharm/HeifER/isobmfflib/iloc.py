@@ -9,6 +9,16 @@ from . import log
 
 padspaces = 7
 
+__metaBox = None
+def setMetaBox(metaBox):
+    global __metaBox
+    __metaBox = metaBox
+    pass
+
+def getMegaBox():
+    return __metaBox
+
+
 class ItemLocationBox(FullBox):
     box_type = 'iloc'
     is_mandatory = False
@@ -55,7 +65,7 @@ class ItemLocationBox(FullBox):
             if self.version in [1,2]:
                 bytes = read_int(file,2)
                 item['reserved'] = bytes >> 4 & 0b111111111111
-                item['construction_method'] = 0b1111
+                item['construction_method'] =  bytes & 0b1111
             item['data_reference_index'] = read_int(file, 2)
             item['base_offset'] = read_int(file, self.base_offset_size)
             extent_count = read_int(file, 2)
@@ -111,15 +121,30 @@ class ItemLocationBox(FullBox):
         itemIndex=0
         for item in self.items:
             itemIndex += 1
-            self.data = b''
+            self.BinaryData = b''
             itemoffset = item['base_offset']
             extentIndex=0
             for extent in item['extents']:
                 extentIndex += 1
                 extentoffset =  extent['extent_offset']
                 extentlength = extent['extent_length']
-                infile.seek(itemoffset+extentoffset)
-                extent['data'] = infile.read(extentlength)
+
+                extent['data'] = 0b0
+                if item['construction_method'] == 0:
+                    infile.seek(itemoffset + extentoffset)
+                    extent['data'] = infile.read(extentlength)
+                elif item['construction_method'] == 1:
+                    metabox = getMegaBox()
+                    if metabox:
+                        if hasattr(metabox,"idat"):
+                            if metabox.idat:
+                                extent['data'] = metabox.idat.idata[extentoffset:extentlength]
+                    else:
+                        infile.seek(itemoffset + extentoffset)
+                        extent['data'] = infile.read(extentlength)
+                else:
+                    extent['data'] = 0b0        #
+
                 extent['hash'] = hashlib.md5(extent['data']).hexdigest()
                 log.writeln("{0}:  {1}{2} Hash={3}".format("      ", " " * self.depth, "item={0}, extent={1}".format(itemIndex, extentIndex), extent['hash']))
 
