@@ -47,6 +47,12 @@ class ItemReferenceBox(FullBox):
         super().writeText(file, depth)
         pad = " " * depth
         file.write("{0} references={1}\n".format(pad, len(self.references)))
+        refIndex = 0
+        for ref in self.references:
+            refIndex += 1
+            file.write("{0}  reference={1}\n".format(pad, str(refIndex).zfill(3)))
+            ref.writeText(file,depth+3)
+
 
 class SingleItemTypeReferenceBox(Box):
     def __init__(self, type, size, startByte):

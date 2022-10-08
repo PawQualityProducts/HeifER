@@ -30,6 +30,7 @@ class DataReferenceBox(FullBox):
             if not box:
                 break
             self.data_entry.append(box)
+            self.children.append(box)
 
 
 class DataEntryUrlBox(FullBox):

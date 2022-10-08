@@ -10,6 +10,7 @@ class ItemPropertiesBox(Box):
     is_mandatry = False
     quantity = Quantity.ZERO_OR_ONE
 
+
 class ItemPropertyContainer(Box):
     box_type = 'ipco'
     is_mandatry = True
