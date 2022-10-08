@@ -98,6 +98,11 @@ class Box(object):
 
         log.writeln("{0}:{1}{2} Hash={3}".format(str(start).rjust(6), "-" * self.depth, self.box_type, self.hash))
 
+    def writeMapEntry(self,file,depth):
+        indent = "-" * depth
+        file.write("{0}:{1}{2}(size={3}, start={4}, end={5}, hash={6})\n".format(str(self.startByte).zfill(6), indent, self.box_type, self.get_box_size_with_header(), self.startByte, self.startByte+self.get_box_size_with_header(), self.hash))
+        for childbox in self.children:
+            childbox.writeMapEntry(file,depth+1)
 
 
 class FullBox(Box):

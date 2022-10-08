@@ -159,17 +159,19 @@ class MediaFile(object):
             index += 1
 
 
-    def __mapBox(self,file,depth,box):
-        indent = "-" * depth
-        start = box.startByte
-        length = box.get_box_size_with_header()
-        file.write("{0}:{1}{2}(size={3}, start={4}, end={5})\n".format(str(start).rjust(6), indent, box.box_type, length, start, start+length))
-        for childbox in box.children:
-            self.__mapBox(file,depth+1,childbox)
+#    def __mapBox(self,file,depth,box):
+#        box.writeMapEntry(file,depth)
+#        iindent = "-" * depth
+#        start = box.startByte
+#        length = box.get_box_size_with_header()
+#        file.write("{0}:{1}{2}(size={3}, start={4}, end={5}, hash={6})\n".format(str(start).rjust(6), indent, box.box_type, length, start, start+length, box.hash))
+#        for childbox in box.children:
+#            self.__mapBox(file,depth+1,childbox)
 
     def __mapFile(self,file):
         for box in self.children:
-            self.__mapBox(file,0,box)
+            #self.__mapBox(file,0,box)
+            box.writeMapEntry(file,0)
 
     def mapFile(self):
         filepath = os.path.join(self.outdir, self.filename + ".map")

@@ -58,6 +58,7 @@ class ItemLocationBox(FullBox):
             current_location = file.tell()
             itemIndex += 1
             item = {}
+            item['startByte'] = current_location
             if self.version < 2:
                 item['item_id'] = read_int(file, 2)
             else:
@@ -78,6 +79,7 @@ class ItemLocationBox(FullBox):
                 current_location = file.tell()
                 extentIndex += 1
                 extent = {}
+                extent['startByte'] = current_location
                 extent['extent_offset'] = read_int(file, self.offset_size)
                 extent['extent_length'] = read_int(file, self.length_size)
                 extent['data'] = None
@@ -169,5 +171,24 @@ class ItemLocationBox(FullBox):
                 extentfile = open(extentfilename,"wb")
                 extentfile.write(extent['data'])
                 extentfile.close()
+
+    def writeMapEntry(self,file,depth):
+        indent = "-" * depth
+        file.write("{0}:{1}{2}(size={3}, start={4}, end={5}, hash={6})\n".format(str(self.startByte).zfill(6), indent, self.box_type, self.get_box_size_with_header(), self.startByte, self.startByte+self.get_box_size_with_header(), self.hash))
+        itemIndex = 0
+        for item in self.items:
+            itemIndex += 1
+            extentIndex = 0
+            for extent in item['extents']:
+                extentIndex += 1
+                # assume construction method 0 = offset from file start
+                startbyte = item['base_offset'] + extent['extent_offset']
+                if item['construction_method'] == 1:
+                    metabox = getMetaBox()
+                    startbyte = metabox.idat.idataStartByte + extent['extent_offset']
+                length = extent['extent_length']
+                endbyte = startbyte + length
+                hash = extent['hash']
+                file.write("{0}:{1}  Item={2}, Extent={3} (size={4}, start={5}, end={6}, hash={7})\n".format(str(extent['startByte']).zfill(6), indent,itemIndex,extentIndex,length,startbyte,endbyte,hash))
 
 
