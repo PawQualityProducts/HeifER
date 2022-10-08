@@ -102,9 +102,14 @@ class AuxiliaryTypeProperty(Box):
 class ItemDataBox(Box):
     box_type = 'idat'
 
+    def __init__(self, size, largesize, startByte):
+        super().__init__(size=size, largesize=largesize, startByte=startByte)
+        self.idataStartByte = 0
+
     def read(self, file, depth):
         self.depth = depth
         pad = '-' * depth
+        self.idataStartByte = file.tell()
         self.idata = file.read(self.get_box_size())
 
 

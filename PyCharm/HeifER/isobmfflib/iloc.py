@@ -15,7 +15,7 @@ def setMetaBox(metaBox):
     __metaBox = metaBox
     pass
 
-def getMegaBox():
+def getMetaBox():
     return __metaBox
 
 
@@ -112,7 +112,10 @@ class ItemLocationBox(FullBox):
                 file.write("{0}    extent={1}\n".format(pad, extent_index))
                 file.write("{0}      extent_offset={1}\n".format(pad, extent['extent_offset']))
                 file.write("{0}      extent_length={1}\n".format(pad, extent['extent_length']))
+                if item['construction_method']:
+                    file.write("{0}      extent in idata box at file offset={1}\n".format(pad, extent['idata_file_offset']))
                 file.write("{0}      extent_hash={1}\n".format(pad, extent['hash']))
+
 
 
     def getBinaryDataFromFile(self,infile):
@@ -134,11 +137,13 @@ class ItemLocationBox(FullBox):
                     infile.seek(itemoffset + extentoffset)
                     extent['data'] = infile.read(extentlength)
                 elif item['construction_method'] == 1:
-                    metabox = getMegaBox()
+                    metabox = getMetaBox()
                     if metabox:
                         if hasattr(metabox,"idat"):
                             if metabox.idat:
-                                extent['data'] = metabox.idat.idata[extentoffset:extentlength]
+                                extent['idata_file_offset'] = metabox.idat.idataStartByte + extentoffset
+                                infile.seek(metabox.idat.idataStartByte + extentoffset)
+                                extent['data'] = infile.read(extentlength)
                     else:
                         infile.seek(itemoffset + extentoffset)
                         extent['data'] = infile.read(extentlength)
