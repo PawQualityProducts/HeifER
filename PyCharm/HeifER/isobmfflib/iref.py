@@ -72,6 +72,12 @@ class SingleItemTypeReferenceBox(Box):
         file.write("{0} from_item_id={1}\n".format(pad, self.from_item_ID))
         file.write("{0} to_item_ids={1}\n".format(pad, self.references))
 
+    def writeMapEntry(self,file,depth):
+        indent = "-" * depth
+        file.write("{0}:{1}{2}(size={3}, start={4}, end={5}, hash={6}, from_id={7}, to_ids={8})\n".format(str(self.startByte).zfill(6), indent, self.box_type, self.get_box_size_with_header(), self.startByte, self.startByte+self.get_box_size_with_header(), self.hash, self.from_item_ID, self.references))
+        for childbox in self.children:
+            childbox.writeMapEntry(file,depth+1)
+
 
 class SingleItemTypeReferenceBoxLarge(Box):
     def __init__(self, type, size, largesize, startByte):
@@ -91,4 +97,8 @@ class SingleItemTypeReferenceBoxLarge(Box):
         pad = " " * depth
         file.write("{0} references={1}\n".format(pad, self.references))
 
-
+    def writeMapEntry(self,file,depth):
+        indent = "-" * depth
+        file.write("{0}:{1}{2}(size={3}, start={4}, end={5}, hash={6}, from_id={7}, to_ids={8})\n".format(str(self.startByte).zfill(6), indent, self.box_type, self.get_box_size_with_header(), self.startByte, self.startByte+self.get_box_size_with_header(), self.hash, self.from_item_ID, self.references))
+        for childbox in self.children:
+            childbox.writeMapEntry(file,depth+1)

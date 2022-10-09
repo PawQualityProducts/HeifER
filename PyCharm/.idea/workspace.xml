@@ -11,30 +11,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d7906c8b-4f37-481a-85f9-552fe49b5071" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/HeifER/isobmfflib/box.py" afterPath="$PROJECT_DIR$/HeifER/isobmfflib/box.py" />
-      <change beforePath="$PROJECT_DIR$/HeifER/isobmfflib/ccst.py" afterPath="$PROJECT_DIR$/HeifER/isobmfflib/ccst.py" />
-      <change beforePath="$PROJECT_DIR$/HeifER/isobmfflib/grpl.py" afterPath="$PROJECT_DIR$/HeifER/isobmfflib/grpl.py" />
-      <change beforePath="$PROJECT_DIR$/HeifER/isobmfflib/iprp.py" afterPath="$PROJECT_DIR$/HeifER/isobmfflib/iprp.py" />
       <change beforePath="$PROJECT_DIR$/HeifER/isobmfflib/iref.py" afterPath="$PROJECT_DIR$/HeifER/isobmfflib/iref.py" />
-      <change beforePath="$PROJECT_DIR$/HeifER/isobmfflib/log.py" afterPath="$PROJECT_DIR$/HeifER/isobmfflib/log.py" />
-      <change beforePath="$PROJECT_DIR$/HeifER/isobmfflib/mdia.py" afterPath="$PROJECT_DIR$/HeifER/isobmfflib/mdia.py" />
-      <change beforePath="$PROJECT_DIR$/HeifER/isobmfflib/media_file.py" afterPath="$PROJECT_DIR$/HeifER/isobmfflib/media_file.py" />
-      <change beforePath="$PROJECT_DIR$/HeifER/isobmfflib/minf.py" afterPath="$PROJECT_DIR$/HeifER/isobmfflib/minf.py" />
-      <change beforePath="$PROJECT_DIR$/HeifER/isobmfflib/moov.py" afterPath="$PROJECT_DIR$/HeifER/isobmfflib/moov.py" />
-      <change beforePath="$PROJECT_DIR$/HeifER/isobmfflib/sbgp.py" afterPath="$PROJECT_DIR$/HeifER/isobmfflib/sbgp.py" />
-      <change beforePath="$PROJECT_DIR$/HeifER/isobmfflib/sgpd.py" afterPath="$PROJECT_DIR$/HeifER/isobmfflib/sgpd.py" />
-      <change beforePath="$PROJECT_DIR$/HeifER/isobmfflib/sinf.py" afterPath="$PROJECT_DIR$/HeifER/isobmfflib/sinf.py" />
-      <change beforePath="$PROJECT_DIR$/HeifER/isobmfflib/stbl.py" afterPath="$PROJECT_DIR$/HeifER/isobmfflib/stbl.py" />
-      <change beforePath="$PROJECT_DIR$/HeifER/isobmfflib/stco.py" afterPath="$PROJECT_DIR$/HeifER/isobmfflib/stco.py" />
-      <change beforePath="$PROJECT_DIR$/HeifER/isobmfflib/stsc.py" afterPath="$PROJECT_DIR$/HeifER/isobmfflib/stsc.py" />
-      <change beforePath="$PROJECT_DIR$/HeifER/isobmfflib/stss.py" afterPath="$PROJECT_DIR$/HeifER/isobmfflib/stss.py" />
-      <change beforePath="$PROJECT_DIR$/HeifER/isobmfflib/stsz.py" afterPath="$PROJECT_DIR$/HeifER/isobmfflib/stsz.py" />
-      <change beforePath="$PROJECT_DIR$/HeifER/isobmfflib/stts.py" afterPath="$PROJECT_DIR$/HeifER/isobmfflib/stts.py" />
-      <change beforePath="$PROJECT_DIR$/HeifER/isobmfflib/trak.py" afterPath="$PROJECT_DIR$/HeifER/isobmfflib/trak.py" />
-      <change beforePath="$PROJECT_DIR$/HeifER/isobmfflib/tref.py" afterPath="$PROJECT_DIR$/HeifER/isobmfflib/tref.py" />
-      <change beforePath="$PROJECT_DIR$/HeifER/isobmfflib/udes.py" afterPath="$PROJECT_DIR$/HeifER/isobmfflib/udes.py" />
-      <change beforePath="$PROJECT_DIR$/HeifER/process_heif.py" afterPath="$PROJECT_DIR$/HeifER/process_heif.py" />
-      <change beforePath="$PROJECT_DIR$/isobmff/iprp.py" afterPath="$PROJECT_DIR$/isobmff/iprp.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -45,21 +22,21 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="stbl.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/HeifER/isobmfflib/stbl.py">
+      <file leaf-file-name="iloc.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/HeifER/isobmfflib/iloc.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="371">
-              <caret line="199" column="0" lean-forward="false" selection-start-line="199" selection-start-column="0" selection-end-line="199" selection-end-column="0" />
+            <state relative-caret-position="-3132">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="stco.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/HeifER/isobmfflib/stco.py">
+      <file leaf-file-name="box.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/HeifER/isobmfflib/box.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="307">
-              <caret line="29" column="8" lean-forward="false" selection-start-line="29" selection-start-column="8" selection-end-line="29" selection-end-column="8" />
+            <state relative-caret-position="126">
+              <caret line="103" column="15" lean-forward="false" selection-start-line="103" selection-start-column="15" selection-end-line="103" selection-end-column="15" />
               <folding />
             </state>
           </provider>
@@ -115,11 +92,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="boxMap3.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/boxMap3.py">
+      <file leaf-file-name="iref.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/HeifER/isobmfflib/iref.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="213">
-              <caret line="242" column="14" lean-forward="false" selection-start-line="242" selection-start-column="14" selection-end-line="242" selection-end-column="14" />
+            <state relative-caret-position="349">
+              <caret line="103" column="48" lean-forward="false" selection-start-line="103" selection-start-column="48" selection-end-line="103" selection-end-column="48" />
               <folding />
             </state>
           </provider>
@@ -128,18 +105,18 @@
       <file leaf-file-name="iprp.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/isobmff/iprp.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="108" column="36" lean-forward="false" selection-start-line="108" selection-start-column="36" selection-end-line="108" selection-end-column="36" />
+            <state relative-caret-position="79">
+              <caret line="91" column="20" lean-forward="true" selection-start-line="91" selection-start-column="20" selection-end-line="91" selection-end-column="20" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="iprp.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/HeifER/isobmfflib/iprp.py">
+      <file leaf-file-name=".pylintrc" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/HeifER/isobmfflib/.pylintrc">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-97">
-              <caret line="96" column="50" lean-forward="false" selection-start-line="96" selection-start-column="50" selection-end-line="96" selection-end-column="50" />
+            <state relative-caret-position="147">
+              <caret line="36" column="53" lean-forward="false" selection-start-line="36" selection-start-column="53" selection-end-line="36" selection-end-column="53" />
               <folding />
             </state>
           </provider>
@@ -181,9 +158,11 @@
       <find>idat</find>
       <find>TODO: Implement writeText</find>
       <find>print(</find>
+      <find>id</find>
     </findStrings>
     <dirStrings>
       <dir>$PROJECT_DIR$/isobmff</dir>
+      <dir>$PROJECT_DIR$/HeifER/isobmfflib</dir>
       <dir>$PROJECT_DIR$/HeifER</dir>
     </dirStrings>
   </component>
@@ -228,7 +207,6 @@
         <option value="$PROJECT_DIR$/HeifER/isobmfflib/grpl.py" />
         <option value="$PROJECT_DIR$/HeifER/isobmfflib/__init__.py" />
         <option value="$PROJECT_DIR$/HeifER/isobmfflib/ipro.py" />
-        <option value="$PROJECT_DIR$/HeifER/isobmfflib/iref.py" />
         <option value="$PROJECT_DIR$/HeifER/isobmfflib/mdia.py" />
         <option value="$PROJECT_DIR$/HeifER/isobmfflib/minf.py" />
         <option value="$PROJECT_DIR$/HeifER/isobmfflib/moov.py" />
@@ -242,8 +220,9 @@
         <option value="$PROJECT_DIR$/HeifER/isobmfflib/stsz.py" />
         <option value="$PROJECT_DIR$/HeifER/isobmfflib/stts.py" />
         <option value="$PROJECT_DIR$/HeifER/isobmfflib/trak.py" />
-        <option value="$PROJECT_DIR$/isobmff/iprp.py" />
         <option value="$PROJECT_DIR$/HeifER/isobmfflib/iprp.py" />
+        <option value="$PROJECT_DIR$/HeifER/isobmfflib/iref.py" />
+        <option value="$PROJECT_DIR$/isobmff/iprp.py" />
       </list>
     </option>
   </component>
@@ -306,7 +285,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/HeifER/SetBoxFlags.py" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/HeifER/isobmfflib" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
@@ -396,7 +375,7 @@
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23310171" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.41420117" sideWeight="0.5243209" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32618025" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32618025" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4136947" sideWeight="0.572327" order="2" side_tool="false" content_ui="tabs" />
@@ -718,7 +697,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/HeifER/process_file.py" />
     <entry file="file://$PROJECT_DIR$/HeifER/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="108">
@@ -747,6 +725,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="360">
           <caret line="20" column="8" lean-forward="false" selection-start-line="20" selection-start-column="8" selection-end-line="20" selection-end-column="8" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -754,6 +733,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="630">
           <caret line="42" column="0" lean-forward="false" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -819,14 +799,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="130">
           <caret line="33" column="0" lean-forward="false" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/HeifER/isobmfflib/iloc.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="342">
-          <caret line="198" column="0" lean-forward="false" selection-start-line="198" selection-start-column="0" selection-end-line="198" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -959,14 +931,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/HeifER/isobmfflib/iref.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="271">
-          <caret line="92" column="0" lean-forward="false" selection-start-line="92" selection-start-column="0" selection-end-line="92" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/HeifER/isobmfflib/mdia.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="83">
@@ -987,14 +951,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="227">
           <caret line="59" column="61" lean-forward="false" selection-start-line="59" selection-start-column="61" selection-end-line="59" selection-end-column="61" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/HeifER/isobmfflib/box.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="65" column="21" lean-forward="false" selection-start-line="65" selection-start-column="21" selection-end-line="65" selection-end-column="21" />
           <folding />
         </state>
       </provider>
@@ -1079,26 +1035,58 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/boxMap3.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="236" column="8" lean-forward="false" selection-start-line="236" selection-start-column="8" selection-end-line="236" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/HeifER/isobmfflib/iloc.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-3132">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/HeifER/isobmfflib/iref.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="349">
+          <caret line="103" column="48" lean-forward="false" selection-start-line="103" selection-start-column="48" selection-end-line="103" selection-end-column="48" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/HeifER/isobmfflib/iprp.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-97">
-          <caret line="96" column="50" lean-forward="false" selection-start-line="96" selection-start-column="50" selection-end-line="96" selection-end-column="50" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/HeifER/isobmfflib/box.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="126">
+          <caret line="103" column="15" lean-forward="false" selection-start-line="103" selection-start-column="15" selection-end-line="103" selection-end-column="15" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/isobmff/iprp.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="108" column="36" lean-forward="false" selection-start-line="108" selection-start-column="36" selection-end-line="108" selection-end-column="36" />
+        <state relative-caret-position="79">
+          <caret line="91" column="20" lean-forward="true" selection-start-line="91" selection-start-column="20" selection-end-line="91" selection-end-column="20" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/boxMap3.py">
+    <entry file="file://$PROJECT_DIR$/HeifER/isobmfflib/.pylintrc">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="213">
-          <caret line="242" column="14" lean-forward="false" selection-start-line="242" selection-start-column="14" selection-end-line="242" selection-end-column="14" />
+        <state relative-caret-position="147">
+          <caret line="36" column="53" lean-forward="false" selection-start-line="36" selection-start-column="53" selection-end-line="36" selection-end-column="53" />
           <folding />
         </state>
       </provider>
