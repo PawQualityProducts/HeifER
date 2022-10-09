@@ -194,6 +194,6 @@ class ItemLocationBox(FullBox):
                 length = extent['extent_length']
                 endbyte = startbyte + length
                 hash = extent['hash']
-                file.write("{0}:{1}  Item={2}, Extent={3} (size={4}, start={5}, end={6}, hash={7})\n".format(str(extent['startByte']).zfill(6), indent,itemIndex,extentIndex,length,startbyte,endbyte,hash))
+                file.write("{0}:{1}  Item={2}, Extent={3} (size={4}, start={5}, end={6}, hash={7}, id={8})\n".format(str(extent['startByte']).zfill(6), indent,itemIndex,extentIndex,length,startbyte,endbyte,hash,item['item_id']))
 
 

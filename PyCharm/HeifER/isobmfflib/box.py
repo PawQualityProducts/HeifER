@@ -197,6 +197,7 @@ def read_box(file,depth=0):
             else:
                 box.__init__(size=box_size, largesize=largesize, startByte=current_position)
 
+            box.depth = depth
             if box.get_box_size():
                 box.read(file, depth+1)
             break                       #NOTE: failed to here as iref box was not defined

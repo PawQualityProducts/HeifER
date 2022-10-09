@@ -36,6 +36,9 @@ class ItemReferenceBox(FullBox):
             output.writeln("{0}:{1}{2}(size={3}, start={4}, end={5})".format(str(current_position).rjust(padspaces), pad, type, refBox.size, current_position, current_position + refBox.size))
             #print("{0}:{1}{2}(size={3}, start={4}, end={5})".format(str(current_position).rjust(padspaces), pad, type, refBox.size, current_position, current_position + refBox.size))
 
+    def getBinaryDataFromFile(self, infile):
+        super().getBinaryDataFromFile(infile)
+
 
 class SingleItemTypeReferenceBox(Box):
     def __init__(self, type, size, location):

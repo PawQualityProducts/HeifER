@@ -6,6 +6,21 @@ from . import log
 import hashlib
 from . import iloc
 
+import linecache
+import sys
+
+def LogException():
+    exc_type, exc_obj, tb = sys.exc_info()
+    f = tb.tb_frame
+    lineno = tb.tb_lineno
+    filename = f.f_code.co_filename
+    linecache.checkcache(filename)
+    line = linecache.getline(filename, lineno, f.f_globals)
+    log.writeln('***')
+    log.writeln('EXCEPTION IN ({}, LINE {} "{}"): {}'.format(filename, lineno, line.strip(), exc_obj))
+    log.writeln('***')
+
+
 class MediaFile(object):
 
     def __init__(self):
@@ -60,6 +75,7 @@ class MediaFile(object):
             self.filename = None
             self.filelength = 0
             log.writeln(x)
+            LogException()
         finally:
             infile.close()
 
@@ -84,7 +100,7 @@ class MediaFile(object):
                     outhashfile.write(hashResult)
                     outhashfile.close()
         except:
-            pass
+            LogException()
 
         finally:
             outfile.close()
@@ -97,7 +113,8 @@ class MediaFile(object):
         except Exception as x:
             log.writeln(str(x))
             print(str(x))
-            pass
+            LogException()
+
 
     def __AddBoxBinaryData(self,infile,box):
         self.__GetBoxBinaryDataFromFile(infile, box)

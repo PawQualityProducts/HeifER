@@ -21,5 +21,5 @@ python3 HeifER/process_heif.py ~/samples/stereo_1200x800.heic -outdir ~/samples/
 python3 HeifER/process_heif.py ~/samples/summer_1440x960.heic -outdir ~/samples/processed/summer_1440x960.heic.export
 python3 HeifER/process_heif.py ~/samples/surfer_1440x960.heic -outdir ~/samples/processed/surfer_1440x960.heic.export
 python3 HeifER/process_heif.py ~/samples/winter_1440x960.heic -outdir ~/samples/processed/winter_1440x960.heic.export
-
+python3 HeifER/process_heif.py ~/samples/test_hidden.heic -outdir ~/samples/processed/test_hidden.heic.export
 

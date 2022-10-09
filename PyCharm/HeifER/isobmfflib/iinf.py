@@ -100,6 +100,8 @@ class ItemInfomationEntry(FullBox):
         super().writeText(file, depth)
         pad = " " * depth
         file.write("{0} item_id={1}\n".format(pad, self.item_id))
+        if self.flags & 1:
+            file.write("{0} *** HIDDEN ***\n".format(pad))
         file.write("{0} item_protection_index={1}\n".format(pad, self.item_protection_index))
         file.write("{0} item_name={1}\n".format(pad, self.item_name))
         file.write("{0} item_extension={1}\n".format(pad, self.item_extension))
@@ -108,6 +110,21 @@ class ItemInfomationEntry(FullBox):
         file.write("{0} content_encoding={1}\n".format(pad, self.content_encoding))
         file.write("{0} uri_type={1}\n".format(pad, self.uri_type))
 
+    def writeMapEntry(self,file,depth):
+        indent = "-" * depth
+        if self.flags & 1:
+            file.write("{0}:{1}{2}(size={3}, start={4}, end={5}, hash={6}, ***HIDDEN*** id={7})\n".format(str(self.startByte).zfill(6), indent, self.box_type, self.get_box_size_with_header(), self.startByte, self.startByte+self.get_box_size_with_header(), self.hash, self.item_id))
+        else:
+            file.write(
+                "{0}:{1}{2}(size={3}, start={4}, end={5}, hash={6}, id={7})\n".format(str(self.startByte).zfill(6),
+                                                                                      indent, self.box_type,
+                                                                                      self.get_box_size_with_header(),
+                                                                                      self.startByte,
+                                                                                      self.startByte + self.get_box_size_with_header(),
+                                                                                      self.hash, self.item_id))
+
+        for childbox in self.children:
+            childbox.writeMapEntry(file,depth+1)
 
 
 class FDItemInfoExtension(object):
