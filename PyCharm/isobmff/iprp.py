@@ -35,7 +35,7 @@ class PixelAspectRatio(Box):
     def read(self, file, depth):
         self.depth = depth
         pad = '-' * depth
-        print(file.read(self.get_box_size()))
+        self.data = file.read(self.get_box_size())
 
 class ColorInformation(Box):
     box_type = 'colr'
@@ -43,7 +43,7 @@ class ColorInformation(Box):
     def read(self, file, depth):
         self.depth = depth
         pad = '-' * depth
-        print(file.read(self.get_box_size()))
+        self.data = file.read(self.get_box_size())
 
 class PixelInformation(Box):
     box_type = 'pixi'
@@ -51,7 +51,7 @@ class PixelInformation(Box):
     def read(self, file, depth):
         self.depth = depth
         pad = '-' * depth
-        print(file.read(self.get_box_size()))
+        self.data = file.read(self.get_box_size())
 
 class RelativeInformation(Box):
     box_type = 'rloc'
@@ -59,7 +59,7 @@ class RelativeInformation(Box):
     def read(self, file, depth):
         self.depth = depth
         pad = '-' * depth
-        print(file.read(self.get_box_size()))
+        self.data = file.read(self.get_box_size())
 
 #Note: Added ImageRotation
 class ImageRotation(Box):
@@ -68,7 +68,7 @@ class ImageRotation(Box):
     def read(self, file, depth):
         self.depth = depth
         pad = '-' * depth
-        print(file.read(self.get_box_size()))
+        self.data = file.read(self.get_box_size())
 
 #Note: Added auxC
 class AuxiliaryTypeProperty(Box):
@@ -77,7 +77,7 @@ class AuxiliaryTypeProperty(Box):
     def read(self, file, depth):
         self.depth = depth
         pad = '-' * depth
-        print(file.read(self.get_box_size()))
+        self.data = file.read(self.get_box_size())
 
 #TODO: Move this and implement idat
 class ItemDataBox(Box):
@@ -86,7 +86,7 @@ class ItemDataBox(Box):
     def read(self, file, depth):
         self.depth = depth
         pad = '-' * depth
-        print(file.read(self.get_box_size()))
+        self.data = file.read(self.get_box_size())
 
 
 class ItemPropertyAssociation(FullBox):
@@ -121,46 +121,3 @@ class ItemPropertyAssociation(FullBox):
             self.items.append(item)
 
 
-"""
-#TODO: Move this to it's own module file
-#TODO: Extend parsing of grpl box contents
-class GroupsListBox(Box):
-    box_type = 'grpl'
-
-    def read(self, file, depth):
-        print(file.read(self.get_box_size()))
-
-
-#TODO: Move this to it's own module file
-#TODO: Extend parsing of grpl box contents
-class UdesBox(Box):
-    box_type = 'udes'
-
-    def read(self, file, depth):
-        print(file.read(self.get_box_size()))
-
-#TODO: Move this to it's own module file
-#TODO: Extend parsing of grpl box contents
-class SgpdBox(Box):
-    box_type = 'sgpd'
-
-    def read(self, file, depth):
-        print(file.read(self.get_box_size()))
-
-
-# TODO: Move this to it's own module file
-# TODO: Extend parsing of grpl box contents
-class SbgpBox(Box):
-    box_type = 'sbgp'
-
-    def read(self, file, depth):
-        print(file.read(self.get_box_size()))
-
-# TODO: Move this to it's own module file
-# TODO: Extend parsing of grpl box contents
-class TrefBox(Box):
-    box_type = 'tref'
-
-    def read(self, file, depth):
-        print(file.read(self.get_box_size()))
-"""

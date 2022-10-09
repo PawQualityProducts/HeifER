@@ -30,11 +30,14 @@ class SampleDescriptionBox(FullBox):
             if not box:
                 break
             self.samples.append(box)
+            self.children.append(box)
 
     def writeText(self, file, depth=0):
         super().writeText(file, depth)
         pad = " " * depth
-        file.write("{0} TODO: Implement writeText for {1}\n".format(pad, self.box_type))
+        file.write("{0} entries={1}\n".format(pad, len(self.samples)))
+        for sample in self.samples:
+            sample.writeText(file,depth+1)
 
 
 class SampleEntry(Box):
@@ -60,7 +63,8 @@ class SampleEntry(Box):
     def writeText(self, file, depth=0):
         super().writeText(file, depth)
         pad = " " * depth
-        file.write("{0} TODO: Implement writeText for {1}\n".format(pad, self.box_type))
+        file.write("{0} reserveds={1}\n".format(pad, self.reserveds))
+        file.write("{0} data_reference_index={1}\n".format(pad, self.data_reference_index))
 
 
 class HintSampleEntry(SampleEntry):
@@ -80,7 +84,7 @@ class HintSampleEntry(SampleEntry):
     def writeText(self, file, depth=0):
         super().writeText(file, depth)
         pad = " " * depth
-        file.write("{0} TODO: Implement writeText for {1}\n".format(pad, self.box_type))
+        #file.write("{0} TODO: Implement writeText for {1}\n".format(pad, self.box_type))
 
 
 class VisualSampleEntry(SampleEntry):
@@ -122,7 +126,17 @@ class VisualSampleEntry(SampleEntry):
     def writeText(self, file, depth=0):
         super().writeText(file, depth)
         pad = " " * depth
-        file.write("{0} TODO: Implement writeText for {1}\n".format(pad, self.box_type))
+        file.write("{0} pre_defined1={1}\n".format(pad, self.pre_defined1))
+        file.write("{0} reserved1={1}\n".format(pad, self.reserved1))
+        file.write("{0} width={1}\n".format(pad, self.width))
+        file.write("{0} height={1}\n".format(pad, self.height))
+        file.write("{0} horizresolution={1}\n".format(pad, self.horizresolution))
+        file.write("{0} vertresolution={1}\n".format(pad, self.vertresolution))
+        file.write("{0} reserved2={1}\n".format(pad, self.reserved2))
+        file.write("{0} frame_count={1}\n".format(pad, self.frame_count))
+        file.write("{0} compressorname={1}\n".format(pad, self.compressorname))
+        file.write("{0} depth={1}\n".format(pad, self.depth))
+        file.write("{0} pre_defined3={1}\n".format(pad, self.pre_defined3))
 
 
 class AudioSampleEntry(SampleEntry):
@@ -152,7 +166,12 @@ class AudioSampleEntry(SampleEntry):
     def writeText(self, file, depth=0):
         super().writeText(file, depth)
         pad = " " * depth
-        file.write("{0} TODO: Implement writeText for {1}\n".format(pad, self.box_type))
+        file.write("{0} reserved1={1}\n".format(pad, self.reserved1))
+        file.write("{0} channelcount={1}\n".format(pad, self.channelcount))
+        file.write("{0} samplesize={1}\n".format(pad, self.samplesize))
+        file.write("{0} pre_defined={1}\n".format(pad, self.pre_defined))
+        file.write("{0} reserved2={1}\n".format(pad, self.reserved2))
+        file.write("{0} samperate={1}\n".format(pad, self.samperate))
 
 
 class BitRateBox(Box):
@@ -174,6 +193,9 @@ class BitRateBox(Box):
     def writeText(self, file, depth=0):
         super().writeText(file, depth)
         pad = " " * depth
-        file.write("{0} TODO: Implement writeText for {1}\n".format(pad, self.box_type))
+        file.write("{0} buffer_size_db={1}\n".format(pad, self.buffer_size_db))
+        file.write("{0} max_bitrate={1}\n".format(pad, self.max_bitrate))
+        file.write("{0} avg_bitrate={1}\n".format(pad, self.avg_bitrate))
+
 
 

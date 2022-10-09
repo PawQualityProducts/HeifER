@@ -52,4 +52,12 @@ class MovieHeaderBox(FullBox):
     def writeText(self, file, depth=0):
         super().writeText(file, depth)
         pad = " " * depth
-        file.write("{0} TODO: Implement writeText for {1}\n".format(pad, self.box_type))
+        file.write("{0} creation_time={1}\n".format(pad, self.creation_time))
+        file.write("{0} modification_time={1}\n".format(pad, self.modification_time))
+        file.write("{0} timescale={1}\n".format(pad, self.timescale))
+        file.write("{0} duration={1}\n".format(pad, self.duration))
+        file.write("{0} rate={1}\n".format(pad, self.rate))
+        file.write("{0} volume={1}\n".format(pad, self.volume))
+
+
+

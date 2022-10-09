@@ -112,7 +112,7 @@ class MediaFile(object):
             box.getBinaryDataFromFile(infile)
         except Exception as x:
             log.writeln(str(x))
-            print(str(x))
+            #print(str(x))
             LogException()
 
 

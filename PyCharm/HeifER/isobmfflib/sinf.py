@@ -27,7 +27,7 @@ class OriginalFormatBox(Box):
     def writeText(self, file, depth=0):
         super().writeText(file, depth)
         pad = " " * depth
-        file.write("{0} TODO: Implement writeText for {1}\n".format(pad, self.box_type))
+        file.write("{0} data_format={1}\n".format(pad, self.data_format))
 
 
 class SchemeTypeBox(FullBox):
@@ -51,7 +51,9 @@ class SchemeTypeBox(FullBox):
     def writeText(self, file, depth=0):
         super().writeText(file, depth)
         pad = " " * depth
-        file.write("{0} TODO: Implement writeText for {1}\n".format(pad, self.box_type))
+        file.write("{0} scheme_type={1}\n".format(pad, self.scheme_type))
+        file.write("{0} scheme_version={1}\n".format(pad, self.scheme_version))
+        file.write("{0} flags={1}\n".format(pad, self.scheme_uri))
 
 
 class SchemeInformationBox(Box):

@@ -44,4 +44,12 @@ class MediaHeaderBox(FullBox):
     def writeText(self, file, depth=0):
         super().writeText(file, depth)
         pad = " " * depth
-        file.write("{0} TODO: Implement writeText for {1}\n".format(pad, self.box_type))
+        file.write("{0} createion_time={1}\n".format(pad, self.creation_time))
+        file.write("{0} modification_time={1}\n".format(pad, self.modification_time))
+        file.write("{0} timescale={1}\n".format(pad, self.timescale))
+        file.write("{0} duration={1}\n".format(pad, self.duration))
+        file.write("{0} language={1}\n".format(pad, self.language))
+        file.write("{0} pre_defined={1}\n".format(pad, self.pre_defined))
+
+
+

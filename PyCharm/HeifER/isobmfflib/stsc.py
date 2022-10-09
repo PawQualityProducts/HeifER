@@ -26,4 +26,9 @@ class SampleToChunkBox(FullBox):
     def writeText(self, file, depth=0):
         super().writeText(file, depth)
         pad = " " * depth
-        file.write("{0} TODO: Implement writeText for {1}\n".format(pad, self.box_type))
+        file.write("{0} entries={1}\n".format(pad, len(self.entries)))
+        for entry in self.entries:
+            file.write("{0}   first_chunk={1}\n".format(pad, entry['first_chunk']))
+            file.write("{0}   samples_per_chunk={1}\n".format(pad, entry['samples_per_chunk']))
+            file.write("{0}   sample_description_index={1}\n".format(pad, entry['sample_description_index']))
+            

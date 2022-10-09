@@ -78,8 +78,8 @@ def extractImages(infile,outdir):
                 __saveImage(aux_heif,outfilename)
 
     except Exception as x:
-        print(str(x))
-        log.writeln("ERROR:" + str(x))
+        log.writeln("ERROR:{0}".format(str(x)))
+        print("ERROR:{0}".format(str(x)))
 
 
 def exportExif(infile,outdir):
@@ -98,6 +98,8 @@ def exportExif(infile,outdir):
 
 
 #Entry -------------
+
+log.echo_off()
 
 if arg_infile and arg_infile[0] != '-':
 
@@ -174,7 +176,7 @@ if arg_infile and arg_infile[0] != '-':
         extractImages(infile,outdir)
     except Exception as x:
         log.writeln(str(x))
-        print(str(x))
+        print("ERROR:{0}".format(str(x)))
     log.writeln("Image extraction complete----------")
 
     log.close()

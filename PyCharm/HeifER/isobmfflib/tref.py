@@ -9,8 +9,8 @@ class tref(Box):
     def read(self, file, depth):
         self.depth = depth
         pad = '-' * depth
-        rawdata = file.read(self.get_box_size())
-        print(rawdata)
+        self.rawdata = file.read(self.get_box_size())
+        #print(rawdata)
 
 
 

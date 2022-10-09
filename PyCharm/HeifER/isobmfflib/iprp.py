@@ -42,7 +42,7 @@ class PixelAspectRatio(Box):
     def read(self, file, depth):
         self.depth = depth
         pad = '-' * depth
-        print(file.read(self.get_box_size()))
+        self.data = file.read(self.get_box_size())
 
 
 
@@ -52,7 +52,7 @@ class ColorInformation(Box):
     def read(self, file, depth):
         self.depth = depth
         pad = '-' * depth
-        print(file.read(self.get_box_size()))
+        self.data = file.read(self.get_box_size())
 
 
 
@@ -62,7 +62,7 @@ class PixelInformation(Box):
     def read(self, file, depth):
         self.depth = depth
         pad = '-' * depth
-        print(file.read(self.get_box_size()))
+        self.data = file.read(self.get_box_size())
 
 
 
@@ -72,7 +72,7 @@ class RelativeInformation(Box):
     def read(self, file, depth):
         self.depth = depth
         pad = '-' * depth
-        print(file.read(self.get_box_size()))
+        self.data = file.read(self.get_box_size())
 
 
 
@@ -83,7 +83,7 @@ class ImageRotation(Box):
     def read(self, file, depth):
         self.depth = depth
         pad = '-' * depth
-        print(file.read(self.get_box_size()))
+        self.data = file.read(self.get_box_size())
 
 
 
@@ -94,7 +94,7 @@ class AuxiliaryTypeProperty(Box):
     def read(self, file, depth):
         self.depth = depth
         pad = '-' * depth
-        print(file.read(self.get_box_size()))
+        self.data = file.read(self.get_box_size())
 
 
 
@@ -158,5 +158,5 @@ class ItemPropertyAssociation(FullBox):
                 file.write("{0}    association={1}\n".format(pad, associationIndex))
                 file.write("{0}      essential={1}\n".format(pad, association['essential']))
                 file.write("{0}      property_index={1}\n".format(pad, association['property_index']))
-            
+
 

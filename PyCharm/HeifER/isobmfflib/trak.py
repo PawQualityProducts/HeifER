@@ -54,5 +54,17 @@ class TrackHeaderBox(FullBox):
     def writeText(self, file, depth=0):
         super().writeText(file, depth)
         pad = " " * depth
-        file.write("{0} TODO: Implement writeText for {1}\n".format(pad, self.box_type))
+        file.write("{0} creation_time={1}\n".format(pad, self.creation_time))
+        file.write("{0} modification_time={1}\n".format(pad, self.modification_time))
+        file.write("{0} track_id={1}\n".format(pad, self.track_id))
+        file.write("{0} reserved1={1}\n".format(pad, self.reserved1))
+        file.write("{0} duration={1}\n".format(pad, self.duration))
+        file.write("{0} reserved2={1}\n".format(pad, self.reserved2))
+        file.write("{0} layer={1}\n".format(pad, self.layer))
+        file.write("{0} alternate_group={1}\n".format(pad, self.alternate_group))
+        file.write("{0} volume={1}\n".format(pad, self.volume))
+        file.write("{0} reserved3={1}\n".format(pad, self.reserved3))
+        file.write("{0} matrix={1}\n".format(pad, self.matrix))
+        file.write("{0} width={1}\n".format(pad, self.width))
+        file.write("{0} height={1}\n".format(pad, self.height))
         

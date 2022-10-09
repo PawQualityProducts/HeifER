@@ -29,7 +29,8 @@ class VideoMediaHeaderBox(FullBox):
     def writeText(self, file, depth=0):
         super().writeText(file, depth)
         pad = " " * depth
-        file.write("{0} TODO: Implement writeText for {1}\n".format(pad, self.box_type))
+        file.write("{0} graphicsmode={1}\n".format(pad, self.graphicsmode))
+        file.write("{0} opcolor={1}\n".format(pad, self.opcolor))
 
 
 class SoundMediaHeaderBox(FullBox):
@@ -49,7 +50,8 @@ class SoundMediaHeaderBox(FullBox):
     def writeText(self, file, depth=0):
         super().writeText(file, depth)
         pad = " " * depth
-        file.write("{0} TODO: Implement writeText for {1}\n".format(pad, self.box_type))
+        file.write("{0} balance={1}\n".format(pad, self.balance))
+        file.write("{0} reserved={1}\n".format(pad, self.reserved))
 
 
 class HintMediaHeaderBox(FullBox):
@@ -75,7 +77,11 @@ class HintMediaHeaderBox(FullBox):
     def writeText(self, file, depth=0):
         super().writeText(file, depth)
         pad = " " * depth
-        file.write("{0} TODO: Implement writeText for {1}\n".format(pad, self.box_type))
+        file.write("{0} max_pdu={1}\n".format(pad, self.max_pdu))
+        file.write("{0} avg_pdu_size={1}\n".format(pad, self.avg_pdu_size))
+        file.write("{0} max_bit_rate={1}\n".format(pad, self.max_bit_rate))
+        file.write("{0} avg_bit_rate={1}\n".format(pad, self.avg_bit_rate))
+        file.write("{0} reserved={1}\n".format(pad, self.reserved))
 
 
 class NullMediaHeaderBox(FullBox):

@@ -63,7 +63,7 @@ class Box(object):
             read_size -= box.size
 
     def writeText(self, file, depth=0):
-        log.writeln("writeText Box={0}, location={1}".format(self.box_type,self.startByte))
+        log.writeln("Box={0}, location={1}".format(self.box_type,self.startByte))
         pad = " " * depth
         file.write("{0}Box Type={1}\n".format(pad, self.box_type))
         file.write("{0} Size={1}\n".format(pad, self.get_box_size_with_header()))

@@ -29,8 +29,8 @@ def write(message):
     if _logfile:
         try:
             _logfile.write(message)
-        except:
-            print("Could not write to Log file")
+        except Exception as x:
+            print("ERROR:{0}".format(str(x)))
     if _echo:
         print(message)
 
@@ -40,6 +40,6 @@ def writeln(message):
         try:
             _logfile.write(message + "\n")
         except Exception as x:
-            print(str(x))
+            print("ERROR:{0}".format(str(x)))
     if _echo:
         print(message)

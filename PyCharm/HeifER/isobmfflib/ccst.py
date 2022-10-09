@@ -10,7 +10,7 @@ class ccst(Box):
         self.depth = depth
         pad = '-' * depth
         rawdata = file.read(self.get_box_size())
-        print(rawdata)
+        #print(rawdata)
 
 
 

@@ -26,5 +26,5 @@ class ChunkOffsetBox(FullBox):
     def writeText(self, file, depth=0):
         super().writeText(file, depth)
         pad = " " * depth
-        file.write("{0} TODO: Implement writeText for {1}\n".format(pad, self.box_type))
+        file.write("{0} entries={1}\n".format(pad, self.entries))
         
