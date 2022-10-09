@@ -29,8 +29,12 @@ class ItemProtectionBox(FullBox):
                 break
             if box.box_type == 'sinf':
                 self.protection_informations.append(box)
+                self.children.append(box)
 
     def writeText(self, file, depth=0):
         super().writeText(file, depth)
         pad = " " * depth
-        file.write("{0} TODO: Implement writeText for {1}\n".format(pad,self.box_type))
+        file.write("{0} protections={1}\n".format(pad,len(self.protection_informations)))
+        for p in self.protection_informations:
+            p.writeText(file,depth+1)
+            

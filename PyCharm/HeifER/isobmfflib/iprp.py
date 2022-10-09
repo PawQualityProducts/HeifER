@@ -147,49 +147,16 @@ class ItemPropertyAssociation(FullBox):
     def writeText(self, file, depth=0):
         super().writeText(file, depth)
         pad = " " * depth
-        file.write("{0} TODO: Implement writeText for {1}\n".format(pad, self.box_type))
+        file.write("{0} items={1}\n".format(pad, len(self.items)))
+        itemIndex = 0
+        for item in self.items:
+            itemIndex += 1
+            file.write("{0}  item={1}, id={2}\n".format(pad, itemIndex, item['id']))
+            associationIndex = 0
+            for association in item['associations']:
+                associationIndex += 1
+                file.write("{0}    association={1}\n".format(pad, associationIndex))
+                file.write("{0}      essential={1}\n".format(pad, association['essential']))
+                file.write("{0}      property_index={1}\n".format(pad, association['property_index']))
+            
 
-
-"""
-#TODO: Move this to it's own module file
-#TODO: Extend parsing of grpl box contents
-class GroupsListBox(Box):
-    box_type = 'grpl'
-
-    def read(self, file, depth):
-        print(file.read(self.get_box_size()))
-
-
-#TODO: Move this to it's own module file
-#TODO: Extend parsing of grpl box contents
-class UdesBox(Box):
-    box_type = 'udes'
-
-    def read(self, file, depth):
-        print(file.read(self.get_box_size()))
-
-#TODO: Move this to it's own module file
-#TODO: Extend parsing of grpl box contents
-class SgpdBox(Box):
-    box_type = 'sgpd'
-
-    def read(self, file, depth):
-        print(file.read(self.get_box_size()))
-
-
-# TODO: Move this to it's own module file
-# TODO: Extend parsing of grpl box contents
-class SbgpBox(Box):
-    box_type = 'sbgp'
-
-    def read(self, file, depth):
-        print(file.read(self.get_box_size()))
-
-# TODO: Move this to it's own module file
-# TODO: Extend parsing of grpl box contents
-class TrefBox(Box):
-    box_type = 'tref'
-
-    def read(self, file, depth):
-        print(file.read(self.get_box_size()))
-"""

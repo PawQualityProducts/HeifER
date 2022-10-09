@@ -147,7 +147,6 @@ def read_int(file, length):
     return int.from_bytes(file.read(length), byteorder='big', signed=False)
 
 def read_string(file, length=None):
-    #TODO: convert utf8
     if length:
         res = file.read(length).decode()
     else:
