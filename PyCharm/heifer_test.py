@@ -1,6 +1,8 @@
 import HeifER
 
-HeifER.process_heif
+#HeifER.process_heiif
+
+HeifER.process_heiif /home/kali/samples/IMG_3802.HEIC -outdir /home/kali/samples/processed/IMG_3802.HEIC.export
 
 #media_file.read('IMG_3802.HEIC') #ok
 #media_file.extract('IMG_3802.HEIC','IMG_3802_ftyp.bin',0,40)

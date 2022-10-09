@@ -1,0 +1,24 @@
+Parsing file ------------
+[Errno 2] No such file or directory: '~/samples/alpha_1440x960.heic'
+Parse Complete --------
+
+Processing Binary Data and Hashes --------------
+[Errno 2] No such file or directory: '~/samples/alpha_1440x960.heic'
+Binary Data and Hash processing complete -------
+
+Writing map file--------------
+'MediaFile' object has no attribute 'outdir'
+map file complete -------
+
+Writing contents file--------------
+write all to ~/samples/alpha_1440x960.heic.txt
+'MediaFile' object has no attribute 'outdir'
+Contents file complete -------
+Extracting components--------------
+Component Extraction complete-------
+Extracting metadata--------------
+[Errno 2] No such file or directory: '~/samples/alpha_1440x960.heic'
+Metadata extraction complete-------
+Extracting Images -----------
+ERROR:[Errno 2] No such file or directory: '~/samples/alpha_1440x960.heic'
+Image extraction complete----------

@@ -63,10 +63,15 @@ class ItemLocationBox(FullBox):
                 item['item_id'] = read_int(file, 2)
             else:
                 item['item_id'] = read_int(file, 4)
+
             if self.version in [1,2]:
                 bytes = read_int(file,2)
                 item['reserved'] = bytes >> 4 & 0b111111111111
                 item['construction_method'] =  bytes & 0b1111
+            else:
+                item['reserved'] = 0
+                item['construction_method'] = 0
+
             item['data_reference_index'] = read_int(file, 2)
             item['base_offset'] = read_int(file, self.base_offset_size)
             extent_count = read_int(file, 2)
