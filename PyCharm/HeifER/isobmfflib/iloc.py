@@ -108,7 +108,10 @@ class ItemLocationBox(FullBox):
             file.write("{0}   item_id={1}\n".format(pad, item['item_id']))
             if self.version in [1,2]:
                 file.write("{0}    reserved={1}\n".format(pad, item['reserved']))
-                file.write("{0}    construction_method={1}\n".format(pad, item['construction_method']))
+                if item['construction_method'] == 1:
+                    file.write("{0}    construction_method={1} => idat box\n".format(pad, item['construction_method']))
+                else:
+                    file.write("{0}    construction_method={1} => mdat box, offset from beginning of file\n".format(pad, item['construction_method']))
 
             file.write("{0}    data_reference_index={1}\n".format(pad, item['data_reference_index']))
             file.write("{0}    base_offset={1}\n".format(pad, item['base_offset']))

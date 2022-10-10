@@ -99,9 +99,9 @@ class ItemInfomationEntry(FullBox):
     def writeText(self, file, depth=0):
         super().writeText(file, depth)
         pad = " " * depth
-        file.write("{0} item_id={1}\n".format(pad, self.item_id))
         if self.flags & 1:
             file.write("{0} *** HIDDEN ***\n".format(pad))
+        file.write("{0} item_id={1}\n".format(pad, self.item_id))
         file.write("{0} item_protection_index={1}\n".format(pad, self.item_protection_index))
         file.write("{0} item_name={1}\n".format(pad, self.item_name))
         file.write("{0} item_extension={1}\n".format(pad, self.item_extension))
