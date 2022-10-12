@@ -6,6 +6,8 @@ import io
 from PIL import Image
 import pyheif
 import exifread
+import shutil
+from boxflags import BoxFlags
 
 arg_infile = sys.argv[1]             #input heif file, next arg is infile name
 arg_outdir = sys.argv.index('-outdir')  if '-outdir' in sys.argv[2:] else 0  #destination directory
@@ -96,6 +98,24 @@ def exportExif(infile,outdir):
 
     outfile.close()
 
+def exportAllImages(infile):
+    # copy the file to create a temp file
+    shutil.copy(infile, infile + ".temp")
+
+    # iterate the iinf boxes to get the boxoffsets
+    for a in media_file.meta.children:
+        if a.box_type == 'iinf':
+            for b in a.children:
+                if (b.item_type == 'hvc1') and (b.flags & 0x000001):
+                    # unhide the box
+                    BoxFlags.setFlags(infile + ".temp", b.startByte, "000000")
+
+    # extract the unhidden images from the temp file
+    extractImages(infile + ".temp", outdir)
+
+    # remove the temporary file
+    os.remove(infile + ".temp")
+
 
 #Entry -------------
 
@@ -126,6 +146,7 @@ if arg_infile and arg_infile[0] != '-':
         print("ERROR:{0}".format(str(x)))
 
     log.writeln("Parse Complete --------")
+
 
     log.writeln("")
     log.writeln("Processing Binary Data and Hashes --------------")
@@ -173,14 +194,13 @@ if arg_infile and arg_infile[0] != '-':
 
     log.writeln("Extracting Images -----------")
     try:
-        extractImages(infile,outdir)
+        exportAllImages(infile)
     except Exception as x:
         log.writeln(str(x))
         print("ERROR:{0}".format(str(x)))
     log.writeln("Image extraction complete----------")
 
     log.close()
-
 
 print(media_file)
 

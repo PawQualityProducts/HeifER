@@ -23,7 +23,7 @@ def hex_string_byte_list(hex_string):
 
 
 def getFlags(filename,boxOffset):
-    infile = open(arg_infile,"rb")
+    infile = open(filename,"rb")
     infile.seek(boxOffset)
     size=read_int(infile,4)
     type=read_string(infile,4)
@@ -36,7 +36,7 @@ def getFlags(filename,boxOffset):
     return type,hexflags
 
 def setFlags(filename,boxOffset,flags):
-    infile = open(arg_infile,"rb+")
+    infile = open(filename,"rb+")
     infile.seek(boxOffset)
     size=read_int(infile,4)
     type=read_string(infile,4)
@@ -46,6 +46,7 @@ def setFlags(filename,boxOffset,flags):
     bytes=hex_string_byte_list(flags)
     infile.write(bytes[0:3])
     infile.close()
+
 
 if __name__ == "__main__":
     arg_infile = sys.argv[1]
