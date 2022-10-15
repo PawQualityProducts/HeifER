@@ -88,10 +88,11 @@ class ItemLocationBox(FullBox):
                 extent['extent_offset'] = read_int(file, self.offset_size)
                 extent['extent_length'] = read_int(file, self.length_size)
                 extent['data'] = None
+                extent['length'] = file.tell() - current_location
                 item['extents'].append(extent)
             self.items.append(item)
             log.writeln("{0}:{1}    extent={2}".format(str(current_location).rjust(padspaces), pad, str(extentIndex)))
-
+            item['length'] = file.tell() - item['startByte']
 
     def writeText(self, file, depth=0):
         super().writeText(file, depth)
@@ -131,10 +132,11 @@ class ItemLocationBox(FullBox):
     def getBinaryDataFromFile(self,infile):
         super().getBinaryDataFromFile(infile)
 
+        #self.BinaryData = b''
         itemIndex=0
         for item in self.items:
             itemIndex += 1
-            self.BinaryData = b''
+            #item.BinaryData = [0x00]
             itemoffset = item['base_offset']
             extentIndex=0
             for extent in item['extents']:
@@ -172,6 +174,12 @@ class ItemLocationBox(FullBox):
             boxdir = os.path.dirname(file.name)
             itemdir = os.path.join(boxdir,str(itemindex).zfill(3) + '_item')
             os.makedirs(itemdir)
+
+            #itemfilename = os.path.join(itemdir,str(itemindex).zfill(3) + '_item.bin')
+            #itemfile = open(itemfilename,"wb")
+            #itemfile.write(item.BinaryData)
+            #itemfile.close()
+
             extentindex = 0
             for extent in item['extents']:
                 extentindex+=1
@@ -187,16 +195,24 @@ class ItemLocationBox(FullBox):
         for item in self.items:
             itemIndex += 1
             extentIndex = 0
+            itemStartByte = item['startByte']
+            itemLength = item['length']
+            itemEndByte = itemStartByte + itemLength
+            file.write("{0}:{1}  Item={2}, (size={3}, start={4}, end={5}, id={6})\n".format(str(itemStartByte).zfill(6), indent, itemIndex, itemLength, itemStartByte, itemStartByte+itemLength,item['item_id']))
             for extent in item['extents']:
                 extentIndex += 1
+                extentStartByte = extent['startByte']
+                extentLength = extent['length']
+                extentEndByte = extentStartByte + extentLength
                 # assume construction method 0 = offset from file start
-                startbyte = item['base_offset'] + extent['extent_offset']
+                dataStartByte = item['base_offset'] + extent['extent_offset']
                 if item['construction_method'] == 1:
                     metabox = getMetaBox()
-                    startbyte = metabox.idat.idataStartByte + extent['extent_offset']
-                length = extent['extent_length']
-                endbyte = startbyte + length
+                    dataStartByte = metabox.idat.idataStartByte + extent['extent_offset']
+                    type='idat'
+                else:
+                    type='mdat'
+                dataLength = extent['extent_length']
+                dataEndByte = dataStartByte + dataLength
                 hash = extent['hash']
-                file.write("{0}:{1}  Item={2}, Extent={3} (size={4}, start={5}, end={6}, hash={7}, id={8})\n".format(str(extent['startByte']).zfill(6), indent,itemIndex,extentIndex,length,startbyte,endbyte,hash,item['item_id']))
-
-
+                file.write("{0}:{1}    Extent={2} (size={3}, start={4}, end={5}, data=(type={6}, length={7}, start={8}, end={9}, hash={10})\n".format(str(extentStartByte).zfill(6), indent,extentIndex,extentLength,extentStartByte,extentEndByte,type,dataLength,dataStartByte,dataEndByte,hash))
