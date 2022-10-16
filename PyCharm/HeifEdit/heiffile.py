@@ -101,7 +101,6 @@ class Box(object):
             bytes2 += child.serialize()
         return bytes2
 
-
 class FullBox(Box):
     def __init__(self,infile ,level ,type, size):
         super().__init__(infile,level,type,size)
@@ -259,6 +258,7 @@ class infeBox(FullBox):
                 bytes1 += b'\x00'
         return bytes1
 
+
 class FDItemInfoExtension(object):
     def __init__(self):
         self.content_location = None
@@ -299,10 +299,48 @@ class FDItemInfoExtension(object):
         return bytes1
 
 
-
 class irefBox(FullBox):
     def read(self,infile):
-        super().read(infile)
+        #super().read(infile)
+        self.references = []
+        while infile.tell() < self.end():
+            refbox = ReadBoxHeader(infile,self.level + 1)
+            refbox.read(infile,self.version)
+            self.references.append(refbox)
+
+    def writeheader(self,outfile):
+        super().writeheader(outfile)
+        for ref in self.references:
+            ref.writeheader(outfile,self.version)
+
+    def serialize_header(self):
+        bytes1 = super().serialize_header()
+        for ref in self.references:
+            bytes1 += ref.serialize_header(self.version)
+
+
+class itemReferenceBox(Box):
+    def read(self, infile, version):
+        self.references = []
+        self.from_item_ID = read_int(infile, 2 if version == 0 else 4)
+        self.reference_count = read_int(infile, 2)
+        for ref in range(self.reference_count):
+            self.references.append(read_int(infile, 2 if version == 0 else 4))
+
+    def writeheader(self, outfile, version):
+        super().writeheader(outfile)
+        outfile.write((self.from_item_ID).to_bytes(2 if version == 0 else 4, "big"))
+        outfile.write((self.reference_count).to_bytes(2, "big"))
+        for ref in self.references:
+            outfile.write((ref).to_bytes(2 if version == 0 else 4, "big"))
+
+    def serialize_header(self,version):
+        bytes1 = (self.from_item_ID).to_bytes(2 if version == 0 else 4, "big")
+        bytes1 += (self.reference_count).to_bytes(2, "big")
+        for ref in self.references:
+            bytes1 += (ref).to_bytes(2 if version == 0 else 4, "big")
+        return bytes1
+
 
 class iprpBox(Box):
     def read(self,infile):
@@ -513,7 +551,11 @@ boxTypes = {
     "pixi" : Box,
     "rloc" : Box,
     "irot" : Box,
-    "auxC" : Box
+    "auxC" : Box,
+    "dimg" : itemReferenceBox,
+    "thmb" : itemReferenceBox,
+    "auxl" : itemReferenceBox,
+    "cdsc" : itemReferenceBox
 }
 
 
