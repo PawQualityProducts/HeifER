@@ -300,27 +300,27 @@ class HeifFile:
         outfile.close()
 
 
-    def find_meta_Box(self):
+    def find_meta_box(self):
         for box in self.rootBoxHeaders:
             if box.type == 'meta':
                 return box
 
-    def find_iinf_Box(self,MetaBox):
+    def find_iinf_box(self,MetaBox):
         for box in MetaBox.children:
             if box.type == 'iinf':
                 return box
 
-    def find_infe_Box(self,IinfBox,id=None,nth=0):
+    def find_infe_box(self,IinfBox,id=None,nth=0):
         if nth > 0 and nth < len(InfBox.children):
-            return InfBox.children[nth-1]
+            return IinfBox.children[nth-1]
         elif id != None:
             for box in IinfBox.children:
                 if box.id == id:
                     return box
 
     def add_infe_Box(self,InfeBox):
-        MetaBox = self.findMetaBox()
-        IinfBox = self.findIinfBox(MetaBox)
+        MetaBox = self.find_meta_box()
+        IinfBox = self.find_iinf_box(MetaBox)
         IinfBox.children.append(InfeBox)
         IinfBox.item_count += 1
         size = len(InfeBox.serialize())
