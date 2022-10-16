@@ -388,7 +388,38 @@ class ilocBox(FullBox):
                 outfile.write(extent['extent_offset'].to_bytes(self.offset_size, "big"))
                 outfile.write(extent['extent_length'].to_bytes(self.length_size, "big"))
 
-        #TODO: Serialize Header
+    def serialize_header(self):
+        bytes1 = super().serialize_header()
+        bytes1 += ((self.offset_size << 4) | self.length_size).to_bytes(1,"big")
+        bytes1 += ((self.base_offset_size << 4) | self.reserved).to_bytes(1,"big")
+        item_count = len(self.items)
+        if self.version < 2:
+            bytes1 += (item_count).to_bytes(2,"big")
+        else:
+            bytes1 += (item_count).to_bytes(4, "big")
+        for item in self.items:
+            bytes1 += self.serialize_iloc_item(item)
+
+
+    def serialize_iloc_item(self,ilocitem):
+        bytes1 = []
+        if self.version < 2:
+            bytes1 += ilocitem['item_id'].to_bytes(2, "big")
+        else:
+            bytes1 += ilocitem['item_id'].to_bytes(4, "big")
+
+        if self.version in [1, 2]:
+            bytes = (ilocitem['reserved'] << 4) | ilocitem['construction_method']
+            bytes1 += (bytes).to_bytes(2, "big")
+
+        bytes1 += (ilocitem['data_reference_index']).to_bytes(2, "big")
+        bytes1 += (ilocitem['base_offset']).to_bytes(self.base_offset_size, "big")
+        bytes1 += len(ilocitem['extents']).to_bytes(2, "big")
+
+        for extent in ilocitem['extents']:
+            bytes1 += extent['extent_offset'].to_bytes(self.offset_size, "big")
+            bytes1 += extent['extent_length'].to_bytes(self.length_size, "big")
+        return bytes1
 
 
 boxTypes = {
@@ -406,6 +437,11 @@ boxTypes = {
     "idat" : idatBox,
     "iloc" : ilocBox
 }
+
+
+def boxsize(box):
+    return len(box.serialize())
+
 
 class HeifFile:
     def __init__(self):
@@ -433,33 +469,69 @@ class HeifFile:
             if box.type == 'meta':
                 return box
 
-    def find_iinf_box(self,MetaBox):
-        for box in MetaBox.children:
+    def find_iinf_box(self):
+        metabox = self.find_meta_box()
+        for box in metabox.children:
             if box.type == 'iinf':
                 return box
 
-    def find_infe_box(self,IinfBox,id=None,nth=0):
-        if nth > 0 and nth < len(IinfBox.children):
-            return IinfBox.children[nth-1]
-        elif id != None:
-            for box in IinfBox.children:
-                if box.item_id == id:
-                    return box
+    def find_infe_box(self,id=None):
+        iinfbox = self.find_iinf_box()
+        for box in iinfbox.children:
+            if box.item_id == id:
+                return box
 
-    def add_infe_box(self,InfeBox):
-        MetaBox = self.find_meta_box()
-        IinfBox = self.find_iinf_box(MetaBox)
-        IinfBox.children.append(InfeBox)
-        IinfBox.item_count += 1
-        size = len(InfeBox.serialize())
-        IinfBox.size += size
-        MetaBox.size += size
-        #todo update offset locations for iloc items, add size
+    def add_infe_box(self,infebox):
+        metabox = self.find_meta_box()
+        iinfbox = self.find_iinf_box()
+        iinfbox.children.append(infebox)
+        iinfbox.item_count += 1
 
-    def find_iloc_box(self,MetaBox):
-        for box in MetaBox.children:
+        infeboxsize = len(infebox.serialize())
+        iinfbox.size += infeboxsize
+        metabox.size += infeboxsize
+
+        return infeboxsize
+
+
+    def add_iloc_item(self,ilocitem):
+        metabox = self.find_meta_box()
+        ilocbox = self.find_iloc_box()
+        ilocbox.items.append(ilocitem)
+
+        ilocitemsize = len(ilocbox.serialize_iloc_item(ilocitem))
+
+        metabox.size += ilocitemsize
+        ilocbox.size += ilocitemsize
+
+        return ilocitemsize
+
+
+    def adjust_iloc_item_offsets(self,adjustment):
+        ilocbox = self.find_iloc_box()
+        for item in ilocbox.items:
+            if item['construction_method'] == 0:
+                for extent in item['extents']:
+                    extent['extent_offset'] += adjustment
+
+
+    def find_iloc_box(self):
+        metabox = self.find_meta_box()
+        for box in metabox.children:
             if box.type == 'iloc':
                 return box
+
+    def find_iloc_item(self,id):
+        ilocbox = self.find_iloc_box()
+        for item in ilocbox.items:
+            if item['item_id'] == id:
+                return item
+
+    def set_infe_box_id(self,infebox, id):
+        infebox.item_id = id
+
+    def set_iloc_item_id(self,ilocitem, id):
+        ilocitem['item_id'] = id
 
     def find_mdat_box(self, nth=0):
         for box in self.rootBoxHeaders:
@@ -468,6 +540,4 @@ class HeifFile:
                     return box
                 else:
                     nth -= 1
-
-
 

@@ -11,22 +11,33 @@ class HeifEditor(object):
 if __name__ == '__main__':
     file1 = heiffile.HeifFile()
     file1.load("/home/kali/samples/IMG_3802b.HEIC")
-    file1.save("/home/kali/samples/processed/IMG_3802_test.HEIC")
+    file1.save("/home/kali/samples/IMG_3802_test.HEIC")
 
-    MetaBox = file1.find_meta_box()
+    metaBox = file1.find_meta_box()
+    iinfBox = file1.find_iinf_box()
+    ilocBox = file1.find_iloc_box()
 
-    ##bytes0 = MetaBox.serialize()
+    infeBox47 = file1.find_infe_box(id=47)
+    ilocEntry47 = file1.find_iloc_item(id=47)
+    #ipmaEntry47 = file.find_impa_entry(id=47)
 
-    iinfBox = file1.find_iinf_box(MetaBox)
+    newinfebox = copy.deepcopy(infeBox47)
+    newilocitem = copy.deepcopy(ilocEntry47)
+    #newipmaitem = copy.deepcopy(ipmaEntry47)
 
-    infe47Box = iinfBox.children[47]
+    #file1.set_infe_box_id(newinfebox, 54)
+    #file1.set_iloc_item_id(newilocitem,54)
+    #file1.set_impa_item_id(newipmaitem,54)
 
-    infe47BoxCopy = copy.deepcopy(infe47Box)
+    adjust = file1.add_infe_box(newinfebox)
+    adjust += file1.add_iloc_item(newilocitem)
+    #adjust += file1.add_impa_item(newipmaitem)
 
-    file1.add_infe_box(infe47BoxCopy)
+    file1.adjust_iloc_item_offsets(adjust)
 
-    infe2Box = file1.find_infe_box(iinfBox,id=2)
 
-    file1.save("/home/kali/samples/processed/IMG_3802_test2.HEIC")
+
+
+    file1.save("/home/kali/samples/IMG_3802_test2.HEIC")
 
 
