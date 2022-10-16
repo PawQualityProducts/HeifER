@@ -1,6 +1,5 @@
 import copy
-from . import heiffile
-
+import heiffile
 
 class HeifEditor(object):
     def __init__(self):
@@ -12,7 +11,7 @@ class HeifEditor(object):
 if __name__ == '__main__':
     file1 = heiffile.HeifFile()
     file1.load("/home/kali/samples/IMG_3802b.HEIC")
-    file1.save("/home/kali/samples/IMG_3802_test.HEIC")
+    file1.save("/home/kali/samples/processed/IMG_3802_test.HEIC")
 
     MetaBox = file1.findMetaBox()
 

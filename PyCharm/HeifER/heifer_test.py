@@ -27,7 +27,8 @@ def parseExtractArgs(extractIndex):
     else:
         raise ValueError('Format : {0} type start end'.format(sys.argv[extractIndex]))
 
-
+class HeifFile():
+    pass
 
 #Entry -------------
 
