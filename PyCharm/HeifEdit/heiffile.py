@@ -318,6 +318,9 @@ class irefBox(FullBox):
         for ref in self.references:
             bytes1 += ref.serialize_header(self.version)
 
+    def serialize_itemrefbox(self,itemrefbox):
+        return itemrefbox.serialize_header(self.version)
+
 
 class itemReferenceBox(Box):
     def read(self, infile, version):
@@ -335,7 +338,8 @@ class itemReferenceBox(Box):
             outfile.write((ref).to_bytes(2 if version == 0 else 4, "big"))
 
     def serialize_header(self,version):
-        bytes1 = (self.from_item_ID).to_bytes(2 if version == 0 else 4, "big")
+        bytes1 = super().serialize_header()
+        bytes1 += (self.from_item_ID).to_bytes(2 if version == 0 else 4, "big")
         bytes1 += (self.reference_count).to_bytes(2, "big")
         for ref in self.references:
             bytes1 += (ref).to_bytes(2 if version == 0 else 4, "big")
@@ -697,3 +701,25 @@ class HeifFile:
                 else:
                     nth -= 1
 
+    def find_iref_box(self):
+        metabox = self.find_meta_box()
+        for box in metabox.children:
+            if box.type == 'iref':
+                return box
+
+    def find_iref_item_box(self, nth=0):
+        irefbox = self.find_iref_box()
+        if nth <= len(irefbox.references):
+            return irefbox.references[nth]
+
+    def add_iref_item_box(self,irefitembox):
+        metabox = self.find_meta_box()
+        irefbox = self.find_iref_box()
+
+        irefbox.references.append(irefitembox)
+
+        irefitemboxsize  = len(irefbox.serialize_itemrefbox(irefitembox))
+        metabox.size += irefitemboxsize
+        irefbox.size += irefitemboxsize
+
+        return irefitemboxsize
