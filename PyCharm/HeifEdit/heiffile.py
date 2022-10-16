@@ -169,9 +169,136 @@ class iinfBox(FullBox):
     #todo serialize
 
 
+
 class infeBox(FullBox):
     def read(self,infile):
-        super().read(infile)
+        if self.version == 0 or self.version == 1:
+            self.item_id = read_int(infile, 2)
+            self.item_protection_index = read_int(infile, 2)
+            self.item_name = read_string(infile)
+            self.content_type = read_string(infile)
+            self.content_encoding = read_string(infile)
+
+            if self.version == 1:
+                extension_type = read_string(infile)
+                fdel = FDItemInfoExtension()
+                fdel.read(infile)
+                self.item_extension = fdel
+        elif self.version >= 2:
+            if self.version == 2:
+                self.item_id = read_int(infile, 2)
+            elif self.version == 3:
+                self.item_id = read_int(infile, 4)
+            self.item_protection_index = read_int(infile, 2)
+            self.item_type = read_string(infile, 4)
+            self.item_name = read_string(infile)
+
+            if self.item_type == 'mime':
+                self.content_type = read_string(infile)
+                # self.content_encoding = read_string(file)         #NOTE: appears to remove an extra character corrupting the following box read
+            elif self.item_type == 'uri ':
+                self.uri_type = read_string(infile)
+
+    def writeheader(self,outfile):
+        super().writeheader(outfile)
+        if self.version == 0 or self.version == 1:
+            outfile.write((self.item_id).to_bytes(2, "big"))
+            outfile.write((self.item_protection_index).to_bytes(2, "big"))
+            outfile.write(bytes(self.item_name, 'utf-8'))
+            outfile.write(bytes(self.content_type, 'utf-8'))
+            outfile.write(bytes(self.content_encoding, 'utf-8'))
+
+            if self.version == 1:
+                outfile.write(bytes(self.extension_type, 'utf-8'))
+                self.item_extension.writeheader(outfile)
+        elif self.version >= 2:
+            if self.version == 2:
+                outfile.write((self.item_id).to_bytes(2, "big"))
+            elif self.version == 3:
+                outfile.write((self.item_id).to_bytes(4, "big"))
+            outfile.write((self.item_protection_index).to_bytes(2, "big"))
+            outfile.write(bytes(self.item_type, 'utf-8'))
+            outfile.write(b'\x00')
+            outfile.write(bytes(self.item_name, 'utf-8'))
+
+            if self.item_type == 'mime':
+                outfile.write(bytes(self.content_type, 'utf-8'))
+                outfile.write(b'\x00')
+            elif self.item_type == 'uri ':
+                outfile.write(bytes(self.uri_type, 'utf-8'))
+                outfile.write(b'\x00')
+
+
+    def serialize_header(self):
+        bytes1 = super().serialize_header()
+        if self.version == 0 or self.version == 1:
+            bytes1 += (self.item_id).to_bytes(2, "big")
+            bytes1 += (self.item_protection_index).to_bytes(2, "big")
+            bytes1 += bytes(self.item_name, 'utf-8')
+            bytes1 += bytes(self.content_type, 'utf-8')
+            bytes1 += bytes(self.content_encoding, 'utf-8')
+
+            if self.version == 1:
+                bytes1 += bytes(self.extension_type, 'utf-8')
+                bytes1 += self.item_extension.serialize_header()
+        elif self.version >= 2:
+            if self.version == 2:
+                bytes1 += (self.item_id).to_bytes(2, "big")
+            elif self.version == 3:
+                bytes1 += (self.item_id).to_bytes(4, "big")
+            bytes1 += (self.item_protection_index).to_bytes(2, "big")
+            bytes1 += bytes(self.item_type, 'utf-8')
+            bytes1 += b'\x00'
+            bytes1 += bytes(self.item_name, 'utf-8')
+
+            if self.item_type == 'mime':
+                bytes1 += bytes(self.content_type, 'utf-8')
+                bytes1 += b'\x00'
+            elif self.item_type == 'uri ':
+                bytes1 += bytes(self.uri_type, 'utf-8')
+                bytes1 += b'\x00'
+        return bytes1
+
+class FDItemInfoExtension(object):
+    def __init__(self):
+        self.content_location = None
+        self.content_md5 = None
+        self.content_length = None
+        self.transfer_length = None
+        self.group_ids = []
+
+    def read(self, file):
+        self.content_location = read_string(file)
+        self.content_md5 = read_string(file)
+        self.content_length = read_int(file, 8)
+        self.transfer_length = read_int(file, 8)
+        entry_count = read_int(file, 1)
+        for _ in range(entry_count):
+            group_id = read_int(file, 4)
+            self.group_ids.append(group_id)
+
+    def writeheader(self,outfile):
+        outfile.write(bytes(self.content_location, 'utf-8'))
+        outfile.write(bytes(self.content_md5, 'utf-8'))
+        outfile.write((self.content_length).to_bytes(8,"big"))
+        outfile.write((self.transfer_length).to_bytes(8,"big"))
+        outfile.write((self.entry_count).to_bytes(1,"big"))
+        for entry in self.group_ids:
+            outfile.write((entry).to_bytes(4, "big"))
+
+    def serialize_header(self):
+        bytes1 = super().serialize_header()
+        bytes1 += bytes(self.content_location, 'utf-8')
+        bytes1 += bytes(self.content_md5, 'utf-8')
+        bytes1 += (self.content_length).to_bytes(8,"big")
+        bytes1 += (self.transfer_length).to_bytes(8,"big")
+        bytes1 += (self.entry_count).to_bytes(1,"big")
+        for entry in self.group_ids:
+            bytes1 += (entry).to_bytes(4, "big")
+
+        return bytes1
+
+
 
 class irefBox(FullBox):
     def read(self,infile):
@@ -221,14 +348,15 @@ class ilocBox(FullBox):
             item['data'] = None
             item['extents'] = []
 
-            print("        {0}item={1}\n".format('-' * self.level,item))
+            print("        {0}item={1}".format('-' * self.level,item))
             for _ in range(extent_count):
                 extent = {}
                 extent['extent_offset'] = read_int(infile, self.offset_size)
                 extent['extent_length'] = read_int(infile, self.length_size)
                 item['extents'].append(extent)
-                print("        {0}  extent={1}\n".format('-' * self.level, extent))
+                print("        {0}  extent={1}".format('-' * self.level, extent))
             self.items.append(item)
+        pass
 
     def writeheader(self,outfile):
         super().writeheader(outfile)
@@ -311,14 +439,14 @@ class HeifFile:
                 return box
 
     def find_infe_box(self,IinfBox,id=None,nth=0):
-        if nth > 0 and nth < len(InfBox.children):
+        if nth > 0 and nth < len(IinfBox.children):
             return IinfBox.children[nth-1]
         elif id != None:
             for box in IinfBox.children:
-                if box.id == id:
+                if box.item_id == id:
                     return box
 
-    def add_infe_Box(self,InfeBox):
+    def add_infe_box(self,InfeBox):
         MetaBox = self.find_meta_box()
         IinfBox = self.find_iinf_box(MetaBox)
         IinfBox.children.append(InfeBox)
@@ -328,12 +456,12 @@ class HeifFile:
         MetaBox.size += size
         #todo update offset locations for iloc items, add size
 
-    def find_iloc_Box(self,MetaBox):
+    def find_iloc_box(self,MetaBox):
         for box in MetaBox.children:
             if box.type == 'iloc':
                 return box
 
-    def find_mdat_Box(self, nth=0):
+    def find_mdat_box(self, nth=0):
         for box in self.rootBoxHeaders:
             if box.type == 'mdat':
                 if nth <= 0:

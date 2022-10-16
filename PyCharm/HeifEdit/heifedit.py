@@ -23,7 +23,9 @@ if __name__ == '__main__':
 
     infe47BoxCopy = copy.deepcopy(infe47Box)
 
-    file1.add_infe_Box(infe47BoxCopy)
+    file1.add_infe_box(infe47BoxCopy)
+
+    infe2Box = file1.find_infe_box(iinfBox,id=2)
 
     file1.save("/home/kali/samples/processed/IMG_3802_test2.HEIC")
 
