@@ -306,7 +306,76 @@ class irefBox(FullBox):
 
 class iprpBox(Box):
     def read(self,infile):
-        super().read(infile)
+        #super().read(infile)
+        print(self.type)
+        while infile.tell() < self.end():
+            childbox = ReadBoxHeader(infile,self.level + 1)
+            print(childbox.type)
+            childbox.read(infile)
+            self.children.append(childbox)
+
+class ipmaBox(FullBox):
+    def read(self,infile):
+        self.items = []
+        entry_count = read_int(infile, 4)
+        id_size = 2 if self.version < 1 else 4
+        for _ in range(entry_count):
+            item = {}
+            item['id'] = read_int(infile, id_size)
+            association_count = read_int(infile, 1)
+            item['associations'] = []
+            for __ in range(association_count):
+                association = {}
+                if self.flags & 0b1:
+                    byte = read_int(infile, 2)
+                    association['essential'] = (byte >> 15) & 0b1
+                    association['property_index'] = byte & 0b111111111111111
+                else:
+                    byte = read_int(infile, 1)
+                    association['essential'] = (byte >> 7) & 0b1
+                    association['property_index'] = byte & 0b1111111
+                item['associations'].append(association)
+            self.items.append(item)
+            print(item)
+
+    def writeheader(self,outfile):
+        super().writeheader(outfile)
+        outfile.write(len(self.items).to_bytes(4, "big"))
+        id_size = 2 if self.version < 1 else 4
+        for item in self.items:
+            outfile.write((item['id']).to_bytes(id_size,"big"))
+            outfile.write(len(item['associations']).to_bytes(1,"big"))
+            for association in item['associations']:
+                if self.flags & 0b1:
+                    #association['essential'] = (byte >> 15) & 0b1
+                    #association['property_index'] = byte & 0b111111111111111
+                    byte = association['essential'] << 15 | association['property_index']
+                    outfile.write(byte.to_bytes(2,"big"))
+                else:
+                    #association['essential'] = (byte >> 7) & 0b1
+                    #association['property_index'] = byte & 0b1111111
+                    byte = association['essential']  << 7 | association['property_index']
+                    outfile.write(byte.to_bytes(1,"big"))
+
+    def serialize_header(self):
+        bytes1 = super().serialize_header()
+        bytes1 += len(self.items).to_bytes(4, "big")
+        for item in self.items:
+            bytes1 += self.serialize_item(item)
+        return bytes1
+
+    def serialize_item(self,item):
+        id_size = 2 if self.version < 1 else 4
+        bytes1 = (item['id']).to_bytes(id_size,"big")
+        bytes1 += len(item['associations']).to_bytes(1,"big")
+        for association in item['associations']:
+            if self.flags & 0b1:
+                byte = association['essential'] << 15 | association['property_index']
+                bytes1 += byte.to_bytes(2,"big")
+            else:
+                byte = association['essential']  << 7 | association['property_index']
+                bytes1 += byte.to_bytes(1,"big")
+        return bytes1
 
 class idatBox(Box):
     def read(self,infile):
@@ -435,7 +504,16 @@ boxTypes = {
     "iref" : irefBox,
     "iprp" : iprpBox,
     "idat" : idatBox,
-    "iloc" : ilocBox
+    "iloc" : ilocBox,
+    "ipco" : Box,
+    "ipma" : ipmaBox,
+    "colr" : Box,
+    "ipse" : FullBox,
+    "pasp" : Box,
+    "pixi" : Box,
+    "rloc" : Box,
+    "irot" : Box,
+    "auxC" : Box
 }
 
 
@@ -527,11 +605,47 @@ class HeifFile:
             if item['item_id'] == id:
                 return item
 
+    def find_iprp_box(self):
+        metabox = self.find_meta_box()
+        for box in metabox.children:
+            if box.type == 'iprp':
+                return box
+
+    def find_ipma_box(self):
+        iprpbox = self.find_iprp_box()
+        for box in iprpbox.children:
+            if box.type == 'ipma':
+                return box
+
+    def find_ipma_item(self,id):
+        ipmabox = self.find_ipma_box()
+        for item in ipmabox.items:
+            if item['id'] == id:
+                return item
+
+    def add_impa_item(self, ipmaitem):
+        metabox = self.find_meta_box()
+        iprpbox = self.find_iprp_box()
+        ipmabox = self.find_ipma_box()
+
+        ipmabox.items.append(ipmaitem)
+
+        ipmaitemsize = len(ipmabox.serialize_item(ipmaitem))
+        metabox.size += ipmaitemsize
+        iprpbox.size += ipmaitemsize
+        ipmabox.size += ipmaitemsize
+
+        return ipmaitemsize
+
+
     def set_infe_box_id(self,infebox, id):
         infebox.item_id = id
 
     def set_iloc_item_id(self,ilocitem, id):
         ilocitem['item_id'] = id
+
+    def set_impa_item_id(self,ipmaitem,id):
+        ipmaitem['id'] = id
 
     def find_mdat_box(self, nth=0):
         for box in self.rootBoxHeaders:
