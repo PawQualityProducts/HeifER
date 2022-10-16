@@ -194,7 +194,7 @@ if arg_infile and arg_infile[0] != '-':
 
     log.writeln("Extracting Images -----------")
     try:
-
+        exportAllImages(infile)
     except Exception as x:
         log.writeln(str(x))
         print("ERROR:{0}".format(str(x)))
