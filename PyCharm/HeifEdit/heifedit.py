@@ -11,6 +11,14 @@ class HeifEditor(object):
 if __name__ == '__main__':
     file1 = heiffile.HeifFile()
     file1.load("/home/kali/samples/IMG_3802b.HEIC")
+
+    bytes1 = file1.rootBoxHeaders[0].serialize(0)
+    bytes1 += file1.rootBoxHeaders[1].serialize(len(bytes1))
+    bytes1 += file1.rootBoxHeaders[2].serialize(len(bytes1))
+    print(len(bytes1))
+
+    print(file1.rootBoxHeaders)
+
     file1.save("/home/kali/samples/IMG_3802_test.HEIC")
 
     #copy image tile 47 and add as image item 54
@@ -60,5 +68,12 @@ if __name__ == '__main__':
     adjust += file1.add_iref_item_box(itemrefbox)
 
     file1.adjust_iloc_item_offsets(adjust)                  #adjust iloc references
-    
+
     file1.save("/home/kali/samples/IMG_3802_test3.HEIC")
+
+    print("---------------")
+
+    bytes1 = file1.rootBoxHeaders[0].serialize(0)
+    bytes1 += file1.rootBoxHeaders[1].serialize(len(bytes1))
+    bytes1 += file1.rootBoxHeaders[2].serialize(len(bytes1))
+    print(len(bytes1))
