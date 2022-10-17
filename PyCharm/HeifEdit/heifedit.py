@@ -69,11 +69,29 @@ if __name__ == '__main__':
 
     file1.adjust_iloc_item_offsets(adjust)                  #adjust iloc references
 
-    file1.save("/home/kali/samples/IMG_3802_test3.HEIC")
+
 
     print("---------------")
+    print("serialize all to recalculate and set box offsets")
 
     bytes1 = file1.rootBoxHeaders[0].serialize(0)
     bytes1 += file1.rootBoxHeaders[1].serialize(len(bytes1))
     bytes1 += file1.rootBoxHeaders[2].serialize(len(bytes1))
-    print(len(bytes1))
+
+    newdataoffset = len(bytes1)
+
+    mdatBox = file1.rootBoxHeaders[2]
+    mdatoffset = mdatBox.offset
+    mdatdataoffset = mdatoffset + 12
+    dataoffset = newilocitem['extents'][0]['extent_offset']
+    datalength = newilocitem['extents'][0]['extent_length']
+
+    copystart = dataoffset - mdatdataoffset
+    copyend = copystart + datalength
+    copydata = mdatBox.binarydata[copystart:copyend]
+
+    mdatBox.binarydata += copydata
+
+    newilocitem['extents'][0]['extent_offset'] = newdataoffset
+
+    file1.save("/home/kali/samples/IMG_3802_test3.HEIC")

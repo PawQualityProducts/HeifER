@@ -32,7 +32,7 @@ class Box(object):
             self.largesize = infile.length - self.location
         else:
             self.largesize = None
-        self.headerdata = b''
+        self.binarydata = b''
         self.children = []
 
 
@@ -49,8 +49,8 @@ class Box(object):
         return self.location + self.getSize()
 
     def read(self,infile):
-        self.headerdata = infile.read(self.end() - infile.tell())     #default read to the end of the box
-        print("        {0}{1}".format('--' * self.level,self.headerdata))
+        self.binarydata = infile.read(self.end() - infile.tell())     #default read to the end of the box
+        print("        {0}{1}".format('--' * self.level,self.binarydata))
 
     def readChildren(self,infile):
         while infile.tell() < self.end():
@@ -65,8 +65,8 @@ class Box(object):
             outfile.write((self.size).to_bytes(8, "big"))
 
     def writedata(self,outfile):
-        if len(self.headerdata) > 0:
-            outfile.write(self.headerdata)
+        if len(self.binarydata) > 0:
+            outfile.write(self.binarydata)
 
     def writechildren(self,outfile):
         for child in self.children:
@@ -94,7 +94,7 @@ class Box(object):
         return bytes1
 
     def serialize_data(self):
-        return self.headerdata
+        return self.binarydata
 
     def serialize_children(self, offset):
         bytes2 = b''
@@ -129,8 +129,7 @@ class metaBox(FullBox):
 
 class mdatBox(FullBox):
     def read(self,infile):
-        self.headerdata = infile.read(self.end() - infile.tell())     #default read to the end of the box
-        print("        {0}mdat".format('--' * self.level))
+        self.binarydata = infile.read(self.end() - infile.tell())     #default read to the end of the box
 
 
 class dinfBox(Box):
