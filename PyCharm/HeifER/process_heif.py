@@ -92,7 +92,8 @@ def exportExif(infile,outdir):
     if heif_file.metadata:
         for metadata in heif_file.metadata:
             file_stream = io.BytesIO(metadata['data'][6:])
-            tags = exifread.process_file(file_stream,details=False)
+            tags = exifread.process_file(file_stream,details=True,strict=False)
+            exifread.process_file(file_stream,)
             for k,v in tags.items():
                 outfile.write("{0}={1}\n".format(k,v))
 

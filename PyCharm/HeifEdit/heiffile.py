@@ -13,10 +13,10 @@ def read_string(file, length=None):
     return res
 
 def ReadBoxHeader(infile,level):
-    location = infile.tell()
+    startByte = infile.tell()
     boxSize = read_int(infile,4)                       #read size (string, 4 bytes)
     boxType = read_string(infile,4)                 #read type (int, 4 bytes)
-    print("{0}:{1}{2} {3}".format(str(location).zfill(8),' ' * level, boxType,str(boxSize)))
+    #print("{0}:{1}{2} {3}".format(str(startByte).zfill(8),' ' * level, boxType,str(boxSize)))
     boxheader = boxTypes[boxType](infile,level,boxType,boxSize)     #create an instance of a box
     return boxheader
 
@@ -25,11 +25,11 @@ class Box(object):
         self.level = level
         self.type = type
         self.size = size
-        self.location = infile.tell() - 8
+        self.startByte = infile.tell() - 8
         if size == 0:                                       #this is a large box, so read box size from next 8 bytes
             self.largesize = read_int(infile,8)
         elif size == 1:                                     #box extends to end of the file
-            self.largesize = infile.length - self.location
+            self.largesize = infile.length - self.startByte
         else:
             self.largesize = None
         self.binarydata = b''
@@ -42,15 +42,25 @@ class Box(object):
         else:
             return self.size
 
+    def setSize(self,size):
+        if self.largesize:
+            self.original_size = self.largesize
+            self.largesize = size
+        elif self.size > 1:
+            self.original_size = self.size
+            self.size = size
+        else:
+            self.original_size = 1
+
     def start(self):
-        return self.location
+        return self.startByte
 
     def end(self):
-        return self.location + self.getSize()
+        return self.startByte + self.getSize()
 
     def read(self,infile):
         self.binarydata = infile.read(self.end() - infile.tell())     #default read to the end of the box
-        print("        {0}{1}".format('--' * self.level,self.binarydata))
+        #print("        {0}{1}".format('--' * self.level,self.binarydata))
 
     def readChildren(self,infile):
         while infile.tell() < self.end():
@@ -78,15 +88,23 @@ class Box(object):
         self.writechildren(outfile)
 
 
-    def serialize(self,offset):
-        bytes1 = self.serialize_header(offset)
+    def serialize(self,startByte):
+        #print("{0}, {1}, {2}".format(self.type,self.startByte,startByte))
+        if startByte > self.startByte:
+            self.adjust = startByte - self.startByte
+            self.startByte = startByte
+        else:
+            self.adjust = 0
+
+        bytes1 = self.serialize_header(startByte)
         bytes1 += self.serialize_data()
-        bytes1 += self.serialize_children(offset+len(bytes1))
+        bytes1 += self.serialize_children(startByte+len(bytes1))
+        self.setSize(len(bytes1))
+        if self.getSize() != self.original_size:
+            print("Resized: {0} box={1}, size={2}, adjust={3}".format(self.startByte,self.type,self.size,self.adjust))
         return bytes1
 
-    def serialize_header(self,offset):
-        print("{0}, {1}, {2}".format(self.type,self.location,offset))
-        self.offset = offset
+    def serialize_header(self,startByte):
         bytes1 = (self.size).to_bytes(4, "big")
         bytes1 +=  bytes(self.type, 'utf-8')
         if self.size == 0:  # this is a large box, so read box size from next 8 bytes
@@ -96,12 +114,12 @@ class Box(object):
     def serialize_data(self):
         return self.binarydata
 
-    def serialize_children(self, offset):
+    def serialize_children(self, startByte):
         bytes2 = b''
         for child in self.children:
-            childbytes = child.serialize(offset)
+            childbytes = child.serialize(startByte)
             bytes2 += childbytes
-            offset += len(childbytes)
+            startByte += len(childbytes)
         return bytes2
 
 class FullBox(Box):
@@ -115,8 +133,8 @@ class FullBox(Box):
         outfile.write((self.version).to_bytes(1,"big"))
         outfile.write((self.flags).to_bytes(3, "big"))
 
-    def serialize_header(self, offset):
-        bytes1 = super().serialize_header(offset)
+    def serialize_header(self, startByte):
+        bytes1 = super().serialize_header(startByte)
         bytes1 += (self.version).to_bytes(1,"big")
         bytes1 += (self.flags).to_bytes(3, "big")
         return bytes1
@@ -150,8 +168,8 @@ class iinfBox(FullBox):
         super().writeheader(outfile)
         outfile.write((self.item_count).to_bytes(2 if self.version == 0 else 4,"big"))
 
-    def serialize_header(self,offset):
-        bytes1 = super().serialize_header(offset)
+    def serialize_header(self,startByte):
+        bytes1 = super().serialize_header(startByte)
         bytes1 += (self.item_count).to_bytes(2 if self.version == 0 else 4,"big")
         return bytes1
 
@@ -215,8 +233,8 @@ class infeBox(FullBox):
                 outfile.write(b'\x00')
 
 
-    def serialize_header(self, offset):
-        bytes1 = super().serialize_header(offset)
+    def serialize_header(self, startByte):
+        bytes1 = super().serialize_header(startByte)
         if self.version == 0 or self.version == 1:
             bytes1 += (self.item_id).to_bytes(2, "big")
             bytes1 += (self.item_protection_index).to_bytes(2, "big")
@@ -255,7 +273,7 @@ class FDItemInfoExtension(object):
         self.group_ids = []
 
     def read(self, file):
-        self.content_location = read_string(file)
+        self.content_startByte = read_string(file)
         self.content_md5 = read_string(file)
         self.content_length = read_int(file, 8)
         self.transfer_length = read_int(file, 8)
@@ -265,7 +283,7 @@ class FDItemInfoExtension(object):
             self.group_ids.append(group_id)
 
     def writeheader(self,outfile):
-        outfile.write(bytes(self.content_location, 'utf-8'))
+        outfile.write(bytes(self.content_startByte, 'utf-8'))
         outfile.write(bytes(self.content_md5, 'utf-8'))
         outfile.write((self.content_length).to_bytes(8,"big"))
         outfile.write((self.transfer_length).to_bytes(8,"big"))
@@ -273,8 +291,8 @@ class FDItemInfoExtension(object):
         for entry in self.group_ids:
             outfile.write((entry).to_bytes(4, "big"))
 
-    def serialize_header(self,offset):
-        bytes1 = super().serialize_header(offset)
+    def serialize_header(self,startByte):
+        bytes1 = super().serialize_header(startByte)
         bytes1 += bytes(self.content_location, 'utf-8')
         bytes1 += bytes(self.content_md5, 'utf-8')
         bytes1 += (self.content_length).to_bytes(8,"big")
@@ -300,16 +318,16 @@ class irefBox(FullBox):
         for ref in self.references:
             ref.writeheader(outfile,self.version)
 
-    def serialize_header(self,offset):
-        bytes1 = super().serialize_header(offset)
+    def serialize_header(self,startByte):
+        bytes1 = super().serialize_header(startByte)
         for ref in self.references:
-            refbytes = ref.serialize_header(self.version,offset)
+            refbytes = ref.serialize_header(self.version,startByte)
             bytes1 += refbytes
-            offset += len(refbytes)
+            startByte += len(refbytes)
         return bytes1
 
-    def serialize_itemrefbox(self,itemrefbox,offset):
-        return itemrefbox.serialize_header(self.version,offset)
+    def serialize_itemrefbox(self,itemrefbox,startByte):
+        return itemrefbox.serialize_header(self.version,startByte)
 
 
 class itemReferenceBox(Box):
@@ -327,8 +345,8 @@ class itemReferenceBox(Box):
         for ref in self.references:
             outfile.write((ref).to_bytes(2 if version == 0 else 4, "big"))
 
-    def serialize_header(self,version,offset):
-        bytes1 = super().serialize_header(offset)
+    def serialize_header(self,version,startByte):
+        bytes1 = super().serialize_header(startByte)
         bytes1 += (self.from_item_ID).to_bytes(2 if version == 0 else 4, "big")
         bytes1 += (self.reference_count).to_bytes(2, "big")
         for ref in self.references:
@@ -366,7 +384,7 @@ class ipmaBox(FullBox):
                     association['property_index'] = byte & 0b1111111
                 item['associations'].append(association)
             self.items.append(item)
-            print(item)
+            #print(item)
 
     def writeheader(self,outfile):
         super().writeheader(outfile)
@@ -387,8 +405,8 @@ class ipmaBox(FullBox):
                     byte = association['essential']  << 7 | association['property_index']
                     outfile.write(byte.to_bytes(1,"big"))
 
-    def serialize_header(self,offset):
-        bytes1 = super().serialize_header(offset)
+    def serialize_header(self,startByte):
+        bytes1 = super().serialize_header(startByte)
         bytes1 += len(self.items).to_bytes(4, "big")
         for item in self.items:
             bytes1 += self.serialize_item(item)
@@ -444,13 +462,13 @@ class ilocBox(FullBox):
             item['data'] = None
             item['extents'] = []
 
-            print("        {0}item={1}".format('-' * self.level,item))
+            #print("        {0}item={1}".format('-' * self.level,item))
             for _ in range(extent_count):
                 extent = {}
                 extent['extent_offset'] = read_int(infile, self.offset_size)
                 extent['extent_length'] = read_int(infile, self.length_size)
                 item['extents'].append(extent)
-                print("        {0}  extent={1}".format('-' * self.level, extent))
+                #print("        {0}  extent={1}".format('-' * self.level, extent))
             self.items.append(item)
         pass
 
@@ -484,8 +502,8 @@ class ilocBox(FullBox):
                 outfile.write(extent['extent_offset'].to_bytes(self.offset_size, "big"))
                 outfile.write(extent['extent_length'].to_bytes(self.length_size, "big"))
 
-    def serialize_header(self,offset):
-        bytes1 = super().serialize_header(offset)
+    def serialize_header(self,startByte):
+        bytes1 = super().serialize_header(startByte)
         bytes1 += ((self.offset_size << 4) | self.length_size).to_bytes(1,"big")
         bytes1 += ((self.base_offset_size << 4) | self.reserved).to_bytes(1,"big")
         item_count = len(self.items)
@@ -494,7 +512,7 @@ class ilocBox(FullBox):
         else:
             bytes1 += (item_count).to_bytes(4, "big")
         for item in self.items:
-            print(item)
+            #print(item)
             bytes1 += self.serialize_iloc_item(item)
         return bytes1
 
@@ -519,6 +537,12 @@ class ilocBox(FullBox):
             bytes1 += extent['extent_length'].to_bytes(self.length_size, "big")
         return bytes1
 
+class drefBox(FullBox):
+    def read(self, infile):
+        super().read(infile)
+        pass
+        #super().readChildren(infile)
+
 
 boxTypes = {
     "ftyp" : Box,
@@ -526,7 +550,7 @@ boxTypes = {
     "mdat" : mdatBox,
     "hdlr" : FullBox,
     "dinf" : dinfBox,
-    "dref" : FullBox,
+    "dref" : drefBox,
     "pitm" : FullBox,
     "iinf" : iinfBox,
     "infe" : infeBox,
@@ -548,10 +572,6 @@ boxTypes = {
     "auxl" : itemReferenceBox,
     "cdsc" : itemReferenceBox
 }
-
-
-def boxsize(box):
-    return len(box.serialize())
 
 
 class HeifFile:
@@ -593,30 +613,13 @@ class HeifFile:
                 return box
 
     def add_infe_box(self,infebox):
-        metabox = self.find_meta_box()
         iinfbox = self.find_iinf_box()
         iinfbox.children.append(infebox)
         iinfbox.item_count += 1
 
-        infeboxsize = len(infebox.serialize(0))
-        iinfbox.size += infeboxsize
-        metabox.size += infeboxsize
-
-        return infeboxsize
-
-
     def add_iloc_item(self,ilocitem):
-        metabox = self.find_meta_box()
         ilocbox = self.find_iloc_box()
         ilocbox.items.append(ilocitem)
-
-        ilocitemsize = len(ilocbox.serialize_iloc_item(ilocitem))
-
-        metabox.size += ilocitemsize
-        ilocbox.size += ilocitemsize
-
-        return ilocitemsize
-
 
     def adjust_iloc_item_offsets(self,adjustment):
         ilocbox = self.find_iloc_box()
@@ -657,19 +660,8 @@ class HeifFile:
                 return item
 
     def add_impa_item(self, ipmaitem):
-        metabox = self.find_meta_box()
-        iprpbox = self.find_iprp_box()
         ipmabox = self.find_ipma_box()
-
         ipmabox.items.append(ipmaitem)
-
-        ipmaitemsize = len(ipmabox.serialize_item(ipmaitem))
-        metabox.size += ipmaitemsize
-        iprpbox.size += ipmaitemsize
-        ipmabox.size += ipmaitemsize
-
-        return ipmaitemsize
-
 
     def set_infe_box_id(self,infebox, id):
         infebox.item_id = id
@@ -700,13 +692,38 @@ class HeifFile:
             return irefbox.references[nth]
 
     def add_iref_item_box(self,irefitembox):
-        metabox = self.find_meta_box()
         irefbox = self.find_iref_box()
-
         irefbox.references.append(irefitembox)
 
-        irefitemboxsize  = len(irefbox.serialize_itemrefbox(irefitembox,0))
-        metabox.size += irefitemboxsize
-        irefbox.size += irefitemboxsize
 
-        return irefitemboxsize
+    def rebase(self):
+        #serializing each root box adjusts serializes children and calculates and sets the box-size
+        startByte = 0
+        for rootBox in self.rootBoxHeaders:
+            bytes1 = rootBox.serialize(startByte)
+            startByte += len(bytes1)
+
+        mdatBox = self.find_mdat_box(0)
+        if mdatBox.adjust > 0:
+            self.adjust_iloc_item_offsets(mdatBox.adjust)  # adjust the iloc references
+
+        return startByte
+
+    def find_child_boxes(self,type,box,foundboxes):
+        for childbox in box.children:
+            if childbox.type == type:
+                foundboxes.append(childbox)
+            else:
+                self.find_child_boxes(type,childbox,foundboxes)
+        return foundboxes
+
+
+    def find_boxes(self,type):
+        foundboxes = []
+        for rootBox in self.rootBoxHeaders:
+            if rootBox.type == type:
+                foundboxes.append(rootBox)
+            else:
+                self.find_child_boxes(type,rootBox,foundboxes)
+        return foundboxes
+

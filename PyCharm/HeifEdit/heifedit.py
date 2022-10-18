@@ -12,12 +12,7 @@ if __name__ == '__main__':
     file1 = heiffile.HeifFile()
     file1.load("/home/kali/samples/IMG_3802b.HEIC")
 
-    bytes1 = file1.rootBoxHeaders[0].serialize(0)
-    bytes1 += file1.rootBoxHeaders[1].serialize(len(bytes1))
-    bytes1 += file1.rootBoxHeaders[2].serialize(len(bytes1))
-    print(len(bytes1))
-
-    print(file1.rootBoxHeaders)
+    endbyte = file1.rebase()
 
     file1.save("/home/kali/samples/IMG_3802_test.HEIC")
 
@@ -38,14 +33,15 @@ if __name__ == '__main__':
     file1.set_iloc_item_id(newilocitem,54)
     file1.set_impa_item_id(newipmaitem,54)
 
-    adjust = file1.add_infe_box(newinfebox)
-    adjust += file1.add_iloc_item(newilocitem)
-    adjust += file1.add_impa_item(newipmaitem)
+    file1.add_infe_box(newinfebox)
+    file1.add_iloc_item(newilocitem)
+    file1.add_impa_item(newipmaitem)
 
-    file1.adjust_iloc_item_offsets(adjust)              #adjust the iloc references
+    endbyte = file1.rebase()
 
     file1.save("/home/kali/samples/IMG_3802_test2.HEIC")
 
+    urlboxes = file1.find_boxes('infe')
 
     #dupliacte exif
     infeBox53 = file1.find_infe_box(id=53)
@@ -59,29 +55,17 @@ if __name__ == '__main__':
 
     file1.set_infe_box_id(newinfebox, 55)
     file1.set_iloc_item_id(newilocitem,55)
-
-    itemrefbox. from_item_ID = 55
+    itemrefbox.from_item_ID = 55
     itemrefbox.references[0] = 54
 
-    adjust = file1.add_infe_box(newinfebox)
-    adjust += file1.add_iloc_item(newilocitem)
-    adjust += file1.add_iref_item_box(itemrefbox)
+    file1.add_iref_item_box(itemrefbox)
+    file1.add_infe_box(newinfebox)
+    file1.add_iloc_item(newilocitem)
 
-    file1.adjust_iloc_item_offsets(adjust)                  #adjust iloc references
+    newdataoffset =  file1.rebase()
 
-
-
-    print("---------------")
-    print("serialize all to recalculate and set box offsets")
-
-    bytes1 = file1.rootBoxHeaders[0].serialize(0)
-    bytes1 += file1.rootBoxHeaders[1].serialize(len(bytes1))
-    bytes1 += file1.rootBoxHeaders[2].serialize(len(bytes1))
-
-    newdataoffset = len(bytes1)
-
-    mdatBox = file1.rootBoxHeaders[2]
-    mdatoffset = mdatBox.offset
+    mdatBox = file1.find_mdat_box(0)
+    mdatoffset = mdatBox.startByte
     mdatdataoffset = mdatoffset + 12
     dataoffset = newilocitem['extents'][0]['extent_offset']
     datalength = newilocitem['extents'][0]['extent_length']
@@ -95,3 +79,4 @@ if __name__ == '__main__':
     newilocitem['extents'][0]['extent_offset'] = newdataoffset
 
     file1.save("/home/kali/samples/IMG_3802_test3.HEIC")
+    pass
