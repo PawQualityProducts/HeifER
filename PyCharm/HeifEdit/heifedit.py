@@ -1,5 +1,6 @@
 import copy
 import heiffile
+import re
 
 class HeifEditor(object):
     def __init__(self):
@@ -16,7 +17,7 @@ if __name__ == '__main__':
 
     file1.save("/home/kali/samples/IMG_3802_test.HEIC")
 
-    #copy image tile 47 and add as image item 54
+    #copy image tile 47 and add as image item 54 -------------
     metaBox = file1.find_meta_box()
     iinfBox = file1.find_iinf_box()
     ilocBox = file1.find_iloc_box()
@@ -41,9 +42,7 @@ if __name__ == '__main__':
 
     file1.save("/home/kali/samples/IMG_3802_test2.HEIC")
 
-    urlboxes = file1.find_boxes('infe')
-
-    #dupliacte exif
+    #dupliacte exif -------------------------------------------
     infeBox53 = file1.find_infe_box(id=53)
     ilocEntry53 = file1.find_iloc_item(id=53)
 
@@ -74,9 +73,20 @@ if __name__ == '__main__':
     copyend = copystart + datalength
     copydata = mdatBox.binarydata[copystart:copyend]
 
-    mdatBox.binarydata += copydata
+    x = re.compile(b'.*Apple\x00')
+    pat = x.match(copydata)
+
+    end = pat.regs[0][1]
+    print(copydata[end-6:end])
+    newdata = copydata[:end-6] + b"*Fake*" + copydata[end:]
+
+    mdatBox.binarydata += newdata
+
+    file1.rebase()
 
     newilocitem['extents'][0]['extent_offset'] = newdataoffset
+
+    file1.rebase()
 
     file1.save("/home/kali/samples/IMG_3802_test3.HEIC")
     pass
