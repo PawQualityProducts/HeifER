@@ -91,13 +91,26 @@ def exportExif(infile,outdir):
     outfile = open(outfilename,"w")
     if heif_file.metadata:
         for metadata in heif_file.metadata:
+            md = metadata['data'][6:]
             file_stream = io.BytesIO(metadata['data'][6:])
             tags = exifread.process_file(file_stream,details=True,strict=False)
-            exifread.process_file(file_stream,)
             for k,v in tags.items():
                 outfile.write("{0}={1}\n".format(k,v))
 
     outfile.close()
+
+def exportExifByLocItem(media_file,outdir):
+    ilocItems = media_file.findExifLocItems()
+    for ilocItem in ilocItems:
+        outfilename = os.path.join(outdir, infilename + "_{0}.exif".format(ilocItem['item_id']))
+        outfile = open(outfilename, "w")
+        for extent in ilocItem['extents']:
+            file_stream = io.BytesIO(extent['data'][10:])
+            tags = exifread.process_file(file_stream,details=True,strict=False)
+            for k,v in tags.items():
+                outfile.write("{0}={1}\n".format(k,v))
+        outfile.close()
+
 
 def exportAllImages(infile):
     # copy the file to create a temp file
@@ -187,7 +200,10 @@ if arg_infile and arg_infile[0] != '-':
 
     log.writeln("Extracting metadata--------------")
     try:
+        log.writeln("Extracting metadata--------------")
         exportExif(infile,outdir)
+        log.writeln("  Extracting Exif metadata by iloc Item Record --------------")
+        exportExifByLocItem(media_file, outdir)
     except Exception as x:
         log.writeln(str(x))
         print("ERROR:{0}".format(str(x)))
@@ -202,11 +218,6 @@ if arg_infile and arg_infile[0] != '-':
     log.writeln("Image extraction complete----------")
 
     log.close()
-
-
-
-
-
 
 
 print(media_file)

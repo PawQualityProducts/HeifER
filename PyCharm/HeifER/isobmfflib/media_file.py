@@ -176,18 +176,8 @@ class MediaFile(object):
             index += 1
 
 
-#    def __mapBox(self,file,depth,box):
-#        box.writeMapEntry(file,depth)
-#        iindent = "-" * depth
-#        start = box.startByte
-#        length = box.get_box_size_with_header()
-#        file.write("{0}:{1}{2}(size={3}, start={4}, end={5}, hash={6})\n".format(str(start).rjust(6), indent, box.box_type, length, start, start+length, box.hash))
-#        for childbox in box.children:
-#            self.__mapBox(file,depth+1,childbox)
-
     def __mapFile(self,file):
         for box in self.children:
-            #self.__mapBox(file,0,box)
             box.writeMapEntry(file,0)
 
     def mapFile(self):
@@ -199,4 +189,35 @@ class MediaFile(object):
         self.__mapFile(outfile)
 
         outfile.close()
+
+    def __findBoxes(self,boxType,box,boxes):
+        if box.box_type == boxType:
+            boxes.append(box)
+
+        for childBox in box.children:
+            self.__findBoxes(boxType,childBox,boxes)
+
+
+    def findBoxes(self,boxType):
+        boxes = []
+        for box in self.children:
+            self.__findBoxes(boxType,box,boxes)
+        return boxes
+
+    def findExifLocItems(self):
+        irefBoxes = self.findBoxes('infe')
+        exifItemIds = []
+        for irefbox in irefBoxes:
+            if irefbox.item_type == 'Exif':
+                exifItemIds.append(irefbox.item_id)
+
+        ilocBoxes = self.findBoxes('iloc')
+        items = []
+        for box in ilocBoxes:
+            for item in box.items:
+                if item['item_id'] in exifItemIds:
+                    items.append(item)
+        return items
+
+
 
