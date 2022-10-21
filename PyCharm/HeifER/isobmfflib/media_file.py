@@ -24,6 +24,7 @@ def LogException():
 class MediaFile(object):
 
     def __init__(self):
+        self.hash = None
         self.ftyp = None
         self.mdats = []
         self.meta = None
@@ -125,11 +126,16 @@ class MediaFile(object):
         filepath = os.path.join(self.path,self.filename)
         if self.filename != None:
             infile = open(filepath, 'rb')
+            #hash the whole file
+            data = infile.read()
+            self.hash = hashlib.md5(data).hexdigest()
+
+            #hash the boxes
+            infile.seek(0)
             for box in self.children:
                 self.__AddBoxBinaryData(infile,box)
         else:
             print("Meadia file must be parsed")
-
         pass
 
 
@@ -185,7 +191,7 @@ class MediaFile(object):
 
         outfile = open(filepath,"w")
 
-        outfile.write("File={0}\n".format(os.path.join(self.path,self.filename)))
+        outfile.write("File={0}, hash={1}\n".format(self.filename,self.hash))
         self.__mapFile(outfile)
 
         outfile.close()

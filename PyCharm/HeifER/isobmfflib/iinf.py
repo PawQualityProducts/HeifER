@@ -113,15 +113,15 @@ class ItemInfomationEntry(FullBox):
     def writeMapEntry(self,file,depth):
         indent = "-" * depth
         if self.flags & 1:
-            file.write("{0}:{1}{2}(size={3}, start={4}, end={5}, hash={6}, ***HIDDEN*** id={7})\n".format(str(self.startByte).zfill(6), indent, self.box_type, self.get_box_size_with_header(), self.startByte, self.startByte+self.get_box_size_with_header(), self.hash, self.item_id))
+            file.write("{0}:{1}{2}(size={3}, start={4}, end={5}, children={6}, hash={7}, ***HIDDEN*** id={8})\n".format(str(self.startByte).zfill(6), indent, self.box_type, self.get_box_size_with_header(), self.startByte, self.startByte+self.get_box_size_with_header(), len(self.children), self.hash, self.item_id))
         else:
             file.write(
-                "{0}:{1}{2}(size={3}, start={4}, end={5}, hash={6}, id={7})\n".format(str(self.startByte).zfill(6),
+                "{0}:{1}{2}(size={3}, start={4}, end={5}, children={6}, hash={7}, id={8})\n".format(str(self.startByte).zfill(6),
                                                                                       indent, self.box_type,
                                                                                       self.get_box_size_with_header(),
                                                                                       self.startByte,
                                                                                       self.startByte + self.get_box_size_with_header(),
-                                                                                      self.hash, self.item_id))
+                                                                                      len(self.children), self.hash, self.item_id))
 
         for childbox in self.children:
             childbox.writeMapEntry(file,depth+1)

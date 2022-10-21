@@ -190,7 +190,7 @@ class ItemLocationBox(FullBox):
 
     def writeMapEntry(self,file,depth):
         indent = "-" * depth
-        file.write("{0}:{1}{2}(size={3}, start={4}, end={5}, hash={6})\n".format(str(self.startByte).zfill(6), indent, self.box_type, self.get_box_size_with_header(), self.startByte, self.startByte+self.get_box_size_with_header(), self.hash))
+        file.write("{0}:{1}{2}(size={3}, start={4}, end={5}, items={6}, hash={7})\n".format(str(self.startByte).zfill(6), indent, self.box_type, self.get_box_size_with_header(), self.startByte, self.startByte+self.get_box_size_with_header(), len(self.items), self.hash))
         itemIndex = 0
         for item in self.items:
             itemIndex += 1
@@ -198,7 +198,7 @@ class ItemLocationBox(FullBox):
             itemStartByte = item['startByte']
             itemLength = item['length']
             itemEndByte = itemStartByte + itemLength
-            file.write("{0}:{1}  Item={2}, (size={3}, start={4}, end={5}, id={6})\n".format(str(itemStartByte).zfill(6), indent, itemIndex, itemLength, itemStartByte, itemStartByte+itemLength,item['item_id']))
+            file.write("{0}:{1}  Item={2}, (size={3}, start={4}, end={5}, extents={6}, id={7})\n".format(str(itemStartByte).zfill(6), indent, itemIndex, itemLength, itemStartByte, itemStartByte+itemLength,len(item['extents']),item['item_id']))
             for extent in item['extents']:
                 extentIndex += 1
                 extentStartByte = extent['startByte']
