@@ -13,6 +13,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d7906c8b-4f37-481a-85f9-552fe49b5071" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/HeifER/isobmfflib/iinf.py" afterPath="$PROJECT_DIR$/HeifER/isobmfflib/iinf.py" />
       <change beforePath="$PROJECT_DIR$/HeifEdit/heifedit.py" afterPath="$PROJECT_DIR$/HeifEdit/heifedit.py" />
       <change beforePath="$PROJECT_DIR$/run_process_heif.sh" afterPath="$PROJECT_DIR$/run_process_heif.sh" />
     </list>
@@ -28,8 +29,8 @@
       <file leaf-file-name="heifedit.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/HeifEdit/heifedit.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="481">
-              <caret line="128" column="63" lean-forward="false" selection-start-line="128" selection-start-column="63" selection-end-line="128" selection-end-column="63" />
+            <state relative-caret-position="463">
+              <caret line="130" column="0" lean-forward="true" selection-start-line="130" selection-start-column="0" selection-end-line="130" selection-end-column="0" />
               <folding>
                 <element signature="e#0#11#0" expanded="true" />
               </folding>
@@ -40,8 +41,8 @@
       <file leaf-file-name="iinf.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/HeifER/isobmfflib/iinf.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1239">
-              <caret line="111" column="0" lean-forward="false" selection-start-line="111" selection-start-column="0" selection-end-line="111" selection-end-column="0" />
+            <state relative-caret-position="-307">
+              <caret line="115" column="326" lean-forward="false" selection-start-line="115" selection-start-column="326" selection-end-line="115" selection-end-column="326" />
               <folding />
             </state>
           </provider>
@@ -181,7 +182,7 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="y" value="35" />
     <option name="width" value="1904" />
     <option name="height" value="1051" />
@@ -382,13 +383,14 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="35" width="1920" height="1045" extended-state="6" />
+    <frame x="0" y="35" width="1920" height="1045" extended-state="7" />
+    <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15235601" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25053763" sideWeight="0.37591624" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32618025" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25053763" sideWeight="0.62408376" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25053763" sideWeight="0.62408376" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32967034" sideWeight="0.49790356" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -1040,14 +1042,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/HeifER/isobmfflib/iinf.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1239">
-          <caret line="111" column="0" lean-forward="false" selection-start-line="111" selection-start-column="0" selection-end-line="111" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file:///usr/lib/python3.9/codecs.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="432">
@@ -1066,10 +1060,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/HeifER/isobmfflib/iinf.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-307">
+          <caret line="115" column="326" lean-forward="false" selection-start-line="115" selection-start-column="326" selection-end-line="115" selection-end-column="326" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/HeifEdit/heifedit.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="481">
-          <caret line="128" column="63" lean-forward="false" selection-start-line="128" selection-start-column="63" selection-end-line="128" selection-end-column="63" />
+        <state relative-caret-position="463">
+          <caret line="130" column="0" lean-forward="true" selection-start-line="130" selection-start-column="0" selection-end-line="130" selection-end-column="0" />
           <folding>
             <element signature="e#0#11#0" expanded="true" />
           </folding>

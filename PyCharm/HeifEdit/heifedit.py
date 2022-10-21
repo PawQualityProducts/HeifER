@@ -126,8 +126,8 @@ if __name__ == '__main__':
     print("jpeg start={0}, length={1}".format(newdataoffset2, len(jpegfiledata)))
     print("mdat start={0}, length={1}".format(mdatBox.startByte, len(mdatBox.binarydata)))
 
-    newilocitem['extents'][0]['extent_offset'] = newdataoffset2
-    newilocitem['extents'][0]['extent_length'] = len(jpegfiledata)
+    newilocitem2['extents'][0]['extent_offset'] = newdataoffset2
+    newilocitem2['extents'][0]['extent_length'] = len(jpegfiledata)
 
 
     file1.save("/home/kali/samples/IMG_3802_test4.HEIC")
