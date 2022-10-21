@@ -96,19 +96,23 @@ if __name__ == '__main__':
 
     infeBox47 = file1.find_infe_box(id=47)
     ilocEntry47 = file1.find_iloc_item(id=47)
+    ipmaEntry47 = file1.find_ipma_item(id=47)
 
-    newinfebox = copy.deepcopy(infeBox47)
-    newilocitem = copy.deepcopy(ilocEntry47)
+    newinfebox2 = copy.deepcopy(infeBox47)
+    newilocitem2 = copy.deepcopy(ilocEntry47)
+    newipmaitem2 = copy.deepcopy(ipmaEntry47)
 
-    file1.set_infe_box_id(newinfebox,56)
-    file1.set_iloc_item_id(newilocitem,56)
+    file1.set_infe_box_id(newinfebox2,56)
+    file1.set_iloc_item_id(newilocitem2,56)
+    file1.set_impa_item_id(newipmaitem2, 56)
 
-    newinfebox.item_type = 'jpeg'
+    newinfebox2.item_type = 'jpeg'
 
-    file1.add_infe_box(newinfebox)
-    file1.add_iloc_item(newilocitem)
+    file1.add_infe_box(newinfebox2)
+    file1.add_iloc_item(newilocitem2)
+    file1.add_impa_item(newipmaitem2)
 
-    newdataoffset = file1.rebase()
+    newdataoffset2 = file1.rebase()
 
     #load jpeg data
     jpegfile = open("/home/kali/samples/Anonymous.jpg","rb")
@@ -119,10 +123,10 @@ if __name__ == '__main__':
     mdatBox.binarydata += jpegfiledata
     file1.rebase()
 
-    print("jpeg start={0}, length={1}".format(newdataoffset, len(jpegfiledata)))
+    print("jpeg start={0}, length={1}".format(newdataoffset2, len(jpegfiledata)))
     print("mdat start={0}, length={1}".format(mdatBox.startByte, len(mdatBox.binarydata)))
 
-    newilocitem['extents'][0]['extent_offset'] = newdataoffset
+    newilocitem['extents'][0]['extent_offset'] = newdataoffset2
     newilocitem['extents'][0]['extent_length'] = len(jpegfiledata)
 
 

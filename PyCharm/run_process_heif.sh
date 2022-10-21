@@ -1,4 +1,7 @@
-python3 HeifER/process_heif.py ~/samples/IMG_3802.HEIC -outdir ~/samples/processed/IMG_3802.HEIC.export
+python3 HeifER/process_heif.py ~/samples/IMG_3802.HEIC -outdir ~/samples/processed/IMG_3802_test.HEIC.export
+python3 HeifER/process_heif.py ~/samples/IMG_3802.HEIC -outdir ~/samples/processed/IMG_3802_test2.HEIC.export
+python3 HeifER/process_heif.py ~/samples/IMG_3802.HEIC -outdir ~/samples/processed/IMG_3802_test3.HEIC.export
+python3 HeifER/process_heif.py ~/samples/IMG_3802.HEIC -outdir ~/samples/processed/IMG_3802_test4.HEIC.export
 python3 HeifER/process_heif.py ~/samples/alpha_1440x960.heic -outdir ~/samples/processed/alpha_1440x960.heic.export
 python3 HeifER/process_heif.py ~/samples/autumn_1440x960.heic -outdir ~/samples/processed/autumn_1440x960.heic.export
 python3 HeifER/process_heif.py ~/samples/bird_burst.heic -outdir ~/samples/processed/bird_burst.heic.export
@@ -21,5 +24,3 @@ python3 HeifER/process_heif.py ~/samples/stereo_1200x800.heic -outdir ~/samples/
 python3 HeifER/process_heif.py ~/samples/summer_1440x960.heic -outdir ~/samples/processed/summer_1440x960.heic.export
 python3 HeifER/process_heif.py ~/samples/surfer_1440x960.heic -outdir ~/samples/processed/surfer_1440x960.heic.export
 python3 HeifER/process_heif.py ~/samples/winter_1440x960.heic -outdir ~/samples/processed/winter_1440x960.heic.export
-python3 HeifER/process_heif.py ~/samples/test_hidden.heic -outdir ~/samples/processed/test_hidden.heic.export
-
