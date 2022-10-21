@@ -89,4 +89,43 @@ if __name__ == '__main__':
     file1.rebase()
 
     file1.save("/home/kali/samples/IMG_3802_test3.HEIC")
+
+    # try to insert a jpeg
+
+    #copy image tile 47 and add as image item 56 and repurpose for jpeg-------------
+
+    infeBox47 = file1.find_infe_box(id=47)
+    ilocEntry47 = file1.find_iloc_item(id=47)
+
+    newinfebox = copy.deepcopy(infeBox47)
+    newilocitem = copy.deepcopy(ilocEntry47)
+
+    file1.set_infe_box_id(newinfebox,56)
+    file1.set_iloc_item_id(newilocitem,56)
+
+    newinfebox.item_type = 'jpeg'
+
+    file1.add_infe_box(newinfebox)
+    file1.add_iloc_item(newilocitem)
+
+    newdataoffset = file1.rebase()
+
+    #load jpeg data
+    jpegfile = open("/home/kali/samples/Anonymous.jpg","rb")
+    jpegfiledata = jpegfile.read()
+
+    print("mdat start={0}, length={1}".format(mdatBox.startByte,len(mdatBox.binarydata)))
+    #append jpeg data to end of mdat box
+    mdatBox.binarydata += jpegfiledata
+    file1.rebase()
+
+    print("jpeg start={0}, length={1}".format(newdataoffset, len(jpegfiledata)))
+    print("mdat start={0}, length={1}".format(mdatBox.startByte, len(mdatBox.binarydata)))
+
+    newilocitem['extents'][0]['extent_offset'] = newdataoffset
+    newilocitem['extents'][0]['extent_length'] = len(jpegfiledata)
+
+
+    file1.save("/home/kali/samples/IMG_3802_test4.HEIC")
+
     pass
