@@ -538,10 +538,22 @@ class ilocBox(FullBox):
         return bytes1
 
 class drefBox(FullBox):
-    def read(self, infile):
-        super().read(infile)
-        pass
-        #super().readChildren(infile)
+    def read(self,infile):
+        self.item_count = read_int(infile,4)
+
+        for item in range(self.item_count):
+            childBoxHeader = ReadBoxHeader(infile,self.level+1)
+            self.children.append(childBoxHeader)
+            childBoxHeader.read(infile)
+
+    def writeheader(self,outfile):
+        super().writeheader(outfile)
+        outfile.write((self.item_count).to_bytes(4,"big"))
+
+    def serialize_header(self,startByte):
+        bytes1 = super().serialize_header(startByte)
+        bytes1 += (self.item_count).to_bytes(4,"big")
+        return bytes1
 
 
 boxTypes = {
@@ -570,7 +582,8 @@ boxTypes = {
     "dimg" : itemReferenceBox,
     "thmb" : itemReferenceBox,
     "auxl" : itemReferenceBox,
-    "cdsc" : itemReferenceBox
+    "cdsc" : itemReferenceBox,
+    "url ": FullBox
 }
 
 

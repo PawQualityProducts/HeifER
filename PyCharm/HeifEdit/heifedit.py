@@ -11,12 +11,23 @@ class HeifEditor(object):
 
 if __name__ == '__main__':
     file1 = heiffile.HeifFile()
-    file1.load("/home/kali/samples/IMG_3802b.HEIC")
+    file1.load("/home/kali/samples/IMG_3802.HEIC")
 
     endbyte = file1.rebase()
 
     file1.save("/home/kali/samples/IMG_3802_test.HEIC")
 
+    #Alter order of infe records
+
+    iinfboxes = file1.find_boxes("iinf")
+
+    temp = iinfboxes[0].children[0]
+    iinfboxes[0].children[0] = iinfboxes[0].children[1]
+    iinfboxes[0].children[1] = temp
+
+    file1.save("/home/kali/samples/IMG_3802_test1.HEIC")
+
+    #add another tile object
     #copy image tile 47 and add as image item 54 -------------
     metaBox = file1.find_meta_box()
     iinfBox = file1.find_iinf_box()
@@ -42,7 +53,7 @@ if __name__ == '__main__':
 
     file1.save("/home/kali/samples/IMG_3802_test2.HEIC")
 
-    #dupliacte exif -------------------------------------------
+    #add another exif record -------------------------------------------
     infeBox53 = file1.find_infe_box(id=53)
     ilocEntry53 = file1.find_iloc_item(id=53)
 
@@ -78,6 +89,7 @@ if __name__ == '__main__':
 
     end = pat.regs[0][1]
     print(copydata[end-6:end])
+    #alter exif data
     newdata = copydata[:end-6] + b"*Fake*" + copydata[end:]
 
     mdatBox.binarydata += newdata
@@ -90,9 +102,9 @@ if __name__ == '__main__':
 
     file1.save("/home/kali/samples/IMG_3802_test3.HEIC")
 
-    # try to insert a jpeg
+    # insert a jpeg -------------------------------------
 
-    #copy image tile 47 and add as image item 56 and repurpose for jpeg-------------
+    #copy image tile 47 and add as image item 56 and repurpose for jpeg
 
     infeBox47 = file1.find_infe_box(id=47)
     ilocEntry47 = file1.find_iloc_item(id=47)
@@ -126,10 +138,22 @@ if __name__ == '__main__':
     print("jpeg start={0}, length={1}".format(newdataoffset2, len(jpegfiledata)))
     print("mdat start={0}, length={1}".format(mdatBox.startByte, len(mdatBox.binarydata)))
 
+    #set the data offset for the jpeg location record
     newilocitem2['extents'][0]['extent_offset'] = newdataoffset2
     newilocitem2['extents'][0]['extent_length'] = len(jpegfiledata)
 
-
     file1.save("/home/kali/samples/IMG_3802_test4.HEIC")
 
-    pass
+    #Add external URL reference -------------------------------------------
+    urlboxes = file1.find_boxes("url ")
+
+    #clear internal content flag : NB: pyheif fails to load the file if this flag is not clear (0=external, 1=internal)
+    urlboxes[0].flags=0
+    urlboxes[0].binarydata = b'https://www.pawqualityproducts.co.uk/\x00'
+
+    #rebase
+    endbyte = file1.rebase()
+
+    file1.save("/home/kali/samples/IMG_3802_test5.HEIC")
+
+
