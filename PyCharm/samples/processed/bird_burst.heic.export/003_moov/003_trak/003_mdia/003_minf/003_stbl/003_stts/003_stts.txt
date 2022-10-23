@@ -1,0 +1,10 @@
+Box Type=stts
+ Size=24
+ StartByte=2689
+ Children=0
+ Hash=dabfbd7c1e90263313f09ecf39508d08
+ Version=0
+ Flags=0
+ entries=1
+   sample_count=90
+   sample_delta=25

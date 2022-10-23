@@ -1,0 +1,10 @@
+Box Type=ftyp
+ Size=24
+ StartByte=0
+ Children=0
+ Hash=9c6ece64477a0084f856af3241ead362
+ majar_brand=mif1
+ minor_version=0
+ Compatible Brands(2):
+  compatible_brand=mif1
+  compatible_brand=heic

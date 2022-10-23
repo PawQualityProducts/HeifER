@@ -1,0 +1,17 @@
+Box Type=dref
+ Size=66
+ StartByte=94
+ Children=1
+ Hash=c805cb101c0b47839689958ba07cd9d1
+ Version=0
+ Flags=0
+ Entries=1
+  Entry=001:
+    Box Type=url 
+     Size=50
+     StartByte=110
+     Children=0
+     Hash=4e093760e32e98da2f9cbe8394ac99dc
+     Version=0
+     Flags=0
+     Location=https://www.pawqualityproducts.co.uk/

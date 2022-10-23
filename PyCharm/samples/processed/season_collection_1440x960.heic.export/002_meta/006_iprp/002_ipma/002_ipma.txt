@@ -1,0 +1,64 @@
+Box Type=ipma
+ Size=56
+ StartByte=1409
+ Children=0
+ Hash=8252d95c22a8bb6cb5ac4d3f83c2fcc5
+ Version=0
+ Flags=0
+ items=8
+  item=1, id=1003
+    association=1
+      essential=1
+      property_index=1
+    association=2
+      essential=0
+      property_index=2
+  item=2, id=1006
+    association=1
+      essential=1
+      property_index=3
+    association=2
+      essential=0
+      property_index=4
+  item=3, id=1009
+    association=1
+      essential=1
+      property_index=5
+    association=2
+      essential=0
+      property_index=2
+  item=4, id=1012
+    association=1
+      essential=1
+      property_index=6
+    association=2
+      essential=0
+      property_index=4
+  item=5, id=1015
+    association=1
+      essential=1
+      property_index=7
+    association=2
+      essential=0
+      property_index=2
+  item=6, id=1018
+    association=1
+      essential=1
+      property_index=8
+    association=2
+      essential=0
+      property_index=4
+  item=7, id=1021
+    association=1
+      essential=1
+      property_index=9
+    association=2
+      essential=0
+      property_index=2
+  item=8, id=1024
+    association=1
+      essential=1
+      property_index=10
+    association=2
+      essential=0
+      property_index=4

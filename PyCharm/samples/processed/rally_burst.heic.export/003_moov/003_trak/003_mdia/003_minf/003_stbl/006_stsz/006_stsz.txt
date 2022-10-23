@@ -1,0 +1,9 @@
+Box Type=stsz
+ Size=260
+ StartByte=2599
+ Children=0
+ Hash=2051279c8fa41e7286086682ac5afe19
+ Version=0
+ Flags=0
+ sample_size=0
+ entries=[{'entry_size': 1014}, {'entry_size': 990}, {'entry_size': 987}, {'entry_size': 996}, {'entry_size': 992}, {'entry_size': 1000}, {'entry_size': 995}, {'entry_size': 1001}, {'entry_size': 1001}, {'entry_size': 996}, {'entry_size': 1008}, {'entry_size': 1010}, {'entry_size': 978}, {'entry_size': 1013}, {'entry_size': 999}, {'entry_size': 993}, {'entry_size': 995}, {'entry_size': 987}, {'entry_size': 1018}, {'entry_size': 1021}, {'entry_size': 1017}, {'entry_size': 1007}, {'entry_size': 1004}, {'entry_size': 1003}, {'entry_size': 998}, {'entry_size': 1014}, {'entry_size': 996}, {'entry_size': 1022}, {'entry_size': 1020}, {'entry_size': 1019}, {'entry_size': 1032}, {'entry_size': 1028}, {'entry_size': 1042}, {'entry_size': 1047}, {'entry_size': 1035}, {'entry_size': 1045}, {'entry_size': 1045}, {'entry_size': 1071}, {'entry_size': 1077}, {'entry_size': 1064}, {'entry_size': 1098}, {'entry_size': 1096}, {'entry_size': 1125}, {'entry_size': 1180}, {'entry_size': 1184}, {'entry_size': 1175}, {'entry_size': 1103}, {'entry_size': 494}, {'entry_size': 434}, {'entry_size': 368}, {'entry_size': 354}, {'entry_size': 396}, {'entry_size': 747}, {'entry_size': 739}, {'entry_size': 756}, {'entry_size': 729}, {'entry_size': 692}, {'entry_size': 659}, {'entry_size': 615}, {'entry_size': 596}]

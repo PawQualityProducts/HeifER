@@ -1,0 +1,660 @@
+Parsing file ------------
+      0:ftyp(size=40, start=0, end=40)
+     40:meta(size=3740, start=40, end=3780)
+     52:-hdlr(size=34, start=52, end=86)
+     86:-dinf(size=36, start=86, end=122)
+     94:--dref(size=28, start=94, end=122)
+    110:----url (size=12, start=110, end=122)
+    122:-pitm(size=14, start=122, end=136)
+    136:-iinf(size=1168, start=136, end=1304)
+    150:---infe(size=21, start=150, end=171)
+    171:---infe(size=21, start=171, end=192)
+    192:---infe(size=21, start=192, end=213)
+    213:---infe(size=21, start=213, end=234)
+    234:---infe(size=21, start=234, end=255)
+    255:---infe(size=21, start=255, end=276)
+    276:---infe(size=21, start=276, end=297)
+    297:---infe(size=21, start=297, end=318)
+    318:---infe(size=21, start=318, end=339)
+    339:---infe(size=21, start=339, end=360)
+    360:---infe(size=21, start=360, end=381)
+    381:---infe(size=21, start=381, end=402)
+    402:---infe(size=21, start=402, end=423)
+    423:---infe(size=21, start=423, end=444)
+    444:---infe(size=21, start=444, end=465)
+    465:---infe(size=21, start=465, end=486)
+    486:---infe(size=21, start=486, end=507)
+    507:---infe(size=21, start=507, end=528)
+    528:---infe(size=21, start=528, end=549)
+    549:---infe(size=21, start=549, end=570)
+    570:---infe(size=21, start=570, end=591)
+    591:---infe(size=21, start=591, end=612)
+    612:---infe(size=21, start=612, end=633)
+    633:---infe(size=21, start=633, end=654)
+    654:---infe(size=21, start=654, end=675)
+    675:---infe(size=21, start=675, end=696)
+    696:---infe(size=21, start=696, end=717)
+    717:---infe(size=21, start=717, end=738)
+    738:---infe(size=21, start=738, end=759)
+    759:---infe(size=21, start=759, end=780)
+    780:---infe(size=21, start=780, end=801)
+    801:---infe(size=21, start=801, end=822)
+    822:---infe(size=21, start=822, end=843)
+    843:---infe(size=21, start=843, end=864)
+    864:---infe(size=21, start=864, end=885)
+    885:---infe(size=21, start=885, end=906)
+    906:---infe(size=21, start=906, end=927)
+    927:---infe(size=21, start=927, end=948)
+    948:---infe(size=21, start=948, end=969)
+    969:---infe(size=21, start=969, end=990)
+    990:---infe(size=21, start=990, end=1011)
+   1011:---infe(size=21, start=1011, end=1032)
+   1032:---infe(size=21, start=1032, end=1053)
+   1053:---infe(size=21, start=1053, end=1074)
+   1074:---infe(size=21, start=1074, end=1095)
+   1095:---infe(size=21, start=1095, end=1116)
+   1116:---infe(size=21, start=1116, end=1137)
+   1137:---infe(size=21, start=1137, end=1158)
+   1158:---infe(size=21, start=1158, end=1179)
+   1179:---infe(size=21, start=1179, end=1200)
+   1200:---infe(size=21, start=1200, end=1221)
+   1221:---infe(size=41, start=1221, end=1262)
+   1262:---infe(size=21, start=1262, end=1283)
+   1283:---infe(size=21, start=1283, end=1304)
+   1304:-iref(size=176, start=1304, end=1480)
+   1316:--dimg(size=108, start=1316, end=1424)
+   1424:--thmb(size=14, start=1424, end=1438)
+   1438:--auxl(size=14, start=1438, end=1452)
+   1452:--cdsc(size=14, start=1452, end=1466)
+   1466:--cdsc(size=14, start=1466, end=1480)
+   1480:-iprp(size=1404, start=1480, end=2884)
+   1488:--ipco(size=1063, start=1488, end=2551)
+   1496:---colr(size=548, start=1496, end=2044)
+   2044:---hvcC(size=112, start=2044, end=2156)
+   2156:---ispe(size=20, start=2156, end=2176)
+   2176:---ispe(size=20, start=2176, end=2196)
+   2196:---irot(size=9, start=2196, end=2205)
+   2205:---pixi(size=16, start=2205, end=2221)
+   2221:---hvcC(size=111, start=2221, end=2332)
+   2332:---ispe(size=20, start=2332, end=2352)
+   2352:---hvcC(size=113, start=2352, end=2465)
+   2465:---ispe(size=20, start=2465, end=2485)
+   2485:---pixi(size=14, start=2485, end=2499)
+   2499:---auxC(size=52, start=2499, end=2551)
+   2551:--ipma(size=333, start=2551, end=2884)
+   2884:-idat(size=16, start=2884, end=2900)
+   2900:-iloc(size=880, start=2900, end=3780)
+   2916:--  item=1
+   2924:--    extent=1
+   2932:--  item=2
+   2940:--    extent=1
+   2948:--  item=3
+   2956:--    extent=1
+   2964:--  item=4
+   2972:--    extent=1
+   2980:--  item=5
+   2988:--    extent=1
+   2996:--  item=6
+   3004:--    extent=1
+   3012:--  item=7
+   3020:--    extent=1
+   3028:--  item=8
+   3036:--    extent=1
+   3044:--  item=9
+   3052:--    extent=1
+   3060:--  item=10
+   3068:--    extent=1
+   3076:--  item=11
+   3084:--    extent=1
+   3092:--  item=12
+   3100:--    extent=1
+   3108:--  item=13
+   3116:--    extent=1
+   3124:--  item=14
+   3132:--    extent=1
+   3140:--  item=15
+   3148:--    extent=1
+   3156:--  item=16
+   3164:--    extent=1
+   3172:--  item=17
+   3180:--    extent=1
+   3188:--  item=18
+   3196:--    extent=1
+   3204:--  item=19
+   3212:--    extent=1
+   3220:--  item=20
+   3228:--    extent=1
+   3236:--  item=21
+   3244:--    extent=1
+   3252:--  item=22
+   3260:--    extent=1
+   3268:--  item=23
+   3276:--    extent=1
+   3284:--  item=24
+   3292:--    extent=1
+   3300:--  item=25
+   3308:--    extent=1
+   3316:--  item=26
+   3324:--    extent=1
+   3332:--  item=27
+   3340:--    extent=1
+   3348:--  item=28
+   3356:--    extent=1
+   3364:--  item=29
+   3372:--    extent=1
+   3380:--  item=30
+   3388:--    extent=1
+   3396:--  item=31
+   3404:--    extent=1
+   3412:--  item=32
+   3420:--    extent=1
+   3428:--  item=33
+   3436:--    extent=1
+   3444:--  item=34
+   3452:--    extent=1
+   3460:--  item=35
+   3468:--    extent=1
+   3476:--  item=36
+   3484:--    extent=1
+   3492:--  item=37
+   3500:--    extent=1
+   3508:--  item=38
+   3516:--    extent=1
+   3524:--  item=39
+   3532:--    extent=1
+   3540:--  item=40
+   3548:--    extent=1
+   3556:--  item=41
+   3564:--    extent=1
+   3572:--  item=42
+   3580:--    extent=1
+   3588:--  item=43
+   3596:--    extent=1
+   3604:--  item=44
+   3612:--    extent=1
+   3620:--  item=45
+   3628:--    extent=1
+   3636:--  item=46
+   3644:--    extent=1
+   3652:--  item=47
+   3660:--    extent=1
+   3668:--  item=48
+   3676:--    extent=1
+   3684:--  item=49
+   3692:--    extent=1
+   3700:--  item=50
+   3708:--    extent=1
+   3716:--  item=51
+   3724:--    extent=1
+   3732:--  item=52
+   3740:--    extent=1
+   3748:--  item=53
+   3756:--    extent=1
+   3764:--  item=54
+   3772:--    extent=1
+   3780:mdat(size=1158355, start=3780, end=1162135)
+ISOBaseMediaFile
+  ftyp: <isobmfflib.ftyp.FileTypeBox object at 0x7f7edce15af0>  majar_brand: heic
+    minor_version: 0
+    compatible_brands: mif1,MiHE,MiPr,miaf,MiHB,heic,
+  meta:<isobmfflib.meta.MetaBox object at 0x7f7eded50280>
+  moov: None
+  mdat: <isobmfflib.mdat.MediaDataBox object at 0x7f7ede1881c0>
+  
+Parse Complete --------
+
+Processing Binary Data and Hashes --------------
+     0:-ftyp Hash=31ae6409fc464c9bd19d36eefa1346d5
+    40:-meta Hash=c81569a5f2ea5349f242a6ee36d1f265
+    52:--hdlr Hash=40a701e65ee1aca1288a85aff8a02c6c
+    86:--dinf Hash=5ca8ac3580f6779b6362b7b1e7cfeb52
+    94:---dref Hash=ac0eab12278326c08f7cb3e861005e40
+   110:----url  Hash=470b5e0ae161f2b8581d42f6056f0e59
+   122:--pitm Hash=daaac087c1539cc3d1f333b67549c085
+   136:--iinf Hash=11d5e7c158d12e24a67ae508e1753ec9
+   150:----infe Hash=15b1939cdd5ed6ed5252c9d63a881aa5
+   171:----infe Hash=62e16b72e69c095493e87e873534fb42
+   192:----infe Hash=30a09341a78d016235fc8c613152a134
+   213:----infe Hash=ddea2c3de22fc14b8e28e2d9c3699225
+   234:----infe Hash=f33afea51c82e5dd9edb39db6e74d112
+   255:----infe Hash=7e0c53f477cbd4485576d02b03be6d1d
+   276:----infe Hash=d27fead31f986fa9fc0de120da17c1ff
+   297:----infe Hash=a463e902192c575c64caf30d3bd16be3
+   318:----infe Hash=30e75818dc6997629249916d2758b763
+   339:----infe Hash=d2c286fc3c37e5c02661e8f5e5fa9941
+   360:----infe Hash=3f0821fb54c0e8ee10e3014d40666e58
+   381:----infe Hash=494026321824739d4a6f5f998acb9a30
+   402:----infe Hash=fef46428b60c93dd90edbbd262557623
+   423:----infe Hash=b3cb6ed47c1968ab5b469cbca80f6b8a
+   444:----infe Hash=dfdc4fea1babe95b7e8a67d0e1add583
+   465:----infe Hash=8186263caaf0af0435823543f8f97887
+   486:----infe Hash=885e7aafc9555a05a868876f3afaf11c
+   507:----infe Hash=989780377b6c7a261e34699ae6dc3b2e
+   528:----infe Hash=fe39e94965b320d784998a92de020f46
+   549:----infe Hash=0a6dc7bbfda2ff7eae26f859b91380bf
+   570:----infe Hash=f903b9f3115845d516c88f7bcdfda368
+   591:----infe Hash=69c90d9427b71edd0e8a00c098daddad
+   612:----infe Hash=70864c7eae2f1694b6684d39299a00ec
+   633:----infe Hash=4e7e83640d0e640f9d85bbdd41597145
+   654:----infe Hash=977f8a00159620700cb46a1942018f71
+   675:----infe Hash=9c33d8d3647d706a9d82654a31bd6ac6
+   696:----infe Hash=cd06e16a481522ae0a7d6449b8e2a0ff
+   717:----infe Hash=c0fa84324e0558a067edac1d7db89266
+   738:----infe Hash=9e95b2a7628b21a4ac2a19c2df8aa2ad
+   759:----infe Hash=6eb691c5e04f3c4b3e0312807c2f164a
+   780:----infe Hash=0f6164b01f20da012b22c084e38b8270
+   801:----infe Hash=ab6b8fa3fe22fbeea8c7657f24bbf5fc
+   822:----infe Hash=a37cf8fb352f5626e23d71f2a6de6e75
+   843:----infe Hash=a6b74cd813ac0fce32f799cf95a00360
+   864:----infe Hash=193e24661820a69dd327f9b4fdf902fe
+   885:----infe Hash=e4bd0229c5de2cd2e51aa22c9f3f5584
+   906:----infe Hash=f44297f6e3408f4e4266380507c222a0
+   927:----infe Hash=855536caf6370c4ed8a8a7cae6a0a25e
+   948:----infe Hash=63431709769b0f094cc2fc515ba23274
+   969:----infe Hash=c078172c4da9ac646ce0603ee0aa75f0
+   990:----infe Hash=87cb88618de0ecd53949154fb7b44d28
+  1011:----infe Hash=989a1a24abda2c17f1b1164b1722f8b3
+  1032:----infe Hash=7a209bbbe492565238f8e050c36a2aaf
+  1053:----infe Hash=0adccf2ab81eb7c4df60dba813aec935
+  1074:----infe Hash=289f8d98de8fd0d7175e79928835b6ab
+  1095:----infe Hash=c3ef8cf5dd779d467afb905b47e80169
+  1116:----infe Hash=d0587272a260a46510a46aecd0be4685
+  1137:----infe Hash=4b0ebf8538ce7e2cdb35cffab637febe
+  1158:----infe Hash=916e34770d6ab6dadb96fbb1ec0ccaed
+  1179:----infe Hash=b9c9d9b6d8415b303a2e439dda71fc22
+  1200:----infe Hash=641148e477c89943086301ee94479d49
+  1221:----infe Hash=3a334fec9b6e504cba4e955fb9169aba
+  1262:----infe Hash=1bbd875ef5e821c1a8bfe5b22f5bcc54
+  1283:----infe Hash=99fcda865a8871d7fd64664821fba0ec
+  1304:--iref Hash=36bf6676272f559920f089c6b2cd5733
+  1316:---dimg Hash=decf9d0730a4fe6fc7fc5c2f5c87c19a
+  1424:---thmb Hash=8a467bf1894aced2e919e690063d764f
+  1438:---auxl Hash=751c42311f1a8c027fd0296611472bcf
+  1452:---cdsc Hash=589e15c969067399c7a478b9ee5930a3
+  1466:---cdsc Hash=bf0cab9149f4a7cbaa809b5a35b41362
+  1316:---dimg Hash=decf9d0730a4fe6fc7fc5c2f5c87c19a
+  1424:---thmb Hash=8a467bf1894aced2e919e690063d764f
+  1438:---auxl Hash=751c42311f1a8c027fd0296611472bcf
+  1452:---cdsc Hash=589e15c969067399c7a478b9ee5930a3
+  1466:---cdsc Hash=bf0cab9149f4a7cbaa809b5a35b41362
+  1480:--iprp Hash=2218c790be9c1d4eccf787c8e9533161
+  1488:---ipco Hash=1cbd871d2cd5a216ebdf1e6f93bc6206
+  1496:----colr Hash=bf957082a9928941076ea1e697b4789e
+  2044:----hvcC Hash=9a6215cbc477045d3c81ead83de7a6a3
+  2156:----ispe Hash=079b509faf51816c056bde8bb5c68521
+  2176:----ispe Hash=58e2450f1210018508b97da60b61d0f1
+  2196:----irot Hash=c3f5ac503ef23b393906783a7f098850
+  2205:----pixi Hash=19d227947c9a98cf865960bf9be7cdd4
+  2221:----hvcC Hash=10698b6aaa2f6ad2f5f4a05c6a0a70ec
+  2332:----ispe Hash=2fc06a2c5c8f2779c902ddd24030ba70
+  2352:----hvcC Hash=876f7feadda8db19a5eec60eeaf272bf
+  2465:----ispe Hash=f22a7a120531113f610395e50a696539
+  2485:----pixi Hash=833776b11b67cfac49fe2f9d440b5b41
+  2499:----auxC Hash=f02cb8dcdb6e5cd34a1d63881220ef9b
+  2551:---ipma Hash=4fe091252604416a519487e28d924f10
+  2884:--idat Hash=75148a54bcca9356340adbcac7859c94
+  2900:--iloc Hash=0f416e7933c4795da87bd16895b57999
+      :    item=1, extent=1 Hash=f4444657f8e81e3781048768c1e4d85c
+      :    item=2, extent=1 Hash=7d71032590e4df713e97a99faae03993
+      :    item=3, extent=1 Hash=52303d6a01a32f901cd1ae49b66e8793
+      :    item=4, extent=1 Hash=a3dcb31d97118c631bc6669908a01e3e
+      :    item=5, extent=1 Hash=115c69f71e76721827ae4422c559ae4c
+      :    item=6, extent=1 Hash=2a17ebff2fd38041fb413ea77afa2997
+      :    item=7, extent=1 Hash=f650cbeb3b1a13552391dd4cc42336d9
+      :    item=8, extent=1 Hash=18722327a95b059aea161851ca414226
+      :    item=9, extent=1 Hash=e6a4e6a100332401f66d9b89ad30df6e
+      :    item=10, extent=1 Hash=d289e2dd4622fd86e3373b3f1b0503a3
+      :    item=11, extent=1 Hash=e9c1db69549af0a08e1f13f0d334b6de
+      :    item=12, extent=1 Hash=82ec750abdbd9ac066fe10479e2e60b5
+      :    item=13, extent=1 Hash=b638bdb797b2d1ea0a1e0593293bd758
+      :    item=14, extent=1 Hash=c9cec5481b1ea4961c98d86d286254b9
+      :    item=15, extent=1 Hash=31f25aadc4683f7aebe3d277429b0b67
+      :    item=16, extent=1 Hash=342ae6e7ac7dff7bee91e981cd7a3c10
+      :    item=17, extent=1 Hash=47519821e54056b400155100ee621ad6
+      :    item=18, extent=1 Hash=99a757eda3189c3effea52db6153c724
+      :    item=19, extent=1 Hash=be79963924dab1a8700c192886269cc3
+      :    item=20, extent=1 Hash=e0e85e905020193cda31f69a86375160
+      :    item=21, extent=1 Hash=3d8d1254bc6a1fa265cc530a9c6db94e
+      :    item=22, extent=1 Hash=4d7aec74908d7815f7d66c5e9f2fbcbb
+      :    item=23, extent=1 Hash=79ccd2b32d93cf743ed197cfa26a83c6
+      :    item=24, extent=1 Hash=4bc021b597e29122f38e33e030ba7090
+      :    item=25, extent=1 Hash=4cae98acb9ee574f37d3ac7ad99b86d0
+      :    item=26, extent=1 Hash=09aec33956b67c48fa230ed9f144e4a0
+      :    item=27, extent=1 Hash=f12f3d20e93575fac5757fea186cf55e
+      :    item=28, extent=1 Hash=b491be1eb28eef422e0559160d758f75
+      :    item=29, extent=1 Hash=083bf504d7d21b8464f38aa75ab79440
+      :    item=30, extent=1 Hash=4d56b80ecbb718f4e5699d8a933c0f6a
+      :    item=31, extent=1 Hash=544318255970d5d2e447c94cd6bac8c4
+      :    item=32, extent=1 Hash=60d36d981dca7e3cd1e91f021bd896a8
+      :    item=33, extent=1 Hash=31c0fbeb19c2012360418faae0689c30
+      :    item=34, extent=1 Hash=0a7267a546e702a744203a17055804ef
+      :    item=35, extent=1 Hash=cb7d156d41c9d5cf85edef93fedeb3b5
+      :    item=36, extent=1 Hash=876b51157bfaff4bba7cda7dbd2e5b4e
+      :    item=37, extent=1 Hash=14944173f9f2314b74d4d8947d3a8d9f
+      :    item=38, extent=1 Hash=16b659d5033d5f65d5344ea35a65bba6
+      :    item=39, extent=1 Hash=a1520b27f7ea7752c3a37f9ce5982c37
+      :    item=40, extent=1 Hash=5e06eeb863fbdf588e88b1c5ba4fb686
+      :    item=41, extent=1 Hash=bf0c8d8b580368f9ee2c5900b2b52649
+      :    item=42, extent=1 Hash=64828b14b12e7920c12716b03042e573
+      :    item=43, extent=1 Hash=38d992b81d50aca8a893c12d40ef8398
+      :    item=44, extent=1 Hash=ac2fb87f82ab4f4296a3055c46ced7f1
+      :    item=45, extent=1 Hash=df86bd7e343aec24f40905baabfc2a6d
+      :    item=46, extent=1 Hash=ab5fbfa8de18bb8b1d88d3e0f674d3bc
+      :    item=47, extent=1 Hash=64ccc9ed025316bde2219a9393429005
+      :    item=48, extent=1 Hash=d8b2d247479d8d582826af0f7540bc76
+      :    item=49, extent=1 Hash=ca1cdf640a864a2a852b4007f92b2f50
+      :    item=50, extent=1 Hash=38b31152e9f297dbb41a3ad08fd54072
+      :    item=51, extent=1 Hash=e04d675c51fd9c8319a652fc841c853c
+      :    item=52, extent=1 Hash=be06b05e83091735fb2ca4b355133192
+      :    item=53, extent=1 Hash=d4285ce80e394f1c5149ee25213aa296
+      :    item=54, extent=1 Hash=64ccc9ed025316bde2219a9393429005
+  3780:-mdat Hash=d3c804e8a531f37d1840e915f9f8d3a0
+Binary Data and Hash processing complete -------
+
+Writing map file--------------
+map file complete -------
+
+Writing contents file--------------
+write all to /home/kali/samples/IMG_3802_test2.HEIC.txt
+Box=ftyp, location=0
+Box=meta, location=40
+Box=hdlr, location=52
+Box=dinf, location=86
+Box=dref, location=94
+Box=url , location=110
+Box=url , location=110
+Box=pitm, location=122
+Box=iinf, location=136
+Box=infe, location=150
+Box=infe, location=171
+Box=infe, location=192
+Box=infe, location=213
+Box=infe, location=234
+Box=infe, location=255
+Box=infe, location=276
+Box=infe, location=297
+Box=infe, location=318
+Box=infe, location=339
+Box=infe, location=360
+Box=infe, location=381
+Box=infe, location=402
+Box=infe, location=423
+Box=infe, location=444
+Box=infe, location=465
+Box=infe, location=486
+Box=infe, location=507
+Box=infe, location=528
+Box=infe, location=549
+Box=infe, location=570
+Box=infe, location=591
+Box=infe, location=612
+Box=infe, location=633
+Box=infe, location=654
+Box=infe, location=675
+Box=infe, location=696
+Box=infe, location=717
+Box=infe, location=738
+Box=infe, location=759
+Box=infe, location=780
+Box=infe, location=801
+Box=infe, location=822
+Box=infe, location=843
+Box=infe, location=864
+Box=infe, location=885
+Box=infe, location=906
+Box=infe, location=927
+Box=infe, location=948
+Box=infe, location=969
+Box=infe, location=990
+Box=infe, location=1011
+Box=infe, location=1032
+Box=infe, location=1053
+Box=infe, location=1074
+Box=infe, location=1095
+Box=infe, location=1116
+Box=infe, location=1137
+Box=infe, location=1158
+Box=infe, location=1179
+Box=infe, location=1200
+Box=infe, location=1221
+Box=infe, location=1262
+Box=infe, location=1283
+Box=infe, location=150
+Box=infe, location=171
+Box=infe, location=192
+Box=infe, location=213
+Box=infe, location=234
+Box=infe, location=255
+Box=infe, location=276
+Box=infe, location=297
+Box=infe, location=318
+Box=infe, location=339
+Box=infe, location=360
+Box=infe, location=381
+Box=infe, location=402
+Box=infe, location=423
+Box=infe, location=444
+Box=infe, location=465
+Box=infe, location=486
+Box=infe, location=507
+Box=infe, location=528
+Box=infe, location=549
+Box=infe, location=570
+Box=infe, location=591
+Box=infe, location=612
+Box=infe, location=633
+Box=infe, location=654
+Box=infe, location=675
+Box=infe, location=696
+Box=infe, location=717
+Box=infe, location=738
+Box=infe, location=759
+Box=infe, location=780
+Box=infe, location=801
+Box=infe, location=822
+Box=infe, location=843
+Box=infe, location=864
+Box=infe, location=885
+Box=infe, location=906
+Box=infe, location=927
+Box=infe, location=948
+Box=infe, location=969
+Box=infe, location=990
+Box=infe, location=1011
+Box=infe, location=1032
+Box=infe, location=1053
+Box=infe, location=1074
+Box=infe, location=1095
+Box=infe, location=1116
+Box=infe, location=1137
+Box=infe, location=1158
+Box=infe, location=1179
+Box=infe, location=1200
+Box=infe, location=1221
+Box=infe, location=1262
+Box=infe, location=1283
+Box=iref, location=1304
+Box=dimg, location=1316
+Box=thmb, location=1424
+Box=auxl, location=1438
+Box=cdsc, location=1452
+Box=cdsc, location=1466
+Box=dimg, location=1316
+Box=thmb, location=1424
+Box=auxl, location=1438
+Box=cdsc, location=1452
+Box=cdsc, location=1466
+Box=iprp, location=1480
+Box=ipco, location=1488
+Box=colr, location=1496
+Box=hvcC, location=2044
+Box=ispe, location=2156
+Box=ispe, location=2176
+Box=irot, location=2196
+Box=pixi, location=2205
+Box=hvcC, location=2221
+Box=ispe, location=2332
+Box=hvcC, location=2352
+Box=ispe, location=2465
+Box=pixi, location=2485
+Box=auxC, location=2499
+Box=ipma, location=2551
+Box=idat, location=2884
+Box=iloc, location=2900
+Box=mdat, location=3780
+write all complete
+Contents file complete -------
+Extracting components--------------
+Box=ftyp, location=0
+Box=meta, location=40
+Box=hdlr, location=52
+Box=dinf, location=86
+Box=dref, location=94
+Box=url , location=110
+Box=url , location=110
+Box=pitm, location=122
+Box=iinf, location=136
+Box=infe, location=150
+Box=infe, location=171
+Box=infe, location=192
+Box=infe, location=213
+Box=infe, location=234
+Box=infe, location=255
+Box=infe, location=276
+Box=infe, location=297
+Box=infe, location=318
+Box=infe, location=339
+Box=infe, location=360
+Box=infe, location=381
+Box=infe, location=402
+Box=infe, location=423
+Box=infe, location=444
+Box=infe, location=465
+Box=infe, location=486
+Box=infe, location=507
+Box=infe, location=528
+Box=infe, location=549
+Box=infe, location=570
+Box=infe, location=591
+Box=infe, location=612
+Box=infe, location=633
+Box=infe, location=654
+Box=infe, location=675
+Box=infe, location=696
+Box=infe, location=717
+Box=infe, location=738
+Box=infe, location=759
+Box=infe, location=780
+Box=infe, location=801
+Box=infe, location=822
+Box=infe, location=843
+Box=infe, location=864
+Box=infe, location=885
+Box=infe, location=906
+Box=infe, location=927
+Box=infe, location=948
+Box=infe, location=969
+Box=infe, location=990
+Box=infe, location=1011
+Box=infe, location=1032
+Box=infe, location=1053
+Box=infe, location=1074
+Box=infe, location=1095
+Box=infe, location=1116
+Box=infe, location=1137
+Box=infe, location=1158
+Box=infe, location=1179
+Box=infe, location=1200
+Box=infe, location=1221
+Box=infe, location=1262
+Box=infe, location=1283
+Box=infe, location=150
+Box=infe, location=171
+Box=infe, location=192
+Box=infe, location=213
+Box=infe, location=234
+Box=infe, location=255
+Box=infe, location=276
+Box=infe, location=297
+Box=infe, location=318
+Box=infe, location=339
+Box=infe, location=360
+Box=infe, location=381
+Box=infe, location=402
+Box=infe, location=423
+Box=infe, location=444
+Box=infe, location=465
+Box=infe, location=486
+Box=infe, location=507
+Box=infe, location=528
+Box=infe, location=549
+Box=infe, location=570
+Box=infe, location=591
+Box=infe, location=612
+Box=infe, location=633
+Box=infe, location=654
+Box=infe, location=675
+Box=infe, location=696
+Box=infe, location=717
+Box=infe, location=738
+Box=infe, location=759
+Box=infe, location=780
+Box=infe, location=801
+Box=infe, location=822
+Box=infe, location=843
+Box=infe, location=864
+Box=infe, location=885
+Box=infe, location=906
+Box=infe, location=927
+Box=infe, location=948
+Box=infe, location=969
+Box=infe, location=990
+Box=infe, location=1011
+Box=infe, location=1032
+Box=infe, location=1053
+Box=infe, location=1074
+Box=infe, location=1095
+Box=infe, location=1116
+Box=infe, location=1137
+Box=infe, location=1158
+Box=infe, location=1179
+Box=infe, location=1200
+Box=infe, location=1221
+Box=infe, location=1262
+Box=infe, location=1283
+Box=iref, location=1304
+Box=dimg, location=1316
+Box=thmb, location=1424
+Box=auxl, location=1438
+Box=cdsc, location=1452
+Box=cdsc, location=1466
+Box=dimg, location=1316
+Box=thmb, location=1424
+Box=auxl, location=1438
+Box=cdsc, location=1452
+Box=cdsc, location=1466
+Box=iprp, location=1480
+Box=ipco, location=1488
+Box=colr, location=1496
+Box=hvcC, location=2044
+Box=ispe, location=2156
+Box=ispe, location=2176
+Box=irot, location=2196
+Box=pixi, location=2205
+Box=hvcC, location=2221
+Box=ispe, location=2332
+Box=hvcC, location=2352
+Box=ispe, location=2465
+Box=pixi, location=2485
+Box=auxC, location=2499
+Box=ipma, location=2551
+Box=idat, location=2884
+Box=iloc, location=2900
+Box=mdat, location=3780
+Component Extraction complete-------
+Extracting metadata--------------
+Extracting metadata--------------
+  Extracting Exif metadata by iloc Item Record --------------
+Metadata extraction complete-------
+Extracting Images -----------
+Image extraction complete----------

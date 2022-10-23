@@ -1,0 +1,13 @@
+Box Type=mvhd
+ Size=108
+ StartByte=845
+ Children=0
+ Hash=cdde998e88bc4430b0189801bdf650f5
+ Version=0
+ Flags=0
+ creation_time=3603449810
+ modification_time=3603449810
+ timescale=1000
+ duration=2400
+ rate=65536
+ volume=256

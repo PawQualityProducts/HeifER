@@ -1,0 +1,307 @@
+Parsing file ------------
+      0:ftyp(size=36, start=0, end=36)
+     36:meta(size=801, start=36, end=837)
+     48:-hdlr(size=33, start=48, end=81)
+     81:-pitm(size=14, start=81, end=95)
+     95:-iloc(size=88, start=95, end=183)
+    111:--  item=1
+    121:--    extent=1
+    129:--  item=2
+    139:--    extent=1
+    147:--  item=3
+    157:--    extent=1
+    165:--  item=4
+    175:--    extent=1
+    183:-iinf(size=138, start=183, end=321)
+    197:---infe(size=31, start=197, end=228)
+    228:---infe(size=31, start=228, end=259)
+    259:---infe(size=31, start=259, end=290)
+    290:---infe(size=31, start=290, end=321)
+    321:-iref(size=12, start=321, end=333)
+    333:-iprp(size=504, start=333, end=837)
+    341:--ipco(size=460, start=341, end=801)
+    349:---hvcC(size=108, start=349, end=457)
+    457:---ispe(size=20, start=457, end=477)
+    477:---hvcC(size=108, start=477, end=585)
+    585:---hvcC(size=108, start=585, end=693)
+    693:---hvcC(size=108, start=693, end=801)
+    801:--ipma(size=36, start=801, end=837)
+    837:moov(size=2304, start=837, end=3141)
+    845:-mvhd(size=108, start=845, end=953)
+    953:-trak(size=1213, start=953, end=2166)
+    961:--tkhd(size=92, start=961, end=1053)
+   1053:--mdia(size=1113, start=1053, end=2166)
+   1061:---mdhd(size=32, start=1061, end=1093)
+   1093:---hdlr(size=66, start=1093, end=1159)
+   1159:---minf(size=1007, start=1159, end=2166)
+   1167:----vmhd(size=20, start=1167, end=1187)
+   1187:----dinf(size=36, start=1187, end=1223)
+   1195:-----dref(size=28, start=1195, end=1223)
+   1211:-------url (size=12, start=1211, end=1223)
+   1223:----stbl(size=943, start=1223, end=2166)
+   1231:-----stsd(size=339, start=1231, end=1570)
+   1247:-------hvc1(size=323, start=1247, end=1570)
+   1333:---------hvcC(size=221, start=1333, end=1554)
+   1554:-----ccst(size=16, start=1554, end=1570)
+   1570:-----stts(size=24, start=1570, end=1594)
+   1594:-----stsc(size=28, start=1594, end=1622)
+   1622:-----stco(size=20, start=1622, end=1642)
+   1642:-----stsz(size=380, start=1642, end=2022)
+   2022:-----stss(size=24, start=2022, end=2046)
+   2046:-----sgpd(size=68, start=2046, end=2114)
+   2114:-----sbgp(size=52, start=2114, end=2166)
+   2166:-trak(size=975, start=2166, end=3141)
+   2174:--tkhd(size=92, start=2174, end=2266)
+   2266:--tref(size=20, start=2266, end=2286)
+   2286:--mdia(size=855, start=2286, end=3141)
+   2294:---mdhd(size=32, start=2294, end=2326)
+   2326:---hdlr(size=66, start=2326, end=2392)
+   2392:---minf(size=749, start=2392, end=3141)
+   2400:----vmhd(size=20, start=2400, end=2420)
+   2420:----dinf(size=36, start=2420, end=2456)
+   2428:-----dref(size=28, start=2428, end=2456)
+   2444:-------url (size=12, start=2444, end=2456)
+   2456:----stbl(size=685, start=2456, end=3141)
+   2464:-----stsd(size=225, start=2464, end=2689)
+   2480:-------hvc1(size=209, start=2480, end=2689)
+   2566:---------hvcC(size=107, start=2566, end=2673)
+   2673:-----ccst(size=16, start=2673, end=2689)
+   2689:-----stts(size=24, start=2689, end=2713)
+   2713:-----stsc(size=28, start=2713, end=2741)
+   2741:-----stco(size=20, start=2741, end=2761)
+   2761:-----stsz(size=380, start=2761, end=3141)
+   3141:mdat(size=466930, start=3141, end=470071)
+ISOBaseMediaFile
+  ftyp: <isobmfflib.ftyp.FileTypeBox object at 0x7fde298d0af0>  majar_brand: msf1
+    minor_version: 0
+    compatible_brands: msf1,hevc,heic,mif1,iso8,
+  meta:<isobmfflib.meta.MetaBox object at 0x7fde2b7f6280>
+  moov: <isobmfflib.moov.MovieBox object at 0x7fde2ae481c0>
+  mdat: <isobmfflib.mdat.MediaDataBox object at 0x7fde298f9a60>
+  
+Parse Complete --------
+
+Processing Binary Data and Hashes --------------
+     0:-ftyp Hash=50300599cac9028b2ef466479dad928e
+    36:-meta Hash=0c0aa79558a711d7702361507fbd7962
+    48:--hdlr Hash=63266d7ddc9038364e39dc50d4e19dcb
+    81:--pitm Hash=58555a260b119b9fb5b36b110b74b489
+    95:--iloc Hash=40b6bee34af821cbc066d1a864b0cd1b
+      :    item=1, extent=1 Hash=9c4ade668edfadc1855d512270b83c30
+      :    item=2, extent=1 Hash=af823470d47e64d1904a715bdc9d5296
+      :    item=3, extent=1 Hash=d78f04d1a2c97c04744a70f17548819a
+      :    item=4, extent=1 Hash=cdc7adf8c98b91b80a8d15516e67664b
+   183:--iinf Hash=ce8d2c59471fab4f6d22867a0f964b70
+   197:----infe Hash=3bb7ab8cdf79ea0401cb9d1bba63ef58
+   228:----infe Hash=b76f34a16e4d7f0223d590e6407e0161
+   259:----infe Hash=e07dd54ec31774f29b714be8e7288e70
+   290:----infe Hash=d13c3cf3c6eb203b687ad230b42f7dc9
+   321:-iref Hash=26aae28c2342073ad6b830ce39845009
+   333:--iprp Hash=49fa8f7f497d5ba182524fd4c4440043
+   341:---ipco Hash=868bb768485dc04fe9056fadb2d71758
+   349:----hvcC Hash=88262e8ec639d17528a492592c2689e3
+   457:----ispe Hash=2cd092cab03cb86da095b73a6802e794
+   477:----hvcC Hash=88262e8ec639d17528a492592c2689e3
+   585:----hvcC Hash=88262e8ec639d17528a492592c2689e3
+   693:----hvcC Hash=88262e8ec639d17528a492592c2689e3
+   801:---ipma Hash=f1863f0f3de5907740c281804ca912f6
+   837:-moov Hash=8966ae2b1e01057937cde24beafb8d92
+   845:--mvhd Hash=310c4d92c626abfccc3ec8e6727cb53b
+   953:--trak Hash=0a27d83c25c9f7115b69f128344c5981
+   961:---tkhd Hash=9a3be3e976c5360f7b1a250439461ec9
+  1053:---mdia Hash=1e68774f1afdd6e58e89f4dc0537ff9c
+  1061:----mdhd Hash=ca96c406c4130e46e91cb5ddb5287d2e
+  1093:----hdlr Hash=0cfbfae8e9b3641e667682790ba9217b
+  1159:----minf Hash=8376c88d38b83675c6cae65c01f715d1
+  1167:-----vmhd Hash=223b7f6c7e9df8c9f756f34663480f82
+  1187:-----dinf Hash=5ca8ac3580f6779b6362b7b1e7cfeb52
+  1195:------dref Hash=ac0eab12278326c08f7cb3e861005e40
+  1211:-------url  Hash=470b5e0ae161f2b8581d42f6056f0e59
+  1223:-----stbl Hash=ebd40af1b6ec75f4b9cd1eb594d2060f
+  1231:------stsd Hash=6c8df400c905cd444f95b0e55c186cbe
+  1247:------------------------hvc1 Hash=77da6940a4cbd9a8f27aabafd86af908
+  1554:------ccst Hash=f87d0d84f8eca4b6eaa34ddbbcf03acb
+  1570:------stts Hash=dabfbd7c1e90263313f09ecf39508d08
+  1594:------stsc Hash=d9e9a3628372e28164b780d5eeeefd00
+  1622:------stco Hash=60ca1eae44aefc23703e4c714b875819
+  1642:------stsz Hash=fd16835cb48c996200e9e11c2276b376
+  2022:------stss Hash=7a10755eae69e645dd82403fb8dc094c
+  2046:------sgpd Hash=f0f2164b161164d3af4cb8223cf441aa
+  2114:------sbgp Hash=19024ced95fe75a93ebbfed6553c1d9b
+  2166:--trak Hash=7e2b95d56279f9480702c8820c954e2a
+  2174:---tkhd Hash=852ee155255521fa52ca2927d9767819
+  2266:---tref Hash=ae5aa37b6124654bdd97461700dc93af
+  2286:---mdia Hash=6652514635dc15912f2bb007ac0a1c56
+  2294:----mdhd Hash=ca96c406c4130e46e91cb5ddb5287d2e
+  2326:----hdlr Hash=0cfbfae8e9b3641e667682790ba9217b
+  2392:----minf Hash=16f4920d14b356632a78a284cb962059
+  2400:-----vmhd Hash=223b7f6c7e9df8c9f756f34663480f82
+  2420:-----dinf Hash=5ca8ac3580f6779b6362b7b1e7cfeb52
+  2428:------dref Hash=ac0eab12278326c08f7cb3e861005e40
+  2444:-------url  Hash=470b5e0ae161f2b8581d42f6056f0e59
+  2456:-----stbl Hash=0089d1fcc5fbd37e05d93ee4afd57d89
+  2464:------stsd Hash=89dfebad91103d66f89576720cfb15fa
+  2480:------------------------hvc1 Hash=020825935e1e144f0297de6c8434c2a1
+  2673:------ccst Hash=edc3ee36f0ceabb0112afd5db6ab15d1
+  2689:------stts Hash=dabfbd7c1e90263313f09ecf39508d08
+  2713:------stsc Hash=d9e9a3628372e28164b780d5eeeefd00
+  2741:------stco Hash=4aa0d3f3d4d519a89c31f1be399d27fa
+  2761:------stsz Hash=982d1efcfc1a24d5d76e02e0c5b0ad5e
+  3141:-mdat Hash=82d98f162a1a87ea00c4eb7ce062e167
+Binary Data and Hash processing complete -------
+
+Writing map file--------------
+map file complete -------
+
+Writing contents file--------------
+write all to /home/kali/samples/bird_burst.heic.txt
+Box=ftyp, location=0
+Box=meta, location=36
+Box=hdlr, location=48
+Box=pitm, location=81
+Box=iloc, location=95
+Box=iinf, location=183
+Box=infe, location=197
+Box=infe, location=228
+Box=infe, location=259
+Box=infe, location=290
+Box=infe, location=197
+Box=infe, location=228
+Box=infe, location=259
+Box=infe, location=290
+Box=iref, location=321
+Box=iprp, location=333
+Box=ipco, location=341
+Box=hvcC, location=349
+Box=ispe, location=457
+Box=hvcC, location=477
+Box=hvcC, location=585
+Box=hvcC, location=693
+Box=ipma, location=801
+Box=moov, location=837
+Box=mvhd, location=845
+Box=trak, location=953
+Box=tkhd, location=961
+Box=mdia, location=1053
+Box=mdhd, location=1061
+Box=hdlr, location=1093
+Box=minf, location=1159
+Box=vmhd, location=1167
+Box=dinf, location=1187
+Box=dref, location=1195
+Box=url , location=1211
+Box=url , location=1211
+Box=stbl, location=1223
+Box=stsd, location=1231
+Box=hvc1, location=1247
+Box=hvc1, location=1247
+Box=ccst, location=1554
+Box=stts, location=1570
+Box=stsc, location=1594
+Box=stco, location=1622
+Box=stsz, location=1642
+Box=stss, location=2022
+Box=sgpd, location=2046
+Box=sbgp, location=2114
+Box=trak, location=2166
+Box=tkhd, location=2174
+Box=tref, location=2266
+Box=mdia, location=2286
+Box=mdhd, location=2294
+Box=hdlr, location=2326
+Box=minf, location=2392
+Box=vmhd, location=2400
+Box=dinf, location=2420
+Box=dref, location=2428
+Box=url , location=2444
+Box=url , location=2444
+Box=stbl, location=2456
+Box=stsd, location=2464
+Box=hvc1, location=2480
+Box=hvc1, location=2480
+Box=ccst, location=2673
+Box=stts, location=2689
+Box=stsc, location=2713
+Box=stco, location=2741
+Box=stsz, location=2761
+Box=mdat, location=3141
+write all complete
+Contents file complete -------
+Extracting components--------------
+Box=ftyp, location=0
+Box=meta, location=36
+Box=hdlr, location=48
+Box=pitm, location=81
+Box=iloc, location=95
+Box=iinf, location=183
+Box=infe, location=197
+Box=infe, location=228
+Box=infe, location=259
+Box=infe, location=290
+Box=infe, location=197
+Box=infe, location=228
+Box=infe, location=259
+Box=infe, location=290
+Box=iref, location=321
+Box=iprp, location=333
+Box=ipco, location=341
+Box=hvcC, location=349
+Box=ispe, location=457
+Box=hvcC, location=477
+Box=hvcC, location=585
+Box=hvcC, location=693
+Box=ipma, location=801
+Box=moov, location=837
+Box=mvhd, location=845
+Box=trak, location=953
+Box=tkhd, location=961
+Box=mdia, location=1053
+Box=mdhd, location=1061
+Box=hdlr, location=1093
+Box=minf, location=1159
+Box=vmhd, location=1167
+Box=dinf, location=1187
+Box=dref, location=1195
+Box=url , location=1211
+Box=url , location=1211
+Box=stbl, location=1223
+Box=stsd, location=1231
+Box=hvc1, location=1247
+Box=hvc1, location=1247
+Box=ccst, location=1554
+Box=stts, location=1570
+Box=stsc, location=1594
+Box=stco, location=1622
+Box=stsz, location=1642
+Box=stss, location=2022
+Box=sgpd, location=2046
+Box=sbgp, location=2114
+Box=trak, location=2166
+Box=tkhd, location=2174
+Box=tref, location=2266
+Box=mdia, location=2286
+Box=mdhd, location=2294
+Box=hdlr, location=2326
+Box=minf, location=2392
+Box=vmhd, location=2400
+Box=dinf, location=2420
+Box=dref, location=2428
+Box=url , location=2444
+Box=url , location=2444
+Box=stbl, location=2456
+Box=stsd, location=2464
+Box=hvc1, location=2480
+Box=hvc1, location=2480
+Box=ccst, location=2673
+Box=stts, location=2689
+Box=stsc, location=2713
+Box=stco, location=2741
+Box=stsz, location=2761
+Box=mdat, location=3141
+Component Extraction complete-------
+Extracting metadata--------------
+Extracting metadata--------------
+  Extracting Exif metadata by iloc Item Record --------------
+Metadata extraction complete-------
+Extracting Images -----------
+Image extraction complete----------

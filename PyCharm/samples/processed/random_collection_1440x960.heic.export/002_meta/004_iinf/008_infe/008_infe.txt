@@ -1,0 +1,15 @@
+Box Type=infe
+ Size=31
+ StartByte=474
+ Children=0
+ Hash=f7ed22f678a87c40a85809017e369472
+ Version=2
+ Flags=0
+ item_id=1023
+ item_protection_index=0
+ item_name=HEVC Image
+ item_extension=None
+ item_type=hvc1
+ content_type=None
+ content_encoding=None
+ uri_type=None

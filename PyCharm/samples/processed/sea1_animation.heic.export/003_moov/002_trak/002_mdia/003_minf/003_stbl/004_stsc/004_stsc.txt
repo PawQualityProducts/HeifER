@@ -1,0 +1,11 @@
+Box Type=stsc
+ Size=28
+ StartByte=1041
+ Children=0
+ Hash=c0da43a46f67c11777da84d73109af33
+ Version=0
+ Flags=0
+ entries=1
+   first_chunk=1
+   samples_per_chunk=120
+   sample_description_index=1

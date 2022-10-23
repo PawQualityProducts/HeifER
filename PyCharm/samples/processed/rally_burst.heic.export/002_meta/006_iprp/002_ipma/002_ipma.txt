@@ -1,0 +1,36 @@
+Box Type=ipma
+ Size=36
+ StartByte=801
+ Children=0
+ Hash=d2fb359c65ca1ec78158ca5cca94f9a7
+ Version=0
+ Flags=0
+ items=4
+  item=1, id=1246
+    association=1
+      essential=1
+      property_index=1
+    association=2
+      essential=0
+      property_index=2
+  item=2, id=1249
+    association=1
+      essential=1
+      property_index=3
+    association=2
+      essential=0
+      property_index=2
+  item=3, id=1252
+    association=1
+      essential=1
+      property_index=4
+    association=2
+      essential=0
+      property_index=2
+  item=4, id=1255
+    association=1
+      essential=1
+      property_index=5
+    association=2
+      essential=0
+      property_index=2

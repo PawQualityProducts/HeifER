@@ -1,0 +1,15 @@
+Box Type=infe
+ Size=21
+ StartByte=278
+ Children=0
+ Hash=58589a2601b700301caf3c14d30f69a3
+ Version=2
+ Flags=0
+ item_id=1006
+ item_protection_index=0
+ item_name=
+ item_extension=None
+ item_type=hvc1
+ content_type=None
+ content_encoding=None
+ uri_type=None

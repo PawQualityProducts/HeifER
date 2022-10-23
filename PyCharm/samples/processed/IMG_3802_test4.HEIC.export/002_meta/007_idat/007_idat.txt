@@ -1,0 +1,5 @@
+Box Type=idat
+ Size=16
+ StartByte=2946
+ Children=0
+ Hash=75148a54bcca9356340adbcac7859c94

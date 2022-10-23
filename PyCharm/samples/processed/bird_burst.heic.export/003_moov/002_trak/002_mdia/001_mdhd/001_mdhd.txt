@@ -1,0 +1,13 @@
+Box Type=mdhd
+ Size=32
+ StartByte=1061
+ Children=0
+ Hash=ca96c406c4130e46e91cb5ddb5287d2e
+ Version=0
+ Flags=0
+ createion_time=3603449810
+ modification_time=3603449810
+ timescale=750
+ duration=2250
+ language=[0, 0, 0]
+ pre_defined=0

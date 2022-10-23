@@ -1,0 +1,5 @@
+Box Type=mdat
+ Size=1014824
+ StartByte=2859
+ Children=0
+ Hash=37f348d6746a85aed46199273d4e983a

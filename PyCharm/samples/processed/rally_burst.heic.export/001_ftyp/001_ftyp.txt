@@ -1,0 +1,13 @@
+Box Type=ftyp
+ Size=36
+ StartByte=0
+ Children=0
+ Hash=50300599cac9028b2ef466479dad928e
+ majar_brand=msf1
+ minor_version=0
+ Compatible Brands(5):
+  compatible_brand=msf1
+  compatible_brand=hevc
+  compatible_brand=heic
+  compatible_brand=mif1
+  compatible_brand=iso8

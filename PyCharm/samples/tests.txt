@@ -1,0 +1,9 @@
+Tests
+=====
+/home/kali/samples/IMG_3802_test.HEIC - Control: check that structure of the image passing through editor is unaltered and has has same hash as original
+/home/kali/samples/IMG_3802_test1.HEIC - Alter order of iinf records 0 and 1
+/home/kali/samples/IMG_3802_test2.HEIC - Additional image, copy of one of the tiles
+/home/kali/samples/IMG_3802_test3.HEIC - Additional exif record
+/home/kali/samples/IMG_3802_test4.HEIC - Add jpeg image
+/home/kali/samples/IMG_3802_test5.HEIC - Add URL
+

@@ -1,0 +1,15 @@
+Box Type=infe
+ Size=21
+ StartByte=1158
+ Children=0
+ Hash=916e34770d6ab6dadb96fbb1ec0ccaed
+ Version=2
+ Flags=0
+ item_id=49
+ item_protection_index=0
+ item_name=
+ item_extension=None
+ item_type=grid
+ content_type=None
+ content_encoding=None
+ uri_type=None

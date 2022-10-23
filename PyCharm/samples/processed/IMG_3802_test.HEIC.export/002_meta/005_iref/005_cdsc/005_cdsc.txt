@@ -1,0 +1,7 @@
+Box Type=cdsc
+ Size=14
+ StartByte=1445
+ Children=0
+ Hash=bf0cab9149f4a7cbaa809b5a35b41362
+ from_item_id=53
+ to_item_ids=[49]

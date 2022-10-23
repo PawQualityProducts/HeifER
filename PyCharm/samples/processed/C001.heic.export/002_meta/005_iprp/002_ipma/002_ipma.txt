@@ -1,0 +1,15 @@
+Box Type=ipma
+ Size=21
+ StartByte=320
+ Children=0
+ Hash=045783a56889ce0927959036c0ca827b
+ Version=0
+ Flags=0
+ items=1
+  item=1, id=20001
+    association=1
+      essential=1
+      property_index=1
+    association=2
+      essential=0
+      property_index=2

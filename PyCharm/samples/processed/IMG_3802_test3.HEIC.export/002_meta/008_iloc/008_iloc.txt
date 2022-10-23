@@ -1,0 +1,563 @@
+Box Type=iloc
+ Size=896
+ StartByte=2935
+ Children=0
+ Hash=23b095121d7e4f9c0916337c548b9ae6
+ Version=1
+ Flags=0
+ offset_size=4
+ length_size=4
+ base_offset_size=0
+ reserved=0
+ item_count=55
+   item_id=1
+    reserved=0
+    construction_method=0 => mdat box, offset from beginning of file
+    data_reference_index=0
+    base_offset=0
+    extents=1
+    extent=1
+      extent_offset=34773
+      extent_length=25942
+      extent_hash=f4444657f8e81e3781048768c1e4d85c
+   item_id=2
+    reserved=0
+    construction_method=0 => mdat box, offset from beginning of file
+    data_reference_index=0
+    base_offset=0
+    extents=1
+    extent=1
+      extent_offset=60715
+      extent_length=23369
+      extent_hash=7d71032590e4df713e97a99faae03993
+   item_id=3
+    reserved=0
+    construction_method=0 => mdat box, offset from beginning of file
+    data_reference_index=0
+    base_offset=0
+    extents=1
+    extent=1
+      extent_offset=84084
+      extent_length=20776
+      extent_hash=52303d6a01a32f901cd1ae49b66e8793
+   item_id=4
+    reserved=0
+    construction_method=0 => mdat box, offset from beginning of file
+    data_reference_index=0
+    base_offset=0
+    extents=1
+    extent=1
+      extent_offset=104860
+      extent_length=19650
+      extent_hash=a3dcb31d97118c631bc6669908a01e3e
+   item_id=5
+    reserved=0
+    construction_method=0 => mdat box, offset from beginning of file
+    data_reference_index=0
+    base_offset=0
+    extents=1
+    extent=1
+      extent_offset=124510
+      extent_length=23818
+      extent_hash=115c69f71e76721827ae4422c559ae4c
+   item_id=6
+    reserved=0
+    construction_method=0 => mdat box, offset from beginning of file
+    data_reference_index=0
+    base_offset=0
+    extents=1
+    extent=1
+      extent_offset=148328
+      extent_length=20830
+      extent_hash=2a17ebff2fd38041fb413ea77afa2997
+   item_id=7
+    reserved=0
+    construction_method=0 => mdat box, offset from beginning of file
+    data_reference_index=0
+    base_offset=0
+    extents=1
+    extent=1
+      extent_offset=169158
+      extent_length=27337
+      extent_hash=f650cbeb3b1a13552391dd4cc42336d9
+   item_id=8
+    reserved=0
+    construction_method=0 => mdat box, offset from beginning of file
+    data_reference_index=0
+    base_offset=0
+    extents=1
+    extent=1
+      extent_offset=196495
+      extent_length=24026
+      extent_hash=18722327a95b059aea161851ca414226
+   item_id=9
+    reserved=0
+    construction_method=0 => mdat box, offset from beginning of file
+    data_reference_index=0
+    base_offset=0
+    extents=1
+    extent=1
+      extent_offset=220521
+      extent_length=26981
+      extent_hash=e6a4e6a100332401f66d9b89ad30df6e
+   item_id=10
+    reserved=0
+    construction_method=0 => mdat box, offset from beginning of file
+    data_reference_index=0
+    base_offset=0
+    extents=1
+    extent=1
+      extent_offset=247502
+      extent_length=25960
+      extent_hash=d289e2dd4622fd86e3373b3f1b0503a3
+   item_id=11
+    reserved=0
+    construction_method=0 => mdat box, offset from beginning of file
+    data_reference_index=0
+    base_offset=0
+    extents=1
+    extent=1
+      extent_offset=273462
+      extent_length=25873
+      extent_hash=e9c1db69549af0a08e1f13f0d334b6de
+   item_id=12
+    reserved=0
+    construction_method=0 => mdat box, offset from beginning of file
+    data_reference_index=0
+    base_offset=0
+    extents=1
+    extent=1
+      extent_offset=299335
+      extent_length=23427
+      extent_hash=82ec750abdbd9ac066fe10479e2e60b5
+   item_id=13
+    reserved=0
+    construction_method=0 => mdat box, offset from beginning of file
+    data_reference_index=0
+    base_offset=0
+    extents=1
+    extent=1
+      extent_offset=322762
+      extent_length=28050
+      extent_hash=b638bdb797b2d1ea0a1e0593293bd758
+   item_id=14
+    reserved=0
+    construction_method=0 => mdat box, offset from beginning of file
+    data_reference_index=0
+    base_offset=0
+    extents=1
+    extent=1
+      extent_offset=350812
+      extent_length=35345
+      extent_hash=c9cec5481b1ea4961c98d86d286254b9
+   item_id=15
+    reserved=0
+    construction_method=0 => mdat box, offset from beginning of file
+    data_reference_index=0
+    base_offset=0
+    extents=1
+    extent=1
+      extent_offset=386157
+      extent_length=30278
+      extent_hash=31f25aadc4683f7aebe3d277429b0b67
+   item_id=16
+    reserved=0
+    construction_method=0 => mdat box, offset from beginning of file
+    data_reference_index=0
+    base_offset=0
+    extents=1
+    extent=1
+      extent_offset=416435
+      extent_length=22916
+      extent_hash=342ae6e7ac7dff7bee91e981cd7a3c10
+   item_id=17
+    reserved=0
+    construction_method=0 => mdat box, offset from beginning of file
+    data_reference_index=0
+    base_offset=0
+    extents=1
+    extent=1
+      extent_offset=439351
+      extent_length=26049
+      extent_hash=47519821e54056b400155100ee621ad6
+   item_id=18
+    reserved=0
+    construction_method=0 => mdat box, offset from beginning of file
+    data_reference_index=0
+    base_offset=0
+    extents=1
+    extent=1
+      extent_offset=465400
+      extent_length=23504
+      extent_hash=99a757eda3189c3effea52db6153c724
+   item_id=19
+    reserved=0
+    construction_method=0 => mdat box, offset from beginning of file
+    data_reference_index=0
+    base_offset=0
+    extents=1
+    extent=1
+      extent_offset=488904
+      extent_length=18521
+      extent_hash=be79963924dab1a8700c192886269cc3
+   item_id=20
+    reserved=0
+    construction_method=0 => mdat box, offset from beginning of file
+    data_reference_index=0
+    base_offset=0
+    extents=1
+    extent=1
+      extent_offset=507425
+      extent_length=21329
+      extent_hash=e0e85e905020193cda31f69a86375160
+   item_id=21
+    reserved=0
+    construction_method=0 => mdat box, offset from beginning of file
+    data_reference_index=0
+    base_offset=0
+    extents=1
+    extent=1
+      extent_offset=528754
+      extent_length=18930
+      extent_hash=3d8d1254bc6a1fa265cc530a9c6db94e
+   item_id=22
+    reserved=0
+    construction_method=0 => mdat box, offset from beginning of file
+    data_reference_index=0
+    base_offset=0
+    extents=1
+    extent=1
+      extent_offset=547684
+      extent_length=30906
+      extent_hash=4d7aec74908d7815f7d66c5e9f2fbcbb
+   item_id=23
+    reserved=0
+    construction_method=0 => mdat box, offset from beginning of file
+    data_reference_index=0
+    base_offset=0
+    extents=1
+    extent=1
+      extent_offset=578590
+      extent_length=32889
+      extent_hash=79ccd2b32d93cf743ed197cfa26a83c6
+   item_id=24
+    reserved=0
+    construction_method=0 => mdat box, offset from beginning of file
+    data_reference_index=0
+    base_offset=0
+    extents=1
+    extent=1
+      extent_offset=611479
+      extent_length=23830
+      extent_hash=4bc021b597e29122f38e33e030ba7090
+   item_id=25
+    reserved=0
+    construction_method=0 => mdat box, offset from beginning of file
+    data_reference_index=0
+    base_offset=0
+    extents=1
+    extent=1
+      extent_offset=635309
+      extent_length=19906
+      extent_hash=4cae98acb9ee574f37d3ac7ad99b86d0
+   item_id=26
+    reserved=0
+    construction_method=0 => mdat box, offset from beginning of file
+    data_reference_index=0
+    base_offset=0
+    extents=1
+    extent=1
+      extent_offset=655215
+      extent_length=23632
+      extent_hash=09aec33956b67c48fa230ed9f144e4a0
+   item_id=27
+    reserved=0
+    construction_method=0 => mdat box, offset from beginning of file
+    data_reference_index=0
+    base_offset=0
+    extents=1
+    extent=1
+      extent_offset=678847
+      extent_length=24336
+      extent_hash=f12f3d20e93575fac5757fea186cf55e
+   item_id=28
+    reserved=0
+    construction_method=0 => mdat box, offset from beginning of file
+    data_reference_index=0
+    base_offset=0
+    extents=1
+    extent=1
+      extent_offset=703183
+      extent_length=20945
+      extent_hash=b491be1eb28eef422e0559160d758f75
+   item_id=29
+    reserved=0
+    construction_method=0 => mdat box, offset from beginning of file
+    data_reference_index=0
+    base_offset=0
+    extents=1
+    extent=1
+      extent_offset=724128
+      extent_length=26563
+      extent_hash=083bf504d7d21b8464f38aa75ab79440
+   item_id=30
+    reserved=0
+    construction_method=0 => mdat box, offset from beginning of file
+    data_reference_index=0
+    base_offset=0
+    extents=1
+    extent=1
+      extent_offset=750691
+      extent_length=28457
+      extent_hash=4d56b80ecbb718f4e5699d8a933c0f6a
+   item_id=31
+    reserved=0
+    construction_method=0 => mdat box, offset from beginning of file
+    data_reference_index=0
+    base_offset=0
+    extents=1
+    extent=1
+      extent_offset=779148
+      extent_length=28777
+      extent_hash=544318255970d5d2e447c94cd6bac8c4
+   item_id=32
+    reserved=0
+    construction_method=0 => mdat box, offset from beginning of file
+    data_reference_index=0
+    base_offset=0
+    extents=1
+    extent=1
+      extent_offset=807925
+      extent_length=24247
+      extent_hash=60d36d981dca7e3cd1e91f021bd896a8
+   item_id=33
+    reserved=0
+    construction_method=0 => mdat box, offset from beginning of file
+    data_reference_index=0
+    base_offset=0
+    extents=1
+    extent=1
+      extent_offset=832172
+      extent_length=18744
+      extent_hash=31c0fbeb19c2012360418faae0689c30
+   item_id=34
+    reserved=0
+    construction_method=0 => mdat box, offset from beginning of file
+    data_reference_index=0
+    base_offset=0
+    extents=1
+    extent=1
+      extent_offset=850916
+      extent_length=18966
+      extent_hash=0a7267a546e702a744203a17055804ef
+   item_id=35
+    reserved=0
+    construction_method=0 => mdat box, offset from beginning of file
+    data_reference_index=0
+    base_offset=0
+    extents=1
+    extent=1
+      extent_offset=869882
+      extent_length=18844
+      extent_hash=cb7d156d41c9d5cf85edef93fedeb3b5
+   item_id=36
+    reserved=0
+    construction_method=0 => mdat box, offset from beginning of file
+    data_reference_index=0
+    base_offset=0
+    extents=1
+    extent=1
+      extent_offset=888726
+      extent_length=18676
+      extent_hash=876b51157bfaff4bba7cda7dbd2e5b4e
+   item_id=37
+    reserved=0
+    construction_method=0 => mdat box, offset from beginning of file
+    data_reference_index=0
+    base_offset=0
+    extents=1
+    extent=1
+      extent_offset=907402
+      extent_length=27989
+      extent_hash=14944173f9f2314b74d4d8947d3a8d9f
+   item_id=38
+    reserved=0
+    construction_method=0 => mdat box, offset from beginning of file
+    data_reference_index=0
+    base_offset=0
+    extents=1
+    extent=1
+      extent_offset=935391
+      extent_length=24097
+      extent_hash=16b659d5033d5f65d5344ea35a65bba6
+   item_id=39
+    reserved=0
+    construction_method=0 => mdat box, offset from beginning of file
+    data_reference_index=0
+    base_offset=0
+    extents=1
+    extent=1
+      extent_offset=959488
+      extent_length=17383
+      extent_hash=a1520b27f7ea7752c3a37f9ce5982c37
+   item_id=40
+    reserved=0
+    construction_method=0 => mdat box, offset from beginning of file
+    data_reference_index=0
+    base_offset=0
+    extents=1
+    extent=1
+      extent_offset=976871
+      extent_length=14380
+      extent_hash=5e06eeb863fbdf588e88b1c5ba4fb686
+   item_id=41
+    reserved=0
+    construction_method=0 => mdat box, offset from beginning of file
+    data_reference_index=0
+    base_offset=0
+    extents=1
+    extent=1
+      extent_offset=991251
+      extent_length=14367
+      extent_hash=bf0c8d8b580368f9ee2c5900b2b52649
+   item_id=42
+    reserved=0
+    construction_method=0 => mdat box, offset from beginning of file
+    data_reference_index=0
+    base_offset=0
+    extents=1
+    extent=1
+      extent_offset=1005618
+      extent_length=17383
+      extent_hash=64828b14b12e7920c12716b03042e573
+   item_id=43
+    reserved=0
+    construction_method=0 => mdat box, offset from beginning of file
+    data_reference_index=0
+    base_offset=0
+    extents=1
+    extent=1
+      extent_offset=1023001
+      extent_length=12753
+      extent_hash=38d992b81d50aca8a893c12d40ef8398
+   item_id=44
+    reserved=0
+    construction_method=0 => mdat box, offset from beginning of file
+    data_reference_index=0
+    base_offset=0
+    extents=1
+    extent=1
+      extent_offset=1035754
+      extent_length=16170
+      extent_hash=ac2fb87f82ab4f4296a3055c46ced7f1
+   item_id=45
+    reserved=0
+    construction_method=0 => mdat box, offset from beginning of file
+    data_reference_index=0
+    base_offset=0
+    extents=1
+    extent=1
+      extent_offset=1051924
+      extent_length=14944
+      extent_hash=df86bd7e343aec24f40905baabfc2a6d
+   item_id=46
+    reserved=0
+    construction_method=0 => mdat box, offset from beginning of file
+    data_reference_index=0
+    base_offset=0
+    extents=1
+    extent=1
+      extent_offset=1066868
+      extent_length=14989
+      extent_hash=ab5fbfa8de18bb8b1d88d3e0f674d3bc
+   item_id=47
+    reserved=0
+    construction_method=0 => mdat box, offset from beginning of file
+    data_reference_index=0
+    base_offset=0
+    extents=1
+    extent=1
+      extent_offset=1081857
+      extent_length=13711
+      extent_hash=64ccc9ed025316bde2219a9393429005
+   item_id=48
+    reserved=0
+    construction_method=0 => mdat box, offset from beginning of file
+    data_reference_index=0
+    base_offset=0
+    extents=1
+    extent=1
+      extent_offset=1095568
+      extent_length=11088
+      extent_hash=d8b2d247479d8d582826af0f7540bc76
+   item_id=49
+    reserved=0
+    construction_method=1 => idat box
+    data_reference_index=0
+    base_offset=0
+    extents=1
+    extent=1
+      extent_offset=0
+      extent_length=8
+      extent in idata box at file offset=2927
+      extent_hash=ca1cdf640a864a2a852b4007f92b2f50
+   item_id=50
+    reserved=0
+    construction_method=0 => mdat box, offset from beginning of file
+    data_reference_index=0
+    base_offset=0
+    extents=1
+    extent=1
+      extent_offset=3847
+      extent_length=27843
+      extent_hash=38b31152e9f297dbb41a3ad08fd54072
+   item_id=51
+    reserved=0
+    construction_method=0 => mdat box, offset from beginning of file
+    data_reference_index=0
+    base_offset=0
+    extents=1
+    extent=1
+      extent_offset=1106656
+      extent_length=55530
+      extent_hash=e04d675c51fd9c8319a652fc841c853c
+   item_id=52
+    reserved=0
+    construction_method=0 => mdat box, offset from beginning of file
+    data_reference_index=0
+    base_offset=0
+    extents=1
+    extent=1
+      extent_offset=31690
+      extent_length=363
+      extent_hash=be06b05e83091735fb2ca4b355133192
+   item_id=53
+    reserved=0
+    construction_method=0 => mdat box, offset from beginning of file
+    data_reference_index=0
+    base_offset=0
+    extents=1
+    extent=1
+      extent_offset=32053
+      extent_length=2720
+      extent_hash=d4285ce80e394f1c5149ee25213aa296
+   item_id=54
+    reserved=0
+    construction_method=0 => mdat box, offset from beginning of file
+    data_reference_index=0
+    base_offset=0
+    extents=1
+    extent=1
+      extent_offset=1081857
+      extent_length=13711
+      extent_hash=64ccc9ed025316bde2219a9393429005
+   item_id=55
+    reserved=0
+    construction_method=0 => mdat box, offset from beginning of file
+    data_reference_index=0
+    base_offset=0
+    extents=1
+    extent=1
+      extent_offset=1162186
+      extent_length=2720
+      extent_hash=8c718d8050e7a0112ff9e2c86057e2ae

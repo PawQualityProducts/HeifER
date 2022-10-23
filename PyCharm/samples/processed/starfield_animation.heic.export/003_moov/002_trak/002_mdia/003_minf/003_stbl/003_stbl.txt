@@ -1,0 +1,5 @@
+Box Type=stbl
+ Size=1225
+ StartByte=760
+ Children=9
+ Hash=67dc7df92e27f1f1a7ad83075150d508

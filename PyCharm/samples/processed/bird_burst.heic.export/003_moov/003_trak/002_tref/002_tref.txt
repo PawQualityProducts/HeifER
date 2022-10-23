@@ -1,0 +1,5 @@
+Box Type=tref
+ Size=20
+ StartByte=2266
+ Children=0
+ Hash=ae5aa37b6124654bdd97461700dc93af

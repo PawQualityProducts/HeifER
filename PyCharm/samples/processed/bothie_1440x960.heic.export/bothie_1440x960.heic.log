@@ -1,0 +1,151 @@
+Parsing file ------------
+      0:ftyp(size=24, start=0, end=24)
+     24:meta(size=843, start=24, end=867)
+     36:-hdlr(size=33, start=36, end=69)
+     69:-pitm(size=14, start=69, end=83)
+     83:-iloc(size=88, start=83, end=171)
+     99:--  item=1
+    109:--    extent=1
+    117:--  item=2
+    127:--    extent=1
+    135:--  item=3
+    145:--    extent=1
+    153:--  item=4
+    163:--    extent=1
+    171:-iinf(size=98, start=171, end=269)
+    185:---infe(size=21, start=185, end=206)
+    206:---infe(size=21, start=206, end=227)
+    227:---infe(size=21, start=227, end=248)
+    248:---infe(size=21, start=248, end=269)
+    269:-iref(size=40, start=269, end=309)
+    281:--thmb(size=14, start=281, end=295)
+    295:--thmb(size=14, start=295, end=309)
+    309:-iprp(size=522, start=309, end=831)
+    317:--ipco(size=478, start=317, end=795)
+    325:---hvcC(size=108, start=325, end=433)
+    433:---ispe(size=20, start=433, end=453)
+    453:---hvcC(size=107, start=453, end=560)
+    560:---ispe(size=20, start=560, end=580)
+    580:---hvcC(size=108, start=580, end=688)
+    688:---hvcC(size=107, start=688, end=795)
+    795:--ipma(size=36, start=795, end=831)
+    831:-grpl(size=36, start=831, end=867)
+    867:mdat(size=114154, start=867, end=115021)
+ISOBaseMediaFile
+  ftyp: <isobmfflib.ftyp.FileTypeBox object at 0x7f17f6301af0>  majar_brand: mif1
+    minor_version: 0
+    compatible_brands: mif1,heic,
+  meta:<isobmfflib.meta.MetaBox object at 0x7f17f825f280>
+  moov: None
+  mdat: <isobmfflib.mdat.MediaDataBox object at 0x7f17f78b11c0>
+  
+Parse Complete --------
+
+Processing Binary Data and Hashes --------------
+     0:-ftyp Hash=9c6ece64477a0084f856af3241ead362
+    24:-meta Hash=2dd9a70619a11dfc78eda517ab9286ca
+    36:--hdlr Hash=63266d7ddc9038364e39dc50d4e19dcb
+    69:--pitm Hash=b9f8843bbbac924588f76c8754c7e366
+    83:--iloc Hash=27eb30d8c98a70885f1642597a4ae7c3
+      :    item=1, extent=1 Hash=30732129a56b65577fd7d557763f2647
+      :    item=2, extent=1 Hash=7230c481bc463e417fd4e4e0711c30e8
+      :    item=3, extent=1 Hash=c5b0ba8f12db15841e871004aa78aca5
+      :    item=4, extent=1 Hash=72d1ed5e9b111b5f270a45833b86be94
+   171:--iinf Hash=35896b6cd5fb455d57ddca77264dc250
+   185:----infe Hash=af4493f4fc494f6a61253363eefd45d0
+   206:----infe Hash=ab74547a268845472d8312d1f2ba5568
+   227:----infe Hash=005bc16f03ef20d563fd320c40d2e1ea
+   248:----infe Hash=7f979df9900905e6e64e354c648593e5
+   269:--iref Hash=68c99ff82ee9fec2967e6f2d740e3fd6
+   281:---thmb Hash=e1ee5bfc3da0fc660b3f1f0b5e17d4db
+   295:---thmb Hash=16c79535e75ff1d46329bc2e0a3fcb35
+   281:---thmb Hash=e1ee5bfc3da0fc660b3f1f0b5e17d4db
+   295:---thmb Hash=16c79535e75ff1d46329bc2e0a3fcb35
+   309:--iprp Hash=63a1a370a01eb9df09c2de7b91c30293
+   317:---ipco Hash=ebc8d23f894b16b5daafc0ee056b4107
+   325:----hvcC Hash=24e00d0d796142702ee9ca4b19f2bceb
+   433:----ispe Hash=75d6b33fb81519ba5410667bcc37b631
+   453:----hvcC Hash=b6d61ba5ca80d1adce35a9e14c8e2972
+   560:----ispe Hash=61f5fd7e5cdfffb50d0186158f85deaa
+   580:----hvcC Hash=24e00d0d796142702ee9ca4b19f2bceb
+   688:----hvcC Hash=b6d61ba5ca80d1adce35a9e14c8e2972
+   795:---ipma Hash=4c1d6af14bd7f2e1e1883ab0b47f526e
+   831:--grpl Hash=86a83f18945df5bb0e38cfb24f5171db
+   867:-mdat Hash=994681cb189d529066e6d89bf45551d2
+Binary Data and Hash processing complete -------
+
+Writing map file--------------
+map file complete -------
+
+Writing contents file--------------
+write all to /home/kali/samples/bothie_1440x960.heic.txt
+Box=ftyp, location=0
+Box=meta, location=24
+Box=hdlr, location=36
+Box=pitm, location=69
+Box=iloc, location=83
+Box=iinf, location=171
+Box=infe, location=185
+Box=infe, location=206
+Box=infe, location=227
+Box=infe, location=248
+Box=infe, location=185
+Box=infe, location=206
+Box=infe, location=227
+Box=infe, location=248
+Box=iref, location=269
+Box=thmb, location=281
+Box=thmb, location=295
+Box=thmb, location=281
+Box=thmb, location=295
+Box=iprp, location=309
+Box=ipco, location=317
+Box=hvcC, location=325
+Box=ispe, location=433
+Box=hvcC, location=453
+Box=ispe, location=560
+Box=hvcC, location=580
+Box=hvcC, location=688
+Box=ipma, location=795
+Box=grpl, location=831
+Box=mdat, location=867
+write all complete
+Contents file complete -------
+Extracting components--------------
+Box=ftyp, location=0
+Box=meta, location=24
+Box=hdlr, location=36
+Box=pitm, location=69
+Box=iloc, location=83
+Box=iinf, location=171
+Box=infe, location=185
+Box=infe, location=206
+Box=infe, location=227
+Box=infe, location=248
+Box=infe, location=185
+Box=infe, location=206
+Box=infe, location=227
+Box=infe, location=248
+Box=iref, location=269
+Box=thmb, location=281
+Box=thmb, location=295
+Box=thmb, location=281
+Box=thmb, location=295
+Box=iprp, location=309
+Box=ipco, location=317
+Box=hvcC, location=325
+Box=ispe, location=433
+Box=hvcC, location=453
+Box=ispe, location=560
+Box=hvcC, location=580
+Box=hvcC, location=688
+Box=ipma, location=795
+Box=grpl, location=831
+Box=mdat, location=867
+Component Extraction complete-------
+Extracting metadata--------------
+Extracting metadata--------------
+  Extracting Exif metadata by iloc Item Record --------------
+Metadata extraction complete-------
+Extracting Images -----------
+Image extraction complete----------

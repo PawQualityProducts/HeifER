@@ -1,0 +1,7 @@
+Box Type=auxl
+ Size=14
+ StartByte=1438
+ Children=0
+ Hash=751c42311f1a8c027fd0296611472bcf
+ from_item_id=51
+ to_item_ids=[49]

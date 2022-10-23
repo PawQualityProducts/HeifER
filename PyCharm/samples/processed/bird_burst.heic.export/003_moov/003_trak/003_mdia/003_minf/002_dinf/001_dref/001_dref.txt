@@ -1,0 +1,17 @@
+Box Type=dref
+ Size=28
+ StartByte=2428
+ Children=1
+ Hash=ac0eab12278326c08f7cb3e861005e40
+ Version=0
+ Flags=0
+ Entries=1
+  Entry=001:
+    Box Type=url 
+     Size=12
+     StartByte=2444
+     Children=0
+     Hash=470b5e0ae161f2b8581d42f6056f0e59
+     Version=0
+     Flags=1
+     Location=None

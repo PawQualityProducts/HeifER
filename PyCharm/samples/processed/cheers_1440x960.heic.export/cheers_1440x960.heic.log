@@ -1,0 +1,114 @@
+Parsing file ------------
+      0:ftyp(size=24, start=0, end=24)
+     24:meta(size=510, start=24, end=534)
+     36:-hdlr(size=33, start=36, end=69)
+     69:-pitm(size=14, start=69, end=83)
+     83:-iloc(size=52, start=83, end=135)
+     99:--  item=1
+    109:--    extent=1
+    117:--  item=2
+    127:--    extent=1
+    135:-iinf(size=76, start=135, end=211)
+    149:---infe(size=31, start=149, end=180)
+    180:---infe(size=31, start=180, end=211)
+    211:-iref(size=26, start=211, end=237)
+    223:--thmb(size=14, start=223, end=237)
+    237:-iprp(size=297, start=237, end=534)
+    245:--ipco(size=263, start=245, end=508)
+    253:---hvcC(size=108, start=253, end=361)
+    361:---ispe(size=20, start=361, end=381)
+    381:---hvcC(size=107, start=381, end=488)
+    488:---ispe(size=20, start=488, end=508)
+    508:--ipma(size=26, start=508, end=534)
+    534:mdat(size=40855, start=534, end=41389)
+ISOBaseMediaFile
+  ftyp: <isobmfflib.ftyp.FileTypeBox object at 0x7ffaf122caf0>  majar_brand: mif1
+    minor_version: 0
+    compatible_brands: mif1,heic,
+  meta:<isobmfflib.meta.MetaBox object at 0x7ffaf2079280>
+  moov: None
+  mdat: <isobmfflib.mdat.MediaDataBox object at 0x7ffaf16cb1c0>
+  
+Parse Complete --------
+
+Processing Binary Data and Hashes --------------
+     0:-ftyp Hash=9c6ece64477a0084f856af3241ead362
+    24:-meta Hash=e56e707f4c43f172e72bf4b40edd4e31
+    36:--hdlr Hash=63266d7ddc9038364e39dc50d4e19dcb
+    69:--pitm Hash=b9f8843bbbac924588f76c8754c7e366
+    83:--iloc Hash=729365cc760954ebc67d8a30b907cf88
+      :    item=1, extent=1 Hash=de9efdb54b3b734c76db8b0f27e056f5
+      :    item=2, extent=1 Hash=b095578a14254747ba5af79e09f5184f
+   135:--iinf Hash=056a4fcdf9f04d9566db77bb58704bfc
+   149:----infe Hash=d8cb8b87c9b83a85217ec7327aba0e2b
+   180:----infe Hash=642b4e8b3001054ba3a0f43c4df778d9
+   211:--iref Hash=ee813bec4426abf7e28e7feb90fc4201
+   223:---thmb Hash=e1ee5bfc3da0fc660b3f1f0b5e17d4db
+   223:---thmb Hash=e1ee5bfc3da0fc660b3f1f0b5e17d4db
+   237:--iprp Hash=5037544c251cf6c71d1b16fe49c88af9
+   245:---ipco Hash=3be0c7ce9ae0701f5b96b5e5724f164e
+   253:----hvcC Hash=24e00d0d796142702ee9ca4b19f2bceb
+   361:----ispe Hash=75d6b33fb81519ba5410667bcc37b631
+   381:----hvcC Hash=b6d61ba5ca80d1adce35a9e14c8e2972
+   488:----ispe Hash=61f5fd7e5cdfffb50d0186158f85deaa
+   508:---ipma Hash=395fcde603332ca923424d12d6122bc9
+   534:-mdat Hash=f6e389baa97af263d2240210d13c5d62
+Binary Data and Hash processing complete -------
+
+Writing map file--------------
+map file complete -------
+
+Writing contents file--------------
+write all to /home/kali/samples/cheers_1440x960.heic.txt
+Box=ftyp, location=0
+Box=meta, location=24
+Box=hdlr, location=36
+Box=pitm, location=69
+Box=iloc, location=83
+Box=iinf, location=135
+Box=infe, location=149
+Box=infe, location=180
+Box=infe, location=149
+Box=infe, location=180
+Box=iref, location=211
+Box=thmb, location=223
+Box=thmb, location=223
+Box=iprp, location=237
+Box=ipco, location=245
+Box=hvcC, location=253
+Box=ispe, location=361
+Box=hvcC, location=381
+Box=ispe, location=488
+Box=ipma, location=508
+Box=mdat, location=534
+write all complete
+Contents file complete -------
+Extracting components--------------
+Box=ftyp, location=0
+Box=meta, location=24
+Box=hdlr, location=36
+Box=pitm, location=69
+Box=iloc, location=83
+Box=iinf, location=135
+Box=infe, location=149
+Box=infe, location=180
+Box=infe, location=149
+Box=infe, location=180
+Box=iref, location=211
+Box=thmb, location=223
+Box=thmb, location=223
+Box=iprp, location=237
+Box=ipco, location=245
+Box=hvcC, location=253
+Box=ispe, location=361
+Box=hvcC, location=381
+Box=ispe, location=488
+Box=ipma, location=508
+Box=mdat, location=534
+Component Extraction complete-------
+Extracting metadata--------------
+Extracting metadata--------------
+  Extracting Exif metadata by iloc Item Record --------------
+Metadata extraction complete-------
+Extracting Images -----------
+Image extraction complete----------

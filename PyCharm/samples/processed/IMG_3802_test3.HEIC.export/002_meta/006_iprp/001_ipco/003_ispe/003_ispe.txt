@@ -1,0 +1,9 @@
+Box Type=ispe
+ Size=20
+ StartByte=2191
+ Children=0
+ Hash=079b509faf51816c056bde8bb5c68521
+ Version=0
+ Flags=0
+ width=512
+ height=512

@@ -1,0 +1,16 @@
+Box Type=iref
+ Size=32
+ StartByte=371
+ Children=1
+ Hash=53ad6e269f88c3292543097616c18105
+ Version=0
+ Flags=0
+ references=1
+  reference=001
+   Box Type=dimg
+    Size=20
+    StartByte=383
+    Children=0
+    Hash=8acf5852bedba01ce1bda116e9fe2b41
+    from_item_id=1012
+    to_item_ids=[1002, 1005, 1008, 1011]

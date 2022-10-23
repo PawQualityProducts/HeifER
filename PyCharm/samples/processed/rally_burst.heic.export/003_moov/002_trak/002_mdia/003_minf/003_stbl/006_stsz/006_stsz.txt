@@ -1,0 +1,9 @@
+Box Type=stsz
+ Size=260
+ StartByte=1642
+ Children=0
+ Hash=6c943f7e4ba832842dc6b6dd116ec14f
+ Version=0
+ Flags=0
+ sample_size=0
+ entries=[{'entry_size': 48617}, {'entry_size': 418}, {'entry_size': 1721}, {'entry_size': 2695}, {'entry_size': 3800}, {'entry_size': 3863}, {'entry_size': 4391}, {'entry_size': 4993}, {'entry_size': 5721}, {'entry_size': 5815}, {'entry_size': 6172}, {'entry_size': 6396}, {'entry_size': 6829}, {'entry_size': 6962}, {'entry_size': 7062}, {'entry_size': 7270}, {'entry_size': 7496}, {'entry_size': 7475}, {'entry_size': 7496}, {'entry_size': 7830}, {'entry_size': 8167}, {'entry_size': 7960}, {'entry_size': 7947}, {'entry_size': 8108}, {'entry_size': 8437}, {'entry_size': 8144}, {'entry_size': 8240}, {'entry_size': 8554}, {'entry_size': 8874}, {'entry_size': 8667}, {'entry_size': 8498}, {'entry_size': 8718}, {'entry_size': 9147}, {'entry_size': 8701}, {'entry_size': 8996}, {'entry_size': 9220}, {'entry_size': 9472}, {'entry_size': 9239}, {'entry_size': 9434}, {'entry_size': 9834}, {'entry_size': 10576}, {'entry_size': 10446}, {'entry_size': 11163}, {'entry_size': 11690}, {'entry_size': 12626}, {'entry_size': 13031}, {'entry_size': 14824}, {'entry_size': 8989}, {'entry_size': 8374}, {'entry_size': 7602}, {'entry_size': 8455}, {'entry_size': 9919}, {'entry_size': 10925}, {'entry_size': 10865}, {'entry_size': 11384}, {'entry_size': 10788}, {'entry_size': 11655}, {'entry_size': 14197}, {'entry_size': 14399}, {'entry_size': 13533}]

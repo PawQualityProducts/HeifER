@@ -1,0 +1,15 @@
+Box Type=infe
+ Size=34
+ StartByte=337
+ Children=0
+ Hash=cde21a619d9e0ce5a78b96032cd4dbc6
+ Version=2
+ Flags=0
+ item_id=1012
+ item_protection_index=0
+ item_name=Derived image
+ item_extension=None
+ item_type=iovl
+ content_type=None
+ content_encoding=None
+ uri_type=None

@@ -1,0 +1,7 @@
+Box Type=dimg
+ Size=16
+ StartByte=346
+ Children=0
+ Hash=12e0dd9ab5f991d42c52e5806d9f50de
+ from_item_id=1009
+ to_item_ids=[1002, 1005]

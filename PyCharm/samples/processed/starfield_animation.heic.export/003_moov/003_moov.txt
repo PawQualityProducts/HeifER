@@ -1,0 +1,5 @@
+Box Type=moov
+ Size=1611
+ StartByte=374
+ Children=2
+ Hash=805dd2f7c3e21744c5817f1ff5af8a41

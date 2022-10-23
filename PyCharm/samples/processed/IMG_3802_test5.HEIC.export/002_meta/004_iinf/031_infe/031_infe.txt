@@ -1,0 +1,16 @@
+Box Type=infe
+ Size=21
+ StartByte=818
+ Children=0
+ Hash=0f6164b01f20da012b22c084e38b8270
+ Version=2
+ Flags=1
+ *** HIDDEN ***
+ item_id=31
+ item_protection_index=0
+ item_name=
+ item_extension=None
+ item_type=hvc1
+ content_type=None
+ content_encoding=None
+ uri_type=None

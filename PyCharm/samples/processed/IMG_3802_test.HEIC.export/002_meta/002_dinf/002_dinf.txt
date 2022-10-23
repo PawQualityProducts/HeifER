@@ -1,0 +1,5 @@
+Box Type=dinf
+ Size=36
+ StartByte=86
+ Children=1
+ Hash=5ca8ac3580f6779b6362b7b1e7cfeb52

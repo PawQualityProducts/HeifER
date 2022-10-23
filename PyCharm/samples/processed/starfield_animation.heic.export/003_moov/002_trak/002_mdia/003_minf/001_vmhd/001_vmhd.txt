@@ -1,0 +1,9 @@
+Box Type=vmhd
+ Size=20
+ StartByte=704
+ Children=0
+ Hash=223b7f6c7e9df8c9f756f34663480f82
+ Version=0
+ Flags=1
+ graphicsmode=0
+ opcolor=[0, 0, 0]
