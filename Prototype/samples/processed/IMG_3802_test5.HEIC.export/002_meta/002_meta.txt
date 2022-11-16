@@ -1,7 +1,0 @@
-Box Type=meta
- Size=3872
- StartByte=40
- Children=8
- Hash=6edab4996db46665783c8c22d6e8b233
- Version=0
- Flags=0

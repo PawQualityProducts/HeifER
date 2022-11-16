@@ -1,5 +1,0 @@
-Box Type=auxC
- Size=52
- StartByte=2478
- Children=0
- Hash=f02cb8dcdb6e5cd34a1d63881220ef9b

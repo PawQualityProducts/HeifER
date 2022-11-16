@@ -1,5 +1,0 @@
-Box Type=iprp
- Size=1404
- StartByte=1480
- Children=2
- Hash=2218c790be9c1d4eccf787c8e9533161
