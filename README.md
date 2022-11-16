@@ -1,5 +1,5 @@
 # HeifER
-Heif ER, Prototype forensic analysis tool for HEIF files
+Heif ER, a prototype forensic analysis tool for HEIF files
 
 HEIF is a relatively new image file format implementing modern features such as an efficient compression algorithm offering significant improvements over JPEG.
 But, it is far more than a single-image file format. It is a media-container capable of holding multiple images, video and other types of media, and could potentially be used to distribute illegal content. Detailed analysis of HEIF files is therefore essential during a forensic investigation, however they have a complex structure and analysis can be a complicated, time-consuming and error-prone task.
