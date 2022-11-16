@@ -12,5 +12,6 @@ It parses HEIF files creating a "Map" of the file structure, extracting all imag
 * This tool is built upon the base [ISOBMFF Library](https://github.com/m-hiki/isobmff) created by Hiki  
 * The [PyHeif](https://pypi.org/project/pyheif/) Python Library is used to extract image content
 * The [ExifRead](https://pypi.org/project/ExifRead/) Python Library is used to extract Exif metadata
+* Sample test images were sourced from [Nokia](https://www.nokia.com/ozo/heif/) 
 * [ISO/IEC 14496-12:2015 ISO Base Media File Format](http://mpeg.chiariglione.org/standards/mpeg-4/iso-base-media-file-format/text-isoiec-14496-12-5th-edition)  
 * [ISO/IEC CD 23008-12 HEVC Still Image File Format](http://mpeg.chiariglione.org/standards/mpeg-h/image-file-format/text-isoiec-cd-23008-12-image-file-format)  
