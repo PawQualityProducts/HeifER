@@ -1,8 +1,0 @@
-Box Type=iref
- Size=12
- StartByte=321
- Children=0
- Hash=26aae28c2342073ad6b830ce39845009
- Version=0
- Flags=0
- references=0

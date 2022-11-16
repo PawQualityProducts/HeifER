@@ -1,9 +1,0 @@
-Box Type=stss
- Size=20
- StartByte=1902
- Children=0
- Hash=c619f667951a0001817af3ab30ab47fb
- Version=0
- Flags=0
- entries=1
-   sample_number=1

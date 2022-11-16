@@ -1,5 +1,0 @@
-Box Type=udes
- Size=138
- StartByte=488
- Children=0
- Hash=f7411c4802b2cdb88bca762e0adcfbd4

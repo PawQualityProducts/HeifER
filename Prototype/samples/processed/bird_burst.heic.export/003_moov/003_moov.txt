@@ -1,5 +1,0 @@
-Box Type=moov
- Size=2304
- StartByte=837
- Children=3
- Hash=8966ae2b1e01057937cde24beafb8d92

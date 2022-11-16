@@ -1,8 +1,0 @@
-Box Type=stco
- Size=20
- StartByte=1622
- Children=0
- Hash=c1e51da5997b32bb718f945c5ff56cc8
- Version=0
- Flags=0
- entries=[{'chunk_offset': 2867}]

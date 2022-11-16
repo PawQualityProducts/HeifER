@@ -1,5 +1,0 @@
-Box Type=idat
- Size=16
- StartByte=403
- Children=0
- Hash=02224eb8194d64c4d97dd81b1baaf03b

@@ -1,5 +1,0 @@
-Box Type=minf
- Size=1289
- StartByte=696
- Children=3
- Hash=18475d1bad64bc70a83d5c375ce03d90

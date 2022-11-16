@@ -1,7 +1,0 @@
-Box Type=thmb
- Size=14
- StartByte=479
- Children=0
- Hash=e983f45135bbabc80d31e15fdad450e4
- from_item_id=1024
- to_item_ids=[1021]

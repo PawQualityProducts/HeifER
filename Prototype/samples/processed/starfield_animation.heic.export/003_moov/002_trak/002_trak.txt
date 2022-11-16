@@ -1,5 +1,0 @@
-Box Type=trak
- Size=1495
- StartByte=490
- Children=2
- Hash=26f3e8475e120ab9869dcee0bce0ae26

@@ -1,5 +1,0 @@
-Box Type=sgpd
- Size=46
- StartByte=1922
- Children=0
- Hash=bcc3b8832f50a76c8b5852d24e1e1aaa

@@ -1,5 +1,0 @@
-Box Type=ipco
- Size=478
- StartByte=317
- Children=6
- Hash=ebc8d23f894b16b5daafc0ee056b4107

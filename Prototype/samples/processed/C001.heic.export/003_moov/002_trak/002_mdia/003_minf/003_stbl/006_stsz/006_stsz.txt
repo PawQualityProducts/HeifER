@@ -1,9 +1,0 @@
-Box Type=stsz
- Size=52
- StartByte=1000
- Children=0
- Hash=a9c8a425230d6ead6d52e9f921714a34
- Version=0
- Flags=0
- sample_size=0
- entries=[{'entry_size': 111612}, {'entry_size': 111539}, {'entry_size': 111509}, {'entry_size': 111411}, {'entry_size': 111420}, {'entry_size': 111730}, {'entry_size': 111940}, {'entry_size': 111934}]

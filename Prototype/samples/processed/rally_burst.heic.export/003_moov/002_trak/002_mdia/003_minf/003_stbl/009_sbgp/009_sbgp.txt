@@ -1,5 +1,0 @@
-Box Type=sbgp
- Size=36
- StartByte=1968
- Children=0
- Hash=f95802a933403a3bfe93c085419600df

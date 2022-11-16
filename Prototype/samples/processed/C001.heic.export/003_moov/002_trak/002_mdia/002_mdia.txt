@@ -1,5 +1,0 @@
-Box Type=mdia
- Size=515
- StartByte=557
- Children=3
- Hash=42e166ebe2f8f37e03039ac00cbd13e2
