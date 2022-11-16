@@ -9,6 +9,6 @@ PQ HeifER  (Heif Emergency Room) is a tool designed specifically to assist the d
 It parses HEIF files creating a "Map" of the file structure, extracting all images, metadata and  other details from the file that may be useful during a forensic investigation. During processing, a directory structure is created containing human-readable and binary content extracted from the file ready for analysis.
 
 ## References
-This tool is built upon the base [ISOBMFF Library](https://github.com/m-hiki/isobmff) created by Hiki.
-[ISO/IEC 14496-12:2015 ISO Base Media File Format](http://mpeg.chiariglione.org/standards/mpeg-4/iso-base-media-file-format/text-isoiec-14496-12-5th-edition)
-[ISO/IEC CD 23008-12 HEVC Still Image File Format](http://mpeg.chiariglione.org/standards/mpeg-h/image-file-format/text-isoiec-cd-23008-12-image-file-format)
+* This tool is built upon the base [ISOBMFF Library](https://github.com/m-hiki/isobmff) created by Hiki.  
+* [ISO/IEC 14496-12:2015 ISO Base Media File Format](http://mpeg.chiariglione.org/standards/mpeg-4/iso-base-media-file-format/text-isoiec-14496-12-5th-edition)  
+* [ISO/IEC CD 23008-12 HEVC Still Image File Format](http://mpeg.chiariglione.org/standards/mpeg-h/image-file-format/text-isoiec-cd-23008-12-image-file-format)  
