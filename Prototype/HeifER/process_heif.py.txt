@@ -1,0 +1,227 @@
+     1	import isobmfflib
+     2	import sys
+     3	from isobmfflib import log
+     4	import os
+     5	import io
+     6	from PIL import Image
+     7	import pyheif
+     8	import exifread
+     9	import shutil
+    10	from boxflags import BoxFlags
+    11	
+    12	arg_infile = sys.argv[1]             #input heif file, next arg is infile name
+    13	arg_outdir = sys.argv.index('-outdir')  if '-outdir' in sys.argv[2:] else 0  #destination directory
+    14	arg_map = sys.argv.index('-map')  if '-map' in sys.argv[2:] else 0              #output map file, next arg is output file name
+    15	arg_extract_binary = sys.argv.index('-exb') if '-exb' in sys.argv[2:] else 0    #extract binary, next arg is output filename
+    16	arg_extract_text = sys.argv.index('-ext') if '-ext' in sys.argv[2:] else 0      #extract text, next arg is output filename
+    17	arg_from = sys.argv.index('-start') if '-start' in sys.argv[2:] else 0          #extract start byte
+    18	arg_to = sys.argv.index('-end') if '-end' in sys.argv[2:] else 0                #extract end byte
+    19	arg_meta = sys.argv.index('-exm') if '-exm' in sys.argv[2:] else 0              #extract metadata metadata
+    20	arg_images = sys.argv.index('-exi') if '-exi' in sys.argv[2:] else 0            #extract images
+    21	arg_help = sys.argv.index('-h') if '-h' in sys.argv[1:] else 0                  #help
+    22	arg_echo = sys.argv.index('-echo') if '-echo' in sys.argv[2:] else 0            #echo on|off
+    23	arg_extract_auto = sys.argv.index('-exa') if '-exa' in sys.argv[2:] else 0      #extract auto
+    24	
+    25	media_file = isobmfflib.MediaFile()
+    26	
+    27	def parseExtractArgs(extractIndex):
+    28	    if len(sys.argv) > extractIndex + 3:
+    29	        if sys.argv[extractIndex+1][0] != '-' and sys.argv[extractIndex+2].isnumeric() and sys.argv[extractIndex+3].isnumeric():
+    30	            return sys.argv[extractIndex+1], int(sys.argv[extractIndex+2]), int(sys.argv[extractIndex+3])
+    31	        else:
+    32	            raise ValueError('Format : {0} type start end'.format(sys.argv[extractIndex]))
+    33	    else:
+    34	        raise ValueError('Format : {0} type start end'.format(sys.argv[extractIndex]))
+    35	
+    36	# HeifLib ------------
+    37	
+    38	def __saveImage(heif_file,outfilename):
+    39	    image = Image.frombytes(
+    40	        heif_file.mode,
+    41	        heif_file.size,
+    42	        heif_file.data,
+    43	        "raw",
+    44	        heif_file.mode,
+    45	        heif_file.stride,
+    46	    )
+    47	    image.save(outfilename, "JPEG")
+    48	
+    49	def extractImages(infile,outdir):
+    50	    try:
+    51	        infilename = os.path.basename(infile)
+    52	
+    53	        container = pyheif.open_container(infile)
+    54	        heif_file = container.primary_image.image.load()
+    55	        outfilename = "{0}_primary".format(os.path.join(outdir, infilename))
+    56	        __saveImage(heif_file,outfilename)
+    57	
+    58	        index=0
+    59	        for img in container.top_level_images:
+    60	            index += 1
+    61	            heif_file = img.image.load()
+    62	
+    63	            outfilename =  "{0}_id_{1}_primary_{2}.jpg".format(os.path.join(outdir, str(index).zfill(3)), img.id,img.is_primary)
+    64	            __saveImage(heif_file, outfilename)
+    65	
+    66	            metadata = heif_file.metadata
+    67	            if metadata:
+    68	                pass        #todo: add exif processing here
+    69	
+    70	            if img.depth_image:
+    71	                index+=1
+    72	                depth_heif = img.depth_image.image.load()
+    73	                outfilename = "{0}_id_{1}_depthmap.jpg".format(os.path.join(outdir, str(index).zfill(3)))
+    74	                __saveImage(depth_heif,outfilename)
+    75	
+    76	            for auximg in img.auxiliary_images:
+    77	                index += 1
+    78	                aux_heif = auximg.image.load()
+    79	                outfilename = "{0}_aux_id_{1}_type_{2}".format(os.path.join(outdir, str(index).zfill(3)),auximg.id,auximg.type)
+    80	                __saveImage(aux_heif,outfilename)
+    81	
+    82	    except Exception as x:
+    83	        log.writeln("ERROR:{0}".format(str(x)))
+    84	        print("ERROR:{0}".format(str(x)))
+    85	
+    86	
+    87	def exportExif(infile,outdir):
+    88	    infilename = os.path.basename(infile)
+    89	    outfilename = os.path.join(outdir, infilename + ".exif")
+    90	    heif_file = pyheif.read(infile)
+    91	    outfile = open(outfilename,"w")
+    92	    if heif_file.metadata:
+    93	        for metadata in heif_file.metadata:
+    94	            md = metadata['data'][6:]
+    95	            file_stream = io.BytesIO(metadata['data'][6:])
+    96	            tags = exifread.process_file(file_stream,details=True,strict=False)
+    97	            for k,v in tags.items():
+    98	                outfile.write("{0}={1}\n".format(k,v))
+    99	
+   100	    outfile.close()
+   101	
+   102	def exportExifByLocItem(media_file,outdir):
+   103	    ilocItems = media_file.findExifLocItems()
+   104	    for ilocItem in ilocItems:
+   105	        outfilename = os.path.join(outdir, infilename + "_{0}.exif".format(ilocItem['item_id']))
+   106	        outfile = open(outfilename, "w")
+   107	        for extent in ilocItem['extents']:
+   108	            file_stream = io.BytesIO(extent['data'][10:])
+   109	            tags = exifread.process_file(file_stream,details=True,strict=False)
+   110	            for k,v in tags.items():
+   111	                outfile.write("{0}={1}\n".format(k,v))
+   112	        outfile.close()
+   113	
+   114	
+   115	def exportAllImages(infile):
+   116	    # copy the file to create a temp file
+   117	    shutil.copy(infile, infile + ".temp")
+   118	
+   119	    # iterate the iinf boxes to get the boxoffsets
+   120	    for a in media_file.meta.children:
+   121	        if a.box_type == 'iinf':
+   122	            for b in a.children:
+   123	                if (b.item_type == 'hvc1') and (b.flags & 0x000001):
+   124	                    # unhide the box
+   125	                    BoxFlags.setFlags(infile + ".temp", b.startByte, "000000")
+   126	
+   127	    # extract the unhidden images from the temp file
+   128	    extractImages(infile + ".temp", outdir)
+   129	
+   130	    # remove the temporary file
+   131	    os.remove(infile + ".temp")
+   132	
+   133	
+   134	#Entry -------------
+   135	
+   136	log.echo_off()
+   137	
+   138	if arg_infile and arg_infile[0] != '-':
+   139	
+   140	    infile = arg_infile
+   141	
+   142	    if arg_outdir:
+   143	        outdir = sys.argv[arg_outdir + 1]
+   144	
+   145	        try:
+   146	            os.makedirs(outdir)
+   147	        except Exception as x:
+   148	            print("ERROR:{0}".format(str(x)))
+   149	    else:
+   150	        outdir = os.path.dirname(infile)
+   151	
+   152	    infilename = os.path.basename(infile)
+   153	    log.open(os.path.join(outdir,infilename +".log"))
+   154	
+   155	    log.writeln("Parsing file ------------")
+   156	    try:
+   157	        media_file.read(infile,outdir)
+   158	    except Exception as x:
+   159	        log.writeln(str(x))
+   160	        print("ERROR:{0}".format(str(x)))
+   161	
+   162	    log.writeln("Parse Complete --------")
+   163	
+   164	
+   165	    log.writeln("")
+   166	    log.writeln("Processing Binary Data and Hashes --------------")
+   167	    try:
+   168	        media_file.ProcessBinaryDataAndHashes()
+   169	    except Exception as x:
+   170	        log.writeln(str(x))
+   171	        print("ERROR:{0}".format(str(x)))
+   172	
+   173	    log.writeln("Binary Data and Hash processing complete -------")
+   174	
+   175	    log.writeln("")
+   176	    log.writeln("Writing map file--------------")
+   177	    try:
+   178	        media_file.mapFile()
+   179	    except Exception as x:
+   180	        log.writeln(str(x))
+   181	        print("ERROR:{0}".format(str(x)))
+   182	    log.writeln("map file complete -------")
+   183	
+   184	    log.writeln("")
+   185	    log.writeln("Writing contents file--------------")
+   186	    try:
+   187	        media_file.writeall(infile)
+   188	    except Exception as x:
+   189	        log.writeln(str(x))
+   190	        print("ERROR:{0}".format(str(x)))
+   191	    log.writeln("Contents file complete -------")
+   192	
+   193	    log.writeln("Extracting components--------------")
+   194	    try:
+   195	        media_file.exportAll()
+   196	    except Exception as x:
+   197	        log.writeln(str(x))
+   198	        print("ERROR:{0}".format(str(x)))
+   199	    log.writeln("Component Extraction complete-------")
+   200	
+   201	    log.writeln("Extracting metadata--------------")
+   202	    try:
+   203	        log.writeln("Extracting metadata--------------")
+   204	        exportExif(infile,outdir)
+   205	        log.writeln("  Extracting Exif metadata by iloc Item Record --------------")
+   206	        exportExifByLocItem(media_file, outdir)
+   207	    except Exception as x:
+   208	        log.writeln(str(x))
+   209	        print("ERROR:{0}".format(str(x)))
+   210	    log.writeln("Metadata extraction complete-------")
+   211	
+   212	    log.writeln("Extracting Images -----------")
+   213	    try:
+   214	        exportAllImages(infile)
+   215	    except Exception as x:
+   216	        log.writeln(str(x))
+   217	        print("ERROR:{0}".format(str(x)))
+   218	    log.writeln("Image extraction complete----------")
+   219	
+   220	    log.close()
+   221	
+   222	
+   223	print(media_file)
+   224	
+   225	
+   226	
+   227	
