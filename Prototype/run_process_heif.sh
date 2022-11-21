@@ -1,3 +1,4 @@
+python3 HeifER/process_heif.py ~/samples/IMG_3221.HEIC -outdir ~/samples/processed/IMG_3221.HEIC.export
 python3 HeifER/process_heif.py ~/samples/IMG_3802.HEIC -outdir ~/samples/processed/IMG_3802.HEIC.export
 python3 HeifER/process_heif.py ~/samples/IMG_3802_test.HEIC -outdir ~/samples/processed/IMG_3802_test.HEIC.export
 python3 HeifER/process_heif.py ~/samples/IMG_3802_test1.HEIC -outdir ~/samples/processed/IMG_3802_test1.HEIC.export
